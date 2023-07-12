@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 
-import { App } from './modules/components/App/App';
+import { App } from './modules/components';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
