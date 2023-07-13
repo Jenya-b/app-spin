@@ -102,6 +102,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.bgPrimary};
+  transition: all 0.3s;
 
   ::before {
     width: 24px;
@@ -112,6 +113,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
     left: 50%;
     transform: translateX(-50%);
     background: url(${({ icon }) => icon.noActive}) no-repeat;
+    transition: all 0.3s;
   }
 
   &.active,

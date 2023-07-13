@@ -16,11 +16,11 @@ export const navMenu: INavMenu[] = [
   {
     title: 'btc x eth',
     iconUrl: menuIcon.btnEth,
-    path: path.roulette,
+    path: path.btnEth,
   },
   {
     title: 'futures',
     iconUrl: menuIcon.futures,
-    path: path.roulette,
+    path: path.futures,
   },
 ];
