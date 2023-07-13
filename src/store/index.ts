@@ -2,11 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 
-import languageReducer from './reducers/languageSlice';
+import settingReducer from './reducers/settingSlice';
 
 export const store = configureStore({
   reducer: {
-    languageReducer,
+    settingReducer,
   },
 
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),

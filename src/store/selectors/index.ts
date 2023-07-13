@@ -1,3 +1,3 @@
 import { RootState } from 'store';
 
-export const languageSelector = (state: RootState) => state.languageReducer;
+export const settingSelector = (state: RootState) => state.settingReducer;

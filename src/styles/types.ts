@@ -1,6 +1,9 @@
 export interface CustomTheme {
   colors: {
     bgPrimary: string;
+    bgSecondary: string;
+    textPrimary: string;
+    borderPrimary: string;
   };
 
   cursor: string;

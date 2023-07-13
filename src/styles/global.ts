@@ -42,6 +42,7 @@ export default createGlobalStyle`
 		-moz-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
 		background: ${({ theme }) => theme.colors.bgPrimary};
+		color: ${({ theme }) => theme.colors.textPrimary};
 	}
 	body {
 		overflow: hidden;
