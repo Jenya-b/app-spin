@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import {
   Container,
   StyledHeader,
@@ -6,10 +7,16 @@ import {
   Logo,
   LanguageBtn,
   SoundBtn,
+  Nav,
+  StyledNavLink,
+  navMenuListCss,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
 import { settingSelector } from 'store/selectors';
+import { List } from '../List/List';
+import { navMenu } from 'constants/menu';
+import { INavMenu } from 'interfaces/menu';
 
 export const Header = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +33,12 @@ export const Header = () => {
     dispatch(changeLanguage(value));
   };
 
+  const renderItemMenu = ({ title, iconUrl, path }: INavMenu) => (
+    <StyledNavLink to={path} icon={iconUrl}>
+      <p>{title}</p>
+    </StyledNavLink>
+  );
+
   return (
     <StyledHeader>
       <Container>
@@ -35,7 +48,16 @@ export const Header = () => {
           <LanguageBtn language={language} onClick={changeLang} />
         </AuxiliaryButtons>
       </Container>
-      <Container></Container>
+      <Container>
+        <Nav>
+          <List
+            data={navMenu}
+            renderEmpty={<></>}
+            renderItem={renderItemMenu}
+            styles={navMenuListCss}
+          />
+        </Nav>
+      </Container>
       <Container></Container>
     </StyledHeader>
   );
