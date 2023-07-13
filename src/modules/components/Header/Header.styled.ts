@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { languageIcon, logo, soundIcon } from 'constants/images';
+import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
 
 interface SoundBtnProps {
   isactive: boolean;
@@ -134,5 +134,41 @@ export const navMenuListCss = css`
   li {
     width: 64px;
     height: 48px;
+  }
+`;
+
+export const AuthBtn = styled.button`
+  position: relative;
+  padding: 13px 12px;
+  width: 235px;
+  text-align: left;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background: ${({ theme }) => theme.colors.buttonPrimary};
+  transition: all 0.3s;
+
+  ::after {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: url(${btnRightIcon}) no-repeat;
+    transition: all 0.3s;
+  }
+
+  :hover {
+    padding: 13px 17px;
+
+    ::after {
+      right: 17px;
+    }
   }
 `;

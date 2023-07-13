@@ -10,6 +10,7 @@ import {
   Nav,
   StyledNavLink,
   navMenuListCss,
+  AuthBtn,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
@@ -57,6 +58,7 @@ export const Header = () => {
             styles={navMenuListCss}
           />
         </Nav>
+        <AuthBtn>Authorization</AuthBtn>
       </Container>
       <Container></Container>
     </StyledHeader>

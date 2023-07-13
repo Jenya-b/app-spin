@@ -8,6 +8,7 @@ export const theme = createTheme({
     bgSecondary: colors.blue200,
     textPrimary: colors.white,
     borderPrimary: colors.whiteTransparent,
+    buttonPrimary: colors.blueLight100,
   },
 
   cursor: 'pointer',

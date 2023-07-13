@@ -4,6 +4,7 @@ export interface CustomTheme {
     bgSecondary: string;
     textPrimary: string;
     borderPrimary: string;
+    buttonPrimary: string;
   };
 
   cursor: string;

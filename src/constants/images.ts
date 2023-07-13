@@ -1,4 +1,5 @@
 export const logo = '/source/images/logo.png';
+export const btnRightIcon = '/source/images/icons/arrow-square-right.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',
@@ -9,13 +10,6 @@ export const languageIcon = {
   ru: '/source/images/icons/ru.svg',
   en: '/source/images/icons/en.svg',
 };
-
-// export const menuIcon = {
-//   long: '/source/images/icons/longBtn.svg',
-//   roulette: '/source/images/icons/rouletteBtn.svg',
-//   btnEth: '/source/images/icons/btnEthBtn.svg',
-//   futures: '/source/images/icons/futuresBtn.svg',
-// };
 
 export const menuIcon = {
   long: {
