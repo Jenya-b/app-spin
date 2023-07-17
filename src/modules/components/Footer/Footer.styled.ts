@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { colors } from 'styles/colors';
-import { shieldIcon } from 'constants/images';
+import { closeModalIcon, shieldIcon } from 'constants/images';
 
 export const Wrapper = styled.div`
   grid-column: 2/3;
@@ -66,4 +66,54 @@ export const StyledLink = styled(Link)`
   :hover {
     color: ${({ theme }) => theme.colors.textPrimary};
   }
+`;
+
+export const ModalWrap = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  max-width: 585px;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.inputPrimary};
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+`;
+
+export const ModalTitle = styled.h2`
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+`;
+
+export const ModalSubtitle = styled.h3`
+  padding: 0 15px;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const ModalCopyBlock = styled.h3`
+  margin-top: 14px;
+  height: 51px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+`;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  background: url(${closeModalIcon}) no-repeat;
+  background-position: center;
 `;
