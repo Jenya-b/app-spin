@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { path } from './path';
-import { Layout } from 'modules/components';
+import { Layout } from 'modules/components/Layout/Layout';
 import { LongPage, RoulettePage, BtnEthPage, FuturesPage } from 'modules/pages';
 
 export const router = createBrowserRouter([

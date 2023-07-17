@@ -7,7 +7,7 @@ import GlobalStyles from 'styles/global';
 import { router } from 'modules/router';
 import { theme } from 'styles/theme';
 import { store } from 'store';
-import { Loader } from '..';
+import { Loader } from '../Loader/Loader';
 
 export const App = () => {
   return (
@@ -21,5 +21,3 @@ export const App = () => {
     </Provider>
   );
 };
-
-export default App;
