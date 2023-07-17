@@ -59,7 +59,7 @@ export const SoundBtn = styled.button<SoundBtnProps>`
     background: url(${({ isactive }) =>
       isactive ? `${soundIcon.active}` : `${soundIcon.noActive}`});
     transform: translate(-50%, -50%);
-    transition: all 0.3s;
+    transition: ${({ theme }) => theme.transition};
   }
 `;
 
@@ -81,7 +81,7 @@ export const LanguageBtn = styled.button<LanguageBtnProps>`
     background: url(${({ language }) =>
       language === 'ru' ? `${languageIcon.ru}` : `${languageIcon.en}`});
     transform: translate(-50%, -50%);
-    transition: all 0.3s;
+    transition: ${({ theme }) => theme.transition};
   }
 `;
 
@@ -101,7 +101,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.bgPrimary};
-  transition: all 0.3s;
+  transition: ${({ theme }) => theme.transition};
 
   ::before {
     width: 24px;
@@ -112,7 +112,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
     left: 50%;
     transform: translateX(-50%);
     background: url(${({ icon }) => icon.noActive}) no-repeat;
-    transition: all 0.3s;
+    transition: ${({ theme }) => theme.transition};
   }
 
   &.active,
@@ -145,7 +145,7 @@ export const socialMenuListCss = css`
     svg {
       :hover {
         path {
-          transition: 0.3s;
+          transition: all 0.3s;
           fill-opacity: 1;
         }
       }
@@ -166,7 +166,7 @@ export const AuthBtn = styled.button`
   text-transform: uppercase;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.buttonPrimary};
-  transition: all 0.3s;
+  transition: ${({ theme }) => theme.transition};
 
   ::after {
     width: 14px;
@@ -177,7 +177,7 @@ export const AuthBtn = styled.button`
     right: 12px;
     transform: translateY(-50%);
     background: url(${btnRightIcon}) no-repeat;
-    transition: all 0.3s;
+    transition: ${({ theme }) => theme.transition};
   }
 
   :hover {
@@ -193,14 +193,14 @@ export const SettingLink = styled(Link)`
   position: relative;
   width: 21px;
   height: 21px;
-  transition: all 0.3s;
+  transition: ${({ theme }) => theme.transition};
 
   :hover {
     transform: rotate(-90deg);
 
     svg {
       path {
-        transition: 0.3s;
+        transition: ${({ theme }) => theme.transition};
         fill: ${colors.blueLight100};
       }
     }
