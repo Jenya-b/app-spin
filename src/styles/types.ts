@@ -23,4 +23,6 @@ export interface CustomTheme {
     radiusPrimary: number;
     radiusSecondary: number;
   };
+
+  transition: string;
 }

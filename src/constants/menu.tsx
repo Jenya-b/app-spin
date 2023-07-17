@@ -1,6 +1,6 @@
 import { path } from 'modules/router/path';
 import { menuIcon } from './images';
-import { INavMenu, ISocialMenu } from 'interfaces/menu';
+import { INavMenu, ISocialMenu, IFooterMenu } from 'interfaces/menu';
 
 export const navMenu: INavMenu[] = [
   {
@@ -22,6 +22,29 @@ export const navMenu: INavMenu[] = [
     title: 'futures',
     iconUrl: menuIcon.futures,
     path: path.futures,
+  },
+];
+
+export const footerMenu: IFooterMenu[] = [
+  {
+    title: 'Terms of service',
+    path: '#',
+  },
+  {
+    title: 'Responsible gaming policy',
+    path: '#',
+  },
+  {
+    title: 'Fair play',
+    path: '#',
+  },
+  {
+    title: 'Aml policy',
+    path: '#',
+  },
+  {
+    title: 'Contact',
+    path: '#',
   },
 ];
 

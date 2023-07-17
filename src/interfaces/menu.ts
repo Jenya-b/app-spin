@@ -8,3 +8,8 @@ export interface ISocialMenu {
   svg: JSX.Element;
   path: string;
 }
+
+export interface IFooterMenu {
+  title: string;
+  path: string;
+}

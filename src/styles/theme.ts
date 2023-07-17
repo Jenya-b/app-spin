@@ -7,7 +7,7 @@ export const theme = createTheme({
     bgPrimary: colors.blue100,
     bgSecondary: colors.blue200,
     bgTertiary: colors.blue500,
-    borderPrimary: colors.whiteTransparent,
+    borderPrimary: colors.whiteTransparent100,
     buttonPrimary: colors.blueLight100,
     inputPrimary: colors.blue400,
 
@@ -27,4 +27,6 @@ export const theme = createTheme({
     radiusPrimary: 16,
     radiusSecondary: 8,
   },
+
+  transition: 'all 0.3s',
 });
