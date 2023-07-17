@@ -1,7 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
+import { colors } from 'styles/colors';
 
 interface SoundBtnProps {
   isactive: boolean;
@@ -84,8 +85,6 @@ export const LanguageBtn = styled.button<LanguageBtnProps>`
   }
 `;
 
-export const Nav = styled.nav``;
-
 export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   position: relative;
   padding: 3px;
@@ -137,6 +136,23 @@ export const navMenuListCss = css`
   }
 `;
 
+export const socialMenuListCss = css`
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+
+  li {
+    svg {
+      :hover {
+        path {
+          transition: 0.3s;
+          fill-opacity: 1;
+        }
+      }
+    }
+  }
+`;
+
 export const AuthBtn = styled.button`
   position: relative;
   padding: 13px 12px;
@@ -171,4 +187,28 @@ export const AuthBtn = styled.button`
       right: 17px;
     }
   }
+`;
+
+export const SettingLink = styled(Link)`
+  position: relative;
+  width: 21px;
+  height: 21px;
+  transition: all 0.3s;
+
+  :hover {
+    transform: rotate(-90deg);
+
+    svg {
+      path {
+        transition: 0.3s;
+        fill: ${colors.blueLight100};
+      }
+    }
+  }
+`;
+
+export const Controls = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
 `;
