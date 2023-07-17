@@ -2,9 +2,12 @@ export interface CustomTheme {
   colors: {
     bgPrimary: string;
     bgSecondary: string;
-    textPrimary: string;
+    bgTertiary: string;
     borderPrimary: string;
     buttonPrimary: string;
+    inputPrimary: string;
+
+    textPrimary: string;
   };
 
   cursor: string;
@@ -14,5 +17,10 @@ export interface CustomTheme {
     firstIndex: number;
     mediumIndex: number;
     lastIndex: number;
+  };
+
+  borders: {
+    radiusPrimary: number;
+    radiusSecondary: number;
   };
 }
