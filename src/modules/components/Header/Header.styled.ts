@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
 import { colors } from 'styles/colors';
+import { ButtonPrimary } from 'styles/components';
 
 interface SoundBtnProps {
   isactive: boolean;
@@ -153,42 +154,6 @@ export const socialMenuListCss = css`
   }
 `;
 
-export const AuthBtn = styled.button`
-  position: relative;
-  padding: 13px 12px;
-  width: 235px;
-  text-align: left;
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: uppercase;
-  border-radius: 8px;
-  background: ${({ theme }) => theme.colors.buttonPrimary};
-  transition: ${({ theme }) => theme.transition};
-
-  ::after {
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    content: '';
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    background: url(${btnRightIcon}) no-repeat;
-    transition: ${({ theme }) => theme.transition};
-  }
-
-  :hover {
-    padding: 13px 17px;
-
-    ::after {
-      right: 17px;
-    }
-  }
-`;
-
 export const SettingLink = styled(Link)`
   position: relative;
   width: 21px;
@@ -211,4 +176,21 @@ export const Controls = styled.div`
   display: flex;
   align-items: center;
   column-gap: 12px;
+`;
+
+export const AuthBtn = styled(ButtonPrimary)`
+  width: 235px;
+  padding: 13px 12px;
+
+  ::after {
+    background: url(${btnRightIcon}) no-repeat;
+  }
+
+  :hover {
+    padding: 13px 17px;
+
+    ::after {
+      right: 17px;
+    }
+  }
 `;

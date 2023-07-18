@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -9,10 +10,10 @@ import {
   SoundBtn,
   StyledNavLink,
   navMenuListCss,
-  AuthBtn,
   socialMenuListCss,
   SettingLink,
   Controls,
+  AuthBtn,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
@@ -20,11 +21,18 @@ import { settingSelector } from 'store/selectors';
 import { List } from '../List/List';
 import { navMenu, socialMediaMenu } from 'constants/menu';
 import { INavMenu, ISocialMenu } from 'interfaces/menu';
+import { BasicModal } from '../Modal/Modal';
+import { Auth } from '../Auth/Auth';
 
 export const Header = () => {
+  const [isOpenModal, setOpenModal] = useState(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
   const { i18n } = useTranslation();
+
+  const handleOpenModal = () => setOpenModal(true);
+
+  const handleCloseModal = () => setOpenModal(false);
 
   const changeSoundActivity = () => {
     dispatch(changeActiveSound(!isActiveSound));
@@ -62,7 +70,12 @@ export const Header = () => {
             styles={navMenuListCss}
           />
         </nav>
-        <AuthBtn>Authorization</AuthBtn>
+        <div>
+          <AuthBtn onClick={handleOpenModal}>Authorization</AuthBtn>
+          <BasicModal open={isOpenModal} handleClose={handleCloseModal}>
+            <Auth />
+          </BasicModal>
+        </div>
       </Container>
       <Container>
         <div></div>

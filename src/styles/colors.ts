@@ -10,4 +10,5 @@ export const colors = {
   white: '#ffffff',
   whiteTransparent100: '#ffffff05',
   whiteTransparent200: 'rgba(255, 255, 255, 0.25)',
+  grey100: '#33344d',
 };
