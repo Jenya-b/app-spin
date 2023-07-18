@@ -7,6 +7,7 @@ export const shieldIcon = '/source/images/icons/shield.svg';
 export const closeModalIcon = '/source/images/icons/closeModal.svg';
 export const btnPlusIcon = '/source/images/icons/add-square.svg';
 export const metamaskIcon = '/source/images/icons/metamask.svg';
+export const ltcIcon = '/source/images/icons/ltc.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { colors } from 'styles/colors';
-import { closeModalIcon, shieldIcon } from 'constants/images';
+import { shieldIcon } from 'constants/images';
 
 export const Wrapper = styled.div`
   grid-column: 2/3;
