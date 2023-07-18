@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { closeModalIcon } from 'constants/images';
+
 export const ButtonPrimary = styled.button`
   position: relative;
   text-align: left;
@@ -23,4 +25,14 @@ export const ButtonPrimary = styled.button`
     transform: translateY(-50%);
     transition: ${({ theme }) => theme.transition};
   }
+`;
+
+export const CloseModalBtn = styled.button`
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  background: url(${closeModalIcon}) no-repeat;
+  background-position: center;
 `;

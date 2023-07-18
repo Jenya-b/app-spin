@@ -11,10 +11,10 @@ import {
   ModalCopyBlock,
   ModalSubtitle,
   ModalTitle,
-  CloseBtn,
 } from './Footer.styled';
 import { IFooterMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
+import { CloseModalBtn } from 'styles/components';
 
 export const Footer = () => {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -31,7 +31,7 @@ export const Footer = () => {
         <ModalBtn onClick={handleOpen}>hash round</ModalBtn>
         <BasicModal open={isOpenModal} handleClose={handleClose}>
           <ModalWrap>
-            <CloseBtn onClick={handleClose} />
+            <CloseModalBtn onClick={handleClose} />
             <ModalTitle>hash round</ModalTitle>
             <ModalSubtitle>
               Hash of the Crash game, you can check the integrity of the game in the current round.

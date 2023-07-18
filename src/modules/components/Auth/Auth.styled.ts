@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { ButtonPrimary } from 'styles/components';
-import { btnRightIcon, btnPlusIcon, metamaskIcon } from 'constants/images';
+import { metamaskIcon } from 'constants/images';
 import { colors } from 'styles/colors';
 
 export const Wrapper = styled.div`
@@ -39,6 +38,7 @@ export const Subtitle = styled.h3`
 
 export const Form = styled.form`
   margin-top: 16px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -62,43 +62,6 @@ export const Input = styled.input`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   color: ${({ theme }) => theme.colors.textPrimary};
-`;
-
-export const AuthBtn = styled(ButtonPrimary)`
-  width: 100%;
-  padding: 17px 12px;
-
-  ::after {
-    background: url(${btnRightIcon}) no-repeat;
-  }
-
-  :hover {
-    padding: 17px 17px;
-
-    ::after {
-      right: 17px;
-    }
-  }
-`;
-
-export const RegistrBtn = styled(ButtonPrimary)`
-  margin-top: 20px;
-  width: 100%;
-  padding: 17px 12px;
-  background: rgba(255, 255, 255, 0.05);
-
-  ::after {
-    background: url(${btnPlusIcon}) no-repeat;
-    background-size: contain;
-  }
-
-  :hover {
-    padding: 17px 17px;
-
-    ::after {
-      right: 17px;
-    }
-  }
 `;
 
 export const OtherAuth = styled(Link)`
@@ -165,13 +128,4 @@ export const OtherTitle = styled.p`
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 16px;
   font-weight: 700;
-`;
-
-export const RestorPassLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  text-transform: uppercase;
 `;

@@ -1,36 +1,20 @@
-import {
-  Wrapper,
-  Form,
-  Input,
-  Label,
-  Subtitle,
-  Title,
-  AuthBtn,
-  RegistrBtn,
-  OtherAuth,
-  OtherSubtitle,
-  OtherTitle,
-  RestorPassLink,
-} from './Auth.styled';
+import { CloseModalBtn } from 'styles/components';
+import { Wrapper, Subtitle, Title, OtherAuth, OtherSubtitle, OtherTitle } from './Auth.styled';
 
-export const Auth = () => {
+interface AuthProps {
+  children: JSX.Element;
+  title: string;
+  subtitle: string;
+  closeModal: () => void;
+}
+
+export const Auth = ({ title, subtitle, closeModal, children }: AuthProps) => {
   return (
     <Wrapper>
-      <Title>Authorization</Title>
-      <Subtitle>welcome to spin!</Subtitle>
-      <Form>
-        <Label>
-          login
-          <Input placeholder="Enter your login" />
-        </Label>
-        <Label>
-          password
-          <Input placeholder="Enter your password" />
-        </Label>
-        <RestorPassLink to={'#'}>forgot password?</RestorPassLink>
-        <AuthBtn>Authorization</AuthBtn>
-      </Form>
-      <RegistrBtn>registration</RegistrBtn>
+      <CloseModalBtn onClick={closeModal} />
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+      {children}
       <OtherAuth to={'#'}>
         <OtherSubtitle>Authorization</OtherSubtitle>
         <OtherTitle>metamask</OtherTitle>

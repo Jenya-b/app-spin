@@ -23,16 +23,23 @@ import { navMenu, socialMediaMenu } from 'constants/menu';
 import { INavMenu, ISocialMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
 import { Auth } from '../Auth/Auth';
+import { Login } from '../Auth/Login/Login';
+import { Registration } from '../Auth/Registration/Registration';
 
 export const Header = () => {
-  const [isOpenModal, setOpenModal] = useState(false);
+  const [isOpenLoginModal, setOpenLoginModal] = useState(false);
+  const [isOpenRegistModal, setOpenRegistModal] = useState(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
   const { i18n } = useTranslation();
 
-  const handleOpenModal = () => setOpenModal(true);
+  const handleOpenLoginModal = () => setOpenLoginModal(true);
 
-  const handleCloseModal = () => setOpenModal(false);
+  const handleCloseLoginModal = () => setOpenLoginModal(false);
+
+  const handleOpenRegistModal = () => setOpenRegistModal(true);
+
+  const handleCloseRegistModal = () => setOpenRegistModal(false);
 
   const changeSoundActivity = () => {
     dispatch(changeActiveSound(!isActiveSound));
@@ -71,9 +78,30 @@ export const Header = () => {
           />
         </nav>
         <div>
-          <AuthBtn onClick={handleOpenModal}>Authorization</AuthBtn>
-          <BasicModal open={isOpenModal} handleClose={handleCloseModal}>
-            <Auth />
+          <AuthBtn onClick={handleOpenLoginModal}>Authorization</AuthBtn>
+          <BasicModal open={isOpenLoginModal} handleClose={handleCloseLoginModal}>
+            <Auth
+              title="Authorization"
+              subtitle="welcome to spin!"
+              closeModal={handleCloseLoginModal}
+            >
+              <Login
+                handleOpenRegistModal={handleOpenRegistModal}
+                handleCloseLoginModal={handleCloseLoginModal}
+              />
+            </Auth>
+          </BasicModal>
+          <BasicModal open={isOpenRegistModal} handleClose={handleCloseRegistModal}>
+            <Auth
+              title="registration"
+              subtitle="welcome to spin!"
+              closeModal={handleCloseRegistModal}
+            >
+              <Registration
+                handleCloseRegistModal={handleCloseRegistModal}
+                handleOpenLoginModal={handleOpenLoginModal}
+              />
+            </Auth>
           </BasicModal>
         </div>
       </Container>

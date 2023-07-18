@@ -107,13 +107,3 @@ export const ModalCopyBlock = styled.h3`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
 `;
-
-export const CloseBtn = styled.button`
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
-  background: url(${closeModalIcon}) no-repeat;
-  background-position: center;
-`;
