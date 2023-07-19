@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Timer, Wrapper, Info } from './CountDown.styled';
 
@@ -12,6 +13,7 @@ interface CountDownProps {
 export const CountDown = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }: CountDownProps) => {
   const [over, setOver] = useState(false);
   const [[d, h, m, s], setTime] = useState([days, hours, minutes, seconds]);
+  const { t } = useTranslation();
 
   const tick = () => {
     if (over) return;
@@ -37,7 +39,7 @@ export const CountDown = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }: Cou
   return (
     <Wrapper>
       <Info>
-        <div>Giveaway</div>
+        <div>{t('giveaway')}</div>
         <div>25 Spin</div>
         <div></div>
       </Info>

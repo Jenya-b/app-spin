@@ -1,4 +1,5 @@
 import { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
 import { AuthBtn, RegistrBtn } from './Registration.styled';
@@ -12,6 +13,8 @@ export const Registration = ({
   handleCloseRegistModal,
   handleOpenLoginModal,
 }: RegistrationProps) => {
+  const { t } = useTranslation();
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -25,20 +28,20 @@ export const Registration = ({
     <>
       <Form onSubmit={handleSubmit}>
         <Label>
-          login
-          <Input placeholder="Enter your login" />
+          {t('login')}
+          <Input placeholder={t('placeholderLogin')} />
         </Label>
         <Label>
-          password
-          <Input placeholder="Enter your password" />
+          {t('password')}
+          <Input placeholder={t('placeholderPassword')} />
         </Label>
         <Label>
-          repeat password
-          <Input placeholder="Enter your password" />
+          {t('repeatPassword')}
+          <Input placeholder={t('placeholderPassword')} />
         </Label>
-        <RegistrBtn>registration</RegistrBtn>
+        <RegistrBtn>{t('registration')}</RegistrBtn>
       </Form>
-      <AuthBtn onClick={handleOpenRegModal}>Authorization</AuthBtn>
+      <AuthBtn onClick={handleOpenRegModal}>{t('authorization')}</AuthBtn>
     </>
   );
 };

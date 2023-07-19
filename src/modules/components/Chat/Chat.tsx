@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Wrapper,
   ControlBlock,
@@ -11,16 +13,18 @@ import {
 } from './Chat.styled';
 
 export const Chat = () => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper>
       <TitleBlock>
-        <Title>Chat</Title>
-        <Info>Chat Rules</Info>
+        <Title>{t('chat')}</Title>
+        <Info>{t('chatRules')}</Info>
       </TitleBlock>
       <MessageBlock></MessageBlock>
       <ControlBlock>
         <Label>
-          <Input placeholder="Enter Message" />
+          <Input placeholder={t('placeholderMessage')} />
           <InputBtn />
         </Label>
       </ControlBlock>

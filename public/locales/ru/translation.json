@@ -1,3 +1,23 @@
 {
-  "hi": "Привет"
+  "termsOfService": "Условия использования",
+  "responsibleGamingPolicy": "Политика ответственности игры",
+  "fairPlay": "Честная игра",
+  "amlPolicy": "Aml политика",
+  "contact": "Контакты",
+  "authorization": "Авторизация",
+  "welcome": "Добро пожаловать в spin",
+  "login": "логин",
+  "placeholderLogin": "Введите свой логин",
+  "password": "пароль",
+  "placeholderPassword": "Введите свой пароль",
+  "repeatPassword": "Повторите пароль",
+  "forgotPassword": "Забыли пароль",
+  "registration": "Регистрация",
+  "or": "или",
+  "chat": "Чат",
+  "chatRules": "Правила чата",
+  "placeholderMessage": "Введите сообщение",
+  "hashRound": "Хеш раунда",
+  "hashRoundRules": "Хеш игры Crash, Вы можете проверить целостность игры в текущем раунде. Хеш меняется каждый новый раунд.",
+  "giveaway": "Отдаю"
 }

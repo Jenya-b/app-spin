@@ -27,23 +27,23 @@ export const navMenu: INavMenu[] = [
 
 export const footerMenu: IFooterMenu[] = [
   {
-    title: 'Terms of service',
+    title: 'termsOfService',
     path: '#',
   },
   {
-    title: 'Responsible gaming policy',
+    title: 'responsibleGamingPolicy',
     path: '#',
   },
   {
-    title: 'Fair play',
+    title: 'fairPlay',
     path: '#',
   },
   {
-    title: 'Aml policy',
+    title: 'amlPolicy',
     path: '#',
   },
   {
-    title: 'Contact',
+    title: 'contact',
     path: '#',
   },
 ];

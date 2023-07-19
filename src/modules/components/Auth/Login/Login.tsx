@@ -1,4 +1,5 @@
 import { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
 import { AuthBtn, RegistrBtn, RestorPassLink } from './Login.styled';
@@ -9,6 +10,8 @@ interface LoginProps {
 }
 
 export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginProps) => {
+  const { t } = useTranslation();
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -22,17 +25,17 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
     <>
       <Form onSubmit={handleSubmit}>
         <Label>
-          login
-          <Input placeholder="Enter your login" />
+          {t('login')}
+          <Input placeholder={t('placeholderLogin')} />
         </Label>
         <Label>
-          password
-          <Input placeholder="Enter your password" />
+          {t('password')}
+          <Input placeholder={t('placeholderPassword')} />
         </Label>
-        <RestorPassLink to={'#'}>forgot password?</RestorPassLink>
-        <AuthBtn>Authorization</AuthBtn>
+        <RestorPassLink to={'#'}>{t('forgotPassword')}</RestorPassLink>
+        <AuthBtn>{t('authorization')}</AuthBtn>
       </Form>
-      <RegistrBtn onClick={handleOpenRegModal}>registration</RegistrBtn>
+      <RegistrBtn onClick={handleOpenRegModal}>{t('registration')}</RegistrBtn>
     </>
   );
 };

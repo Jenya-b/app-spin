@@ -15,28 +15,29 @@ import {
 import { IFooterMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
 import { CloseModalBtn } from 'styles/components';
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
   const [isOpenModal, setOpenModal] = useState(false);
+  const { t } = useTranslation();
 
   const handleOpen = () => setOpenModal(true);
 
   const handleClose = () => setOpenModal(false);
 
-  const renderItem = ({ path, title }: IFooterMenu) => <StyledLink to={path}>{title}</StyledLink>;
+  const renderItem = ({ path, title }: IFooterMenu) => (
+    <StyledLink to={path}>{t(title)}</StyledLink>
+  );
 
   return (
     <Wrapper>
       <div>
-        <ModalBtn onClick={handleOpen}>hash round</ModalBtn>
+        <ModalBtn onClick={handleOpen}>{t('hashRound')}</ModalBtn>
         <BasicModal open={isOpenModal} handleClose={handleClose}>
           <ModalWrap>
             <CloseModalBtn onClick={handleClose} />
-            <ModalTitle>hash round</ModalTitle>
-            <ModalSubtitle>
-              Hash of the Crash game, you can check the integrity of the game in the current round.
-              The hash changes every new round.
-            </ModalSubtitle>
+            <ModalTitle>{t('hashRound')}</ModalTitle>
+            <ModalSubtitle>{t('hashRoundRules')}</ModalSubtitle>
             <ModalCopyBlock></ModalCopyBlock>
           </ModalWrap>
         </BasicModal>

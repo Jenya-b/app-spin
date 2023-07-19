@@ -1,3 +1,23 @@
 {
-  "hi": "Hello"
+  "termsOfService": "Terms Of Service",
+  "responsibleGamingPolicy": "Responsible gaming policy",
+  "fairPlay": "Fair play",
+  "amlPolicy": "Aml policy",
+  "contact": "Contact",
+  "authorization": "Authorization",
+  "welcome": "welcome to spin",
+  "login": "login",
+  "placeholderLogin": "Enter your login",
+  "password": "password",
+  "placeholderPassword": "Enter your password",
+  "repeatPassword": "repeat password",
+  "forgotPassword": "forgot password",
+  "registration": "registration",
+  "or": "or",
+  "chat": "Chat",
+  "chatRules": "Chat Rules",
+  "placeholderMessage": "Enter Message",
+  "hashRound": "Hash round",
+  "hashRoundRules": "Hash of the Crash game, you can check the integrity of the game in the current round. The hash changes every new round.",
+  "giveaway": "Giveaway"
 }

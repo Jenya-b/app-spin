@@ -31,7 +31,7 @@ export const Header = () => {
   const [isOpenRegistModal, setOpenRegistModal] = useState(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleOpenLoginModal = () => setOpenLoginModal(true);
 
@@ -78,13 +78,9 @@ export const Header = () => {
           />
         </nav>
         <div>
-          <AuthBtn onClick={handleOpenLoginModal}>Authorization</AuthBtn>
+          <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
           <BasicModal open={isOpenLoginModal} handleClose={handleCloseLoginModal}>
-            <Auth
-              title="Authorization"
-              subtitle="welcome to spin!"
-              closeModal={handleCloseLoginModal}
-            >
+            <Auth title="authorization" subtitle="welcome" closeModal={handleCloseLoginModal}>
               <Login
                 handleOpenRegistModal={handleOpenRegistModal}
                 handleCloseLoginModal={handleCloseLoginModal}
@@ -92,11 +88,7 @@ export const Header = () => {
             </Auth>
           </BasicModal>
           <BasicModal open={isOpenRegistModal} handleClose={handleCloseRegistModal}>
-            <Auth
-              title="registration"
-              subtitle="welcome to spin!"
-              closeModal={handleCloseRegistModal}
-            >
+            <Auth title="registration" subtitle="welcome" closeModal={handleCloseRegistModal}>
               <Registration
                 handleCloseRegistModal={handleCloseRegistModal}
                 handleOpenLoginModal={handleOpenLoginModal}
