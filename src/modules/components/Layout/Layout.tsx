@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState } from 'react';
+import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet } from 'react-router-dom';
 
@@ -22,9 +22,9 @@ export const Layout = () => {
     config: { duration: 500 },
   });
 
-  const showChart = () => setIsVisible(true);
+  const showChart = useCallback(() => setIsVisible(true), []);
 
-  const hideChart = () => setIsVisible(false);
+  const hideChart = useCallback(() => setIsVisible(false), []);
 
   return (
     <Wrapper>

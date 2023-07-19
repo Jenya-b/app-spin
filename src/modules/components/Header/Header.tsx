@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -31,7 +31,7 @@ interface HeaderProps {
   hideChart: () => void;
 }
 
-export const Header = ({ showChart, hideChart }: HeaderProps) => {
+export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
   const [isOpenLoginModal, setOpenLoginModal] = useState(false);
   const [isOpenRegistModal, setOpenRegistModal] = useState(false);
   const dispatch = useAppDispatch();
@@ -85,20 +85,24 @@ export const Header = ({ showChart, hideChart }: HeaderProps) => {
         <div>
           <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
           <BasicModal open={isOpenLoginModal} handleClose={handleCloseLoginModal}>
-            <Auth title="authorization" subtitle="welcome" closeModal={handleCloseLoginModal}>
-              <Login
-                handleOpenRegistModal={handleOpenRegistModal}
-                handleCloseLoginModal={handleCloseLoginModal}
-              />
-            </Auth>
+            <>
+              <Auth title="authorization" subtitle="welcome" closeModal={handleCloseLoginModal}>
+                <Login
+                  handleOpenRegistModal={handleOpenRegistModal}
+                  handleCloseLoginModal={handleCloseLoginModal}
+                />
+              </Auth>
+            </>
           </BasicModal>
           <BasicModal open={isOpenRegistModal} handleClose={handleCloseRegistModal}>
-            <Auth title="registration" subtitle="welcome" closeModal={handleCloseRegistModal}>
-              <Registration
-                handleCloseRegistModal={handleCloseRegistModal}
-                handleOpenLoginModal={handleOpenLoginModal}
-              />
-            </Auth>
+            <>
+              <Auth title="registration" subtitle="welcome" closeModal={handleCloseRegistModal}>
+                <Registration
+                  handleCloseRegistModal={handleCloseRegistModal}
+                  handleOpenLoginModal={handleOpenLoginModal}
+                />
+              </Auth>
+            </>
           </BasicModal>
         </div>
       </Container>
@@ -129,4 +133,4 @@ export const Header = ({ showChart, hideChart }: HeaderProps) => {
       </Container>
     </StyledHeader>
   );
-};
+});
