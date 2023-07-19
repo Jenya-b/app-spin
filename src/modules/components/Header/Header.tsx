@@ -26,7 +26,12 @@ import { Auth } from '../Auth/Auth';
 import { Login } from '../Auth/Login/Login';
 import { Registration } from '../Auth/Registration/Registration';
 
-export const Header = () => {
+interface HeaderProps {
+  showChart: () => void;
+  hideChart: () => void;
+}
+
+export const Header = ({ showChart, hideChart }: HeaderProps) => {
   const [isOpenLoginModal, setOpenLoginModal] = useState(false);
   const [isOpenRegistModal, setOpenRegistModal] = useState(false);
   const dispatch = useAppDispatch();
@@ -52,7 +57,7 @@ export const Header = () => {
   };
 
   const renderItemMenu = ({ title, iconUrl, path }: INavMenu) => (
-    <StyledNavLink to={path} icon={iconUrl}>
+    <StyledNavLink onClick={path === '/' ? hideChart : showChart} to={path} icon={iconUrl}>
       <p>{title}</p>
     </StyledNavLink>
   );
