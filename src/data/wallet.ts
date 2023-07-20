@@ -12,6 +12,11 @@ export interface IWallet {
   available: MoneyType;
 }
 
+interface ITransfer {
+  criptoName: CriptoNameType;
+  price: number;
+}
+
 export const wallet: IWallet[] = [
   {
     criptoName: 'btc',
@@ -87,5 +92,24 @@ export const wallet: IWallet[] = [
       cripto: 0.42007,
       usd: 200,
     },
+  },
+];
+
+export const transfer: ITransfer[] = [
+  {
+    criptoName: 'btc',
+    price: 30000,
+  },
+  {
+    criptoName: 'usdt',
+    price: 30000,
+  },
+  {
+    criptoName: 'xmr',
+    price: 30000,
+  },
+  {
+    criptoName: 'ltc',
+    price: 30000,
   },
 ];

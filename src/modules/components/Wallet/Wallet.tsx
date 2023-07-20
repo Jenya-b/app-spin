@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 import {
   Wrapper,
@@ -21,6 +22,8 @@ import {
 import { IWallet } from 'data/wallet';
 import { List } from '../List/List';
 import { criptoIcon } from 'constants/images';
+import { BasicModal } from '../Modal/Modal';
+import { TransferModal } from '../Modal/Transfer/Transfer';
 
 interface WalletProps {
   activeBlock: boolean;
@@ -28,6 +31,7 @@ interface WalletProps {
 }
 
 export const Wallet = ({ activeBlock, data }: WalletProps) => {
+  const [isOpenModal, setOpenModal] = useState(false);
   const { t } = useTranslation();
 
   const renderItem = ({ criptoName, amount, available, inGame }: IWallet) => (
@@ -56,6 +60,10 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
     </MoneyWrap>
   );
 
+  const handleOpen = () => setOpenModal(true);
+
+  const handleClose = () => setOpenModal(false);
+
   return (
     <Wrapper>
       <TitleBlock>
@@ -80,7 +88,12 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
         <List data={data} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
       </MoneyBlock>
       <ControlBlock>
-        <TransferBtn>transfer</TransferBtn>
+        <TransferBtn onClick={handleOpen}>transfer</TransferBtn>
+        <BasicModal open={isOpenModal} handleClose={handleClose}>
+          <>
+            <TransferModal closeModal={handleClose} />
+          </>
+        </BasicModal>
       </ControlBlock>
     </Wrapper>
   );

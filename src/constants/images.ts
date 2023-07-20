@@ -10,6 +10,8 @@ export const metamaskIcon = '/source/images/icons/metamask.svg';
 export const ltcIcon = '/source/images/icons/ltc.svg';
 export const walletIcon = '/source/images/icons/wallet.svg';
 export const transferIcon = '/source/images/icons/transfer.svg';
+export const sendIcon = '/source/images/icons/send.svg';
+export const recieveIcon = '/source/images/icons/recieve.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',
