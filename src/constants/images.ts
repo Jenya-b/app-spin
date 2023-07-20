@@ -8,6 +8,8 @@ export const closeModalIcon = '/source/images/icons/closeModal.svg';
 export const btnPlusIcon = '/source/images/icons/add-square.svg';
 export const metamaskIcon = '/source/images/icons/metamask.svg';
 export const ltcIcon = '/source/images/icons/ltc.svg';
+export const walletIcon = '/source/images/icons/wallet.svg';
+export const transferIcon = '/source/images/icons/transfer.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',
@@ -36,4 +38,12 @@ export const menuIcon = {
     active: '/source/images/icons/futuresBtnActive.svg',
     noActive: '/source/images/icons/futuresBtn.svg',
   },
+};
+
+export const criptoIcon = {
+  btc: '/source/images/icons/btc.svg',
+  usdt: '/source/images/icons/usdt.svg',
+  xmr: '/source/images/icons/xmr.svg',
+  ltc: '/source/images/icons/ltc.svg',
+  spin: '/source/images/icons/spin.svg',
 };

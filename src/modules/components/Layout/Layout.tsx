@@ -2,12 +2,14 @@ import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet } from 'react-router-dom';
 
-import { Wrapper, Chart, Sidebar, Wallet } from './Layout.styled';
+import { Wrapper, Chart, Sidebar } from './Layout.styled';
 import { Header } from '../Header/Header';
 import { Chat } from '../Chat/Chat';
 import { Footer } from '../Footer/Footer';
 import { CountDown } from '../CountDown/CountDown';
 import { Loader } from '../Loader/Loader';
+import { Wallet } from '../Wallet/Wallet';
+import { wallet } from 'data/wallet';
 
 export const Layout = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +33,7 @@ export const Layout = () => {
       <Header hideChart={hideChart} showChart={showChart} />
       <Sidebar>
         <Chart ref={chartRef} style={{ ...springs }} />
-        <Wallet></Wallet>
+        <Wallet activeBlock={isVisible} data={wallet} />
       </Sidebar>
       <Suspense fallback={<Loader />}>
         <Outlet />

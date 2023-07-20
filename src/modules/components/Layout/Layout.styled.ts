@@ -23,9 +23,3 @@ export const Chart = styled(animated.div)`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   margin-bottom: 12px;
 `;
-
-export const Wallet = styled.div`
-  background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-`;
