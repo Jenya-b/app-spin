@@ -5,6 +5,11 @@ export default createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		border: 0;
+
+		::-webkit-scrollbar {
+    	width: 0px;
+    	height: 0px;
+  	}
 	}
 	*,
 	*::before,
@@ -83,6 +88,6 @@ export default createGlobalStyle`
 		font-weight: 400;
 	}
 	#root{
-		min-height: 100vh;
+		height: 100vh;
 	}
 `;

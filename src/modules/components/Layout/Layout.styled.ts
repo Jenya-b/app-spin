@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from '@react-spring/web';
 
 export const Wrapper = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   padding: 0 32px 20px 32px;
   display: grid;
   grid-template: 80px 1fr 80px / 270px 1fr 270px;
@@ -15,6 +15,7 @@ export const Sidebar = styled.aside`
   margin-bottom: 12px;
   display: grid;
   grid-template-rows: auto 1fr;
+  overflow-y: auto;
 `;
 
 export const Chart = styled(animated.div)`

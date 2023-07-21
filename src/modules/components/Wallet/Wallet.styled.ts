@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template: auto 1fr 60px / 1fr;
+  overflow-y: auto;
 `;
 
 export const TitleBlock = styled.div`
@@ -65,6 +66,7 @@ export const MoneyBlock = styled.div`
   border-top-right-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border-top-left-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   padding: 14px 16px;
+  overflow-y: auto;
 `;
 
 export const walletListCss = css`
