@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { animated } from '@react-spring/web';
+
 import { colors } from 'styles/colors';
 import { Wrapper } from '../Modal.styled';
 import { ButtonPrimary } from 'styles/components';
@@ -79,8 +81,13 @@ export const Controls = styled.div`
   height: 50px;
 `;
 
-export const SendBtn = styled(ButtonPrimary)`
+interface ButtonProps {
+  isactive: boolean;
+}
+
+export const SendBtn = styled(ButtonPrimary)<ButtonProps>`
   padding: 0px 12px;
+  background: ${({ isactive }) => (isactive ? `${colors.blueLight100}` : `${colors.blue600}`)};
 
   ::after {
     background: url(${sendIcon}) no-repeat;
@@ -100,6 +107,7 @@ export const SendBtn = styled(ButtonPrimary)`
 
 export const RecieveBtn = styled(ButtonPrimary)`
   padding: 0px 12px;
+  background: ${colors.blue600};
 
   ::after {
     background: url(${recieveIcon}) no-repeat;
@@ -115,4 +123,11 @@ export const RecieveBtn = styled(ButtonPrimary)`
       right: 17px;
     }
   }
+`;
+
+export const TransactionBlock = styled(animated.div)`
+  margin-top: 0px;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
 `;
