@@ -1,4 +1,4 @@
-import { btnRightIcon, ltcIcon } from 'constants/images';
+import { btnRightIcon, criptoIcon } from 'constants/images';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -15,7 +15,7 @@ export const Timer = styled.div`
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
+  font-variant-numeric: lining-nums proportional-nums;
   line-height: normal;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -29,6 +29,7 @@ export const Timer = styled.div`
 export const Info = styled.div`
   display: flex;
   justify-content: space-between;
+  font-variant-numeric: lining-nums proportional-nums;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -46,7 +47,7 @@ export const Info = styled.div`
       transform: translateY(-50%);
       width: 16px;
       height: 16px;
-      background: url(${ltcIcon}) no-repeat;
+      background: url(${criptoIcon.spin}) no-repeat;
       background-size: contain;
     }
   }

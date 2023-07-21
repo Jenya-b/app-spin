@@ -7,7 +7,6 @@ export const shieldIcon = '/source/images/icons/shield.svg';
 export const closeModalIcon = '/source/images/icons/closeModal.svg';
 export const btnPlusIcon = '/source/images/icons/add-square.svg';
 export const metamaskIcon = '/source/images/icons/metamask.svg';
-export const ltcIcon = '/source/images/icons/ltc.svg';
 export const walletIcon = '/source/images/icons/wallet.svg';
 export const transferIcon = '/source/images/icons/transfer.svg';
 export const sendIcon = '/source/images/icons/send.svg';
