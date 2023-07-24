@@ -1,6 +1,6 @@
 import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { Wrapper, Chart, Sidebar } from './Layout.styled';
 import { Header } from '../Header/Header';
@@ -12,7 +12,8 @@ import { Wallet } from '../Wallet/Wallet';
 import { wallet } from 'data/wallet';
 
 export const Layout = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const { pathname } = useLocation();
+  const [isVisible, setIsVisible] = useState(pathname !== '/');
   const chartRef = useRef(null);
 
   const springs = useSpring({
@@ -20,7 +21,6 @@ export const Layout = () => {
     from: { height: '170px', opacity: 1, marginBottom: '12px', borderWidth: '1px' },
     to: { height: '0px', opacity: 0, marginBottom: '0px', borderWidth: '0px' },
     reverse: !isVisible,
-    reset: true,
     config: { duration: 500 },
   });
 

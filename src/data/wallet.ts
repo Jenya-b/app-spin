@@ -1,4 +1,4 @@
-export type CriptoNameType = 'btc' | 'usdt' | 'xmr' | 'ltc' | 'spin';
+import { CriptoNameType } from 'interfaces/cripto';
 
 interface MoneyType {
   cripto: number;

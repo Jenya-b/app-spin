@@ -1,11 +1,14 @@
-import { Game, History, Main } from './Long.styled';
+import { inGameData } from 'data/long';
+import { Main } from './Long.styled';
+import { Game } from './Game/Game';
+import { History } from './History/History';
 
 export const LongPage = () => {
   return (
     <>
       <Main>
-        <Game></Game>
-        <History></History>
+        <Game data={inGameData} />
+        <History />
       </Main>
     </>
   );
