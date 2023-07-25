@@ -1,4 +1,4 @@
-import { inGameData } from 'data/long';
+import { historyNumbers, inGameData } from 'data/long';
 import { Main } from './Long.styled';
 import { Game } from './Game/Game';
 import { History } from './History/History';
@@ -8,7 +8,7 @@ export const LongPage = () => {
     <>
       <Main>
         <Game data={inGameData} />
-        <History />
+        <History historyNumbers={historyNumbers} />
       </Main>
     </>
   );

@@ -17,20 +17,22 @@ import {
 } from './Game.styled';
 import { InGameDataType } from 'data/long';
 import { criptoIcon } from 'constants/images';
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, FormEvent, useRef } from 'react';
 
 interface GameProps {
   data: InGameDataType[];
 }
 
 export const Game = ({ data }: GameProps) => {
-  const [amount, setAmount] = useState<number>();
-  const [margin, setMargin] = useState<number>();
-  const [total, setTotal] = useState<number>();
+  const [amount, setAmount] = useState<number>(0);
+  const [margin, setMargin] = useState<number>(0);
+  const [total, setTotal] = useState<string>('0.00');
+  const amountRef = useRef<HTMLInputElement>(null);
+  const marginRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!(amount && margin)) setTotal(undefined);
-    else setTotal(amount * margin);
+    if (!(amount && margin)) setTotal('0.00');
+    else setTotal((amount * margin).toFixed(2));
   }, [amount, margin]);
 
   const handleChangeAmount = (event: FormEvent<HTMLInputElement>) => {
@@ -72,11 +74,23 @@ export const Game = ({ data }: GameProps) => {
         <Form>
           <Lable>
             <span>bET</span>
-            <Input placeholder="Amount" value={amount} onChange={handleChangeAmount} />
+            <Input
+              ref={amountRef}
+              placeholder="Amount"
+              type="number"
+              min={1}
+              onChange={handleChangeAmount}
+            />
           </Lable>
           <Lable>
             <span>long</span>
-            <Input placeholder="4.0" value={margin} onChange={handleChangeMargin} />
+            <Input
+              ref={marginRef}
+              placeholder="4.0"
+              type="number"
+              min={1}
+              onChange={handleChangeMargin}
+            />
           </Lable>
           <Button>
             <span>START</span>

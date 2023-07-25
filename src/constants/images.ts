@@ -1,4 +1,5 @@
 export const logo = '/source/images/logo.png';
+export const userTestLogo = '/source/images/userTestLogo.png';
 export const btnRightIcon = '/source/images/icons/arrow-square-right.svg';
 export const infoIcon = '/source/images/icons/info.svg';
 export const messageChatIcon = '/source/images/icons/messagesChat.png';
