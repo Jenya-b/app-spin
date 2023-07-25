@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { path } from './path';
 import { Layout } from 'modules/components/Layout/Layout';
-import { LongPage, RoulettePage, BtnEthPage, FuturesPage } from 'modules/pages';
+import { LongPage, RoulettePage, BtnEthPage, FuturesPage, SettingPage } from 'modules/pages';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: path.futures,
         element: <FuturesPage />,
+      },
+      {
+        path: path.setting,
+        element: <SettingPage />,
       },
     ],
   },

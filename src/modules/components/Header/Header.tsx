@@ -25,6 +25,7 @@ import { BasicModal } from '../Modal/Modal';
 import { Auth } from '../Auth/Auth';
 import { Login } from '../Auth/Login/Login';
 import { Registration } from '../Auth/Registration/Registration';
+import { path } from 'modules/router/path';
 
 interface HeaderProps {
   showChart: () => void;
@@ -115,7 +116,7 @@ export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
             renderItem={renderSocialMenu}
             styles={socialMenuListCss}
           />
-          <SettingLink to={''}>
+          <SettingLink onClick={showChart} to={path.setting}>
             <svg
               width="21"
               height="20"

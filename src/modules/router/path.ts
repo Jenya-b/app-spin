@@ -3,4 +3,5 @@ export const path = {
   roulette: '/roulette',
   btnEth: '/btn-eth',
   futures: '/futures',
+  setting: '/setting',
 };

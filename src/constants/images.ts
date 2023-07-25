@@ -1,4 +1,5 @@
 export const logo = '/source/images/logo.png';
+export const card = '/source/images/card.png';
 export const userTestLogo = '/source/images/userTestLogo.png';
 export const btnRightIcon = '/source/images/icons/arrow-square-right.svg';
 export const infoIcon = '/source/images/icons/info.svg';
@@ -13,6 +14,10 @@ export const transferIcon = '/source/images/icons/transfer.svg';
 export const sendIcon = '/source/images/icons/send.svg';
 export const recieveIcon = '/source/images/icons/recieve.svg';
 export const forwardIcon = '/source/images/icons/forward.svg';
+export const settingIcon = '/source/images/icons/setting.svg';
+export const chipIcon = '/source/images/icons/chip.svg';
+export const copyIcon = '/source/images/icons/copy.svg';
+export const googleAuthIcon = '/source/images/icons/googleAuth.png';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',

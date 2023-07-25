@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+	@font-face {
+		font-family: 'AberMono';
+		src: local('AberMono'),
+    	url('/source/fonts/AberMono/AberMonoBold.ttf');
+	}
+
 	* {
 		box-sizing: border-box;
 		padding: 0;
@@ -39,6 +45,7 @@ export default createGlobalStyle`
 		height: 100%;
 		width: 100%;
 		font-family: 'Raleway', sans-serif;
+		
 		font-size: 100%;
 		line-height: 1;
 		font-size: 14px;
