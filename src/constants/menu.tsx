@@ -1,6 +1,6 @@
 import { path } from 'modules/router/path';
 import { menuIcon } from './images';
-import { INavMenu, ISocialMenu, IFooterMenu } from 'interfaces/menu';
+import { INavMenu, ISocialMenu, IBasicNavMenu } from 'interfaces/menu';
 
 export const navMenu: INavMenu[] = [
   {
@@ -25,7 +25,7 @@ export const navMenu: INavMenu[] = [
   },
 ];
 
-export const footerMenu: IFooterMenu[] = [
+export const footerMenu: IBasicNavMenu[] = [
   {
     title: 'termsOfService',
     path: '#',
@@ -105,4 +105,12 @@ export const socialMediaMenu: ISocialMenu[] = [
     ),
     path: '#',
   },
+];
+
+export const settingTableMenu = [
+  'Trans history',
+  'Long stats',
+  'Future stats',
+  'B x e stats',
+  'Roulette stats',
 ];

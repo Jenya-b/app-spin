@@ -8,6 +8,8 @@ export const Main = styled.main`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  display: grid;
+  grid-template-rows: auto 1fr;
 `;
 
 export const Title = styled.h2`
@@ -37,6 +39,9 @@ export const Wrapper = styled.div`
   margin-top: 17px;
   background: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 16px;
 `;
 
 export const Form = styled.form`
@@ -198,4 +203,32 @@ export const SubmitBtn = styled.button`
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+`;
+
+export const TableBlock = styled.div`
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+`;
+
+export const Tabs = styled.div`
+  padding: 12px 12px 0 12px;
+  display: flex;
+  column-gap: 8px;
+`;
+
+export const TabBtn = styled.button`
+  color: ${({ theme }) => theme.colors.textPrimary};
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.11px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  padding: 9px 10px;
+
+  &.active {
+    background: ${({ theme }) => theme.colors.buttonPrimary};
+  }
 `;

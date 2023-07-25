@@ -1,3 +1,5 @@
+import { FormEvent, useState, MouseEvent } from 'react';
+
 import { googleAuthIcon, logo } from 'constants/images';
 import {
   Main,
@@ -17,10 +19,21 @@ import {
   ReferalText,
   ReferalTitle,
   SubmitBtn,
+  TableBlock,
+  TabBtn,
+  Tabs,
 } from './Setting.styled';
-import { FormEvent } from 'react';
+import { settingTableMenu } from 'constants/menu';
+import { Table } from './Table/Table';
 
 export const SettingPage = () => {
+  const [filter, setFilter] = useState('Trans history');
+
+  const updateFilter = (event: MouseEvent<HTMLButtonElement>) => {
+    const { id } = event.currentTarget;
+    setFilter(id);
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => event.preventDefault();
 
   return (
@@ -82,6 +95,21 @@ export const SettingPage = () => {
             <p>connect google Authenticator</p>
           </SubmitBtn>
         </Form>
+        <TableBlock>
+          <Tabs>
+            {settingTableMenu.map((item) => (
+              <TabBtn
+                key={item}
+                id={item}
+                onClick={updateFilter}
+                className={item === filter ? 'active' : ''}
+              >
+                {item}
+              </TabBtn>
+            ))}
+          </Tabs>
+          <Table />
+        </TableBlock>
       </Wrapper>
     </Main>
   );

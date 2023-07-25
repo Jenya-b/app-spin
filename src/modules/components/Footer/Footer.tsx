@@ -12,7 +12,7 @@ import {
   ModalSubtitle,
   ModalTitle,
 } from './Footer.styled';
-import { IFooterMenu } from 'interfaces/menu';
+import { IBasicNavMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
 import { CloseModalBtn } from 'styles/components';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +25,7 @@ export const Footer = () => {
 
   const handleClose = () => setOpenModal(false);
 
-  const renderItem = ({ path, title }: IFooterMenu) => (
+  const renderItem = ({ path, title }: IBasicNavMenu) => (
     <StyledLink to={path}>{t(title)}</StyledLink>
   );
 
