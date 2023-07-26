@@ -25,9 +25,29 @@ import {
 } from './Setting.styled';
 import { settingTableMenu } from 'constants/menu';
 import { Table } from './Table/Table';
+import { ITransactionData, transactionData } from 'data/transaction';
+import { transactionTHead } from 'constants/table';
 
 export const SettingPage = () => {
   const [filter, setFilter] = useState('Trans history');
+
+  const renderItem = ({
+    id,
+    walletCurrency,
+    amountMain,
+    amountAdditional,
+    data,
+  }: ITransactionData) => (
+    <>
+      <td>{id}</td>
+      <td>{walletCurrency}</td>
+      <td>
+        <span>{amountMain}</span>
+        <span>{amountAdditional}</span>
+      </td>
+      <td>{data}</td>
+    </>
+  );
 
   const updateFilter = (event: MouseEvent<HTMLButtonElement>) => {
     const { id } = event.currentTarget;
@@ -108,7 +128,12 @@ export const SettingPage = () => {
               </TabBtn>
             ))}
           </Tabs>
-          <Table />
+          <Table
+            data={transactionData}
+            renderEmpty={<></>}
+            renderItem={renderItem}
+            headData={transactionTHead}
+          />
         </TableBlock>
       </Wrapper>
     </Main>

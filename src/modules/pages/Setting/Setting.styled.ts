@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { settingIcon, infoIcon, card, chipIcon, copyIcon } from 'constants/images';
 
 export const Main = styled.main`
+  overflow: auto;
   padding-top: 17px;
   margin-bottom: 12px;
   background: ${({ theme }) => theme.colors.bgSecondary};
@@ -35,6 +36,7 @@ export const Title = styled.h2`
 `;
 
 export const Wrapper = styled.div`
+  overflow: auto;
   padding: 16px;
   margin-top: 17px;
   background: ${({ theme }) => theme.colors.bgTertiary};
@@ -206,6 +208,9 @@ export const SubmitBtn = styled.button`
 `;
 
 export const TableBlock = styled.div`
+  overflow: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.02);
 `;
