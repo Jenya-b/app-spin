@@ -18,6 +18,7 @@ import {
 import { InGameDataType } from 'data/long';
 import { criptoIcon } from 'constants/images';
 import { useState, useEffect, FormEvent, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface GameProps {
   data: InGameDataType[];
@@ -29,6 +30,7 @@ export const Game = ({ data }: GameProps) => {
   const [total, setTotal] = useState<string>('0.00');
   const amountRef = useRef<HTMLInputElement>(null);
   const marginRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!(amount && margin)) setTotal('0.00');
@@ -48,12 +50,12 @@ export const Game = ({ data }: GameProps) => {
   return (
     <Wrapper>
       <GameBlock>
-        <InGameTitle>In Game</InGameTitle>
+        <InGameTitle>{t('inGame')}</InGameTitle>
         <InGameList>
           {data.map(({ amount, criptoName }) => (
             <div key={criptoName}>
               <img src={criptoIcon[criptoName]} />
-              <InGameInfoText>amount</InGameInfoText>
+              <InGameInfoText>{t('amount')}</InGameInfoText>
               <InGameCount>{amount}</InGameCount>
             </div>
           ))}
@@ -62,28 +64,28 @@ export const Game = ({ data }: GameProps) => {
       <TransferBlock>
         <TransferWrap>
           <TransferCount>0.00</TransferCount>
-          <TransferInfo>in round</TransferInfo>
+          <TransferInfo>{t('inRound')}</TransferInfo>
         </TransferWrap>
         <Icon />
         <TransferWrap>
           <TransferCount>0.00</TransferCount>
-          <TransferInfo>win</TransferInfo>
+          <TransferInfo>{t('win')}</TransferInfo>
         </TransferWrap>
       </TransferBlock>
       <GameBlock>
         <Form>
           <Lable>
-            <span>bET</span>
+            <span>{t('bet')}</span>
             <Input
               ref={amountRef}
-              placeholder="Amount"
+              placeholder={t('amount')}
               type="number"
               min={1}
               onChange={handleChangeAmount}
             />
           </Lable>
           <Lable>
-            <span>long</span>
+            <span>{t('long')}</span>
             <Input
               ref={marginRef}
               placeholder="4.0"
@@ -93,7 +95,7 @@ export const Game = ({ data }: GameProps) => {
             />
           </Lable>
           <Button>
-            <span>START</span>
+            <span>{t('start')}</span>
             <span>{total ? `${total}` : '0.00'}$</span>
           </Button>
         </Form>

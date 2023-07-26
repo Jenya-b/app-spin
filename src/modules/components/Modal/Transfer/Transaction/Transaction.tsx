@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
 import { Form, Input, InputBlock, Lable, TransactionBtn } from './Transaction.styled';
+import { useTranslation } from 'react-i18next';
 
 interface TransactionProps {
   walletLabel: string;
@@ -8,6 +9,8 @@ interface TransactionProps {
 }
 
 export const Transaction = memo(({ walletLabel, walletPlaceholder }: TransactionProps) => {
+  const { t } = useTranslation();
+
   return (
     <Form>
       <InputBlock>
@@ -16,19 +19,19 @@ export const Transaction = memo(({ walletLabel, walletPlaceholder }: Transaction
           <Input placeholder={walletPlaceholder} />
         </Lable>
         <Lable>
-          amount in crypto
-          <Input placeholder="Enter" />
+          {t('amountInCrypto')}
+          <Input placeholder={t('enter')} />
         </Lable>
         <Lable>
-          amount in value
-          <Input placeholder="Enter" />
+          {t('amountInValue')}
+          <Input placeholder={t('enter')} />
         </Lable>
         <Lable>
-          Commission
+          {t('commission')}
           <Input disabled placeholder="3% - $11" />
         </Lable>
       </InputBlock>
-      <TransactionBtn>make transaction</TransactionBtn>
+      <TransactionBtn>{t('makeTransaction')}</TransactionBtn>
     </Form>
   );
 });

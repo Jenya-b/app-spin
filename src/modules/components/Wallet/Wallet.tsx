@@ -42,17 +42,17 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
       </MoneyTitle>
       <MoneyCount>
         <CountWrap>
-          <CountTitle active={activeBlock}>Amount</CountTitle>
+          <CountTitle active={activeBlock}>{t('amount')}</CountTitle>
           <CountCripto active={activeBlock}>{amount.cripto}</CountCripto>
           <CountUsd active={activeBlock}>${amount.usd}</CountUsd>
         </CountWrap>
         <CountWrap>
-          <CountTitle active={activeBlock}>In game</CountTitle>
+          <CountTitle active={activeBlock}>{t('inGame')}</CountTitle>
           <CountCripto active={activeBlock}>{inGame.cripto}</CountCripto>
           <CountUsd active={activeBlock}>${inGame.usd}</CountUsd>
         </CountWrap>
         <CountWrap>
-          <CountTitle active={activeBlock}>Available</CountTitle>
+          <CountTitle active={activeBlock}>{t('available')}</CountTitle>
           <CountCripto active={activeBlock}>{available.cripto}</CountCripto>
           <CountUsd active={activeBlock}>${available.usd}</CountUsd>
         </CountWrap>
@@ -88,7 +88,7 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
         <List data={data} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
       </MoneyBlock>
       <ControlBlock>
-        <TransferBtn onClick={handleOpen}>transfer</TransferBtn>
+        <TransferBtn onClick={handleOpen}>{t('transfer')}</TransferBtn>
         <BasicModal open={isOpenModal} handleClose={handleClose}>
           <>
             <TransferModal closeModal={handleClose} />

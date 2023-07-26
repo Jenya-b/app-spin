@@ -64,7 +64,7 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
               <Icon src={criptoIcon[`${criptoName}`]} />
               {criptoName}
             </CriptoName>
-            <InfoText>price</InfoText>
+            <InfoText>{t('price')}</InfoText>
             <Count>${price}</Count>
           </Price>
         ))}
@@ -74,12 +74,12 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
           isactive={isVisibleTransaction}
           onClick={() => setIsVisibleTransaction(!isVisibleTransaction)}
         >
-          SEND
+          {t('send')}
         </SendBtn>
-        <RecieveBtn>RECIEVE</RecieveBtn>
+        <RecieveBtn>{t('recieve')}</RecieveBtn>
       </Controls>
       <TransactionBlock ref={transactionRef} style={{ ...springs }}>
-        <Transaction walletLabel="wallet number" walletPlaceholder="Enter wallet number" />
+        <Transaction walletLabel={t('walletNumber')} walletPlaceholder={t('enterWalletNumber')} />
       </TransactionBlock>
     </StyledWrapp>
   );
