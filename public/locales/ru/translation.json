@@ -1,45 +1,80 @@
 {
-  "termsOfService": "Условия использования",
-  "responsibleGamingPolicy": "Политика ответственности игры",
-  "fairPlay": "Честная игра",
   "amlPolicy": "Aml политика",
-  "contact": "Контакты",
   "authorization": "Авторизация",
-  "welcome": "Добро пожаловать в spin",
+  "amount": "Сумма",
+  "amountInCrypto": "сумма в крипто",
+  "amountInValue": "сумма в значении",
+  "available": "Доступно",
+
+  "bet": "ставка",
+  "bxeStats": "b x e статистика",
+
+  "contact": "Контакты",
+  "chat": "Чат",
+  "chatRules": "Правила чата",
+  "commission": "Комиссия",
+
+  "date": "Дата",
+
+  "exchangeRate": "курс обмена",
+  "enterWalletNumber": "Ввести номер кошелька",
+  "enter": "Ввод",
+  "enterNewUser": "Ввести новый логин",
+  "enterNewPass": "Ввести новый пароль",
+
+  "fairPlay": "Честная игра",
+  "forgotPassword": "Забыли пароль",
+  "futureStats": "future статистика",
+
+  "giveaway": "Отдаю",
+  "googleAuth": "подключить гугл аутентификатор",
+
+  "hashRound": "Хеш раунда",
+  "hashRoundRules": "Хеш игры Crash, Вы можете проверить целостность игры в текущем раунде. Хеш меняется каждый новый раунд.",
+  "history": "История",
+
+  "inGame": "В игре",
+  "inRound": "В раунде",
+  "idTransaction": "id транзакции",
+
   "login": "логин",
+  "long": "длина",
+  "longStats": "long статистика",
+
+  "makeTransaction": "Перевести",
+
+  "newPassword": "Новый пароль",
+
+  "or": "или",
+
   "placeholderLogin": "Введите свой логин",
   "password": "пароль",
   "placeholderPassword": "Введите свой пароль",
-  "repeatPassword": "Повторите пароль",
-  "forgotPassword": "Забыли пароль",
-  "registration": "Регистрация",
-  "or": "или",
-  "chat": "Чат",
-  "chatRules": "Правила чата",
   "placeholderMessage": "Введите сообщение",
-  "hashRound": "Хеш раунда",
-  "hashRoundRules": "Хеш игры Crash, Вы можете проверить целостность игры в текущем раунде. Хеш меняется каждый новый раунд.",
-  "giveaway": "Отдаю",
-  "wallet": "Кошелек",
-  "inGame": "В игре",
-  "amount": "Сумма",
-  "inRound": "В раунде",
-  "available": "Доступно",
-  "win": "Победа",
-  "bet": "ставка",
-  "long": "длина",
-  "start": "Старт",
-  "history": "История",
-  "transfer": "Перевод",
-  "exchangeRate": "курс обмена",
   "price": "цена",
-  "send": "отправить",
+
+  "responsibleGamingPolicy": "Политика ответственности игры",
+  "repeatPassword": "Повторите пароль",
+  "repeatNewPassword": "Повторите новый пароль",
+  "registration": "Регистрация",
   "recieve": "получить",
+  "registrationDate": "Дата регистрации",
+  "referalProgram": "Реферальная программа",
+  "rouletteStats": "roulette статистика",
+
+  "start": "Старт",
+  "send": "отправить",
+  "setting": "Настройки",
+
+  "transfer": "Перевод",
+  "termsOfService": "Условия использования",
+  "transHistory": "История транзакций",
+
+  "username": "Имя пользователя",
+
+  "welcome": "Добро пожаловать в spin",
+  "wallet": "Кошелек",
+  "win": "Победа",
   "walletNumber": "номер кошелька",
-  "enterWalletNumber": "Ввести номер кошелька",
-  "amountInCrypto": "сумма в крипто",
-  "amountInValue": "сумма в значении",
-  "enter": "Ввод",
-  "commission": "Комиссия",
-  "makeTransaction": "Перевести"
+  "walletCurrency": "Валюта кошелька"
 }

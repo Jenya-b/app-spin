@@ -1,1 +1,1 @@
-export const transactionTHead = ['id transaction', 'wallet currency', 'amount', 'date'];
+export const transactionTHead = ['idTransaction', 'walletCurrency', 'amount', 'date'];

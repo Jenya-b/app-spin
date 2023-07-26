@@ -108,9 +108,9 @@ export const socialMediaMenu: ISocialMenu[] = [
 ];
 
 export const settingTableMenu = [
-  'Trans history',
-  'Long stats',
-  'Future stats',
-  'B x e stats',
-  'Roulette stats',
+  'transHistory',
+  'longStats',
+  'futureStats',
+  'bxeStats',
+  'rouletteStats',
 ];

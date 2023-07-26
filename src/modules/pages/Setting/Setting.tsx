@@ -27,9 +27,11 @@ import { settingTableMenu } from 'constants/menu';
 import { Table } from './Table/Table';
 import { ITransactionData, transactionData } from 'data/transaction';
 import { transactionTHead } from 'constants/table';
+import { useTranslation } from 'react-i18next';
 
 export const SettingPage = () => {
-  const [filter, setFilter] = useState('Trans history');
+  const [filter, setFilter] = useState(settingTableMenu[0]);
+  const { t } = useTranslation();
 
   const renderItem = ({
     id,
@@ -58,38 +60,38 @@ export const SettingPage = () => {
 
   return (
     <Main>
-      <Title>Settings</Title>
+      <Title>{t('setting')}</Title>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <InputWrap>
             <Label>
               <p>
-                username <span />
+                {t('username')} <span />
               </p>
 
-              <Input placeholder="Enter new username" />
+              <Input placeholder={t('enterNewUser')} />
             </Label>
             <Label>
               <p>
-                new password <span />
+                {t('newPassword')} <span />
               </p>
-              <Input placeholder="Enter new password" />
+              <Input placeholder={t('enterNewPass')} />
             </Label>
             <Label>
               <p>
-                repeat password <span />
+                {t('repeatPassword')} <span />
               </p>
-              <Input placeholder="Repeat new password" />
+              <Input placeholder={t('repeatNewPassword')} />
             </Label>
           </InputWrap>
           <InfoBlock>
             <UserInfo>
               <div>
-                <UserInfoTitle>username</UserInfoTitle>
+                <UserInfoTitle>{t('username')}</UserInfoTitle>
                 <UserInfoSubtitle>goodplayer</UserInfoSubtitle>
               </div>
               <div>
-                <UserInfoTitle>registration date</UserInfoTitle>
+                <UserInfoTitle>{t('registrationDate')}</UserInfoTitle>
                 <UserInfoSubtitle>
                   <span>01</span>
                   <span>/</span>
@@ -105,14 +107,14 @@ export const SettingPage = () => {
                 <ReferalBtn />
               </ReferalHref>
               <ReferalTitle>
-                <p>referral program</p>
+                <p>{t('referalProgram')}</p>
                 <img src={logo} alt="logo" />
               </ReferalTitle>
             </ReferalInfo>
           </InfoBlock>
           <SubmitBtn>
             <img src={googleAuthIcon} />
-            <p>connect google Authenticator</p>
+            <p>{t('googleAuth')}</p>
           </SubmitBtn>
         </Form>
         <TableBlock>
@@ -124,7 +126,7 @@ export const SettingPage = () => {
                 onClick={updateFilter}
                 className={item === filter ? 'active' : ''}
               >
-                {item}
+                {t(item)}
               </TabBtn>
             ))}
           </Tabs>

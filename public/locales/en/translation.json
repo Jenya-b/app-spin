@@ -1,45 +1,80 @@
 {
-  "termsOfService": "Terms Of Service",
-  "responsibleGamingPolicy": "Responsible gaming policy",
-  "fairPlay": "Fair play",
   "amlPolicy": "Aml policy",
-  "contact": "Contact",
   "authorization": "Authorization",
-  "welcome": "welcome to spin",
+  "amount": "Amount",
+  "available": "Available",
+  "amountInCrypto": "amount in crypto",
+  "amountInValue": "amount in value",
+
+  "bet": "bet",
+  "bxeStats": "b x e stats",
+
+  "contact": "Contact",
+  "chat": "Chat",
+  "chatRules": "Chat Rules",
+  "commission": "Commission",
+
+  "date": "date",
+
+  "exchangeRate": "exchangerate",
+  "enterWalletNumber": "Enter wallet number",
+  "enter": "Enter",
+  "enterNewUser": "Enter new username",
+  "enterNewPass": "Enter new password",
+
+  "fairPlay": "Fair play",
+  "forgotPassword": "forgot password",
+  "futureStats": "future stats",
+
+  "giveaway": "Giveaway",
+  "googleAuth": "connect google Authenticator",
+
+  "hashRound": "Hash round",
+  "hashRoundRules": "Hash of the Crash game, you can check the integrity of the game in the current round. The hash changes every new round.",
+  "history": "History",
+
+  "inGame": "In game",
+  "inRound": "In round",
+  "idTransaction": "id transaction",
+
   "login": "login",
+  "long": "long",
+  "longStats": "long stats",
+
+  "makeTransaction": "make transaction",
+
+  "newPassword": "new password",
+
+  "or": "or",
+
   "placeholderLogin": "Enter your login",
   "password": "password",
   "placeholderPassword": "Enter your password",
-  "repeatPassword": "repeat password",
-  "forgotPassword": "forgot password",
-  "registration": "registration",
-  "or": "or",
-  "chat": "Chat",
-  "chatRules": "Chat Rules",
   "placeholderMessage": "Enter Message",
-  "hashRound": "Hash round",
-  "hashRoundRules": "Hash of the Crash game, you can check the integrity of the game in the current round. The hash changes every new round.",
-  "giveaway": "Giveaway",
-  "wallet": "Wallet",
-  "inGame": "In game",
-  "amount": "Amount",
-  "inRound": "In round",
-  "available": "Available",
-  "win": "Win",
-  "bet": "bet",
-  "long": "long",
-  "start": "start",
-  "history": "History",
-  "transfer": "Transfer",
-  "exchangeRate": "exchangerate",
   "price": "price",
-  "send": "send",
+
+  "responsibleGamingPolicy": "Responsible gaming policy",
+  "repeatPassword": "repeat password",
+  "repeatNewPassword": "repeat new password",
+  "registration": "registration",
   "recieve": "recieve",
+  "registrationDate": "registration date",
+  "referalProgram": "referal program",
+  "rouletteStats": "roulette stats",
+
+  "start": "start",
+  "send": "send",
+  "setting": "setting",
+
+  "transfer": "Transfer",
+  "termsOfService": "Terms Of Service",
+  "transHistory": "Trans history",
+
+  "username": "username",
+
+  "welcome": "welcome to spin",
+  "wallet": "Wallet",
+  "win": "Win",
   "walletNumber": "wallet number",
-  "enterWalletNumber": "Enter wallet number",
-  "amountInCrypto": "amount in crypto",
-  "amountInValue": "amount in value",
-  "enter": "Enter",
-  "commission": "Commission",
-  "makeTransaction": "make transaction"
+  "walletCurrency": "wallet currency"
 }
