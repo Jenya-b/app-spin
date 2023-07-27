@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
 import { colors } from 'styles/colors';
 import { ButtonPrimary } from 'styles/components';
+import { fontStyleXXSmallDemiBold } from 'styles/typography';
 
 interface SoundBtnProps {
   isactive: boolean;
@@ -94,10 +95,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXSmallDemiBold}
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 8px;

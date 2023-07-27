@@ -1,5 +1,7 @@
-import { btnRightIcon, criptoIcon } from 'constants/images';
 import styled from 'styled-components';
+
+import { btnRightIcon, criptoIcon } from 'constants/images';
+import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   grid-column: 1/2;
@@ -12,11 +14,8 @@ export const Wrapper = styled.div`
 
 export const Timer = styled.div`
   margin-top: 4px;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
+  ${fontStyleXXLargeBold}
   font-variant-numeric: lining-nums proportional-nums;
-  line-height: normal;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
@@ -30,10 +29,7 @@ export const Info = styled.div`
   display: flex;
   justify-content: space-between;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleSmallBold}
 
   div:nth-child(2) {
     position: relative;

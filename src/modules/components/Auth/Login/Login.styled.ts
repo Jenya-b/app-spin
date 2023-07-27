@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ButtonPrimary } from 'styles/components';
 import { btnPlusIcon, btnRightIcon } from 'constants/images';
+import { fontStyleXXSmallBold } from 'styles/typography';
 
 export const AuthBtn = styled(ButtonPrimary)`
   width: 100%;
@@ -42,9 +43,6 @@ export const RegistrBtn = styled(ButtonPrimary)`
 
 export const RestorPassLink = styled(Link)`
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   text-transform: uppercase;
 `;

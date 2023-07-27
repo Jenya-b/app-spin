@@ -1,5 +1,13 @@
 import styled, { css } from 'styled-components';
 
+import { colors } from 'styles/colors';
+import {
+  fontStyleSmallDemiBold,
+  fontStyleSmallNormal,
+  fontStyleXSmallBold,
+  fontStyleXXSmallNormal,
+} from 'styles/typography';
+
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
@@ -16,13 +24,8 @@ export const HistoryBlock = styled.div`
 `;
 
 export const Title = styled.h3`
-  color: #fff;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: Raleway;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 `;
 
@@ -30,13 +33,9 @@ export const HistoryList = styled.div`
   margin-top: 8px;
   display: flex;
   column-gap: 6px;
-  color: #5bc957;
+  color: ${colors.green200};
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: Raleway;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
 `;
@@ -68,10 +67,7 @@ export const UserLogo = styled.img`
 
 export const UserName = styled.div`
   padding-left: 10px;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  ${fontStyleSmallNormal}
 `;
 
 export const Params = styled.div`
@@ -80,18 +76,13 @@ export const Params = styled.div`
   flex-direction: column;
 
   span {
-    color: #fff;
     font-variant-numeric: lining-nums proportional-nums;
-    font-family: Raleway;
-    font-size: 7px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    ${fontStyleXXSmallNormal}
     text-transform: uppercase;
 
     :last-child {
-      font-size: 12px;
-      font-weight: 600;
+      margin-top: 3px;
+      ${fontStyleSmallDemiBold}
     }
   }
 `;
@@ -101,12 +92,9 @@ export const Result = styled.div`
   padding: 4px 10px;
   border-radius: 8px;
   background: rgba(91, 201, 87, 0.15);
-  color: #5bc957;
+  color: ${colors.green200};
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
 `;

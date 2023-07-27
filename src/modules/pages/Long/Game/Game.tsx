@@ -94,10 +94,7 @@ export const Game = ({ data }: GameProps) => {
               onChange={handleChangeMargin}
             />
           </Lable>
-          <Button>
-            <span>{t('start')}</span>
-            <span>{total ? `${total}` : '0.00'}$</span>
-          </Button>
+          <Button>{t('start')}</Button>
         </Form>
       </GameBlock>
     </Wrapper>

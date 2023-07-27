@@ -5,6 +5,11 @@ import { colors } from 'styles/colors';
 import { Wrapper } from '../Modal.styled';
 import { ButtonPrimary } from 'styles/components';
 import { recieveIcon, sendIcon } from 'constants/images';
+import {
+  fontStyleLargeNormal,
+  fontStyleSmallDemiBold,
+  fontStyleXXSmallBold,
+} from 'styles/typography';
 
 interface PraceProps {
   active: boolean;
@@ -33,10 +38,7 @@ export const Price = styled.div<PraceProps>`
 export const CriptoName = styled.div`
   position: relative;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleSmallDemiBold}
   letter-spacing: -0.132px;
   text-transform: uppercase;
   display: flex;
@@ -55,10 +57,7 @@ export const Icon = styled.img`
 export const InfoText = styled.div`
   margin-top: 8px;
   opacity: 0.5;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
 `;
@@ -66,10 +65,7 @@ export const InfoText = styled.div`
 export const Count = styled.div`
   margin-top: 4px;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  ${fontStyleLargeNormal}
   letter-spacing: -0.198px;
 `;
 

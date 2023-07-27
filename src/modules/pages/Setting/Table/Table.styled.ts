@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { fontStyleXSmallBold, fontStyleXXSmallDemiBold } from 'styles/typography';
+
 interface ICountColumns {
   count: number;
 }
@@ -9,10 +11,7 @@ export const StyledTable = styled.table<ICountColumns>`
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(${({ count }) => count}, minmax(150px, 1fr));
-  font-weight: 700;
-  font-size: 10px;
-  line-height: normal;
-  letter-spacing: -0.11px;
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
   text-align: left;
   font-variant-numeric: lining-nums proportional-nums;
@@ -50,12 +49,9 @@ export const StyledTable = styled.table<ICountColumns>`
     border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 
     span {
-      :first-child {
-        font-size: 12px;
-      }
-
       :last-child {
-        font-size: 8px;
+        margin-top: 2px;
+        ${fontStyleXXSmallDemiBold}
         opacity: 0.5;
       }
     }

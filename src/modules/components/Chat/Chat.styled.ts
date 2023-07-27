@@ -1,5 +1,11 @@
-import { infoIcon, inputBtnIcon, messageChatIcon } from 'constants/images';
 import styled from 'styled-components';
+
+import { infoIcon, inputBtnIcon, messageChatIcon } from 'constants/images';
+import {
+  fontStyleMediumBold,
+  fontStyleSmallDemiBold,
+  fontStyleXXSmallBold,
+} from 'styles/typography';
 
 export const Wrapper = styled.div`
   grid-column: 3/4;
@@ -21,10 +27,7 @@ export const TitleBlock = styled.div`
 export const Title = styled.h2`
   position: relative;
   padding-left: 22px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleMediumBold}
 
   ::before {
     position: absolute;
@@ -44,10 +47,7 @@ export const Info = styled.div`
   padding: 5px 10px 4px 26px;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   background: ${({ theme }) => theme.colors.buttonPrimary};
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
 
@@ -91,10 +91,7 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.colors.inputPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-family: 'Raleway', sans-serif;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleSmallDemiBold}
   letter-spacing: -0.11px;
 `;
 

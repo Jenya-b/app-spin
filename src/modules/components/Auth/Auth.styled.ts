@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { metamaskIcon } from 'constants/images';
 import { colors } from 'styles/colors';
+import {
+  fontStyleXXLargeBold,
+  fontStyleSmallBold,
+  fontStyleXXSmallBold,
+  fontStyleSmallDemiBold,
+  fontStyleXXSmallDemiBold,
+  fontStyleLargeBold,
+} from 'styles/typography';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -17,10 +25,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXLargeBold}
   text-transform: uppercase;
   text-align: center;
 `;
@@ -28,10 +33,7 @@ export const Title = styled.h2`
 export const Subtitle = styled.h3`
   margin-top: 6px;
   opacity: 0.75;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleSmallBold}
   text-transform: uppercase;
   text-align: center;
 `;
@@ -47,10 +49,7 @@ export const Form = styled.form`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   text-transform: uppercase;
 `;
 
@@ -62,13 +61,12 @@ export const Input = styled.input`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   color: ${({ theme }) => theme.colors.textPrimary};
+  ${fontStyleSmallDemiBold}
 `;
 
 export const OtherAuth = styled(Link)`
   position: relative;
   margin-top: 48px;
-  font-style: normal;
-  line-height: normal;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -83,10 +81,7 @@ export const OtherAuth = styled(Link)`
     padding: 0 6px;
     background: ${({ theme }) => theme.colors.inputPrimary};
     color: ${({ theme }) => theme.colors.textPrimary};
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+    ${fontStyleXXSmallBold}
     text-transform: uppercase;
     z-index: 2;
   }
@@ -107,8 +102,7 @@ export const OtherSubtitle = styled.p`
   padding-top: 30px;
   position: relative;
   color: ${colors.whiteTransparent200};
-  font-size: 8px;
-  font-weight: 600;
+  ${fontStyleXXSmallDemiBold}
 
   ::before {
     position: absolute;
@@ -126,6 +120,5 @@ export const OtherSubtitle = styled.p`
 export const OtherTitle = styled.p`
   margin-top: 1px;
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 16px;
-  font-weight: 700;
+  ${fontStyleLargeBold}
 `;

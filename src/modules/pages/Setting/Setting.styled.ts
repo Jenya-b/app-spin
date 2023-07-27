@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
 import { settingIcon, infoIcon, card, chipIcon, copyIcon } from 'constants/images';
+import {
+  fontStyleMediumBold,
+  fontStyleSmallDemiBold,
+  fontStyleXSmallBemiBold,
+  fontStyleXXSmallBold,
+  fontStyleXXSmallNormal,
+} from 'styles/typography';
 
 export const Main = styled.main`
   overflow: auto;
@@ -17,9 +24,7 @@ export const Title = styled.h2`
   margin-left: 16px;
   padding-left: 20px;
   position: relative;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleMediumBold}
 
   ::before {
     position: absolute;
@@ -61,9 +66,7 @@ export const InputWrap = styled.div`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 10px;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   text-transform: uppercase;
 
   p {
@@ -88,10 +91,7 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.colors.inputPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.11px;
+  ${fontStyleSmallDemiBold}
 `;
 
 export const InfoBlock = styled.div`
@@ -127,18 +127,14 @@ export const UserInfo = styled.div`
 `;
 
 export const UserInfoTitle = styled.p`
-  font-size: 8px;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleXXSmallNormal}
   text-transform: uppercase;
 `;
 
 export const UserInfoSubtitle = styled.p`
   margin-top: 2px;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: normal;
+  ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
   display: flex;
   column-gap: 7px;
@@ -163,9 +159,7 @@ export const ReferalHref = styled.div`
 
 export const ReferalText = styled.p`
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
 `;
 
@@ -180,9 +174,7 @@ export const ReferalTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   font-family: 'AberMono';
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleMediumBold}
 
   img {
     width: 60px;
@@ -197,9 +189,7 @@ export const SubmitBtn = styled.button`
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -224,9 +214,7 @@ export const Tabs = styled.div`
 export const TabBtn = styled.button`
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.05);

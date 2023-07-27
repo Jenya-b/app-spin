@@ -1,5 +1,14 @@
-import { forwardIcon } from 'constants/images';
 import styled from 'styled-components';
+
+import { forwardIcon } from 'constants/images';
+import {
+  fontStyleMediumBold,
+  fontStyleSmallDemiBold,
+  fontStyleXSmallBemiBold,
+  fontStyleXSmallBold,
+  fontStyleXXSmallBold,
+  fontStyleXXSmallNormal,
+} from 'styles/typography';
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
@@ -15,38 +24,30 @@ export const GameBlock = styled.div`
   display: inline-block;
   padding: 10px;
   border-radius: 8px;
-  background: #1d1d2c;
-  width: 253px;
+  background: ${({ theme }) => theme.colors.bgTertiary};
+  width: auto;
 `;
 
 export const InGameTitle = styled.div`
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXSmallBold}
 `;
 
 export const InGameList = styled.div`
   margin-top: 10px;
   display: flex;
+  column-gap: 10px;
   justify-content: space-between;
 `;
 
 export const InGameInfoText = styled.div`
   margin-top: 9px;
-  font-size: 7px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  ${fontStyleXXSmallNormal}
   text-transform: uppercase;
 `;
 
 export const InGameCount = styled.div`
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
 `;
 
@@ -67,11 +68,7 @@ export const Form = styled.form`
       bottom: 13.5px;
       left: 22px;
       color: ${({ theme }) => theme.colors.textPrimary};
-      font-size: 10px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      letter-spacing: -0.11px;
+      ${fontStyleXXSmallBold}
       text-transform: uppercase;
       z-index: 10;
     }
@@ -81,10 +78,7 @@ export const Form = styled.form`
 export const Lable = styled.label`
   position: relative;
   width: 70px;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   text-transform: uppercase;
 `;
 
@@ -111,24 +105,8 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleSmallDemiBold}
   align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 2px;
-
-  span:nth-child(1) {
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  span:nth-child(2) {
-    font-size: 8px;
-  }
 `;
 
 export const TransferBlock = styled.div`
@@ -146,20 +124,14 @@ export const TransferWrap = styled.div`
 
 export const TransferCount = styled.div`
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleMediumBold}
   text-transform: uppercase;
 `;
 
 export const TransferInfo = styled.div`
   color: rgba(255, 255, 255, 0.5);
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   text-transform: uppercase;
 `;
 

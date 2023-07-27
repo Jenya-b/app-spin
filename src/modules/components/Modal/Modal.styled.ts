@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { closeModalIcon } from 'constants/images';
+import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -23,10 +24,7 @@ export const CloseModalBtn = styled.button`
 `;
 
 export const Title = styled.h2`
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXLargeBold}
   text-transform: uppercase;
   text-align: center;
 `;
@@ -34,10 +32,7 @@ export const Title = styled.h2`
 export const Subtitle = styled.h3`
   margin-top: 6px;
   opacity: 0.75;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleSmallBold}
   text-transform: uppercase;
   text-align: center;
 `;

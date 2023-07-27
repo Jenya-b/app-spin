@@ -2,6 +2,14 @@ import styled, { css } from 'styled-components';
 
 import { transferIcon, walletIcon } from 'constants/images';
 import { ButtonPrimary } from 'styles/components';
+import {
+  fontStyleMediumDemiBold,
+  fontStyleSmallBold,
+  fontStyleSmallDemiBold,
+  fontStyleXSmallBemiBold,
+  fontStyleXSmallNormal,
+  fontStyleXXSmallNormal,
+} from 'styles/typography';
 
 interface AnimationElemProps {
   active: boolean;
@@ -26,11 +34,8 @@ export const TitleBlock = styled.div`
 export const Title = styled.h2<AnimationElemProps>`
   position: relative;
   padding-left: ${({ active }) => (active ? '22px' : '0px')};
-  font-size: ${({ active }) => (active ? '16px' : '12px')};
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
   transition: ${({ theme }) => theme.transition};
+  ${({ active }) => (active ? `${fontStyleMediumDemiBold}` : `${fontStyleSmallBold}`)};
 
   ::before {
     transition: ${({ theme }) => theme.transition};
@@ -92,10 +97,7 @@ export const MoneyTitle = styled.h3<AnimationElemProps>`
   transition: ${({ theme }) => theme.transition};
   position: relative;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: ${({ active }) => (active ? '14px' : '12px')};
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${({ active }) => (active ? `${fontStyleMediumDemiBold}` : `${fontStyleSmallBold}`)};
   letter-spacing: -0.132px;
   text-transform: uppercase;
   display: flex;
@@ -131,20 +133,14 @@ export const CountWrap = styled.div``;
 export const CountTitle = styled.h4<AnimationElemProps>`
   opacity: 0.5;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: ${({ active }) => (active ? '10px' : '9px')};
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  ${({ active }) => (active ? `${fontStyleXSmallNormal}` : `${fontStyleXXSmallNormal}`)};
   letter-spacing: -0.099px;
 `;
 
 export const CountCripto = styled.p<AnimationElemProps>`
   margin-top: 4px;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: ${({ active }) => (active ? '14px' : '12px')};
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${({ active }) => (active ? `${fontStyleSmallDemiBold}` : `${fontStyleXSmallBemiBold}`)};
   letter-spacing: -0.132px;
 `;
 
@@ -153,10 +149,7 @@ export const CountUsd = styled.p<AnimationElemProps>`
   display: ${({ active }) => (active ? 'block' : 'none')};
   opacity: 0.5;
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  ${fontStyleXXSmallNormal}
   letter-spacing: -0.11px;
 `;
 

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { colors } from 'styles/colors';
 import { shieldIcon } from 'constants/images';
+import { fontStyleXXLargeBold, fontStyleXXSmallBold, fontStyleXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   grid-column: 2/3;
@@ -22,10 +23,7 @@ export const ModalBtn = styled.div`
   padding: 9px 10px 8px 26px;
   color: ${colors.green200};
   background: ${colors.green100};
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
   transition: ${({ theme }) => theme.transition};
@@ -55,10 +53,7 @@ export const menuListCss = css`
 
 export const StyledLink = styled(Link)`
   color: ${colors.whiteTransparent200};
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
   transition: ${({ theme }) => theme.transition};
@@ -82,10 +77,7 @@ export const ModalWrap = styled.div`
 
 export const ModalTitle = styled.h2`
   text-align: center;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+  ${fontStyleXXLargeBold}
   text-transform: uppercase;
 `;
 
@@ -93,10 +85,7 @@ export const ModalSubtitle = styled.h3`
   padding: 0 15px;
   margin-top: 6px;
   color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
+  ${fontStyleXSmallBold}
   line-height: normal;
 `;
 

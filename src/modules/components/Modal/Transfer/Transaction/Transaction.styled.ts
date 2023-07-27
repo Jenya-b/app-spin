@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 import { btnRightIcon } from 'constants/images';
 import { ButtonPrimary } from 'styles/components';
+import {
+  fontStyleLargeNormal,
+  fontStyleSmallDemiBold,
+  fontStyleXXSmallBold,
+} from 'styles/typography';
 
 export const Form = styled.form``;
 
@@ -15,10 +20,7 @@ export const InputBlock = styled.div`
 export const Lable = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  ${fontStyleXXSmallBold}
   letter-spacing: -0.11px;
   text-transform: uppercase;
 
@@ -37,10 +39,7 @@ export const Input = styled.input`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   font-variant-numeric: lining-nums proportional-nums;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${fontStyleSmallDemiBold}
   letter-spacing: -0.154px;
   color: ${({ theme }) => theme.colors.textPrimary};
 
@@ -51,10 +50,7 @@ export const Input = styled.input`
 
     ::placeholder {
       color: ${({ theme }) => theme.colors.textPrimary};
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+      ${fontStyleLargeNormal}
       letter-spacing: -0.198px;
     }
   }

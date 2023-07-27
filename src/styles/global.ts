@@ -40,15 +40,15 @@ export default createGlobalStyle`
 	aside {
 		display: block;
 	}
+	html {
+		font-size: 14px;
+	}
 	html,
 	body {
 		height: 100%;
 		width: 100%;
 		font-family: 'Raleway', sans-serif;
-		
-		font-size: 100%;
-		line-height: 1;
-		font-size: 14px;
+		line-height: normal;
 		-ms-text-size-adjust: 100%;
 		-moz-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
