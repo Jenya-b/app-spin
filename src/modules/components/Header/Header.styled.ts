@@ -22,8 +22,12 @@ export const StyledHeader = styled.header`
   grid-column: 1/4;
   grid-row: 1/2;
   display: grid;
-  grid-template-columns: 270px 1fr 270px;
+  grid-template-columns: 20rem 1fr 20rem;
   column-gap: 32px;
+
+  @media (${({ theme }) => theme.media.XXLarge}) {
+    grid-template-columns: 25rem 1fr 25rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -127,11 +131,11 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
 
 export const navMenuListCss = css`
   display: flex;
-  column-gap: 10px;
+  column-gap: 0.72rem;
 
   li {
-    width: 64px;
-    height: 48px;
+    width: 4.6rem;
+    height: 3.5rem;
   }
 `;
 

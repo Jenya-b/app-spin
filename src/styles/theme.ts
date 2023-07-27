@@ -28,5 +28,10 @@ export const theme = createTheme({
     radiusSecondary: 8,
   },
 
+  media: {
+    XXLarge: '(min-width: 2500px)',
+    XLarge: '(min-width: 2100px)',
+  },
+
   transition: 'all 0.3s',
 });

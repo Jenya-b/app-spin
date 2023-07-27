@@ -24,5 +24,10 @@ export interface CustomTheme {
     radiusSecondary: number;
   };
 
+  media: {
+    XXLarge: string;
+    XLarge: string;
+  };
+
   transition: string;
 }
