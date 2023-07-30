@@ -8,6 +8,7 @@ export default createGlobalStyle`
 	}
 
 	* {
+		font-variant-numeric: lining-nums proportional-nums;
 		box-sizing: border-box;
 		padding: 0;
 		margin: 0;

@@ -1,5 +1,6 @@
 export const logo = '/source/images/logo.png';
 export const card = '/source/images/card.png';
+export const noBidsIcon = '/source/images/icons/noBids.svg';
 export const userTestLogo = '/source/images/userTestLogo.png';
 export const btnRightIcon = '/source/images/icons/arrow-square-right.svg';
 export const infoIcon = '/source/images/icons/info.svg';
@@ -18,6 +19,7 @@ export const settingIcon = '/source/images/icons/setting.svg';
 export const chipIcon = '/source/images/icons/chip.svg';
 export const copyIcon = '/source/images/icons/copy.svg';
 export const googleAuthIcon = '/source/images/icons/googleAuth.png';
+export const gameUserIcon = '/source/images/icons/gamePeople.png';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',
@@ -54,4 +56,10 @@ export const criptoIcon = {
   xmr: '/source/images/icons/xmr.svg',
   ltc: '/source/images/icons/ltc.svg',
   spin: '/source/images/icons/spin.svg',
+};
+
+export const diamondIcon = {
+  blue: '/source/images/icons/diamondBlue.svg',
+  orange: '/source/images/icons/diamondOrange.svg',
+  purple: '/source/images/icons/diamondPurple.svg',
 };

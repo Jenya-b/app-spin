@@ -5,12 +5,10 @@ import { History } from './History/History';
 
 export const LongPage = () => {
   return (
-    <>
-      <Main>
-        <Game data={inGameData} />
-        <History historyNumbers={historyNumbers} />
-      </Main>
-    </>
+    <Main>
+      <Game data={inGameData} />
+      <History historyNumbers={historyNumbers} />
+    </Main>
   );
 };
 
