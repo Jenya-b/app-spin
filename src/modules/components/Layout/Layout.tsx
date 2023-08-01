@@ -2,7 +2,7 @@ import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { Wrapper, Chart, Sidebar } from './Layout.styled';
+import { Wrapper, Sidebar } from './Layout.styled';
 import { Header } from '../Header/Header';
 import { Chat } from '../Chat/Chat';
 import { Footer } from '../Footer/Footer';
@@ -10,6 +10,7 @@ import { CountDown } from '../CountDown/CountDown';
 import { Loader } from '../Loader/Loader';
 import { Wallet } from '../Wallet/Wallet';
 import { wallet } from 'data/wallet';
+import { Chart } from '../Chart/Chart';
 
 export const Layout = () => {
   const { pathname } = useLocation();
@@ -32,7 +33,7 @@ export const Layout = () => {
     <Wrapper>
       <Header hideChart={hideChart} showChart={showChart} />
       <Sidebar>
-        <Chart ref={chartRef} style={{ ...springs }} />
+        <Chart chartRef={chartRef} style={springs} />
         <Wallet activeBlock={isVisible} data={wallet} />
       </Sidebar>
       <Suspense fallback={<Loader />}>

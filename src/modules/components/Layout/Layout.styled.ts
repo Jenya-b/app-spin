@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { animated } from '@react-spring/web';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -20,11 +19,4 @@ export const Sidebar = styled.aside`
   display: grid;
   grid-template-rows: auto 1fr;
   overflow-y: auto;
-`;
-
-export const Chart = styled(animated.div)`
-  background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  margin-bottom: 12px;
 `;
