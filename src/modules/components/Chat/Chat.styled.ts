@@ -1,10 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { infoIcon, inputBtnIcon, messageChatIcon } from 'constants/images';
+import { diamondIcon, infoIcon, inputBtnIcon, messageChatIcon } from 'constants/images';
 import {
   fontStyleMediumBold,
+  fontStyleSmallBold,
   fontStyleSmallDemiBold,
+  fontStyleXSmallNormal,
   fontStyleXXSmallBold,
+  fontStyleXXSmallDemiBold,
 } from 'styles/typography';
 
 export const Wrapper = styled.div`
@@ -67,6 +70,8 @@ export const Info = styled.div`
 export const MessageBlock = styled.div`
   background: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  padding: 16px;
+  overflow: auto;
 `;
 
 export const ControlBlock = styled.div`
@@ -104,4 +109,57 @@ export const InputBtn = styled.button`
   height: 20px;
   background: url(${inputBtnIcon}) no-repeat;
   background-position: center;
+`;
+
+export const listMessageCss = css`
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`;
+
+export const MessageWrap = styled.div`
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 10px;
+`;
+
+export const MessageIcon = styled.div`
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+
+  ::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: url(${diamondIcon.orange}) no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+`;
+
+export const MessageInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+`;
+
+export const UserName = styled.div`
+  ${fontStyleSmallBold}
+`;
+
+export const UserPost = styled.div`
+  ${fontStyleXSmallNormal}
+  line-height: 1.5;
+`;
+
+export const TimePost = styled.div`
+  ${fontStyleXXSmallDemiBold}
+  opacity: 0.25;
 `;
