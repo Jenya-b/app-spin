@@ -1,6 +1,7 @@
 import { diamondIcon, gameUserIcon, pointerIcon } from 'constants/images';
 import styled, { css } from 'styled-components';
-import { fontStyleXXSmallBold } from 'styles/typography';
+import { colors } from 'styles/colors';
+import { fontStyleLargeBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
@@ -9,18 +10,117 @@ export const Wrapper = styled.div`
   overflow: auto;
 `;
 
-export const GameBlock = styled.div`
-  overflow: auto;
+export const GameBlock = styled.div``;
+
+export const InfoBlock = styled.div`
+  padding: 0 16px;
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
+export const LastGame = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  ${fontStyleXSmallBold}
+`;
+
+export const LastGameTitle = styled.p`
+  opacity: 0.25;
+  text-transform: uppercase;
+`;
+
+export const LastGameWrap = styled.div`
+  display: flex;
+  column-gap: 12px;
+`;
+
+export const LastGameItem = styled.div`
+  position: relative;
+  padding-left: 24px;
+
+  ::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+  &.blue {
+    ::before {
+      background: #00d1ff;
+      border: 3px solid #261f43;
+    }
+  }
+  &.orange {
+    ::before {
+      background: rgba(255, 92, 0, 1);
+      border: 3px solid #212c40;
+    }
+  }
+
+  &.purple {
+    ::before {
+      background: #bb29ff;
+      border: 3px solid #261f43;
+    }
+  }
+`;
+export const Timer = styled.div`
+  justify-self: center;
+  text-align: center;
+`;
+
+export const Time = styled.div`
+  ${fontStyleLargeBold}
+  color: ${colors.yellow100};
+`;
+
+export const TimerText = styled.p`
+  margin-top: 3px;
+  ${fontStyleXSmallBold}
+  opacity: 0.25;
+  text-transform: uppercase;
+`;
+
+export const HistoryGame = styled.div`
+  display: flex;
+  column-gap: 4px;
+  align-items: center;
+  justify-content: flex-end;
+
+  div {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    &.blue {
+      background: #00d1ff;
+      border: 3px solid #261f43;
+    }
+    &.orange {
+      background: rgba(255, 92, 0, 1);
+      border: 3px solid #212c40;
+    }
+
+    &.purple {
+      background: #bb29ff;
+      border: 3px solid #261f43;
+    }
+  }
 `;
 
 export const Roulette = styled.div`
   position: relative;
   padding: 16px 16px 0 16px;
-  overflow: auto;
 `;
 
 export const RouletteWrap = styled.div`
-  /* position: relative; */
   padding: 4px 0;
   background: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;

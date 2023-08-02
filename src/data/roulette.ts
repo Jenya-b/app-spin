@@ -119,3 +119,31 @@ export const rouletteSlider = [
   'orange',
   'purple',
 ];
+
+export const lastResult = [
+  {
+    name: 'orange',
+    count: 5,
+  },
+  {
+    name: 'purple',
+    count: 85,
+  },
+  {
+    name: 'blue',
+    count: 10,
+  },
+];
+
+export const historyRoulette = [
+  'blue',
+  'orange',
+  'purple',
+  'blue',
+  'blue',
+  'orange',
+  'purple',
+  'orange',
+  'orange',
+  'purple',
+];

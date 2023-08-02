@@ -8,8 +8,9 @@ export const colors = {
   blueLight100: '#315DF1',
   green100: 'rgba(91, 201, 87, 0.15)',
   green200: '#5BC957',
+  grey100: '#33344d',
   white: '#ffffff',
   whiteTransparent100: '#ffffff05',
   whiteTransparent200: 'rgba(255, 255, 255, 0.25)',
-  grey100: '#33344d',
+  yellow100: '#F7D085',
 };
