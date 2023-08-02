@@ -19,8 +19,14 @@ export const Layout = () => {
 
   const springs = useSpring({
     immediate: !chartRef.current,
-    from: { height: '170px', opacity: 1, marginBottom: '12px', borderWidth: '1px' },
-    to: { height: '0px', opacity: 0, marginBottom: '0px', borderWidth: '0px' },
+    from: {
+      height: '170px',
+      opacity: 1,
+      marginBottom: '12px',
+      borderWidth: '1px',
+      padding: '16px',
+    },
+    to: { height: '0px', opacity: 0, marginBottom: '0px', borderWidth: '0px', padding: '0px' },
     reverse: !isVisible,
     config: { duration: 500 },
   });
