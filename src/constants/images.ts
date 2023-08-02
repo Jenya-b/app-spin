@@ -21,6 +21,7 @@ export const copyIcon = '/source/images/icons/copy.svg';
 export const googleAuthIcon = '/source/images/icons/googleAuth.png';
 export const gameUserIcon = '/source/images/icons/gamePeople.png';
 export const lineIcon = '/source/images/icons/line.svg';
+export const pointerIcon = '/source/images/icons/pointer.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',

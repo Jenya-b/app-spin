@@ -9,11 +9,17 @@ import {
   Input,
   InputWrap,
   Label,
+  Pointer,
+  Roulette,
+  Slide,
+  Slider,
+  RouletteWrap,
 } from './Game.styled';
 import { criptoArr } from 'constants/cripto';
 import { CriptoNameType } from 'interfaces/cripto';
 import { criptoIcon } from 'constants/images';
 import { useState, MouseEvent } from 'react';
+import { rouletteSlider } from 'data/roulette';
 
 export const Game = () => {
   const [criptoActive, setCriptoActive] = useState<CriptoNameType>(criptoArr[0]);
@@ -36,7 +42,18 @@ export const Game = () => {
 
   return (
     <Wrapper>
-      <GameBlock></GameBlock>
+      <GameBlock>
+        <Roulette>
+          <RouletteWrap>
+            <Pointer />
+            <Slider>
+              {rouletteSlider.map((item, i) => (
+                <Slide key={i} className={item} />
+              ))}
+            </Slider>
+          </RouletteWrap>
+        </Roulette>
+      </GameBlock>
       <TransferBlock>
         <List renderItem={renderItem} data={criptoArr} styles={criptoListCss} />
         <InputWrap>
