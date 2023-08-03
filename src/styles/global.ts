@@ -43,24 +43,24 @@ export default createGlobalStyle`
 	}
 	html {
 		font-size: 14px;
-
-		@media (min-width: 3000px) {
-			font-size: 22px;
-		}
-		@media (min-width: 2800px) {
-			font-size: 20.5px;
-		}
-		@media (min-width: 2600px) {
-			font-size: 19px;
-		}
-		@media (min-width: 2400px) {
-			font-size: 17.5px;
+		
+		@media (min-width: 2000px) {
+			font-size: 15.5px;
 		}
 		@media (min-width: 2200px) {
 			font-size: 15.5px;
 		}
-		@media (min-width: 2000px) {
-			font-size: 15.5px;
+		@media (min-width: 2400px) {
+			font-size: 17.5px;
+		}
+		@media (min-width: 2600px) {
+			font-size: 19px;
+		}
+		@media (min-width: 2800px) {
+			font-size: 20.5px;
+		}
+		@media (min-width: 3000px) {
+			font-size: 22px;
 		}
 	}
 	html,

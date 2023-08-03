@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 
 import { Graph, Lines, Svg, TimerStart, Wrapper, TimerEnd } from './Chart.styled';
 import { getRandomIntInclusive } from 'utils/randomInt';
+import { converterFontSize } from 'utils/converter';
 
 interface ChartProps {
   chartRef?:
@@ -20,28 +21,16 @@ interface ChartProps {
 }
 
 const MS = 100;
-const START_SEC = 10;
+const START_SEC = 0;
 const MIN_SEC = 1.01;
 const MAX_SEC = 10;
 
-const height = 138;
-const width =
-  window.innerWidth >= 3000
-    ? 353
-    : window.innerWidth >= 2800
-    ? 353
-    : window.innerWidth >= 2600
-    ? 353
-    : window.innerWidth >= 2400
-    ? 276
-    : window.innerWidth >= 2200
-    ? 276
-    : window.innerWidth >= 2000
-    ? 276
-    : 246;
-const paddingTop = 7;
-const paddingBottom = 7;
-const paddingLeft = 40;
+const height = converterFontSize(window.innerWidth, 138);
+
+const width = converterFontSize(window.innerWidth, 320);
+const paddingTop = converterFontSize(window.innerWidth, 7);
+const paddingBottom = converterFontSize(window.innerWidth, 7);
+const paddingLeft = converterFontSize(window.innerWidth, 50);
 
 export const Chart = ({ style, chartRef }: ChartProps) => {
   const [data, setData] = useState([1, 2, 3, 4, 5]);
@@ -86,10 +75,10 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
             })
             .style('transform', function (d, i) {
               if (i > 4) {
-                return `translate(0px,${height - 7 - (height / 3) * 4}px)`;
+                return `translate(0px,${height - paddingBottom - (height / 3) * 4}px)`;
               }
 
-              return `translate(0px,${height - 7 - (height / 3) * i}px)`;
+              return `translate(0px,${height - paddingBottom - (height / 3) * i}px)`;
             })
             .classed('line', true),
         (update) =>
@@ -97,7 +86,9 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
             .transition()
             .easeVarying(() => d3.easePolyIn.exponent(1))
             .style('transform', function (d, i, arr) {
-              return `translate(0px,${height - 7 - (height / 3) * i + (arr.length - 5) * 46}px)`;
+              return `translate(0px,${
+                height - paddingBottom - (height / 3) * i + (arr.length - 5) * (height / 3)
+              }px)`;
             })
             .duration(32500 / 3)
       );

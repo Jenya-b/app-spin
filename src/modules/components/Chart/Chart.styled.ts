@@ -2,21 +2,21 @@ import { animated } from '@react-spring/web';
 import styled from 'styled-components';
 
 import { lineIcon } from 'constants/images';
-import { fontStyleLargeBold, fontStyleXXSmallBold } from 'styles/typography';
+import { fontStyleLargeBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled(animated.div)`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   margin-bottom: 12px;
-  padding: 16px;
+  padding: 2rem;
   overflow: hidden;
 `;
 
 export const Graph = styled.div`
   height: 100%;
   position: relative;
-  ${fontStyleXXSmallBold}
+  ${fontStyleXSmallBold}
 `;
 
 export const Lines = styled.div`
@@ -35,7 +35,7 @@ export const Lines = styled.div`
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      height: 4px;
+      height: 0.4rem;
       width: 90%;
       background: url(${lineIcon}) no-repeat;
       background-size: cover;
