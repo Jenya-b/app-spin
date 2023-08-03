@@ -1,8 +1,9 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
-import { SpringValue, update } from '@react-spring/web';
+import { SpringValue } from '@react-spring/web';
 import * as d3 from 'd3';
 
 import { Graph, Lines, Svg, TimerStart, Wrapper, TimerEnd } from './Chart.styled';
+import { getRandomIntInclusive } from 'utils/randomInt';
 
 interface ChartProps {
   chartRef?:
@@ -53,16 +54,12 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
 
   useEffect(() => {
     if (!timerStart) {
-      setRandomNum(getRandomArbitrary(MIN_SEC * MS, MAX_SEC * MS));
+      setRandomNum(getRandomIntInclusive(MIN_SEC * MS, MAX_SEC * MS));
       return;
     }
     const timeout = setTimeout(updateTimerStart, 1000);
     return () => clearTimeout(timeout);
   }, [timerStart]);
-
-  const getRandomArbitrary = (min: number, max: number) => {
-    return Math.round(Math.random() * (max - min) + min);
-  };
 
   useEffect(() => {
     if (timerEnd >= 400 && timerEnd === data[data.length - 2] * 100) {

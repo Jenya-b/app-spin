@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -19,11 +19,17 @@ import {
   UserName,
   UserPost,
 } from './Chat.styled';
-import { IChatData, chatData } from 'data/chat';
+import { IChatData } from 'data/chat';
 import { List } from '../List/List';
+import { getRandomIntInclusive } from 'utils/randomInt';
 
-export const Chat = () => {
+interface ChatProps {
+  chatData: IChatData[];
+}
+
+export const Chat = ({ chatData }: ChatProps) => {
   const { t } = useTranslation();
+  const [messageData, setMessageData] = useState<IChatData[]>(chatData);
   const messagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +38,15 @@ export const Chat = () => {
 
     const lastItem = list[list?.length - 1];
     lastItem.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [messageData]);
+
+  useEffect(() => {
+    const interval = setInterval(updateMessage, 2000);
+    return () => clearInterval(interval);
   }, []);
+
+  const updateMessage = () =>
+    setMessageData((state) => [...state, state[getRandomIntInclusive(0, state.length - 1)]]);
 
   const renderItem = ({ message, time, username }: IChatData) => (
     <MessageWrap>
@@ -52,7 +66,7 @@ export const Chat = () => {
         <Info>{t('chatRules')}</Info>
       </TitleBlock>
       <MessageBlock ref={messagesRef}>
-        <List data={chatData} renderItem={renderItem} styles={listMessageCss} />
+        <List data={messageData} renderItem={renderItem} styles={listMessageCss} />
       </MessageBlock>
       <ControlBlock>
         <Label>

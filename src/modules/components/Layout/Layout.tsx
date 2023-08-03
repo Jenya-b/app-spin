@@ -10,6 +10,7 @@ import { CountDown } from '../CountDown/CountDown';
 import { Loader } from '../Loader/Loader';
 import { Wallet } from '../Wallet/Wallet';
 import { wallet } from 'data/wallet';
+import { chatData } from 'data/chat';
 import { Chart } from '../Chart/Chart';
 
 export const Layout = () => {
@@ -45,7 +46,7 @@ export const Layout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      <Chat />
+      <Chat chatData={chatData} />
       <CountDown days={1} hours={0} minutes={1} seconds={15} />
       <Footer />
     </Wrapper>
