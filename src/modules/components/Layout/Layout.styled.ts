@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   height: 100vh;
   padding: 0 2.3rem 1.43rem 2.3rem;
   display: grid;
-  grid-template: auto 1fr 5.72rem / 27rem 1fr 27rem;
+  grid-template: auto 1fr auto / 27rem 1fr 27rem;
   column-gap: 2.3rem;
 `;
 

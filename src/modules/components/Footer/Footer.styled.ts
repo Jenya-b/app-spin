@@ -8,7 +8,7 @@ import { fontStyleXXLargeBold, fontStyleXXSmallBold, fontStyleXSmallBold } from 
 export const Wrapper = styled.div`
   grid-column: 2/3;
   grid-row: 3/4;
-  padding: 0 16px;
+  padding: 0 2rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -20,11 +20,10 @@ export const Wrapper = styled.div`
 export const ModalBtn = styled.div`
   position: relative;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
-  padding: 9px 10px 8px 26px;
+  padding: 0.8rem 0.8rem 0.7rem 1.85rem;
   color: ${colors.green200};
   background: ${colors.green100};
   ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
   text-transform: uppercase;
   transition: ${({ theme }) => theme.transition};
   cursor: ${({ theme }) => theme.cursor};
@@ -36,25 +35,25 @@ export const ModalBtn = styled.div`
   ::before {
     position: absolute;
     content: '';
-    left: 10px;
+    left: 0.72rem;
     top: 50%;
     transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    width: 0.85rem;
+    height: 0.85rem;
     background: url(${shieldIcon}) no-repeat;
     background-position: center;
+    background-size: contain;
   }
 `;
 
 export const menuListCss = css`
   display: flex;
-  column-gap: 18px;
+  column-gap: 1.3rem;
 `;
 
 export const StyledLink = styled(Link)`
   color: ${colors.whiteTransparent200};
-  ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
   transition: ${({ theme }) => theme.transition};
 
@@ -68,8 +67,8 @@ export const ModalWrap = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 24px;
-  max-width: 585px;
+  padding: 1.7rem;
+  max-width: 42rem;
   width: 100%;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
@@ -82,16 +81,17 @@ export const ModalTitle = styled.h2`
 `;
 
 export const ModalSubtitle = styled.h3`
-  padding: 0 15px;
-  margin-top: 6px;
+  padding: 0 2rem;
+  margin-top: 0.4rem;
   color: rgba(255, 255, 255, 0.75);
   ${fontStyleXSmallBold}
   line-height: normal;
+  text-align: center;
 `;
 
 export const ModalCopyBlock = styled.h3`
-  margin-top: 14px;
-  height: 51px;
+  margin-top: 1rem;
+  height: 3.6rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);

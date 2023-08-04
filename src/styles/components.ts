@@ -27,10 +27,11 @@ export const ButtonPrimary = styled.button`
 
 export const CloseModalBtn = styled.button`
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
+  top: 1.7rem;
+  right: 1.7rem;
+  width: 1.7rem;
+  height: 1.7rem;
   background: url(${closeModalIcon}) no-repeat;
   background-position: center;
+  background-size: contain;
 `;

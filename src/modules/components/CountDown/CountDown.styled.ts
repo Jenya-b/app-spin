@@ -6,16 +6,15 @@ import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
 export const Wrapper = styled.div`
   grid-column: 1/2;
   grid-row: 3/4;
-  padding: 15px;
+  padding: 1.5rem 2rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
 `;
 
 export const Timer = styled.div`
-  margin-top: 4px;
+  margin-top: 0.3rem;
   ${fontStyleXXLargeBold}
-  font-variant-numeric: lining-nums proportional-nums;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
@@ -28,12 +27,11 @@ export const Timer = styled.div`
 export const Info = styled.div`
   display: flex;
   justify-content: space-between;
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleSmallBold}
 
   div:nth-child(2) {
     position: relative;
-    padding-right: 20px;
+    padding-right: 1.43rem;
 
     ::after {
       position: absolute;
@@ -41,16 +39,16 @@ export const Info = styled.div`
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      width: 16px;
-      height: 16px;
+      width: 1.15rem;
+      height: 1.15rem;
       background: url(${criptoIcon.spin}) no-repeat;
       background-size: contain;
     }
   }
 
   div:nth-child(3) {
-    width: 15px;
-    height: 15px;
+    width: 1.15rem;
+    height: 1.15rem;
     background: url(${btnRightIcon}) no-repeat;
     background-size: contain;
     opacity: 0.25;
