@@ -12,16 +12,15 @@ export const Form = styled.form``;
 
 export const InputBlock = styled.div`
   display: grid;
-  grid-template: repeat(2, 1fr) / 2fr 1.5fr 65px;
-  row-gap: 24px;
-  column-gap: 18px;
+  grid-template: repeat(2, 1fr) / 2fr 1.5fr 5.5rem;
+  row-gap: 1.7rem;
+  column-gap: 1.3rem;
 `;
 
 export const Lable = styled.label`
   display: flex;
   flex-direction: column;
   ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
   text-transform: uppercase;
 
   &:nth-child(1) {
@@ -32,15 +31,13 @@ export const Lable = styled.label`
 export const Input = styled.input`
   box-sizing: border-box;
   width: 100%;
-  margin-top: 8px;
-  padding-left: 12px;
-  height: 50px;
-  border-radius: 8px;
+  margin-top: 0.6rem;
+  padding-left: 0.85rem;
+  height: 3.57rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleSmallDemiBold}
-  letter-spacing: -0.154px;
   color: ${({ theme }) => theme.colors.textPrimary};
 
   :disabled {
@@ -51,27 +48,26 @@ export const Input = styled.input`
     ::placeholder {
       color: ${({ theme }) => theme.colors.textPrimary};
       ${fontStyleLargeNormal}
-      letter-spacing: -0.198px;
     }
   }
 `;
 
 export const TransactionBtn = styled(ButtonPrimary)`
-  margin-top: 24px;
+  margin-top: 1.7rem;
   width: 100%;
-  height: 50px;
+  height: 3.57rem;
 
-  padding: 0px 12px;
+  padding: 0px 0.85rem;
 
   ::after {
     background: url(${btnRightIcon}) no-repeat;
   }
 
   :hover {
-    padding: 0px 17px;
+    padding: 0px 1.25rem;
 
     ::after {
-      right: 17px;
+      right: 1.25rem;
     }
   }
 `;

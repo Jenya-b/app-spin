@@ -19,6 +19,7 @@ import {
 } from './Transfer.styled';
 import { criptoIcon } from 'constants/images';
 import { Transaction } from './Transaction/Transaction';
+import { converterFontSize } from 'utils/converter';
 
 interface TransferModalProps {
   closeModal: () => void;
@@ -33,7 +34,11 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
   const springs = useSpring({
     immediate: !transactionRef.current,
     from: { height: '0px', marginTop: '0px', opacity: 0 },
-    to: { height: '236px', marginTop: '26px', opacity: 1 },
+    to: {
+      height: `${converterFontSize(window.innerWidth, 236)}px`,
+      marginTop: `${converterFontSize(window.innerWidth, 26)}px`,
+      opacity: 1,
+    },
     reverse: !isVisibleTransaction,
     config: { duration: 500 },
   });

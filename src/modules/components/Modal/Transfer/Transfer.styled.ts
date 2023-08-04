@@ -16,20 +16,20 @@ interface PraceProps {
 }
 
 export const StyledWrapp = styled(Wrapper)`
-  max-width: 530px;
+  max-width: 37.85rem;
   width: 100%;
 `;
 
 export const PriceWrap = styled.div`
-  margin-top: 18px;
+  margin-top: 1.3rem;
   display: flex;
-  column-gap: 18px;
+  column-gap: 1.3rem;
 `;
 
 export const Price = styled.div<PraceProps>`
-  width: 109px;
-  padding: 18px 0 18px 18px;
-  border-radius: 8px;
+  width: 7.8rem;
+  padding: 1.3rem 0 1.3rem 1.3rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: ${({ active }) => (active ? `${colors.blueLight100}` : `${colors.blue600}`)};
   cursor: ${({ theme }) => theme.cursor};
@@ -37,44 +37,39 @@ export const Price = styled.div<PraceProps>`
 
 export const CriptoName = styled.div`
   position: relative;
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleSmallDemiBold}
-  letter-spacing: -0.132px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  column-gap: 8px;
+  column-gap: 0.6rem;
 `;
 
 export const Icon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 1.7rem;
+  height: 1.7rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 `;
 
 export const InfoText = styled.div`
-  margin-top: 8px;
+  margin-top: 0.6rem;
   opacity: 0.5;
   ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
   text-transform: uppercase;
 `;
 
 export const Count = styled.div`
-  margin-top: 4px;
-  font-variant-numeric: lining-nums proportional-nums;
+  margin-top: 0.3rem;
   ${fontStyleLargeNormal}
-  letter-spacing: -0.198px;
 `;
 
 export const Controls = styled.div`
-  margin-top: 18px;
+  margin-top: 1.3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 18px;
-  height: 50px;
+  column-gap: 1.3rem;
+  height: 3.57rem;
 `;
 
 interface ButtonProps {
@@ -82,41 +77,43 @@ interface ButtonProps {
 }
 
 export const SendBtn = styled(ButtonPrimary)<ButtonProps>`
-  padding: 0px 12px;
+  padding: 0px 0.85rem;
   background: ${({ isactive }) => (isactive ? `${colors.blueLight100}` : `${colors.blue600}`)};
 
   ::after {
     background: url(${sendIcon}) no-repeat;
     background-size: contain;
-    height: 17px;
-    width: 17px;
+    background-position: center;
+    height: 1.25rem;
+    width: 1.25rem;
   }
 
   :hover {
-    padding: 0px 17px;
+    padding: 0px 1.25rem;
 
     ::after {
-      right: 17px;
+      right: 1.25rem;
     }
   }
 `;
 
 export const RecieveBtn = styled(ButtonPrimary)`
-  padding: 0px 12px;
+  padding: 0px 0.85rem;
   background: ${colors.blue600};
 
   ::after {
     background: url(${recieveIcon}) no-repeat;
     background-size: contain;
-    height: 17px;
-    width: 17px;
+    background-position: center;
+    height: 1.25rem;
+    width: 1.25rem;
   }
 
   :hover {
-    padding: 0px 17px;
+    padding: 0px 1.25rem;
 
     ::after {
-      right: 17px;
+      right: 1.25rem;
     }
   }
 `;
