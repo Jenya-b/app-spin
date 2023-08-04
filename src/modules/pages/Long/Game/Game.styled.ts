@@ -3,70 +3,80 @@ import styled from 'styled-components';
 import { forwardIcon } from 'constants/images';
 import {
   fontStyleMediumBold,
+  fontStyleSmallBold,
   fontStyleSmallDemiBold,
   fontStyleXSmallBemiBold,
   fontStyleXSmallBold,
+  fontStyleXSmallNormal,
   fontStyleXXSmallBold,
-  fontStyleXXSmallNormal,
 } from 'styles/typography';
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  padding: 16px;
+  padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
 `;
 
 export const GameBlock = styled.div`
   height: 100%;
-  display: inline-block;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.bgTertiary};
   width: auto;
 `;
 
 export const InGameTitle = styled.div`
-  ${fontStyleXSmallBold}
+  ${fontStyleSmallBold}
 `;
 
 export const InGameList = styled.div`
-  margin-top: 10px;
+  margin-top: 0.72rem;
   display: flex;
-  column-gap: 10px;
+  column-gap: 0.72rem;
   justify-content: space-between;
+
+  img {
+    width: 1.43rem;
+    height: 1.43rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 `;
 
 export const InGameInfoText = styled.div`
-  margin-top: 9px;
-  ${fontStyleXXSmallNormal}
+  margin-top: 0.6rem;
+  ${fontStyleXSmallNormal}
   text-transform: uppercase;
 `;
 
 export const InGameCount = styled.div`
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
 `;
 
 export const Form = styled.form`
-  margin-top: 6px;
+  margin-top: 0.4rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
+  column-gap: 0.72rem;
 
   label:nth-child(2) {
     input {
-      padding-left: 12px;
+      padding-left: 0.85rem;
     }
 
     &::before {
       position: absolute;
       content: 'x';
-      bottom: 13.5px;
-      left: 22px;
+      bottom: 0.96rem;
+      left: 1.6rem;
       color: ${({ theme }) => theme.colors.textPrimary};
       ${fontStyleXXSmallBold}
       text-transform: uppercase;
@@ -77,19 +87,19 @@ export const Form = styled.form`
 
 export const Lable = styled.label`
   position: relative;
-  width: 70px;
-  ${fontStyleXXSmallBold}
+  width: 5rem;
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 `;
 
 export const Input = styled.input`
-  margin-top: 8px;
+  margin-top: 0.6rem;
   width: 100%;
-  height: 40px;
+  height: 2.85rem;
   border-radius: 8px;
-  font-variant-numeric: lining-nums proportional-nums;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: ${({ theme }) => theme.colors.inputPrimary};
+  ${fontStyleXSmallNormal}
   text-align: center;
 
   ::-webkit-outer-spin-button,
@@ -100,18 +110,19 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  height: 40px;
+  height: 2.85rem;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleSmallDemiBold}
   align-self: flex-end;
+  text-transform: uppercase;
 `;
 
 export const TransferBlock = styled.div`
   display: flex;
-  column-gap: 24px;
+  column-gap: 1.7rem;
   align-items: center;
 `;
 
@@ -119,25 +130,24 @@ export const TransferWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 2px;
+  row-gap: 0.15rem;
 `;
 
 export const TransferCount = styled.div`
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleMediumBold}
   text-transform: uppercase;
 `;
 
 export const TransferInfo = styled.div`
   color: rgba(255, 255, 255, 0.5);
-  font-variant-numeric: lining-nums proportional-nums;
-  ${fontStyleXXSmallBold}
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 `;
 
 export const Icon = styled.div`
   background: url(${forwardIcon}) no-repeat;
   background-position: center;
-  width: 24px;
-  height: 24px;
+  background-size: contain;
+  width: 1.7rem;
+  height: 1.7rem;
 `;

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { colors } from 'styles/colors';
 import {
+  fontStyleSmallBold,
   fontStyleSmallDemiBold,
   fontStyleSmallNormal,
   fontStyleXSmallBold,
@@ -12,43 +13,40 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  padding: 16px;
+  padding: 1.5rem 2rem;
   overflow: auto;
 `;
 
 export const HistoryBlock = styled.div`
-  padding: 12px 0 12px 16px;
-  border-radius: 16px;
-  background: #1d1d2c;
+  padding: 0.85rem 0 0.85rem 1.15rem;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  background: ${({ theme }) => theme.colors.bgTertiary};
   overflow: hidden;
 `;
 
 export const Title = styled.h3`
-  font-variant-numeric: lining-nums proportional-nums;
-  ${fontStyleXSmallBold}
+  ${fontStyleSmallBold}
   text-transform: uppercase;
 `;
 
 export const HistoryList = styled.div`
-  margin-top: 8px;
+  margin-top: 0.6rem;
   display: flex;
-  column-gap: 6px;
+  column-gap: 0.4rem;
   color: ${colors.green200};
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleXSmallBold}
-  letter-spacing: -0.11px;
   text-transform: uppercase;
 `;
 
 export const HistoryItem = styled.div`
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   background: rgba(91, 201, 87, 0.15);
 `;
 
 export const Table = styled.div`
-  margin-top: 16px;
-  border-radius: 16px;
+  margin-top: 1.15rem;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   overflow: hidden;
 `;
 
@@ -58,30 +56,29 @@ export const TableRow = styled.div`
 `;
 
 export const UserLogo = styled.img`
-  width: 32px;
-  height: 32px;
-  padding: 3px;
+  width: 2.3rem;
+  height: 2.3rem;
+  padding: 0.21rem;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.06);
 `;
 
 export const UserName = styled.div`
-  padding-left: 10px;
+  padding-left: 0.72rem;
   ${fontStyleSmallNormal}
 `;
 
 export const Params = styled.div`
-  padding-left: 33px;
+  padding-left: 2.36rem;
   display: flex;
   flex-direction: column;
 
   span {
-    font-variant-numeric: lining-nums proportional-nums;
     ${fontStyleXXSmallNormal}
     text-transform: uppercase;
 
     :last-child {
-      margin-top: 3px;
+      margin-top: 0.21rem;
       ${fontStyleSmallDemiBold}
     }
   }
@@ -89,13 +86,11 @@ export const Params = styled.div`
 
 export const Result = styled.div`
   margin-left: auto;
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 0.4rem 0.72rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   background: rgba(91, 201, 87, 0.15);
   color: ${colors.green200};
-  font-variant-numeric: lining-nums proportional-nums;
   ${fontStyleXSmallBold}
-  letter-spacing: -0.11px;
   text-transform: uppercase;
 `;
 
@@ -104,7 +99,7 @@ export const historyListCss = css`
   flex-direction: column;
 
   li {
-    padding: 4px 6px;
+    padding: 0.6rem 0.7rem;
 
     :nth-child(odd) {
       background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
