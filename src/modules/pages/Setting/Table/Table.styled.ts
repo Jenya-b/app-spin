@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 
-import { fontStyleXSmallBold, fontStyleXXSmallDemiBold } from 'styles/typography';
+import { fontStyleSmallBold, fontStyleXSmallNormal } from 'styles/typography';
 
 interface ICountColumns {
   count: number;
 }
 
 export const StyledTable = styled.table<ICountColumns>`
-  margin-top: 12px;
+  margin-top: 0.85rem;
   overflow: auto;
   display: grid;
-  grid-template-columns: repeat(${({ count }) => count}, minmax(150px, 1fr));
-  ${fontStyleXSmallBold}
+  grid-template-columns: repeat(${({ count }) => count}, minmax(10.7rem, 1fr));
+  ${fontStyleSmallBold}
   text-transform: uppercase;
   text-align: left;
-  font-variant-numeric: lining-nums proportional-nums;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
 
   thead,
   tbody,
@@ -42,7 +41,7 @@ export const StyledTable = styled.table<ICountColumns>`
   }
 
   td {
-    padding: 8px 12px 8px 12px;
+    padding: 0.72rem 0.85rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,7 +50,7 @@ export const StyledTable = styled.table<ICountColumns>`
     span {
       :last-child {
         margin-top: 2px;
-        ${fontStyleXXSmallDemiBold}
+        ${fontStyleXSmallNormal}
         opacity: 0.5;
       }
     }

@@ -5,14 +5,14 @@ import {
   fontStyleMediumBold,
   fontStyleSmallDemiBold,
   fontStyleXSmallBemiBold,
-  fontStyleXXSmallBold,
-  fontStyleXXSmallNormal,
+  fontStyleXSmallBold,
+  fontStyleXSmallNormal,
 } from 'styles/typography';
 
 export const Main = styled.main`
   overflow: auto;
-  padding-top: 17px;
-  margin-bottom: 12px;
+  padding-top: 1.5rem;
+  margin-bottom: 0.72rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -21,8 +21,8 @@ export const Main = styled.main`
 `;
 
 export const Title = styled.h2`
-  margin-left: 16px;
-  padding-left: 20px;
+  margin-left: 2rem;
+  padding-left: 1.5rem;
   position: relative;
   ${fontStyleMediumBold}
 
@@ -32,8 +32,8 @@ export const Title = styled.h2`
     left: 0;
     transform: translateY(-50%);
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 1.15rem;
+    height: 1.15rem;
     background: url(${settingIcon}) no-repeat;
     background-size: contain;
     background-position: center;
@@ -42,39 +42,39 @@ export const Title = styled.h2`
 
 export const Wrapper = styled.div`
   overflow: auto;
-  padding: 16px;
-  margin-top: 17px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   display: grid;
   grid-template-rows: auto 1fr;
-  row-gap: 16px;
+  row-gap: 1.15rem;
 `;
 
 export const Form = styled.form`
   display: grid;
-  grid-template: auto 40px / repeat(2, 1fr);
-  gap: 16px;
+  grid-template: auto 2.86rem / repeat(2, 1fr);
+  gap: 1.15rem;
 `;
 
 export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 18px;
+  row-gap: 1.3rem;
 `;
 
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  ${fontStyleXXSmallBold}
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 
   p {
     span {
-      margin-left: 5px;
+      margin-left: 0.36rem;
       display: inline-block;
-      width: 11px;
-      height: 11px;
+      width: 0.85rem;
+      height: 0.85rem;
       background: url(${infoIcon}) no-repeat;
       background-size: contain;
       background-position: center;
@@ -84,9 +84,9 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  margin-top: 8px;
-  height: 40px;
-  padding-left: 12px;
+  margin-top: 0.6rem;
+  height: 2.86rem;
+  padding-left: 0.85rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   background: ${({ theme }) => theme.colors.inputPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
@@ -101,72 +101,73 @@ export const InfoBlock = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.02);
   display: grid;
-  grid-template: 84px 1fr / 1fr;
+  grid-template: 6rem 1fr / 1fr;
 `;
 
 export const UserInfo = styled.div`
   position: relative;
-  padding: 0 16px;
+  padding: 0 1.15rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.02);
   display: flex;
   align-items: center;
   justify-content: end;
-  column-gap: 24px;
+  column-gap: 1.7rem;
 
   ::before {
     position: absolute;
     top: 50%;
-    left: 16px;
+    left: 1.15rem;
     transform: translateY(-50%);
     content: '';
-    width: 42px;
-    height: 30px;
+    width: 3rem;
+    height: 2.14rem;
     background: url(${chipIcon}) no-repeat;
+    background-size: contain;
+    background-position: center;
   }
 `;
 
 export const UserInfoTitle = styled.p`
-  ${fontStyleXXSmallNormal}
+  ${fontStyleXSmallNormal}
   text-transform: uppercase;
 `;
 
 export const UserInfoSubtitle = styled.p`
-  margin-top: 2px;
-  font-variant-numeric: lining-nums proportional-nums;
-  ${fontStyleXSmallBemiBold}
+  margin-top: 0.15rem;
+  ${fontStyleSmallDemiBold}
   text-transform: uppercase;
   display: flex;
-  column-gap: 7px;
+  column-gap: 0.6rem;
 `;
 
 export const ReferalInfo = styled.div`
-  padding: 0 16px;
+  padding: 0 1.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 `;
 
 export const ReferalHref = styled.div`
-  height: 40px;
+  height: 2.85rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   background: ${({ theme }) => theme.colors.bgPrimary};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
+  padding: 0 0.85rem;
 `;
 
 export const ReferalText = styled.p`
-  font-variant-numeric: lining-nums proportional-nums;
-  ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
+  ${fontStyleXSmallBold}
 `;
 
 export const ReferalBtn = styled.button`
-  width: 18px;
-  height: 18px;
+  width: 1.3rem;
+  height: 1.3rem;
   background: url(${copyIcon}) no-repeat;
+  background-size: contain;
+  background-position: center;
 `;
 
 export const ReferalTitle = styled.div`
@@ -177,8 +178,8 @@ export const ReferalTitle = styled.div`
   ${fontStyleMediumBold}
 
   img {
-    width: 60px;
-    height: 17px;
+    width: 4.28rem;
+    height: 1.2rem;
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -194,32 +195,30 @@ export const SubmitBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 0.72rem;
 `;
 
 export const TableBlock = styled.div`
   overflow: auto;
   display: grid;
   grid-template-rows: auto 1fr;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.02);
 `;
 
 export const Tabs = styled.div`
-  padding: 12px 12px 0 12px;
+  padding: 0.85rem 0;
   display: flex;
   column-gap: 8px;
 `;
 
 export const TabBtn = styled.button`
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-variant-numeric: lining-nums proportional-nums;
-  ${fontStyleXXSmallBold}
-  letter-spacing: -0.11px;
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.05);
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
-  padding: 9px 10px;
+  padding: 0.72rem 0.8rem;
 
   &.active {
     background: ${({ theme }) => theme.colors.buttonPrimary};
