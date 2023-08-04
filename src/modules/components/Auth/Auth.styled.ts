@@ -10,6 +10,7 @@ import {
   fontStyleSmallDemiBold,
   fontStyleXXSmallDemiBold,
   fontStyleLargeBold,
+  fontStyleXSmallBold,
 } from 'styles/typography';
 
 export const Wrapper = styled.div`
@@ -17,8 +18,8 @@ export const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 24px 25px;
-  max-width: 370px;
+  padding: 1.7rem;
+  max-width: 26.4rem;
   width: 100%;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
@@ -31,7 +32,7 @@ export const Title = styled.h2`
 `;
 
 export const Subtitle = styled.h3`
-  margin-top: 6px;
+  margin-top: 0.5rem;
   opacity: 0.75;
   ${fontStyleSmallBold}
   text-transform: uppercase;
@@ -39,25 +40,25 @@ export const Subtitle = styled.h3`
 `;
 
 export const Form = styled.form`
-  margin-top: 16px;
-  margin-bottom: 20px;
+  margin-top: 1.15rem;
+  margin-bottom: 1.43rem;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 1.43rem;
 `;
 
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  ${fontStyleXXSmallBold}
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 `;
 
 export const Input = styled.input`
-  padding-left: 10px;
-  margin-top: 8px;
-  height: 51px;
-  border-radius: 8px;
+  padding-left: 0.72rem;
+  margin-top: 0.6rem;
+  height: 3.64rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   color: ${({ theme }) => theme.colors.textPrimary};
@@ -66,7 +67,7 @@ export const Input = styled.input`
 
 export const OtherAuth = styled(Link)`
   position: relative;
-  margin-top: 48px;
+  margin-top: 3.43rem;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -75,10 +76,10 @@ export const OtherAuth = styled(Link)`
   ::before {
     position: absolute;
     content: 'or';
-    top: -25px;
+    top: -1.75rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 6px;
+    padding: 0 0.5rem;
     background: ${({ theme }) => theme.colors.inputPrimary};
     color: ${({ theme }) => theme.colors.textPrimary};
     ${fontStyleXXSmallBold}
@@ -89,7 +90,7 @@ export const OtherAuth = styled(Link)`
   ::after {
     position: absolute;
     content: '';
-    top: -20px;
+    top: -1.48rem;
     left: 0;
     width: 100%;
     height: 1px;
@@ -99,7 +100,7 @@ export const OtherAuth = styled(Link)`
 `;
 
 export const OtherSubtitle = styled.p`
-  padding-top: 30px;
+  padding-top: 2.14rem;
   position: relative;
   color: ${colors.whiteTransparent200};
   ${fontStyleXXSmallDemiBold}
@@ -112,8 +113,8 @@ export const OtherSubtitle = styled.p`
     content: '';
     background: url(${metamaskIcon}) no-repeat;
     background-size: contain;
-    width: 24px;
-    height: 24px;
+    width: 1.7rem;
+    height: 1.7rem;
   }
 `;
 

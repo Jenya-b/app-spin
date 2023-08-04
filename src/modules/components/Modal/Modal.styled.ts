@@ -21,6 +21,7 @@ export const CloseModalBtn = styled.button`
   height: 1.7rem;
   background: url(${closeModalIcon}) no-repeat;
   background-position: center;
+  background-size: contain;
 `;
 
 export const Title = styled.h2`

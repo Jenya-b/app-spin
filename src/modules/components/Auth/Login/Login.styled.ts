@@ -7,36 +7,39 @@ import { fontStyleXXSmallBold } from 'styles/typography';
 
 export const AuthBtn = styled(ButtonPrimary)`
   width: 100%;
-  padding: 17px 12px;
+  padding: 1.2rem 0.85rem;
 
   ::after {
     background: url(${btnRightIcon}) no-repeat;
+    background-size: contain;
+    background-position: center;
   }
 
   :hover {
-    padding: 17px 17px;
+    padding: 1.2rem 1.2rem;
 
     ::after {
-      right: 17px;
+      right: 1.2rem;
     }
   }
 `;
 
 export const RegistrBtn = styled(ButtonPrimary)`
   width: 100%;
-  padding: 17px 12px;
+  padding: 1.2rem 0.85rem;
   background: rgba(255, 255, 255, 0.05);
 
   ::after {
     background: url(${btnPlusIcon}) no-repeat;
     background-size: contain;
+    background-position: center;
   }
 
   :hover {
-    padding: 17px 17px;
+    padding: 1.2rem 1.2rem;
 
     ::after {
-      right: 17px;
+      right: 1.2rem;
     }
   }
 `;
