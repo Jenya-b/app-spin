@@ -35,7 +35,7 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
     immediate: !transactionRef.current,
     from: { height: '0px', marginTop: '0px', opacity: 0 },
     to: {
-      height: `${converterFontSize(window.innerWidth, 236)}px`,
+      height: `${converterFontSize(window.innerWidth, 245)}px`,
       marginTop: `${converterFontSize(window.innerWidth, 26)}px`,
       opacity: 1,
     },

@@ -12,6 +12,7 @@ import { Wallet } from '../Wallet/Wallet';
 import { wallet } from 'data/wallet';
 import { chatData } from 'data/chat';
 import { Chart } from '../Chart/Chart';
+import { converterFontSize } from 'utils/converter';
 
 export const Layout = () => {
   const { pathname } = useLocation();
@@ -21,11 +22,11 @@ export const Layout = () => {
   const springs = useSpring({
     immediate: !chartRef.current,
     from: {
-      height: '13.8rem',
+      height: `${converterFontSize(window.innerWidth, 193)}px`,
       opacity: 1,
-      marginBottom: '0.85rem',
-      borderWidth: '0.072rem',
-      padding: '2rem',
+      marginBottom: `${converterFontSize(window.innerWidth, 12)}px`,
+      borderWidth: `${converterFontSize(window.innerWidth, 1)}px`,
+      padding: `${converterFontSize(window.innerWidth, 28)}px`,
     },
     to: { height: '0px', opacity: 0, marginBottom: '0px', borderWidth: '0px', padding: '0px' },
     reverse: !isVisible,

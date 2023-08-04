@@ -5,7 +5,7 @@ import { ButtonPrimary } from 'styles/components';
 import {
   fontStyleLargeNormal,
   fontStyleSmallDemiBold,
-  fontStyleXXSmallBold,
+  fontStyleXSmallBold,
 } from 'styles/typography';
 
 export const Form = styled.form``;
@@ -20,7 +20,7 @@ export const InputBlock = styled.div`
 export const Lable = styled.label`
   display: flex;
   flex-direction: column;
-  ${fontStyleXXSmallBold}
+  ${fontStyleXSmallBold}
   text-transform: uppercase;
 
   &:nth-child(1) {
@@ -61,6 +61,8 @@ export const TransactionBtn = styled(ButtonPrimary)`
 
   ::after {
     background: url(${btnRightIcon}) no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   :hover {
