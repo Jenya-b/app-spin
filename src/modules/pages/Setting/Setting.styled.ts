@@ -12,7 +12,7 @@ import {
 export const Main = styled.main`
   overflow: auto;
   padding-top: 1.5rem;
-  margin-bottom: 0.72rem;
+  margin-bottom: 0.85rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};

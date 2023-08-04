@@ -151,11 +151,18 @@ export const socialMenuListCss = css`
   column-gap: 1rem;
 
   li {
-    svg {
-      :hover {
-        path {
-          transition: all 0.3s;
-          fill-opacity: 1;
+    a {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      svg {
+        width: 100%;
+        height: 100%;
+        :hover {
+          path {
+            transition: all 0.3s;
+            fill-opacity: 1;
+          }
         }
       }
     }
@@ -172,6 +179,8 @@ export const SettingLink = styled(Link)`
     transform: rotate(-90deg);
 
     svg {
+      width: 100%;
+      height: 100%;
       path {
         transition: ${({ theme }) => theme.transition};
         fill: ${colors.blueLight100};
