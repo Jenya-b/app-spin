@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { fontStyleSmallBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
-  padding: 16px;
+  padding: 1.5rem 2rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -65,7 +65,7 @@ export const ControlBlock = styled.div`
 
 export const InfoBlock = styled.div`
   overflow: auto;
-  padding: 16px;
+  padding: 1.2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -83,7 +83,7 @@ export const Button = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${fontStyleXSmallBold}
+  ${fontStyleSmallBold}
   text-transform: uppercase;
 `;
 export const Long = styled.p`
@@ -94,12 +94,12 @@ export const InputWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 24px;
-  ${fontStyleXXSmallBold}
+  column-gap: 1.7rem;
+  ${fontStyleXSmallBold}
 `;
 
 export const InGameUser = styled.p`
-  padding-left: 24px;
+  padding-left: 1.7rem;
   position: relative;
   text-transform: uppercase;
 
@@ -109,8 +109,8 @@ export const InGameUser = styled.p`
     left: 0;
     transform: translateY(-50%);
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 1.15rem;
+    height: 1.15rem;
     border-radius: 50%;
   }
 
@@ -131,39 +131,39 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  margin-left: 6px;
-  padding-left: 10px;
+  margin-left: 0.5rem;
+  padding-left: 0.72rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: rgba(255, 255, 255, 0.05);
-  height: 20px;
-  width: 60px;
+  height: 1.43rem;
+  width: 4.3rem;
 `;
 
 export const listRouletteData = css`
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 17px;
+  column-gap: 1.25rem;
   height: 100%;
 
   li {
     overflow: auto;
     display: grid;
     grid-template-rows: auto 1fr;
-    row-gap: 12px;
+    row-gap: 0.85rem;
   }
 `;
 
 export const UserLogo = styled.div`
-  width: 24px;
-  height: 24px;
+  width: 1.7rem;
+  height: 1.7rem;
   border-radius: 50%;
   background: silver;
 `;
 
 export const UserName = styled.p`
-  margin-left: 6px;
+  margin-left: 0.5rem;
   margin-right: auto;
   ${fontStyleSmallBold}
 `;
@@ -183,12 +183,12 @@ export const UserAmount = styled.p`
 
 export const listRouletteUserData = css`
   overflow: auto;
-  margin-top: 6px;
+  margin-top: 0.5rem;
 
   li {
     display: flex;
     align-items: center;
-    padding: 10px 0 10px 0;
+    padding: 0.72rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.02);
   }
 `;
@@ -199,16 +199,21 @@ export const NoBids = styled.div`
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 export const NoBidsTitle = styled.p`
-  margin-top: 8px;
+  margin-top: 0.6rem;
   ${fontStyleXSmallBold}
   opacity: 0.5;
 `;
 
 export const NoBidsSubtitle = styled.p`
-  margin-top: 4px;
+  margin-top: 0.3rem;
   ${fontStyleXXSmallBold}
   opacity: 0.25;
 `;
