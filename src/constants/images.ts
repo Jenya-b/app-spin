@@ -61,6 +61,7 @@ export const cryptoIcon = {
   xmr: '/source/images/icons/xmr.svg',
   ltc: '/source/images/icons/ltc.svg',
   spin: '/source/images/icons/spin.svg',
+  eth: '/source/images/icons/eth.svg',
 };
 
 export const diamondIcon = {
