@@ -21,7 +21,7 @@ import {
 } from './Wallet.styled';
 import { IWallet } from 'data/wallet';
 import { List } from '../List/List';
-import { criptoIcon } from 'constants/images';
+import { cryptoIcon } from 'constants/images';
 import { BasicModal } from '../Modal/Modal';
 import { TransferModal } from '../Modal/Transfer/Transfer';
 
@@ -34,26 +34,26 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
   const [isOpenModal, setOpenModal] = useState(false);
   const { t } = useTranslation();
 
-  const renderItem = ({ criptoName, amount, available, inGame }: IWallet) => (
+  const renderItem = ({ cryptoName, amount, available, inGame }: IWallet) => (
     <MoneyWrap>
       <MoneyTitle active={activeBlock}>
-        <Icon active={activeBlock} src={criptoIcon[`${criptoName}`]} />
-        {criptoName}
+        <Icon active={activeBlock} src={cryptoIcon[`${cryptoName}`]} />
+        {cryptoName}
       </MoneyTitle>
       <MoneyCount>
         <CountWrap>
           <CountTitle active={activeBlock}>{t('amount')}</CountTitle>
-          <CountCripto active={activeBlock}>{amount.cripto}</CountCripto>
+          <CountCripto active={activeBlock}>{amount.crypto}</CountCripto>
           <CountUsd active={activeBlock}>${amount.usd}</CountUsd>
         </CountWrap>
         <CountWrap>
           <CountTitle active={activeBlock}>{t('inGame')}</CountTitle>
-          <CountCripto active={activeBlock}>{inGame.cripto}</CountCripto>
+          <CountCripto active={activeBlock}>{inGame.crypto}</CountCripto>
           <CountUsd active={activeBlock}>${inGame.usd}</CountUsd>
         </CountWrap>
         <CountWrap>
           <CountTitle active={activeBlock}>{t('available')}</CountTitle>
-          <CountCripto active={activeBlock}>{available.cripto}</CountCripto>
+          <CountCripto active={activeBlock}>{available.crypto}</CountCripto>
           <CountUsd active={activeBlock}>${available.usd}</CountUsd>
         </CountWrap>
       </MoneyCount>

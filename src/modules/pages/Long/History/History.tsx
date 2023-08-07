@@ -14,7 +14,7 @@ import {
   Params,
 } from './History.styled';
 import { IHistoryData, historyData } from 'data/long';
-import { criptoIcon } from 'constants/images';
+import { cryptoIcon } from 'constants/images';
 
 interface HistoryProps {
   historyNumbers: number[];
@@ -23,7 +23,7 @@ interface HistoryProps {
 export const History = ({ historyNumbers }: HistoryProps) => {
   const renderItem = ({ userName, bet, withdraw, result }: IHistoryData) => (
     <TableRow>
-      <UserLogo src={criptoIcon.btc} />
+      <UserLogo src={cryptoIcon.btc} />
       <UserName>{userName}</UserName>
       <Params>
         <span>bet:</span>

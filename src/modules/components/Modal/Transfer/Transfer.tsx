@@ -17,7 +17,7 @@ import {
   SendBtn,
   TransactionBlock,
 } from './Transfer.styled';
-import { criptoIcon } from 'constants/images';
+import { cryptoIcon } from 'constants/images';
 import { Transaction } from './Transaction/Transaction';
 import { converterFontSize } from 'utils/converter';
 
@@ -58,16 +58,16 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
       <Title>{t('transfer')}</Title>
       <Subtitle>{t('exchangeRate')}</Subtitle>
       <PriceWrap>
-        {transfer.map(({ criptoName, price }) => (
+        {transfer.map(({ cryptoName, price }) => (
           <Price
-            id={criptoName}
-            active={selectedCurrency === criptoName}
+            id={cryptoName}
+            active={selectedCurrency === cryptoName}
             onClick={handleClickCurrency}
-            key={criptoName}
+            key={cryptoName}
           >
             <CriptoName>
-              <Icon src={criptoIcon[`${criptoName}`]} />
-              {criptoName}
+              <Icon src={cryptoIcon[`${cryptoName}`]} />
+              {cryptoName}
             </CriptoName>
             <InfoText>{t('price')}</InfoText>
             <Count>${price}</Count>

@@ -12,16 +12,16 @@ import {
   Lable,
   criptoListCss,
 } from './CreateGameBlock.styled';
-import { CriptoNameType } from 'interfaces/cripto';
-import { criptoArr } from 'constants/cripto';
+import { CryptoNameType } from 'interfaces/crypto';
+import { cryptoArr } from 'constants/crypto';
 import { List } from 'modules/components/List/List';
 import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
 
 export const CreateGameBlock = () => {
-  const [criptoActive, setCriptoActive] = useState<CriptoNameType>(criptoArr[0]);
+  const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
   const { t } = useTranslation();
 
-  const renderItem = (item: CriptoNameType) => (
+  const renderItem = (item: CryptoNameType) => (
     <CryptoBtn
       criptoActive={criptoActive}
       cryptoName={item}
@@ -30,7 +30,7 @@ export const CreateGameBlock = () => {
   );
 
   const handleActiveCripto = (event: MouseEvent<HTMLDivElement>) => {
-    const id = event.currentTarget.id as CriptoNameType;
+    const id = event.currentTarget.id as CryptoNameType;
 
     setCriptoActive(id);
   };
@@ -41,7 +41,7 @@ export const CreateGameBlock = () => {
         <Lable>
           <span>{t('bet')}</span>
           <Input placeholder={t('amount')} />
-          <List renderItem={renderItem} data={criptoArr} styles={criptoListCss} />
+          <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
         </Lable>
       </div>
       <CoinInfo>

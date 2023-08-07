@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { btnRightIcon, criptoIcon } from 'constants/images';
+import { btnRightIcon, cryptoIcon } from 'constants/images';
 import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
@@ -41,7 +41,7 @@ export const Info = styled.div`
       transform: translateY(-50%);
       width: 1.15rem;
       height: 1.15rem;
-      background: url(${criptoIcon.spin}) no-repeat;
+      background: url(${cryptoIcon.spin}) no-repeat;
       background-size: contain;
     }
   }

@@ -1,12 +1,12 @@
 import { MouseEvent } from 'react';
 
-import { CriptoNameType } from 'interfaces/cripto';
+import { CryptoNameType } from 'interfaces/crypto';
 import { Wrapper } from './CryptoBtn.styled';
-import { criptoIcon } from 'constants/images';
+import { cryptoIcon } from 'constants/images';
 
 interface CryptoBtnProps {
-  cryptoName: CriptoNameType;
-  criptoActive: CriptoNameType;
+  cryptoName: CryptoNameType;
+  criptoActive: CryptoNameType;
   handleActiveCripto: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -16,6 +16,6 @@ export const CryptoBtn = ({ cryptoName, criptoActive, handleActiveCripto }: Cryp
     className={cryptoName === criptoActive ? 'active' : ''}
     onClick={handleActiveCripto}
   >
-    <img src={criptoIcon[cryptoName]} alt="" />
+    <img src={cryptoIcon[cryptoName]} alt="" />
   </Wrapper>
 );

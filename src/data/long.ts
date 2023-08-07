@@ -1,29 +1,29 @@
-import { CriptoNameType } from 'interfaces/cripto';
+import { CryptoNameType } from 'interfaces/crypto';
 
 export interface InGameDataType {
-  criptoName: CriptoNameType;
+  cryptoName: CryptoNameType;
   amount: number;
 }
 
 export const inGameData: InGameDataType[] = [
   {
-    criptoName: 'btc',
+    cryptoName: 'btc',
     amount: 0.003,
   },
   {
-    criptoName: 'usdt',
+    cryptoName: 'usdt',
     amount: 0.003,
   },
   {
-    criptoName: 'xmr',
+    cryptoName: 'xmr',
     amount: 0.003,
   },
   {
-    criptoName: 'ltc',
+    cryptoName: 'ltc',
     amount: 0.003,
   },
   {
-    criptoName: 'spin',
+    cryptoName: 'spin',
     amount: 0.003,
   },
 ];

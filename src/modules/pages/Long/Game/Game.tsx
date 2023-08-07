@@ -16,7 +16,7 @@ import {
   TransferWrap,
 } from './Game.styled';
 import { InGameDataType } from 'data/long';
-import { criptoIcon } from 'constants/images';
+import { cryptoIcon } from 'constants/images';
 import { useState, useEffect, FormEvent, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -52,9 +52,9 @@ export const Game = ({ data }: GameProps) => {
       <GameBlock>
         <InGameTitle>{t('inGame')}</InGameTitle>
         <InGameList>
-          {data.map(({ amount, criptoName }) => (
-            <div key={criptoName}>
-              <img src={criptoIcon[criptoName]} />
+          {data.map(({ amount, cryptoName }) => (
+            <div key={cryptoName}>
+              <img src={cryptoIcon[cryptoName]} />
               <InGameInfoText>{t('amount')}</InGameInfoText>
               <InGameCount>{amount}</InGameCount>
             </div>

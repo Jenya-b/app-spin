@@ -55,7 +55,7 @@ export const menuIcon = {
   },
 };
 
-export const criptoIcon = {
+export const cryptoIcon = {
   btc: '/source/images/icons/btc.svg',
   usdt: '/source/images/icons/usdt.svg',
   xmr: '/source/images/icons/xmr.svg',

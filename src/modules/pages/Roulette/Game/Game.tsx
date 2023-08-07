@@ -25,15 +25,15 @@ import {
   LastGameWrap,
   LastGameItem,
 } from './Game.styled';
-import { criptoArr } from 'constants/cripto';
-import { CriptoNameType } from 'interfaces/cripto';
+import { cryptoArr } from 'constants/crypto';
+import { CryptoNameType } from 'interfaces/crypto';
 import { historyRoulette, lastResult, rouletteSlider } from 'data/roulette';
 import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
 
 export const Game = () => {
-  const [criptoActive, setCriptoActive] = useState<CriptoNameType>(criptoArr[0]);
+  const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
 
-  const renderItem = (item: CriptoNameType) => (
+  const renderItem = (item: CryptoNameType) => (
     <CryptoBtn
       criptoActive={criptoActive}
       cryptoName={item}
@@ -42,7 +42,7 @@ export const Game = () => {
   );
 
   const handleActiveCripto = (event: MouseEvent<HTMLDivElement>) => {
-    const id = event.currentTarget.id as CriptoNameType;
+    const id = event.currentTarget.id as CryptoNameType;
 
     setCriptoActive(id);
   };
@@ -83,7 +83,7 @@ export const Game = () => {
         </InfoBlock>
       </GameBlock>
       <TransferBlock>
-        <List renderItem={renderItem} data={criptoArr} styles={criptoListCss} />
+        <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
         <InputWrap>
           <InGameUser>16 gamers</InGameUser>
           <Label>

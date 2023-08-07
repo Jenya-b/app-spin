@@ -1,95 +1,95 @@
-import { CriptoNameType } from 'interfaces/cripto';
+import { CryptoNameType } from 'interfaces/crypto';
 
 interface MoneyType {
-  cripto: number;
+  crypto: number;
   usd: number;
 }
 
 export interface IWallet {
-  criptoName: CriptoNameType;
+  cryptoName: CryptoNameType;
   amount: MoneyType;
   inGame: MoneyType;
   available: MoneyType;
 }
 
 interface ITransfer {
-  criptoName: CriptoNameType;
+  cryptoName: CryptoNameType;
   price: number;
 }
 
 export const wallet: IWallet[] = [
   {
-    criptoName: 'btc',
+    cryptoName: 'btc',
     amount: {
-      cripto: 0.43,
+      crypto: 0.43,
       usd: 240.31,
     },
     inGame: {
-      cripto: 0.0003,
+      crypto: 0.0003,
       usd: 40.31,
     },
     available: {
-      cripto: 0.42007,
+      crypto: 0.42007,
       usd: 200,
     },
   },
   {
-    criptoName: 'usdt',
+    cryptoName: 'usdt',
     amount: {
-      cripto: 0.43,
+      crypto: 0.43,
       usd: 240.31,
     },
     inGame: {
-      cripto: 0.0003,
+      crypto: 0.0003,
       usd: 40.31,
     },
     available: {
-      cripto: 0.42007,
+      crypto: 0.42007,
       usd: 200,
     },
   },
   {
-    criptoName: 'xmr',
+    cryptoName: 'xmr',
     amount: {
-      cripto: 0.43,
+      crypto: 0.43,
       usd: 240.31,
     },
     inGame: {
-      cripto: 0.0003,
+      crypto: 0.0003,
       usd: 40.31,
     },
     available: {
-      cripto: 0.42007,
+      crypto: 0.42007,
       usd: 200,
     },
   },
   {
-    criptoName: 'ltc',
+    cryptoName: 'ltc',
     amount: {
-      cripto: 0.43,
+      crypto: 0.43,
       usd: 240.31,
     },
     inGame: {
-      cripto: 0.0003,
+      crypto: 0.0003,
       usd: 40.31,
     },
     available: {
-      cripto: 0.42007,
+      crypto: 0.42007,
       usd: 200,
     },
   },
   {
-    criptoName: 'spin',
+    cryptoName: 'spin',
     amount: {
-      cripto: 0.43,
+      crypto: 0.43,
       usd: 240.31,
     },
     inGame: {
-      cripto: 0.0003,
+      crypto: 0.0003,
       usd: 40.31,
     },
     available: {
-      cripto: 0.42007,
+      crypto: 0.42007,
       usd: 200,
     },
   },
@@ -97,19 +97,19 @@ export const wallet: IWallet[] = [
 
 export const transfer: ITransfer[] = [
   {
-    criptoName: 'btc',
+    cryptoName: 'btc',
     price: 30000,
   },
   {
-    criptoName: 'usdt',
+    cryptoName: 'usdt',
     price: 30000,
   },
   {
-    criptoName: 'xmr',
+    cryptoName: 'xmr',
     price: 30000,
   },
   {
-    criptoName: 'ltc',
+    cryptoName: 'ltc',
     price: 30000,
   },
 ];
