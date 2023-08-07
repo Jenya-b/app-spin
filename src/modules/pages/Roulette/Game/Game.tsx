@@ -1,10 +1,11 @@
+import { useState, MouseEvent } from 'react';
+
 import { List } from 'modules/components/List/List';
 import {
   Wrapper,
   GameBlock,
   TransferBlock,
   criptoListCss,
-  ImageWrap,
   InGameUser,
   Input,
   InputWrap,
@@ -26,21 +27,18 @@ import {
 } from './Game.styled';
 import { criptoArr } from 'constants/cripto';
 import { CriptoNameType } from 'interfaces/cripto';
-import { criptoIcon } from 'constants/images';
-import { useState, MouseEvent } from 'react';
 import { historyRoulette, lastResult, rouletteSlider } from 'data/roulette';
+import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
 
 export const Game = () => {
   const [criptoActive, setCriptoActive] = useState<CriptoNameType>(criptoArr[0]);
 
   const renderItem = (item: CriptoNameType) => (
-    <ImageWrap
-      id={item}
-      className={item === criptoActive ? 'active' : ''}
-      onClick={handleActiveCripto}
-    >
-      <img src={criptoIcon[item]} alt="" />
-    </ImageWrap>
+    <CryptoBtn
+      criptoActive={criptoActive}
+      cryptoName={item}
+      handleActiveCripto={handleActiveCripto}
+    />
   );
 
   const handleActiveCripto = (event: MouseEvent<HTMLDivElement>) => {

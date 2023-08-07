@@ -16,7 +16,7 @@ export const navMenu: INavMenu[] = [
   {
     title: 'btc x eth',
     iconUrl: menuIcon.btnEth,
-    path: path.btnEth,
+    path: path.btcEth,
   },
   {
     title: 'futures',

@@ -1,7 +1,7 @@
 export const path = {
   home: '/',
   roulette: '/roulette',
-  btnEth: '/btn-eth',
+  btcEth: '/btc-eth',
   futures: '/futures',
   setting: '/setting',
 };
