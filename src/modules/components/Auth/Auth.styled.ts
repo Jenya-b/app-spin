@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   max-width: 26.4rem;
   width: 100%;
   background: ${({ theme }) => theme.colors.inputPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
 `;
 
 export const Title = styled.h2`
@@ -58,7 +58,7 @@ export const Input = styled.input`
   padding-left: 0.72rem;
   margin-top: 0.6rem;
   height: 3.64rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   color: ${({ theme }) => theme.colors.textPrimary};

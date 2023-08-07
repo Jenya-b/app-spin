@@ -2,11 +2,11 @@ import { animated } from '@react-spring/web';
 import styled from 'styled-components';
 
 import { lineIcon } from 'constants/images';
-import { fontStyleLargeBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 'styles/typography';
+import { fontStyleLargeBold, fontStyleXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled(animated.div)`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   margin-bottom: 12px;
   padding: 2rem;

@@ -11,7 +11,7 @@ import {
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   padding: 1.5rem 2rem;
   overflow: auto;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
 export const HistoryBlock = styled.div`
   padding: 0.85rem 0 0.85rem 1.15rem;
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   overflow: hidden;
 `;
@@ -40,13 +40,13 @@ export const HistoryList = styled.div`
 
 export const HistoryItem = styled.div`
   padding: 0.5rem 0.8rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: rgba(91, 201, 87, 0.15);
 `;
 
 export const Table = styled.div`
   margin-top: 1.15rem;
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   overflow: hidden;
 `;
 
@@ -87,7 +87,7 @@ export const Params = styled.div`
 export const Result = styled.div`
   margin-left: auto;
   padding: 0.4rem 0.72rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: rgba(91, 201, 87, 0.15);
   color: ${colors.green200};
   ${fontStyleXSmallBold}

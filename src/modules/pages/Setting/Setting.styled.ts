@@ -14,7 +14,7 @@ export const Main = styled.main`
   padding-top: 1.5rem;
   margin-bottom: 0.85rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-rows: auto 1fr;
@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
   padding: 1.5rem 2rem;
   margin-top: 1.2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   display: grid;
   grid-template-rows: auto 1fr;
   row-gap: 1.15rem;
@@ -87,7 +87,7 @@ export const Input = styled.input`
   margin-top: 0.6rem;
   height: 2.86rem;
   padding-left: 0.85rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;
@@ -98,7 +98,7 @@ export const InfoBlock = styled.div`
   background: url(${card}) no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.02);
   display: grid;
   grid-template: 6rem 1fr / 1fr;
@@ -107,7 +107,7 @@ export const InfoBlock = styled.div`
 export const UserInfo = styled.div`
   position: relative;
   padding: 0 1.15rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.02);
   display: flex;
   align-items: center;
@@ -150,7 +150,7 @@ export const ReferalInfo = styled.div`
 
 export const ReferalHref = styled.div`
   height: 2.85rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.bgPrimary};
   display: flex;
   align-items: center;
@@ -189,7 +189,7 @@ export const SubmitBtn = styled.button`
   grid-column: 1/3;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
   display: flex;
@@ -202,7 +202,7 @@ export const TableBlock = styled.div`
   overflow: auto;
   display: grid;
   grid-template-rows: auto 1fr;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.02);
 `;
 
@@ -217,7 +217,7 @@ export const TabBtn = styled.button`
   ${fontStyleXSmallBold}
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   padding: 0.72rem 0.8rem;
 
   &.active {

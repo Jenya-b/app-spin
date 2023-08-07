@@ -34,7 +34,7 @@ export const Input = styled.input`
   margin-top: 0.6rem;
   padding-left: 0.85rem;
   height: 3.57rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
   ${fontStyleSmallDemiBold}

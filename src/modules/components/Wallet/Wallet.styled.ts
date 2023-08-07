@@ -16,7 +16,7 @@ interface AnimationElemProps {
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template: auto 1fr auto / 1fr;

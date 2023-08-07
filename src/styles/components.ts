@@ -9,7 +9,7 @@ export const ButtonPrimary = styled.button`
   color: ${({ theme }) => theme.colors.textPrimary};
   ${fontStyleSmallDemiBold}
   text-transform: uppercase;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   transition: ${({ theme }) => theme.transition};
 

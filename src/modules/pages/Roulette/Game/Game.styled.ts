@@ -5,7 +5,7 @@ import { fontStyleLargeBold, fontStyleSmallBold, fontStyleXSmallBold } from 'sty
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   overflow: auto;
 `;
@@ -123,7 +123,7 @@ export const Roulette = styled.div`
 export const RouletteWrap = styled.div`
   padding: 0.28rem 0;
   background: ${({ theme }) => theme.colors.bgPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   overflow: auto;
 `;
 
@@ -161,7 +161,7 @@ export const Slide = styled.div`
   position: relative;
   width: 4.43rem;
   height: 4.43rem;
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
 
   ::before {
     position: absolute;
@@ -222,7 +222,7 @@ export const TransferBlock = styled.div`
   margin-top: 0.9rem;
   padding: 1rem 2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -278,7 +278,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   margin-left: 0.5rem;
   padding-left: 0.72rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: rgba(255, 255, 255, 0.05);
   height: 1.43rem;

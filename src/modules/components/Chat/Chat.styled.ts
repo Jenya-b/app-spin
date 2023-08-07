@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { diamondIcon, infoIcon, inputBtnIcon, messageChatIcon } from 'constants/images';
 import {
-  fontStyleMediumBold,
   fontStyleMediumDemiBold,
   fontStyleSmallBold,
   fontStyleSmallDemiBold,
@@ -14,7 +13,7 @@ export const Wrapper = styled.div`
   grid-column: 3/4;
   grid-row: 2/4;
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template: auto 1fr auto / 1fr;
@@ -49,7 +48,7 @@ export const Title = styled.h2`
 export const Info = styled.div`
   position: relative;
   padding: 0.41rem 0.72rem 0.4rem 2rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   ${fontStyleXXSmallBold}
   text-transform: uppercase;
@@ -71,7 +70,7 @@ export const Info = styled.div`
 export const MessageBlock = styled.div`
   margin-top: 0.85rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   padding: 1.2rem 2rem;
   overflow: auto;
 `;
@@ -93,7 +92,7 @@ export const Input = styled.input`
   padding-right: 2.9rem;
   width: 100%;
   height: 100%;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-family: 'Raleway', sans-serif;

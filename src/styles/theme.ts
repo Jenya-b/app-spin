@@ -24,8 +24,8 @@ export const theme = createTheme({
   },
 
   borders: {
-    radiusPrimary: 16,
-    radiusSecondary: 8,
+    radiusPrimary: 1.15,
+    radiusSecondary: 0.6,
   },
 
   media: {

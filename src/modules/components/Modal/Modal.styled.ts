@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   transform: translate(-50%, -50%);
   padding: 1.7rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
 `;
 
 export const CloseModalBtn = styled.button`

@@ -11,7 +11,7 @@ import {
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   padding: 0 2rem;
   display: grid;
@@ -49,7 +49,7 @@ export const ChooseCoin = styled.div`
 
 export const CoinInfo = styled.div`
   background: ${({ theme }) => theme.colors.bgTertiary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   height: 12rem;
   display: flex;
   justify-content: space-around;
@@ -106,7 +106,7 @@ export const Input = styled.input`
   padding-left: 0.85rem;
   width: 100%;
   height: 2.85rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: ${({ theme }) => theme.colors.inputPrimary};
   ${fontStyleXSmallNormal}

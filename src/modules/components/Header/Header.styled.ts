@@ -104,7 +104,7 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   ${fontStyleXSmallBemiBold}
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.textPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid ${({ theme }) => theme.colors.bgPrimary};
   transition: ${({ theme }) => theme.transition};
 

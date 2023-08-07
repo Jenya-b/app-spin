@@ -14,7 +14,7 @@ export const StyledTable = styled.table<ICountColumns>`
   ${fontStyleSmallBold}
   text-transform: uppercase;
   text-align: left;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
 
   thead,
   tbody,

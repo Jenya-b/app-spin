@@ -5,7 +5,7 @@ import { fontStyleSmallBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 's
 export const Wrapper = styled.div`
   padding: 1.5rem 2rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   overflow: auto;
 `;
@@ -16,7 +16,7 @@ export const ControlBlock = styled.div`
   grid-template-columns: 1fr 7.75rem 1fr;
   justify-items: center;
   align-items: center;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   ${fontStyleXSmallBold}
   text-transform: uppercase;
@@ -67,14 +67,14 @@ export const InfoBlock = styled.div`
   overflow: auto;
   padding: 1.2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-rows: auto 1fr;
 `;
 
 export const Button = styled.button`
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   height: 100%;
@@ -133,7 +133,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   margin-left: 0.5rem;
   padding-left: 0.72rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: rgba(255, 255, 255, 0.05);
   height: 1.43rem;

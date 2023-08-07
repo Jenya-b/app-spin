@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   grid-row: 3/4;
   padding: 0 2rem;
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 
 export const ModalBtn = styled.div`
   position: relative;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   padding: 0.8rem 0.8rem 0.7rem 1.85rem;
   color: ${colors.green200};
   background: ${colors.green100};
@@ -71,7 +71,7 @@ export const ModalWrap = styled.div`
   max-width: 42rem;
   width: 100%;
   background: ${({ theme }) => theme.colors.inputPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
 `;
 
 export const ModalTitle = styled.h2`
@@ -92,7 +92,7 @@ export const ModalSubtitle = styled.h3`
 export const ModalCopyBlock = styled.h3`
   margin-top: 1rem;
   height: 3.6rem;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.05);
 `;

@@ -13,7 +13,7 @@ import {
 
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   padding: 1.5rem 2rem;
   display: flex;
@@ -26,7 +26,7 @@ export const GameBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   width: auto;
 `;
@@ -96,7 +96,7 @@ export const Input = styled.input`
   margin-top: 0.6rem;
   width: 100%;
   height: 2.85rem;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: ${({ theme }) => theme.colors.inputPrimary};
   ${fontStyleXSmallNormal}
@@ -111,7 +111,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   height: 2.85rem;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-variant-numeric: lining-nums proportional-nums;

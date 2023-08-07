@@ -29,7 +29,7 @@ export const PriceWrap = styled.div`
 export const Price = styled.div<PraceProps>`
   width: 7.8rem;
   padding: 1.3rem 0 1.3rem 1.3rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}px;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: ${({ active }) => (active ? `${colors.blueLight100}` : `${colors.blue600}`)};
   cursor: ${({ theme }) => theme.cursor};
