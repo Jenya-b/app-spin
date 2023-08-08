@@ -2,15 +2,6 @@ import { useTranslation } from 'react-i18next';
 
 import {
   Wrapper,
-  GameBlock,
-  InGameCount,
-  InGameInfoText,
-  InGameList,
-  InGameTitle,
-  Button,
-  Form,
-  Input,
-  Lable,
   Icon,
   TransferBlock,
   TransferCount,
@@ -18,7 +9,8 @@ import {
   TransferWrap,
 } from './Game.styled';
 import { InGameDataType } from 'data/long';
-import { cryptoIcon } from 'constants/images';
+import { InGame } from 'modules/components/InGame/InGame';
+import { Bet } from 'modules/components/Bet/Bet';
 
 interface GameProps {
   data: InGameDataType[];
@@ -29,18 +21,7 @@ export const Game = ({ data }: GameProps) => {
 
   return (
     <Wrapper>
-      <GameBlock>
-        <InGameTitle>{t('inGame')}</InGameTitle>
-        <InGameList>
-          {data.map(({ amount, cryptoName }) => (
-            <div key={cryptoName}>
-              <img src={cryptoIcon[cryptoName]} />
-              <InGameInfoText>{t('amount')}</InGameInfoText>
-              <InGameCount>{amount}</InGameCount>
-            </div>
-          ))}
-        </InGameList>
-      </GameBlock>
+      <InGame data={data} />
       <TransferBlock>
         <TransferWrap>
           <TransferCount>0.00</TransferCount>
@@ -52,19 +33,7 @@ export const Game = ({ data }: GameProps) => {
           <TransferInfo>{t('win')}</TransferInfo>
         </TransferWrap>
       </TransferBlock>
-      <GameBlock>
-        <Form>
-          <Lable>
-            <span>{t('bet')}</span>
-            <Input placeholder={t('amount')} type="number" min={1} />
-          </Lable>
-          <Lable>
-            <span>{t('long')}</span>
-            <Input placeholder="4.0" type="number" min={1} />
-          </Lable>
-          <Button>{t('start')}</Button>
-        </Form>
-      </GameBlock>
+      <Bet />
     </Wrapper>
   );
 };
