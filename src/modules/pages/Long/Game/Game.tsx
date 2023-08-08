@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import {
   Wrapper,
   GameBlock,
@@ -17,35 +19,13 @@ import {
 } from './Game.styled';
 import { InGameDataType } from 'data/long';
 import { cryptoIcon } from 'constants/images';
-import { useState, useEffect, FormEvent, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface GameProps {
   data: InGameDataType[];
 }
 
 export const Game = ({ data }: GameProps) => {
-  const [amount, setAmount] = useState<number>(0);
-  const [margin, setMargin] = useState<number>(0);
-  const [total, setTotal] = useState<string>('0.00');
-  const amountRef = useRef<HTMLInputElement>(null);
-  const marginRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    if (!(amount && margin)) setTotal('0.00');
-    else setTotal((amount * margin).toFixed(2));
-  }, [amount, margin]);
-
-  const handleChangeAmount = (event: FormEvent<HTMLInputElement>) => {
-    const { value } = event.currentTarget;
-    setAmount(Number(value));
-  };
-
-  const handleChangeMargin = (event: FormEvent<HTMLInputElement>) => {
-    const { value } = event.currentTarget;
-    setMargin(Number(value));
-  };
 
   return (
     <Wrapper>
@@ -76,23 +56,11 @@ export const Game = ({ data }: GameProps) => {
         <Form>
           <Lable>
             <span>{t('bet')}</span>
-            <Input
-              ref={amountRef}
-              placeholder={t('amount')}
-              type="number"
-              min={1}
-              onChange={handleChangeAmount}
-            />
+            <Input placeholder={t('amount')} type="number" min={1} />
           </Lable>
           <Lable>
             <span>{t('long')}</span>
-            <Input
-              ref={marginRef}
-              placeholder="4.0"
-              type="number"
-              min={1}
-              onChange={handleChangeMargin}
-            />
+            <Input placeholder="4.0" type="number" min={1} />
           </Lable>
           <Button>{t('start')}</Button>
         </Form>
