@@ -14,6 +14,9 @@
   "chat": "Chat",
   "chatRules": "Chat Rules",
   "commission": "Commission",
+  "chooseCoin": "choose coin",
+  "createGame": "create a game",
+  "closed": "closed",
 
   "date": "date",
 
@@ -29,6 +32,7 @@
 
   "giveaway": "Giveaway",
   "googleAuth": "connect google Authenticator",
+  "game": "game",
   "gamers": "gamers",
 
   "hashRound": "Hash round",
@@ -38,6 +42,9 @@
   "inGame": "In game",
   "inRound": "In round",
   "idTransaction": "id transaction",
+  "if": "if",
+
+  "join": "join",
 
   "login": "login",
   "long": "long",

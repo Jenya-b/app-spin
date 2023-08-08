@@ -14,6 +14,9 @@
   "chat": "Чат",
   "chatRules": "Правила чата",
   "commission": "Комиссия",
+  "chooseCoin": "выбрать монету",
+  "createGame": "Создать игру",
+  "closed": "закрыт",
 
   "date": "Дата",
 
@@ -29,6 +32,7 @@
 
   "giveaway": "Отдаю",
   "googleAuth": "подключить гугл аутентификатор",
+  "game": "игра",
   "gamers": "игр",
 
   "hashRound": "Хеш раунда",
@@ -38,6 +42,9 @@
   "inGame": "В игре",
   "inRound": "В раунде",
   "idTransaction": "id транзакции",
+  "if": "если",
+
+  "join": "войти",
 
   "login": "логин",
   "long": "длина",

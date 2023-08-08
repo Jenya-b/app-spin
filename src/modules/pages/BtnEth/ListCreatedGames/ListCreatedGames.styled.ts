@@ -74,7 +74,7 @@ export const GameControl = styled.div`
   button {
     margin-top: 0.2rem;
     padding: 0.29rem 0;
-    width: 4rem;
+    width: 5rem;
     ${fontStyleSmallBold}
     background: ${({ theme }) => theme.colors.buttonPrimary};
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;

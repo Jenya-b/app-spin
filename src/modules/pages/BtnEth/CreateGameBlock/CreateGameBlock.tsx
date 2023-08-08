@@ -49,14 +49,14 @@ export const CreateGameBlock = () => {
           <img src={coinBtc} alt="btc" />
         </ImgWrap>
         <ChooseCoin>
-          <p>CHOOSE COIN</p>
-          <p>BITCOIN OR ETHERIUM</p>
+          <p>{t('chooseCoin')}</p>
+          <p>bitcoin {t('or')} etherium</p>
         </ChooseCoin>
         <ImgWrap>
           <img src={coinEth} alt="eth" />
         </ImgWrap>
       </CoinInfo>
-      <Button>create a game</Button>
+      <Button>{t('createGame')}</Button>
     </Wrapper>
   );
 };

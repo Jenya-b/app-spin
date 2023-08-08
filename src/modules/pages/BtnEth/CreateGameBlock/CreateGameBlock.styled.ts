@@ -26,6 +26,7 @@ export const ChooseCoin = styled.div`
   width: 6rem;
   text-align: center;
   ${fontStyleSmallBold}
+  text-transform: uppercase;
 
   p:last-child {
     margin-top: 0.25rem;
