@@ -7,7 +7,7 @@ import {
   TransferCount,
   TransferInfo,
   TransferWrap,
-} from './Game.styled';
+} from './Transfer.styled';
 import { InGameDataType } from 'data/long';
 import { InGame } from 'modules/components/InGame/InGame';
 import { Bet } from 'modules/components/Bet/Bet';
@@ -16,7 +16,7 @@ interface GameProps {
   data: InGameDataType[];
 }
 
-export const Game = ({ data }: GameProps) => {
+export const Transfer = ({ data }: GameProps) => {
   const { t } = useTranslation();
 
   return (

@@ -1,12 +1,12 @@
 import { historyNumbers, inGameData } from 'data/long';
 import { Main } from './Long.styled';
-import { Game } from './Game/Game';
+import { Transfer } from './Transfer/Transfer';
 import { History } from './History/History';
 
 export const LongPage = () => {
   return (
     <Main>
-      <Game data={inGameData} />
+      <Transfer data={inGameData} />
       <History historyNumbers={historyNumbers} />
     </Main>
   );
