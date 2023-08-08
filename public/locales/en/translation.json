@@ -8,6 +8,7 @@
 
   "bet": "bet",
   "bxeStats": "b x e stats",
+  "beTheFirst": "Be the first",
 
   "contact": "Contact",
   "chat": "Chat",
@@ -28,6 +29,7 @@
 
   "giveaway": "Giveaway",
   "googleAuth": "connect google Authenticator",
+  "gamers": "gamers",
 
   "hashRound": "Hash round",
   "hashRoundRules": "Hash of the Crash game, you can check the integrity of the game in the current round. The hash changes every new round.",
@@ -40,10 +42,12 @@
   "login": "login",
   "long": "long",
   "longStats": "long stats",
+  "last": "last",
 
   "makeTransaction": "make transaction",
 
   "newPassword": "new password",
+  "noBids": "There are no bids",
 
   "or": "or",
 

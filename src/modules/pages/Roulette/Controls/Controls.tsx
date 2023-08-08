@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { List } from 'modules/components/List/List';
 import {
   Wrapper,
@@ -22,6 +24,8 @@ import { IRouletteData, rouletteData, IUser } from 'data/roulette';
 import { diamondIcon, noBidsIcon } from 'constants/images';
 
 export const Controls = () => {
+  const { t } = useTranslation();
+
   const renderItem = ({ countInGame, diamond, long, users }: IRouletteData) => {
     const renderItemUser = ({ count, name }: IUser) => (
       <>
@@ -34,8 +38,8 @@ export const Controls = () => {
     const renderEmpty = (
       <NoBids>
         <img src={noBidsIcon} alt="no" />
-        <NoBidsTitle>There are no bids</NoBidsTitle>
-        <NoBidsSubtitle>Be the first</NoBidsSubtitle>
+        <NoBidsTitle>{t('noBids')}</NoBidsTitle>
+        <NoBidsSubtitle>{t('beTheFirst')}</NoBidsSubtitle>
       </NoBids>
     );
 
@@ -45,15 +49,17 @@ export const Controls = () => {
           <img src={diamondIcon[diamond]} alt="" />
           <Button>
             <span>$ 0.00</span>
-            <span>bet</span>
+            <span>{t('bet')}</span>
           </Button>
           <Long>x{long}</Long>
         </ControlBlock>
         <InfoBlock>
           <InputWrap>
-            <InGameUser className={diamond}>{countInGame} gamers</InGameUser>
+            <InGameUser className={diamond}>
+              {countInGame} {t('gamers')}
+            </InGameUser>
             <Label>
-              amount:
+              {t('amount')}:
               <Input />
             </Label>
           </InputWrap>

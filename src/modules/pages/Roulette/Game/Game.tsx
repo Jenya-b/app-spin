@@ -1,4 +1,5 @@
 import { useState, MouseEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { List } from 'modules/components/List/List';
 import {
@@ -32,6 +33,7 @@ import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
 
 export const Game = () => {
   const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
+  const { t } = useTranslation();
 
   const renderItem = (item: CryptoNameType) => (
     <CryptoBtn
@@ -62,7 +64,7 @@ export const Game = () => {
         </Roulette>
         <InfoBlock>
           <LastGame>
-            <LastGameTitle>last 100</LastGameTitle>
+            <LastGameTitle>{t('last')} 100</LastGameTitle>
             <LastGameWrap>
               {lastResult.map(({ count, name }) => (
                 <LastGameItem className={name} key={name}>
@@ -73,7 +75,7 @@ export const Game = () => {
           </LastGame>
           <Timer>
             <Time>10 : 00</Time>
-            <TimerText>start</TimerText>
+            <TimerText>{t('start')}</TimerText>
           </Timer>
           <HistoryGame>
             {historyRoulette.map((item, i) => (
@@ -85,9 +87,9 @@ export const Game = () => {
       <TransferBlock>
         <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
         <InputWrap>
-          <InGameUser>16 gamers</InGameUser>
+          <InGameUser>16 {t('gamers')}</InGameUser>
           <Label>
-            amount:
+            {t('amount')}:
             <Input />
           </Label>
         </InputWrap>
