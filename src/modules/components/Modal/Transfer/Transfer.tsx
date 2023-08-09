@@ -27,6 +27,7 @@ interface TransferModalProps {
 
 export const TransferModal = ({ closeModal }: TransferModalProps) => {
   const [selectedCurrency, setSelectedCurrency] = useState('');
+  const [transactionParam, setTransactionParam] = useState('');
   const [isVisibleTransaction, setIsVisibleTransaction] = useState(false);
   const transactionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
@@ -50,6 +51,29 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
 
     if (id === selectedCurrency) setSelectedCurrency('');
     else setSelectedCurrency(id);
+  };
+
+  const updateVisibleTransaction = (event: MouseEvent<HTMLButtonElement>) => {
+    const { id } = event.currentTarget;
+
+    if (
+      (id === 'send' && transactionParam === 'recieve') ||
+      (id === 'recieve' && transactionParam === 'send')
+    ) {
+      setTransactionParam(id);
+    } else if (
+      (id === 'send' && id !== transactionParam) ||
+      (id === 'recieve' && id !== transactionParam)
+    ) {
+      setIsVisibleTransaction(true);
+      setTransactionParam(id);
+    } else if (
+      (id === 'send' && id === transactionParam) ||
+      (id === 'recieve' && id === transactionParam)
+    ) {
+      setIsVisibleTransaction(false);
+      setTransactionParam('');
+    }
   };
 
   return (
@@ -76,15 +100,25 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
       </PriceWrap>
       <Controls>
         <SendBtn
-          isactive={isVisibleTransaction}
-          onClick={() => setIsVisibleTransaction(!isVisibleTransaction)}
+          id="send"
+          isactive={transactionParam === 'send'}
+          onClick={updateVisibleTransaction}
         >
           {t('send')}
         </SendBtn>
-        <RecieveBtn>{t('recieve')}</RecieveBtn>
+        <RecieveBtn
+          id="recieve"
+          isactive={transactionParam === 'recieve'}
+          onClick={updateVisibleTransaction}
+        >
+          {t('recieve')}
+        </RecieveBtn>
       </Controls>
       <TransactionBlock ref={transactionRef} style={{ ...springs }}>
-        <Transaction walletLabel={t('walletNumber')} walletPlaceholder={t('enterWalletNumber')} />
+        <Transaction
+          walletLabel={t(transactionParam === 'send' ? 'walletNumber' : 'yourPersonalWalletNumber')}
+          walletPlaceholder={t('enterWalletNumber')}
+        />
       </TransactionBlock>
     </StyledWrapp>
   );

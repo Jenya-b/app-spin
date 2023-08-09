@@ -97,9 +97,9 @@ export const SendBtn = styled(ButtonPrimary)<ButtonProps>`
   }
 `;
 
-export const RecieveBtn = styled(ButtonPrimary)`
+export const RecieveBtn = styled(ButtonPrimary)<ButtonProps>`
   padding: 0px 0.85rem;
-  background: ${colors.blue600};
+  background: ${({ isactive }) => (isactive ? `${colors.blueLight100}` : `${colors.blue600}`)};
 
   ::after {
     background: url(${recieveIcon}) no-repeat;

@@ -81,11 +81,13 @@
   "termsOfService": "Terms Of Service",
   "transHistory": "Trans history",
 
+  "yourPersonalWalletNumber": "Your personal wallet number",
+
   "username": "username",
 
   "welcome": "welcome to spin",
   "wallet": "Wallet",
   "win": "Win",
   "walletNumber": "wallet number",
-  "walletCurrency": "wallet currency"
+  "walletCurrency": "Wallet currency"
 }
