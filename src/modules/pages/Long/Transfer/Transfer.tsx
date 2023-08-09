@@ -1,16 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import {
-  Wrapper,
-  Icon,
-  TransferBlock,
-  TransferCount,
-  TransferInfo,
-  TransferWrap,
-} from './Transfer.styled';
+import { Icon, TransferBlock, TransferCount, TransferInfo, TransferWrap } from './Transfer.styled';
 import { InGameDataType } from 'data/long';
-import { InGame } from 'modules/components/InGame/InGame';
-import { Bet } from 'modules/components/Bet/Bet';
+import { RateSelection } from 'modules/components/RateSelection/RateSelection';
 
 interface GameProps {
   data: InGameDataType[];
@@ -20,8 +12,7 @@ export const Transfer = ({ data }: GameProps) => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
-      <InGame data={data} />
+    <RateSelection data={data}>
       <TransferBlock>
         <TransferWrap>
           <TransferCount>0.00</TransferCount>
@@ -33,7 +24,6 @@ export const Transfer = ({ data }: GameProps) => {
           <TransferInfo>{t('win')}</TransferInfo>
         </TransferWrap>
       </TransferBlock>
-      <Bet />
-    </Wrapper>
+    </RateSelection>
   );
 };

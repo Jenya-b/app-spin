@@ -2,6 +2,9 @@ export const logo = '/source/images/logo.png';
 export const card = '/source/images/card.png';
 export const coinBtc = '/source/images/coinBtc.png';
 export const coinEth = '/source/images/coinEth.png';
+export const up = '/source/images/up.png';
+export const down = '/source/images/down.png';
+
 export const chooseCoinIcon = '/source/images/icons/chooseCoin.svg';
 export const noBidsIcon = '/source/images/icons/noBids.svg';
 export const userTestLogo = '/source/images/userTestLogo.png';

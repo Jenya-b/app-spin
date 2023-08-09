@@ -3,15 +3,6 @@ import styled from 'styled-components';
 import { forwardIcon } from 'constants/images';
 import { fontStyleMediumBold, fontStyleXSmallBold } from 'styles/typography';
 
-export const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const TransferBlock = styled.div`
   display: flex;
   column-gap: 1.7rem;
