@@ -2,19 +2,19 @@ import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { Wrapper, Sidebar } from './Layout.styled';
-import { Header } from '../Header/Header';
-import { Chat } from '../Chat/Chat';
-import { Footer } from '../Footer/Footer';
-import { CountDown } from '../CountDown/CountDown';
-import { Loader } from '../Loader/Loader';
-import { Wallet } from '../Wallet/Wallet';
+import { Wrapper, Sidebar } from './Main.styled';
+import { Header } from 'modules/components/Header/Header';
+import { Chat } from 'modules/components/Chat/Chat';
+import { Footer } from 'modules/components/Footer/Footer';
+import { CountDown } from 'modules/components/CountDown/CountDown';
+import { Loader } from 'modules/components/Loader/Loader';
+import { Wallet } from 'modules/components/Wallet/Wallet';
 import { wallet } from 'data/wallet';
 import { chatData } from 'data/chat';
-import { Chart } from '../Chart/Chart';
+import { Chart } from 'modules/components/Chart/Chart';
 import { converterFontSize } from 'utils/converter';
 
-export const Layout = () => {
+export const LayoutMain = () => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(pathname !== '/');
   const chartRef = useRef(null);

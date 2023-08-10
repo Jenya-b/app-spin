@@ -20,9 +20,9 @@ import { INavMenu } from 'interfaces/menu';
 import { chatData } from 'data/chat';
 import { Chat } from 'modules/components/Chat/Chat';
 
-export const Admin = () => {
+export const LayoutAdmin = () => {
   const renderItem = ({ iconUrl, path, title }: INavMenu) => (
-    <StyledNavLink to={path} icon={iconUrl}>
+    <StyledNavLink to={path} icon={iconUrl} end>
       <p>{title}</p>
     </StyledNavLink>
   );
@@ -47,5 +47,3 @@ export const Admin = () => {
     </Wrapper>
   );
 };
-
-export default Admin;

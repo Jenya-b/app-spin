@@ -1,20 +1,25 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { path } from './path';
-import { Layout } from 'modules/components/Layout/Layout';
+import { LayoutMain } from 'modules/components/Layout/Main/Main';
+import { LayoutAdmin } from 'modules/components/Layout/Admin/Admin';
 import {
   LongPage,
   RoulettePage,
   BtcEthPage,
   FuturesPage,
   SettingPage,
-  AdminPage,
+  CreateGamesAdminPanel,
+  FuturesAdminPanel,
+  LongAdminPanel,
+  RouletteAdminPanel,
+  UsersAdminPanel,
 } from 'modules/pages';
 
 export const router = createBrowserRouter([
   {
     path: path.home,
-    element: <Layout />,
+    element: <LayoutMain />,
     children: [
       {
         index: true,
@@ -40,6 +45,28 @@ export const router = createBrowserRouter([
   },
   {
     path: path.admin,
-    element: <AdminPage />,
+    element: <LayoutAdmin />,
+    children: [
+      {
+        index: true,
+        element: <UsersAdminPanel />,
+      },
+      {
+        path: path.adminLong,
+        element: <LongAdminPanel />,
+      },
+      {
+        path: path.adminRoulette,
+        element: <RouletteAdminPanel />,
+      },
+      {
+        path: path.adminBtcEth,
+        element: <CreateGamesAdminPanel />,
+      },
+      {
+        path: path.adminFutures,
+        element: <FuturesAdminPanel />,
+      },
+    ],
   },
 ]);
