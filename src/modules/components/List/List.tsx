@@ -1,4 +1,4 @@
-import type { FlattenSimpleInterpolation } from 'styled-components';
+import { css, type FlattenSimpleInterpolation } from 'styled-components';
 
 import { StyledList } from './List.styled';
 
@@ -6,10 +6,15 @@ interface ListProps<T> {
   data: T[];
   renderItem: (item: T) => JSX.Element;
   renderEmpty?: JSX.Element;
-  styles: FlattenSimpleInterpolation;
+  styles?: FlattenSimpleInterpolation;
 }
 
-export const List = <T,>({ data = [], renderItem, renderEmpty = <></>, styles }: ListProps<T>) => {
+export const List = <T,>({
+  data = [],
+  renderItem,
+  renderEmpty = <></>,
+  styles = css``,
+}: ListProps<T>) => {
   if (!data.length) return renderEmpty;
 
   return (

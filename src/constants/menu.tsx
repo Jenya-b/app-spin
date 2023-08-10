@@ -114,3 +114,31 @@ export const settingTableMenu = [
   'bxeStats',
   'rouletteStats',
 ];
+
+export const adminMenu: INavMenu[] = [
+  {
+    title: 'users',
+    iconUrl: menuIcon.users,
+    path: path.admin,
+  },
+  {
+    title: 'long',
+    iconUrl: menuIcon.long,
+    path: path.adminLong,
+  },
+  {
+    title: 'roulette',
+    iconUrl: menuIcon.roulette,
+    path: path.adminRoulette,
+  },
+  {
+    title: 'btc x eth',
+    iconUrl: menuIcon.btnEth,
+    path: path.adminBtcEth,
+  },
+  {
+    title: 'futures',
+    iconUrl: menuIcon.futures,
+    path: path.adminFutures,
+  },
+];

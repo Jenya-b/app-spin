@@ -28,6 +28,7 @@ export const googleAuthIcon = '/source/images/icons/googleAuth.png';
 export const gameUserIcon = '/source/images/icons/gamePeople.png';
 export const lineIcon = '/source/images/icons/line.svg';
 export const pointerIcon = '/source/images/icons/pointer.svg';
+export const searchIcon = '/source/images/icons/search.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',
@@ -55,6 +56,10 @@ export const menuIcon = {
   futures: {
     active: '/source/images/icons/futuresBtnActive.svg',
     noActive: '/source/images/icons/futuresBtn.svg',
+  },
+  users: {
+    active: '/source/images/icons/usersBtnActive.svg',
+    noActive: '/source/images/icons/usersBtn.svg',
   },
 };
 

@@ -28,8 +28,8 @@ import { Registration } from '../Auth/Registration/Registration';
 import { path } from 'modules/router/path';
 
 interface HeaderProps {
-  showChart: () => void;
-  hideChart: () => void;
+  showChart?: () => void;
+  hideChart?: () => void;
 }
 
 export const Header = memo(({ showChart, hideChart }: HeaderProps) => {

@@ -2,7 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { path } from './path';
 import { Layout } from 'modules/components/Layout/Layout';
-import { LongPage, RoulettePage, BtcEthPage, FuturesPage, SettingPage } from 'modules/pages';
+import {
+  LongPage,
+  RoulettePage,
+  BtcEthPage,
+  FuturesPage,
+  SettingPage,
+  AdminPage,
+} from 'modules/pages';
 
 export const router = createBrowserRouter([
   {
@@ -30,5 +37,9 @@ export const router = createBrowserRouter([
         element: <SettingPage />,
       },
     ],
+  },
+  {
+    path: path.admin,
+    element: <AdminPage />,
   },
 ]);
