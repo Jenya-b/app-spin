@@ -1,8 +1,16 @@
 import { Table } from 'modules/components/Table/Table';
 import { Main, Logo } from '../Admin.styled';
 import { IUserTBody, IUserTHead, userTBody, userTHead } from 'data/adminPanel';
+import { Pagination } from 'modules/components/Pagination/Pagination';
+import { ChangeEvent, useState } from 'react';
 
 export const UsersAdminPanel = () => {
+  const [page, setPage] = useState(1);
+
+  const handleChangePage = (event: ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+
   const renderBodyItem = (item: IUserTBody) => (
     <>
       <td>
@@ -43,6 +51,7 @@ export const UsersAdminPanel = () => {
         renderHeadItem={renderHeadItem}
         renderEmpty={renderEmpty}
       />
+      <Pagination count={10} page={page} onChange={handleChangePage} />
     </Main>
   );
 };
