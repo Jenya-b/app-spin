@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
 import { Table } from 'modules/components/Table/Table';
-import { Main } from '../Admin.styled';
+import { Button, Form, FormTitle, Input, InputWrap, Main } from '../Admin.styled';
 import { IOtherTBody, otherTBody, otherTHead } from 'data/adminPanel';
 import { Pagination } from 'modules/components/Pagination/Pagination';
 
@@ -32,7 +32,14 @@ export const LongAdminPanel = () => {
 
   const renderEmpty = <></>;
   return (
-    <Main>
+    <Main extended>
+      <Form>
+        <FormTitle>AMOUNT</FormTitle>
+        <InputWrap>
+          <Input placeholder="Enter amount" />
+          <Button>confirm</Button>
+        </InputWrap>
+      </Form>
       <Table
         headData={otherTHead}
         bodyData={otherTBody}
