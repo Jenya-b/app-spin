@@ -65,7 +65,7 @@ export const StyledTable = styled.table<ICountColumns>`
       opacity: 0.25;
       ${fontStyleSmallDemiBold}
 
-      :last-child {
+      &.subtitle {
         ${fontStyleXXSmallDemiBold}
       }
     }

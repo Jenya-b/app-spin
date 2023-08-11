@@ -16,6 +16,14 @@ export interface IUserTBody {
   ip: string;
 }
 
+export interface IOtherTBody {
+  gameId: string;
+  gameBank: string;
+  date: string;
+  result: string;
+  profits: string;
+}
+
 export const userTHead: IUserTHead[] = [
   {
     title: '',
@@ -423,5 +431,227 @@ export const userTBody: IUserTBody[] = [
     mute: false,
     ban: false,
     ip: '171.312.312:51',
+  },
+];
+
+export const otherTHead = ['Game ID', 'Game Bank', 'Date', 'Result', 'Profits'];
+
+export const otherTBody = [
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
+  },
+  {
+    gameId: '#0000041245',
+    gameBank: '3 000 000',
+    date: '23.07.2023',
+    result: '1.56x',
+    profits: '320 000',
   },
 ];

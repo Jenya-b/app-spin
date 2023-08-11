@@ -1,8 +1,9 @@
+import { ChangeEvent, useState } from 'react';
+
 import { Table } from 'modules/components/Table/Table';
 import { Main, Logo } from '../Admin.styled';
 import { IUserTBody, IUserTHead, userTBody, userTHead } from 'data/adminPanel';
 import { Pagination } from 'modules/components/Pagination/Pagination';
-import { ChangeEvent, useState } from 'react';
 
 export const UsersAdminPanel = () => {
   const [page, setPage] = useState(1);
@@ -36,7 +37,7 @@ export const UsersAdminPanel = () => {
   const renderHeadItem = ({ title, subtitle }: IUserTHead) => (
     <>
       <p>{title}</p>
-      <p>{subtitle}</p>
+      <p className="subtitle">{subtitle}</p>
     </>
   );
 
