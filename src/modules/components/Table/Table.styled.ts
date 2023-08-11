@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const StyledTable = styled.table<ICountColumns>`
   display: grid;
   min-width: 100%;
+  height: 100%;
   grid-template-columns: repeat(${({ count }) => count}, minmax(min-content, 1fr));
   overflow: hidden;
   overflow-x: auto;
@@ -57,7 +58,8 @@ export const StyledTable = styled.table<ICountColumns>`
     z-index: ${({ theme }) => theme.order.lastIndex};
     position: sticky;
     top: 0;
-    padding-bottom: 25px;
+    padding-bottom: 2.85rem;
+    background: ${({ theme }) => theme.colors.bgSecondary};
 
     p {
       opacity: 0.25;

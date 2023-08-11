@@ -27,7 +27,6 @@ export const Sidebar = styled.aside`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   grid-column: 1/2;
   grid-row: 2/3;
-  margin-bottom: 0.85rem;
   display: grid;
   grid-template-rows: auto 1fr;
 `;
