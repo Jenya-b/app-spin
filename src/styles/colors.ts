@@ -11,6 +11,7 @@ export const colors = {
   green200: '#5BC957',
   grey100: '#33344d',
   red100: '#E94235',
+  red200: '#FF375F',
   white: '#ffffff',
   whiteTransparent100: '#ffffff05',
   whiteTransparent200: 'rgba(255, 255, 255, 0.25)',
