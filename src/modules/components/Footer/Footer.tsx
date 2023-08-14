@@ -1,17 +1,10 @@
 import { useState } from 'react';
-
-import {
-  ModalBtn,
-  ModalWrap,
-  Wrapper,
-  ModalCopyBlock,
-  ModalSubtitle,
-  ModalTitle,
-} from './Footer.styled';
-import { BasicModal } from '../Modal/Modal';
-import { CloseModalBtn } from 'styles/components';
 import { useTranslation } from 'react-i18next';
+
+import { ModalBtn, Wrapper } from './Footer.styled';
+import { BasicModal } from '../Modal/Modal';
 import { NavInfo } from '../NavInfo/NavInfo';
+import { HashRound } from '../Modal/HashRound/HashRound';
 
 export const Footer = () => {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -26,12 +19,9 @@ export const Footer = () => {
       <div>
         <ModalBtn onClick={handleOpen}>{t('hashRound')}</ModalBtn>
         <BasicModal open={isOpenModal} handleClose={handleClose}>
-          <ModalWrap>
-            <CloseModalBtn onClick={handleClose} />
-            <ModalTitle>{t('hashRound')}</ModalTitle>
-            <ModalSubtitle>{t('hashRoundRules')}</ModalSubtitle>
-            <ModalCopyBlock></ModalCopyBlock>
-          </ModalWrap>
+          <>
+            <HashRound handleClose={handleClose} />
+          </>
         </BasicModal>
       </div>
       <nav>

@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from 'styles/colors';
 import { shieldIcon } from 'constants/images';
-import { fontStyleXXLargeBold, fontStyleXXSmallBold, fontStyleXSmallBold } from 'styles/typography';
+import { fontStyleXXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   grid-column: 2/3;
@@ -44,39 +43,4 @@ export const ModalBtn = styled.div`
     background-position: center;
     background-size: contain;
   }
-`;
-
-export const ModalWrap = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1.7rem;
-  max-width: 42rem;
-  width: 100%;
-  background: ${({ theme }) => theme.colors.inputPrimary};
-  border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
-`;
-
-export const ModalTitle = styled.h2`
-  text-align: center;
-  ${fontStyleXXLargeBold}
-  text-transform: uppercase;
-`;
-
-export const ModalSubtitle = styled.h3`
-  padding: 0 2rem;
-  margin-top: 0.4rem;
-  color: rgba(255, 255, 255, 0.75);
-  ${fontStyleXSmallBold}
-  line-height: normal;
-  text-align: center;
-`;
-
-export const ModalCopyBlock = styled.h3`
-  margin-top: 1rem;
-  height: 3.6rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
 `;

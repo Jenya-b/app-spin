@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { closeModalIcon } from 'constants/images';
-import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
+import { fontStyleXXLargeBold, fontStyleSmallBold, fontStyleXSmallBold } from 'styles/typography';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -35,5 +35,14 @@ export const Subtitle = styled.h3`
   opacity: 0.75;
   ${fontStyleSmallBold}
   text-transform: uppercase;
+  text-align: center;
+`;
+
+export const Info = styled.p`
+  padding: 0 2rem;
+  margin-top: 0.4rem;
+  color: rgba(255, 255, 255, 0.75);
+  ${fontStyleXSmallBold}
+  line-height: normal;
   text-align: center;
 `;
