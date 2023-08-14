@@ -1,5 +1,6 @@
 import { useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import useSound from 'use-sound';
 
 import {
   Container,
@@ -26,6 +27,7 @@ import { Auth } from '../Auth/Auth';
 import { Login } from '../Auth/Login/Login';
 import { Registration } from '../Auth/Registration/Registration';
 import { path } from 'modules/router/path';
+import soundClick from './click.mp3';
 
 interface HeaderProps {
   showChart?: () => void;
@@ -38,8 +40,12 @@ export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
   const { t, i18n } = useTranslation();
+  const [play] = useSound(soundClick, { volume: isActiveSound ? 0.5 : 0 });
 
-  const handleOpenLoginModal = () => setOpenLoginModal(true);
+  const handleOpenLoginModal = () => {
+    play();
+    setOpenLoginModal(true);
+  };
 
   const handleCloseLoginModal = () => setOpenLoginModal(false);
 
