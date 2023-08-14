@@ -14,7 +14,9 @@ import {
   LongAdminPanel,
   RouletteAdminPanel,
   UsersAdminPanel,
+  TermsOfService,
 } from 'modules/pages';
+import { LayoutInfo } from 'modules/components/Layout/Info/Info';
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,16 @@ export const router = createBrowserRouter([
       {
         path: path.adminFutures,
         element: <FuturesAdminPanel />,
+      },
+    ],
+  },
+  {
+    path: path.info,
+    element: <LayoutInfo />,
+    children: [
+      {
+        index: true,
+        element: <TermsOfService />,
       },
     ],
   },

@@ -9,4 +9,5 @@ export const path = {
   adminRoulette: '/admin/roulette',
   adminBtcEth: '/admin/btcEth',
   adminFutures: '/admin/futures',
+  info: '/info',
 };

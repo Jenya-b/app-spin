@@ -46,22 +46,6 @@ export const ModalBtn = styled.div`
   }
 `;
 
-export const menuListCss = css`
-  display: flex;
-  column-gap: 1.3rem;
-`;
-
-export const StyledLink = styled(Link)`
-  color: ${colors.whiteTransparent200};
-  ${fontStyleXSmallBold}
-  text-transform: uppercase;
-  transition: ${({ theme }) => theme.transition};
-
-  :hover {
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
-`;
-
 export const ModalWrap = styled.div`
   position: absolute;
   top: 50%;

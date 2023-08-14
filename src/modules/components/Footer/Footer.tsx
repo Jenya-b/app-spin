@@ -1,21 +1,17 @@
 import { useState } from 'react';
 
-import { footerMenu } from 'constants/menu';
-import { List } from '../List/List';
 import {
   ModalBtn,
   ModalWrap,
-  StyledLink,
   Wrapper,
-  menuListCss,
   ModalCopyBlock,
   ModalSubtitle,
   ModalTitle,
 } from './Footer.styled';
-import { IBasicNavMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
 import { CloseModalBtn } from 'styles/components';
 import { useTranslation } from 'react-i18next';
+import { NavInfo } from '../NavInfo/NavInfo';
 
 export const Footer = () => {
   const [isOpenModal, setOpenModal] = useState(false);
@@ -24,10 +20,6 @@ export const Footer = () => {
   const handleOpen = () => setOpenModal(true);
 
   const handleClose = () => setOpenModal(false);
-
-  const renderItem = ({ path, title }: IBasicNavMenu) => (
-    <StyledLink to={path}>{t(title)}</StyledLink>
-  );
 
   return (
     <Wrapper>
@@ -43,7 +35,7 @@ export const Footer = () => {
         </BasicModal>
       </div>
       <nav>
-        <List data={footerMenu} renderEmpty={<></>} renderItem={renderItem} styles={menuListCss} />
+        <NavInfo />
       </nav>
     </Wrapper>
   );

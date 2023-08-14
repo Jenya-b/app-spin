@@ -28,7 +28,7 @@ export const navMenu: INavMenu[] = [
 export const footerMenu: IBasicNavMenu[] = [
   {
     title: 'termsOfService',
-    path: '#',
+    path: path.info,
   },
   {
     title: 'responsibleGamingPolicy',
