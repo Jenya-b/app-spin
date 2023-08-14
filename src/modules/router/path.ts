@@ -10,4 +10,8 @@ export const path = {
   adminBtcEth: '/admin/btcEth',
   adminFutures: '/admin/futures',
   info: '/info',
+  amlPolicy: '/info/amlPolicy',
+  contact: '/info/contact',
+  fairPlay: '/info/fairPlay',
+  gamingPolicy: '/info/gamingPolicy',
 };

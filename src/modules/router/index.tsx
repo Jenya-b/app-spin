@@ -15,6 +15,10 @@ import {
   RouletteAdminPanel,
   UsersAdminPanel,
   TermsOfService,
+  AmlPolicy,
+  Contact,
+  FairPlay,
+  GamingPolicy,
 } from 'modules/pages';
 import { LayoutInfo } from 'modules/components/Layout/Info/Info';
 
@@ -78,6 +82,22 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <TermsOfService />,
+      },
+      {
+        path: path.amlPolicy,
+        element: <AmlPolicy />,
+      },
+      {
+        path: path.contact,
+        element: <Contact />,
+      },
+      {
+        path: path.fairPlay,
+        element: <FairPlay />,
+      },
+      {
+        path: path.gamingPolicy,
+        element: <GamingPolicy />,
       },
     ],
   },

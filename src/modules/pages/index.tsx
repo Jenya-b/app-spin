@@ -16,3 +16,7 @@ export const UsersAdminPanel = lazy(() => import('./Admin/Users/Users'));
 
 // info pages
 export const TermsOfService = lazy(() => import('./Info/TermsOfService/TermsOfService'));
+export const GamingPolicy = lazy(() => import('./Info/GamingPolicy/GamingPolicy'));
+export const FairPlay = lazy(() => import('./Info/FairPlay/FairPlay'));
+export const AmlPolicy = lazy(() => import('./Info/AmlPolicy/AmlPolicy'));
+export const Contact = lazy(() => import('./Info/Contact/Contact'));

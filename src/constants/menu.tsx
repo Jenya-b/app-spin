@@ -32,19 +32,19 @@ export const footerMenu: IBasicNavMenu[] = [
   },
   {
     title: 'responsibleGamingPolicy',
-    path: '#',
+    path: path.gamingPolicy,
   },
   {
     title: 'fairPlay',
-    path: '#',
+    path: path.fairPlay,
   },
   {
     title: 'amlPolicy',
-    path: '#',
+    path: path.amlPolicy,
   },
   {
     title: 'contact',
-    path: '#',
+    path: path.contact,
   },
 ];
 
