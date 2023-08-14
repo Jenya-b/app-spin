@@ -17,6 +17,7 @@
   "chooseCoin": "выбрать монету",
   "createGame": "Создать игру",
   "closed": "закрыт",
+  "continue": "Продолжить",
 
   "date": "Дата",
 
@@ -32,6 +33,7 @@
 
   "giveaway": "Отдаю",
   "googleAuth": "подключить гугл аутентификатор",
+  "googleAuthInfo": "У вас включен Google Authenticator",
   "game": "игра",
   "gamers": "игр",
 

@@ -17,6 +17,7 @@
   "chooseCoin": "choose coin",
   "createGame": "create a game",
   "closed": "closed",
+  "continue": "continue",
 
   "date": "date",
 
@@ -32,6 +33,7 @@
 
   "giveaway": "Giveaway",
   "googleAuth": "connect google Authenticator",
+  "googleAuthInfo": "You have Google Authenticator enabled",
   "game": "game",
   "gamers": "gamers",
 
