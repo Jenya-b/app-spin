@@ -30,9 +30,10 @@ import { ITransactionData, transactionData } from 'data/transaction';
 import { transactionTHead } from 'constants/table';
 import { BasicModal } from 'modules/components/Modal/Modal';
 import { QRCodeScaner } from 'modules/components/Modal/QRCodeScaner/QRCodeScaner';
+import { useModal } from 'hooks/useModal';
 
 export const SettingPage = () => {
-  const [isOpenModal, setOpenModal] = useState(false);
+  const [isOpenModal, openModal, closeModal] = useModal(false);
   const [filter, setFilter] = useState(settingTableMenu[0]);
   const [referal] = useState('https://spin.com/reflink/45465456ue4q344623r2dfew');
   const [isCopied, setCopied] = useClipboard(referal);
@@ -62,10 +63,6 @@ export const SettingPage = () => {
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => event.preventDefault();
-
-  const handleOpen = () => setOpenModal(true);
-
-  const handleClose = () => setOpenModal(false);
 
   return (
     <Main>
@@ -119,13 +116,13 @@ export const SettingPage = () => {
             </ReferalInfo>
           </InfoBlock>
           <ControlBlock>
-            <SubmitBtn onClick={handleOpen}>
+            <SubmitBtn onClick={openModal}>
               <img src={googleAuthIcon} />
               <p>{t('googleAuth')}</p>
             </SubmitBtn>
-            <BasicModal open={isOpenModal} handleClose={handleClose}>
+            <BasicModal open={isOpenModal} handleClose={closeModal}>
               <>
-                <QRCodeScaner closeModal={handleClose} />
+                <QRCodeScaner closeModal={closeModal} />
               </>
             </BasicModal>
           </ControlBlock>

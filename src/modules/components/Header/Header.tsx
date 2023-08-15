@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import useSound from 'use-sound';
 
@@ -28,6 +28,7 @@ import { Login } from '../Auth/Login/Login';
 import { Registration } from '../Auth/Registration/Registration';
 import { path } from 'modules/router/path';
 import soundClick from './click.mp3';
+import { useModal } from 'hooks/useModal';
 
 interface HeaderProps {
   showChart?: () => void;
@@ -35,8 +36,8 @@ interface HeaderProps {
 }
 
 export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
-  const [isOpenLoginModal, setOpenLoginModal] = useState(false);
-  const [isOpenRegistModal, setOpenRegistModal] = useState(false);
+  const [isOpenLoginModal, openLoginModal, closeLoginModal] = useModal(false);
+  const [isOpenRegistrModal, openRegistrModal, closeRegistrModal] = useModal(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
   const { t, i18n } = useTranslation();
@@ -44,14 +45,8 @@ export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
 
   const handleOpenLoginModal = () => {
     play();
-    setOpenLoginModal(true);
+    openLoginModal();
   };
-
-  const handleCloseLoginModal = () => setOpenLoginModal(false);
-
-  const handleOpenRegistModal = () => setOpenRegistModal(true);
-
-  const handleCloseRegistModal = () => setOpenRegistModal(false);
 
   const changeSoundActivity = () => {
     dispatch(changeActiveSound(!isActiveSound));
@@ -91,21 +86,21 @@ export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
         </nav>
         <div>
           <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
-          <BasicModal open={isOpenLoginModal} handleClose={handleCloseLoginModal}>
+          <BasicModal open={isOpenLoginModal} handleClose={closeLoginModal}>
             <>
-              <Auth title="authorization" subtitle="welcome" closeModal={handleCloseLoginModal}>
+              <Auth title="authorization" subtitle="welcome" closeModal={closeLoginModal}>
                 <Login
-                  handleOpenRegistModal={handleOpenRegistModal}
-                  handleCloseLoginModal={handleCloseLoginModal}
+                  handleOpenRegistModal={openRegistrModal}
+                  handleCloseLoginModal={closeLoginModal}
                 />
               </Auth>
             </>
           </BasicModal>
-          <BasicModal open={isOpenRegistModal} handleClose={handleCloseRegistModal}>
+          <BasicModal open={isOpenRegistrModal} handleClose={closeRegistrModal}>
             <>
-              <Auth title="registration" subtitle="welcome" closeModal={handleCloseRegistModal}>
+              <Auth title="registration" subtitle="welcome" closeModal={closeRegistrModal}>
                 <Registration
-                  handleCloseRegistModal={handleCloseRegistModal}
+                  handleCloseRegistModal={closeRegistrModal}
                   handleOpenLoginModal={handleOpenLoginModal}
                 />
               </Auth>

@@ -1,10 +1,11 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
 import { AuthBtn, RegistrBtn, RestorPassLink } from './Login.styled';
 import { BasicModal } from 'modules/components/Modal/Modal';
 import { GoogleAuthenticator } from 'modules/components/Modal/GoogleAuthenticator/GoogleAuthenticator';
+import { useModal } from 'hooks/useModal';
 
 interface LoginProps {
   handleCloseLoginModal: () => void;
@@ -12,20 +13,18 @@ interface LoginProps {
 }
 
 export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginProps) => {
-  const [isOpenChildModal, setOpenChildModal] = useState(false);
+  const [isOpenChildModal, openChildModal, closeChildModal] = useModal(false);
   const { t } = useTranslation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setOpenChildModal(true);
+    openChildModal();
   };
 
   const handleOpenRegModal = () => {
     handleCloseLoginModal();
     handleOpenRegistModal();
   };
-
-  const handleCloseChildModal = () => setOpenChildModal(false);
 
   return (
     <>
@@ -40,9 +39,9 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
         </Label>
         <RestorPassLink to={'#'}>{t('forgotPassword')}</RestorPassLink>
         <AuthBtn>{t('authorization')}</AuthBtn>
-        <BasicModal open={isOpenChildModal} handleClose={handleCloseChildModal}>
+        <BasicModal open={isOpenChildModal} handleClose={closeChildModal}>
           <>
-            <GoogleAuthenticator handleClose={handleCloseChildModal} />
+            <GoogleAuthenticator handleClose={closeChildModal} />
           </>
         </BasicModal>
       </Form>
