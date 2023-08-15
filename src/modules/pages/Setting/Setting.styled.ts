@@ -189,8 +189,13 @@ export const ReferalTitle = styled.div`
   }
 `;
 
-export const SubmitBtn = styled.button`
+export const ControlBlock = styled.div`
   grid-column: 1/3;
+`;
+
+export const SubmitBtn = styled.button`
+  width: 100%;
+  height: 100%;
   background: ${({ theme }) => theme.colors.buttonPrimary};
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
