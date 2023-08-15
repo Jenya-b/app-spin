@@ -1,4 +1,6 @@
 import { FormEvent, useState, MouseEvent } from 'react';
+import { useTranslation } from 'react-i18next';
+import useClipboard from 'react-use-clipboard';
 
 import { googleAuthIcon, logo } from 'constants/images';
 import {
@@ -13,10 +15,8 @@ import {
   UserInfo,
   UserInfoSubtitle,
   UserInfoTitle,
-  ReferalBtn,
   ReferalHref,
   ReferalInfo,
-  ReferalText,
   ReferalTitle,
   SubmitBtn,
   TableBlock,
@@ -27,10 +27,11 @@ import { settingTableMenu } from 'constants/menu';
 import { Table } from './Table/Table';
 import { ITransactionData, transactionData } from 'data/transaction';
 import { transactionTHead } from 'constants/table';
-import { useTranslation } from 'react-i18next';
 
 export const SettingPage = () => {
   const [filter, setFilter] = useState(settingTableMenu[0]);
+  const [referal] = useState('https://spin.com/reflink/45465456ue4q344623r2dfew');
+  const [isCopied, setCopied] = useClipboard(referal);
   const { t } = useTranslation();
 
   const renderItem = ({
@@ -102,10 +103,7 @@ export const SettingPage = () => {
               </div>
             </UserInfo>
             <ReferalInfo>
-              <ReferalHref>
-                <ReferalText>https://spin.com/reflink/45465456ue4q344623r2dfew</ReferalText>
-                <ReferalBtn />
-              </ReferalHref>
+              <ReferalHref onClick={setCopied}>{referal}</ReferalHref>
               <ReferalTitle>
                 <p>{t('referalProgram')}</p>
                 <img src={logo} alt="logo" />

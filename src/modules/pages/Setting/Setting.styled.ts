@@ -149,6 +149,7 @@ export const ReferalInfo = styled.div`
 `;
 
 export const ReferalHref = styled.div`
+  position: relative;
   height: 2.85rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.bgPrimary};
@@ -156,18 +157,21 @@ export const ReferalHref = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 0.85rem;
-`;
-
-export const ReferalText = styled.p`
   ${fontStyleXSmallBold}
-`;
+  cursor: ${({ theme }) => theme.cursor};
 
-export const ReferalBtn = styled.button`
-  width: 1.3rem;
-  height: 1.3rem;
-  background: url(${copyIcon}) no-repeat;
-  background-size: contain;
-  background-position: center;
+  ::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 0.85rem;
+    transform: translateY(-50%);
+    width: 1.3rem;
+    height: 1.3rem;
+    background: url(${copyIcon}) no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
 `;
 
 export const ReferalTitle = styled.div`
