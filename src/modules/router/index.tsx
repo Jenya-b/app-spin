@@ -21,10 +21,12 @@ import {
   GamingPolicy,
 } from 'modules/pages';
 import { LayoutInfo } from 'modules/components/Layout/Info/Info';
+import { ErrorBoundary } from 'modules/components/ErrorBoundary/ErrorBoundary';
 
 export const router = createBrowserRouter([
   {
     path: path.home,
+    errorElement: <ErrorBoundary />,
     element: <LayoutMain />,
     children: [
       {
@@ -51,6 +53,7 @@ export const router = createBrowserRouter([
   },
   {
     path: path.admin,
+    errorElement: <ErrorBoundary />,
     element: <LayoutAdmin />,
     children: [
       {
@@ -77,6 +80,7 @@ export const router = createBrowserRouter([
   },
   {
     path: path.info,
+    errorElement: <ErrorBoundary />,
     element: <LayoutInfo />,
     children: [
       {
