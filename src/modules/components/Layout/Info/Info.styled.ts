@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { ButtonPrimary } from 'styles/components';
 import { btnRightIcon } from 'constants/images';
+import { mainMediaSize } from 'styles/fragments';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -9,6 +10,20 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template: auto 1fr / 27rem 1fr 27rem;
   column-gap: 2.3rem;
+
+  ${mainMediaSize}
+
+  @media (max-width: 1650px) {
+    padding: 0 1.5rem 1.43rem 1.5rem;
+  }
+
+  @media (max-width: 1500px) {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
 `;
 
 export const Main = styled.main`
@@ -19,6 +34,12 @@ export const Main = styled.main`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   padding: 1.5rem 2rem;
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    border: none;
+  }
 `;
 
 export const NavWrap = styled.nav`
