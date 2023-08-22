@@ -39,6 +39,7 @@ export const Lines = styled.div`
       width: 90%;
       background: url(${lineIcon}) no-repeat;
       background-size: cover;
+      background-position: 100%;
     }
   }
 `;
