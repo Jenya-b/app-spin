@@ -37,7 +37,11 @@ export const StyledTable = styled.table<ICountColumns>`
     z-index: ${({ theme }) => theme.order.lastIndex};
     background: ${({ theme }) => theme.colors.bgTertiary};
     color: rgba(255, 255, 255, 0.25);
-    padding: 0 12px 12px 12px;
+    padding: 0 0.85rem 0.85rem 0.85rem;
+
+    @media (max-width: 1200px) {
+      padding-top: 0.85rem;
+    }
   }
 
   td {

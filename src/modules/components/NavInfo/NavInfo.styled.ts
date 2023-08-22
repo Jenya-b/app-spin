@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { colors } from 'styles/colors';
-import { fontStyleXSmallBold } from 'styles/typography';
+import { fontStyleXSmallNormal } from 'styles/typography';
 
 export const StyledLink = styled(Link)`
   color: ${colors.whiteTransparent200};
-  ${fontStyleXSmallBold}
+  ${fontStyleXSmallNormal}
   text-transform: uppercase;
   transition: ${({ theme }) => theme.transition};
 
@@ -18,4 +18,8 @@ export const StyledLink = styled(Link)`
 export const menuListCss = css`
   display: flex;
   column-gap: 1.3rem;
+
+  @media (max-width: 1200px) {
+    column-gap: 1rem;
+  }
 `;

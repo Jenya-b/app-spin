@@ -9,6 +9,7 @@ import {
   fontStyleSmallNormal,
   fontStyleXSmallNormal,
 } from 'styles/typography';
+import { mainMediaPadding } from 'styles/fragments';
 
 interface AnimationElemProps {
   active: boolean;
@@ -21,6 +22,11 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template: auto 1fr auto / 1fr;
   overflow-y: auto;
+
+  @media (max-width: 1200px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 `;
 
 export const TitleBlock = styled.div`
@@ -28,6 +34,8 @@ export const TitleBlock = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem 0px 2rem;
+
+  ${mainMediaPadding}
 `;
 
 export const Title = styled.h2<AnimationElemProps>`
@@ -72,6 +80,8 @@ export const MoneyBlock = styled.div`
   border-top-left-radius: ${({ theme }) => theme.borders.radiusPrimary}px;
   padding: 1.2rem 2rem;
   overflow-y: auto;
+
+  ${mainMediaPadding}
 `;
 
 export const walletListCss = css`
@@ -148,6 +158,8 @@ export const CountUsd = styled.p<AnimationElemProps>`
 export const ControlBlock = styled.div`
   padding: 0.7rem 2rem 1.7rem 2rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
+
+  ${mainMediaPadding}
 `;
 
 export const TransferBtn = styled(ButtonPrimary)`

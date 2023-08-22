@@ -8,6 +8,7 @@ import {
   fontStyleXSmallBold,
   fontStyleXSmallNormal,
 } from 'styles/typography';
+import { mainMediaPadding } from 'styles/fragments';
 
 export const Main = styled.main`
   overflow: auto;
@@ -18,6 +19,13 @@ export const Main = styled.main`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-rows: auto 1fr;
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    border: none;
+    padding-top: 1rem;
+  }
 `;
 
 export const Title = styled.h2`
@@ -25,6 +33,14 @@ export const Title = styled.h2`
   padding-left: 1.5rem;
   position: relative;
   ${fontStyleMediumBold}
+
+  @media (max-width: 1500px) {
+    margin-left: 1.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    margin-left: 0rem;
+  }
 
   ::before {
     position: absolute;
@@ -49,6 +65,14 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   row-gap: 1.15rem;
+
+  ${mainMediaPadding}
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    padding: 1.5rem 0 0 0;
+  }
 `;
 
 export const Form = styled.form`
@@ -213,12 +237,20 @@ export const TableBlock = styled.div`
   grid-template-rows: auto 1fr;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid rgba(255, 255, 255, 0.02);
+
+  @media (max-width: 1200px) {
+    border: none;
+  }
 `;
 
 export const Tabs = styled.div`
-  padding: 0.85rem 0;
+  padding: 0.85rem;
   display: flex;
   column-gap: 8px;
+
+  @media (max-width: 1200px) {
+    padding: 0.85rem 0;
+  }
 `;
 
 export const TabBtn = styled.button`

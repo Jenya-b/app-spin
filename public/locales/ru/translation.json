@@ -1,5 +1,5 @@
 {
-  "amlPolicy": "Aml политика",
+  "amlPolicy": "Aml policy",
   "authorization": "Авторизация",
   "amount": "Сумма",
   "amountInCrypto": "сумма в крипто",
@@ -29,7 +29,7 @@
   "enterNewPass": "Ввести новый пароль",
   "enterCodeFromApp": "Введите код из приложения",
 
-  "fairPlay": "Честная игра",
+  "fairPlay": "Fair play",
   "forgotPassword": "Забыли пароль",
   "futureStats": "future статистика",
 
@@ -68,7 +68,7 @@
   "placeholderMessage": "Введите сообщение",
   "price": "цена",
 
-  "responsibleGamingPolicy": "Политика ответственности игры",
+  "responsibleGamingPolicy": "Responsible gaming policy",
   "repeatPassword": "Повторите пароль",
   "repeatNewPassword": "Повторите новый пароль",
   "registration": "Регистрация",

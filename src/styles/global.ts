@@ -62,6 +62,18 @@ export default createGlobalStyle`
 		@media (min-width: 3000px) {
 			font-size: 22px;
 		}
+
+		@media (max-width: 1600px) {
+			font-size: 13px;
+		}
+
+		@media (max-width: 1400px) {
+			font-size: 12px;
+		}
+
+		@media (max-width: 1200px) {
+			font-size: 11px;
+		}
 	}
 	html,
 	body {

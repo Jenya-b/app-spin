@@ -4,7 +4,8 @@ import styled, { css } from 'styled-components';
 import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
 import { colors } from 'styles/colors';
 import { ButtonPrimary } from 'styles/components';
-import { fontStyleXSmallBemiBold, fontStyleXXSmallDemiBold } from 'styles/typography';
+import { fontStyleXSmallBemiBold } from 'styles/typography';
+import { mainMediaSize } from 'styles/fragments';
 
 interface SoundBtnProps {
   isactive: boolean;
@@ -25,6 +26,8 @@ export const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 27rem 1fr 27rem;
   column-gap: 2.3rem;
+
+  ${mainMediaSize}
 `;
 
 export const Container = styled.div`
@@ -38,6 +41,10 @@ export const Logo = styled.div`
   height: 2.9rem;
   background: url(${logo}) no-repeat;
   background-size: contain;
+
+  @media (max-width: 1200px) {
+    margin-left: 0.5rem;
+  }
 `;
 
 export const AuxiliaryButtons = styled.div`
@@ -193,6 +200,7 @@ export const Controls = styled.div`
   display: flex;
   align-items: center;
   column-gap: 1rem;
+  margin-right: 0.5rem;
 `;
 
 export const AuthBtn = styled(ButtonPrimary)`

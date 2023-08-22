@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { btnRightIcon, cryptoIcon } from 'constants/images';
 import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
+import { mainMediaPadding } from 'styles/fragments';
 
 export const Wrapper = styled.div`
   grid-column: 1/2;
@@ -10,6 +11,14 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+
+  ${mainMediaPadding}
+
+  @media (max-width: 1200px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const Timer = styled.div`

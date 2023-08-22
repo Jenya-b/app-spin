@@ -8,6 +8,7 @@ import {
   fontStyleXSmallNormal,
   fontStyleXXSmallBold,
 } from 'styles/typography';
+import { mainMediaPadding } from 'styles/fragments';
 
 export const Wrapper = styled.div`
   grid-column: 3/4;
@@ -17,6 +18,12 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template: auto 1fr auto / 1fr;
+
+  @media (max-width: 1200px) {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const TitleBlock = styled.div`
@@ -24,6 +31,8 @@ export const TitleBlock = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${mainMediaPadding}
 `;
 
 export const Title = styled.h2`
@@ -73,6 +82,8 @@ export const MessageBlock = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   padding: 1.2rem 2rem;
   overflow: auto;
+
+  ${mainMediaPadding}
 `;
 
 export const ControlBlock = styled.div`

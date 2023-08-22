@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { colors } from 'styles/colors';
 import { shieldIcon } from 'constants/images';
 import { fontStyleXXSmallBold } from 'styles/typography';
+import { mainMediaPadding } from 'styles/fragments';
 
 export const Wrapper = styled.div`
   grid-column: 2/3;
@@ -14,6 +15,15 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${mainMediaPadding}
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    border: none;
+    padding: 0;
+  }
 `;
 
 export const ModalBtn = styled.div`
