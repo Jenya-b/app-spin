@@ -7,6 +7,11 @@ export const Controls = styled.div`
   align-items: center;
   column-gap: 0.85rem;
 
+  @media (max-width: 1200px) {
+    grid-row: 1/3;
+    justify-content: center;
+  }
+
   button {
     width: 7rem;
     height: 7rem;
@@ -15,6 +20,11 @@ export const Controls = styled.div`
     ${fontStyleXSmallBemiBold}
     text-transform: uppercase;
     transition: ${({ theme }) => theme.transition};
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      height: 100%;
+    }
 
     :hover {
       border: 1px solid rgba(255, 255, 255, 0.5);

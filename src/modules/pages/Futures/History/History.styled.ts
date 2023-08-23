@@ -6,4 +6,11 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   padding: 1.5rem 2rem;
   overflow: auto;
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    border: none;
+    padding: 0;
+  }
 `;

@@ -16,6 +16,14 @@ export const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   width: auto;
+
+  @media (max-width: 1200px) {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
 `;
 
 export const Form = styled.form`
@@ -47,6 +55,10 @@ export const Lable = styled.label`
   width: 5rem;
   ${fontStyleXSmallBold}
   text-transform: uppercase;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input`

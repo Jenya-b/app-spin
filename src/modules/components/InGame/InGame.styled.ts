@@ -15,6 +15,13 @@ export const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   width: auto;
+
+  @media (max-width: 1200px) {
+    padding: 0;
+    border-radius: none;
+    background: none;
+    grid-row: 1/2;
+  }
 `;
 
 export const Title = styled.div`
