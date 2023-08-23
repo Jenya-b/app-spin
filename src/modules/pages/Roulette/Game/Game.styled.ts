@@ -10,13 +10,15 @@ export const Wrapper = styled.div`
   overflow: auto;
 `;
 
-export const GameBlock = styled.div``;
-
 export const InfoBlock = styled.div`
   padding: 0.8rem 2rem;
   margin-top: 0.9rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 2fr;
+
+  @media (max-width: 1200px) {
+    padding: 0.8rem 1rem;
+  }
 `;
 
 export const LastGame = styled.div`
@@ -118,6 +120,10 @@ export const HistoryGame = styled.div`
 export const Roulette = styled.div`
   position: relative;
   padding: 1.5rem 2rem 0 2rem;
+
+  @media (max-width: 1200px) {
+    padding: 1.5rem 1rem 0 1rem;
+  }
 `;
 
 export const RouletteWrap = styled.div`
@@ -226,6 +232,10 @@ export const TransferBlock = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+
+  @media (max-width: 1200px) {
+    padding: 1rem 1rem;
+  }
 `;
 
 export const ImageWrap = styled.div`
@@ -273,6 +283,8 @@ export const InGameUser = styled.p`
 export const Label = styled.label`
   ${fontStyleXSmallBold}
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 `;
 
 export const Input = styled.input`

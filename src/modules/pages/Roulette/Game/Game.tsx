@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { List } from 'modules/components/List/List';
 import {
   Wrapper,
-  GameBlock,
   TransferBlock,
   criptoListCss,
   InGameUser,
@@ -51,7 +50,7 @@ export const Game = () => {
 
   return (
     <Wrapper>
-      <GameBlock>
+      <div>
         <Roulette>
           <RouletteWrap>
             <Pointer />
@@ -83,7 +82,7 @@ export const Game = () => {
             ))}
           </HistoryGame>
         </InfoBlock>
-      </GameBlock>
+      </div>
       <TransferBlock>
         <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
         <InputWrap>

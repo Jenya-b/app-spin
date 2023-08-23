@@ -8,6 +8,13 @@ export const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   overflow: auto;
+
+  @media (max-width: 1200px) {
+    background: none;
+    border-radius: none;
+    border: none;
+    padding: 0;
+  }
 `;
 
 export const ControlBlock = styled.div`
@@ -146,6 +153,11 @@ export const listRouletteData = css`
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1.25rem;
   height: 100%;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, minmax(20rem, 1fr));
+    column-gap: 1rem;
+  }
 
   li {
     overflow: auto;
