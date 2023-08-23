@@ -18,6 +18,11 @@ export const Wrapper = styled.div`
   grid-template-columns: 12.5rem 1fr 12.5rem;
   align-items: center;
   column-gap: 1.2rem;
+
+  @media (max-width: 1200px) {
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+    padding: 1rem;
+  }
 `;
 
 export const ChooseCoin = styled.div`
@@ -55,6 +60,11 @@ export const CoinInfo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-width: 1200px) {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
 `;
 
 export const ImgWrap = styled.div`
