@@ -26,7 +26,7 @@ export const LayoutMain = () => {
       opacity: 1,
       marginBottom: `${converterFontSize(window.innerWidth, 12)}px`,
       borderWidth: `${converterFontSize(window.innerWidth, 1)}px`,
-      padding: `${converterFontSize(window.innerWidth, 28)}px`,
+      padding: `${converterFontSize(window.innerWidth, window.innerWidth > 1200 ? 28 : 14)}px`,
     },
     to: { height: '0px', opacity: 0, marginBottom: '0px', borderWidth: '0px', padding: '0px' },
     reverse: !isVisible,

@@ -11,6 +11,12 @@ export const Wrapper = styled(animated.div)`
   margin-bottom: 12px;
   padding: 2rem;
   overflow: hidden;
+
+  @media (max-width: 1200px) {
+    padding: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 `;
 
 export const Graph = styled.div`

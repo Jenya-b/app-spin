@@ -7,6 +7,12 @@ export const TransferBlock = styled.div`
   display: flex;
   column-gap: 1.7rem;
   align-items: center;
+
+  @media (max-width: 1200px) {
+    grid-row: 1/3;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const TransferWrap = styled.div`

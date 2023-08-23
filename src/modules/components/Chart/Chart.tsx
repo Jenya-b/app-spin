@@ -25,9 +25,6 @@ const START_SEC = 0;
 const MIN_SEC = 1.01;
 const MAX_SEC = 10;
 
-const height = converterFontSize(window.innerWidth, 138);
-
-const width = converterFontSize(window.innerWidth, 320);
 const paddingTop = converterFontSize(window.innerWidth, 7);
 const paddingBottom = converterFontSize(window.innerWidth, 7);
 const paddingLeft = converterFontSize(window.innerWidth, 50);
@@ -37,9 +34,20 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const [timerStart, setTimerStart] = useState(START_SEC);
   const [timerEnd, setTimerEnd] = useState(MIN_SEC * MS);
   const [randomNum, setRandomNum] = useState<number>();
+  const [widthGraph, setWidthGraph] = useState<number>();
+  const [heightGraph, setHeightGraph] = useState<number>();
 
   const linesRef = useRef(null);
+  const graphRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef(null);
+
+  useEffect(() => {
+    const width = graphRef?.current?.offsetWidth;
+    const height = graphRef?.current?.clientHeight;
+
+    if (width) setWidthGraph(width);
+    if (height) setHeightGraph(height);
+  }, [graphRef.current]);
 
   useEffect(() => {
     if (!timerStart) {
@@ -63,6 +71,8 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   }, [randomNum, timerEnd]);
 
   useEffect(() => {
+    if (!heightGraph) return;
+
     d3.select(linesRef.current)
       .selectAll('div')
       .data(data)
@@ -75,10 +85,10 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
             })
             .style('transform', function (d, i) {
               if (i > 4) {
-                return `translate(0px,${height - paddingBottom - (height / 3) * 4}px)`;
+                return `translate(0px,${heightGraph - paddingBottom - (heightGraph / 3) * 4}px)`;
               }
 
-              return `translate(0px,${height - paddingBottom - (height / 3) * i}px)`;
+              return `translate(0px,${heightGraph - paddingBottom - (heightGraph / 3) * i}px)`;
             })
             .classed('line', true),
         (update) =>
@@ -87,22 +97,25 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
             .easeVarying(() => d3.easePolyIn.exponent(1))
             .style('transform', function (d, i, arr) {
               return `translate(0px,${
-                height - paddingBottom - (height / 3) * i + (arr.length - 5) * (height / 3)
+                heightGraph -
+                paddingBottom -
+                (heightGraph / 3) * i +
+                (arr.length - 5) * (heightGraph / 3)
               }px)`;
             })
             .duration(32500 / 3)
       );
-  }, [data]);
+  }, [data, heightGraph]);
 
   useEffect(() => {
-    if (!randomNum) return;
+    if (!randomNum || !heightGraph) return;
 
     const polygonHeight =
       randomNum >= 400
         ? 1
-        : height -
+        : heightGraph -
           paddingBottom -
-          ((height - paddingBottom - paddingTop) * (randomNum - 100)) / 300;
+          ((heightGraph - paddingBottom - paddingTop) * (randomNum - 100)) / 300;
 
     const duration = randomNum >= 400 ? 32500 : (32500 / 300) * (randomNum - 100);
 
@@ -116,9 +129,9 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       .easeVarying(() => d3.easePolyIn.exponent(1))
       .attr(
         'points',
-        `${paddingLeft},${height} 
-        ${width},${height} 
-        ${width},${polygonHeight}`
+        `${paddingLeft},${heightGraph} 
+        ${widthGraph},${heightGraph} 
+        ${widthGraph},${polygonHeight}`
       )
       .duration(duration);
 
@@ -135,7 +148,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       .easeVarying(() => d3.easePolyIn.exponent(1))
       .attr('y2', polygonHeight)
       .duration(duration);
-  }, [randomNum]);
+  }, [randomNum, heightGraph]);
 
   const updateTimerStart = () => setTimerStart((state) => state - 1);
 
@@ -143,30 +156,30 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
 
   return (
     <Wrapper ref={chartRef} style={style}>
-      <Graph>
+      <Graph ref={graphRef}>
         <Lines ref={linesRef} />
         <Svg ref={svgRef}>
           <polygon
             fill={randomNum === timerEnd ? 'rgba(255, 55, 95, 0.50)' : 'rgba(49, 93, 241, 0.50)'}
             points={`
-              ${paddingLeft},${height} 
-              ${width},${height} 
-              ${width},${height}
+              ${paddingLeft},${heightGraph} 
+              ${widthGraph},${heightGraph} 
+              ${widthGraph},${heightGraph}
             `}
           />
           <g transform="translate(0,0)">
             <circle
               className={'circle'}
               r={5}
-              cx={width}
-              cy={height}
+              cx={widthGraph}
+              cy={heightGraph}
               fill={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
             />
             <line
               x1={paddingLeft}
-              y1={height}
-              x2={width}
-              y2={height}
+              y1={heightGraph}
+              x2={widthGraph}
+              y2={heightGraph}
               strokeWidth="2"
               stroke={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
             />
@@ -174,7 +187,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
               className={'circle'}
               r={5}
               cx={paddingLeft}
-              cy={height}
+              cy={heightGraph}
               fill={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
             />
           </g>
