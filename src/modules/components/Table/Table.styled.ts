@@ -9,6 +9,10 @@ interface ICountColumns {
 export const Wrapper = styled.div`
   padding: 1.5rem 2rem;
   overflow: auto;
+
+  @media (max-width: 1200px) {
+    padding: 1.5rem 1.5rem;
+  }
 `;
 
 export const StyledTable = styled.table<ICountColumns>`

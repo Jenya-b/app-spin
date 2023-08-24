@@ -14,6 +14,11 @@ export const Main = styled.main<MainProps>`
   display: grid;
   grid-template-rows: ${({ extended }) => (extended ? 'auto 1fr auto' : '1fr auto')};
   overflow: hidden;
+
+  @media (max-width: 1200px) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const Logo = styled.div`

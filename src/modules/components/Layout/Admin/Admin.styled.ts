@@ -8,6 +8,7 @@ import {
   fontStyleSmallNormal,
   fontStyleXSmallBemiBold,
 } from 'styles/typography';
+import { mainMediaSize } from 'styles/fragments';
 
 interface StyledNavLinkProps {
   icon: { active: string; noActive: string };
@@ -19,6 +20,20 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template: auto 1fr / 27rem 1fr 27rem;
   column-gap: 2.3rem;
+
+  ${mainMediaSize}
+
+  @media (max-width: 1650px) {
+    padding: 0 1.5rem 1.43rem 1.5rem;
+  }
+
+  @media (max-width: 1500px) {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
 `;
 
 export const Sidebar = styled.aside`
@@ -29,10 +44,20 @@ export const Sidebar = styled.aside`
   grid-row: 2/3;
   display: grid;
   grid-template-rows: auto 1fr;
+
+  @media (max-width: 1200px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const SearchBlock = styled.div`
   padding: 1.5rem 2rem;
+
+  @media (max-width: 1200px) {
+    padding: 1.5rem 1.5rem;
+  }
 `;
 
 export const SearchTitle = styled.h2`
@@ -122,4 +147,10 @@ export const listMenuCss = css`
   padding: 1.5rem 2rem;
   border-radius: 1.15rem;
   background: ${colors.blue500};
+
+  @media (max-width: 1200px) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1.5rem 1.5rem;
+  }
 `;
