@@ -74,6 +74,10 @@ export default createGlobalStyle`
 		@media (max-width: 1200px) {
 			font-size: 11px;
 		}
+
+		@media (max-width: 1023px) {
+			font-size: 14px;
+		}
 	}
 	html,
 	body {
@@ -89,6 +93,10 @@ export default createGlobalStyle`
 	}
 	body {
 		overflow: hidden;
+
+		@media (max-width: 1023px) {
+			overflow: visible;
+  	}
 	}
 	input,
 	button,
@@ -128,6 +136,7 @@ export default createGlobalStyle`
 		font-weight: 400;
 	}
 	#root{
-		height: 100vh;
+		/* height: 100vh; */
+	
 	}
 `;

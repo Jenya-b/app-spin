@@ -2,7 +2,7 @@ import { Suspense, useCallback, useRef, useState } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { Wrapper, Sidebar } from './Main.styled';
+import { Wrapper, Sidebar, ChatWrap } from './Main.styled';
 import { Header } from 'modules/components/Header/Header';
 import { Chat } from 'modules/components/Chat/Chat';
 import { Footer } from 'modules/components/Footer/Footer';
@@ -13,16 +13,22 @@ import { wallet } from 'data/wallet';
 import { chatData } from 'data/chat';
 import { Chart } from 'modules/components/Chart/Chart';
 import { converterFontSize } from 'utils/converter';
+import { useResize } from 'hooks/useResize';
 
 export const LayoutMain = () => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(pathname !== '/');
   const chartRef = useRef(null);
+  const chatRef = useRef<HTMLDivElement>(null);
+  const [windowWidth] = useResize();
 
   const springs = useSpring({
     immediate: !chartRef.current,
     from: {
-      height: `${converterFontSize(window.innerWidth, 193)}px`,
+      height: `${converterFontSize(
+        window.innerWidth,
+        window.innerWidth >= 1024 ? 193 : window.innerWidth / 2
+      )}px`,
       opacity: 1,
       marginBottom: `${converterFontSize(window.innerWidth, 12)}px`,
       borderWidth: `${converterFontSize(window.innerWidth, 1)}px`,
@@ -42,14 +48,18 @@ export const LayoutMain = () => {
       <Header hideChart={hideChart} showChart={showChart} />
       <Sidebar>
         <Chart chartRef={chartRef} style={springs} />
-        <Wallet activeBlock={isVisible} data={wallet} />
+        {windowWidth > 1023 && <Wallet activeBlock={isVisible} data={wallet} />}
       </Sidebar>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      <Chat chatData={chatData} />
+      {windowWidth > 1023 && (
+        <ChatWrap ref={chatRef}>
+          <Chat chatData={chatData} />
+        </ChatWrap>
+      )}
       <CountDown days={1} hours={0} minutes={1} seconds={15} />
-      <Footer />
+      {windowWidth > 1023 && <Footer />}
     </Wrapper>
   );
 };

@@ -15,6 +15,7 @@ import {
   SettingLink,
   Controls,
   AuthBtn,
+  Nav,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
@@ -76,14 +77,14 @@ export const Header = memo(({ showChart, hideChart }: HeaderProps) => {
         </AuxiliaryButtons>
       </Container>
       <Container>
-        <nav>
+        <Nav>
           <List
             data={navMenu}
             renderEmpty={<></>}
             renderItem={renderItemMenu}
             styles={navMenuListCss}
           />
-        </nav>
+        </Nav>
         <div>
           <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
           <BasicModal open={isOpenLoginModal} handleClose={closeLoginModal}>

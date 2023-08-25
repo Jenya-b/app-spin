@@ -19,6 +19,10 @@ export const Main = styled.main<MainProps>`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  @media (max-width: 1023px) {
+    overflow: visible;
+  }
 `;
 
 export const Logo = styled.div`

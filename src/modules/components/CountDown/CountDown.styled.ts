@@ -19,6 +19,12 @@ export const Wrapper = styled.div`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+  }
 `;
 
 export const Timer = styled.div`
@@ -37,6 +43,12 @@ export const Info = styled.div`
   display: flex;
   justify-content: space-between;
   ${fontStyleSmallBold}
+
+  @media (max-width: 1023px) {
+    justify-content: start;
+    align-items: center;
+    column-gap: 2.5rem;
+  }
 
   div:nth-child(2) {
     position: relative;

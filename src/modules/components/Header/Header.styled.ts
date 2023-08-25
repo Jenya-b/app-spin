@@ -45,6 +45,9 @@ export const Logo = styled.div`
   @media (max-width: 1200px) {
     margin-left: 0.5rem;
   }
+  @media (max-width: 1023px) {
+    margin-left: 0rem;
+  }
 `;
 
 export const AuxiliaryButtons = styled.div`
@@ -100,6 +103,22 @@ export const LanguageBtn = styled.button<LanguageBtnProps>`
   }
 `;
 
+export const Nav = styled.nav`
+  @media (max-width: 1023px) {
+    padding: 0.3rem 0;
+    background: ${({ theme }) => theme.colors.bgSecondary};
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: ${({ theme }) => theme.order.mainIndex};
+  }
+`;
+
 export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   position: relative;
   padding: 0.3rem;
@@ -114,6 +133,10 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid ${({ theme }) => theme.colors.bgPrimary};
   transition: ${({ theme }) => theme.transition};
+
+  @media (max-width: 1023px) {
+    border: none;
+  }
 
   ::before {
     width: 2rem;
@@ -133,6 +156,10 @@ export const StyledNavLink = styled(NavLink)<StyledNavLinkProps>`
   :hover {
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
     background: ${({ theme }) => theme.colors.bgSecondary};
+
+    @media (max-width: 1023px) {
+      border: none;
+    }
 
     ::before {
       background: url(${({ icon }) => icon.active}) no-repeat;

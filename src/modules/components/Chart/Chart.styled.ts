@@ -17,6 +17,10 @@ export const Wrapper = styled(animated.div)`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const Graph = styled.div`

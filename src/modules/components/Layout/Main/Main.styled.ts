@@ -22,6 +22,13 @@ export const Wrapper = styled.div`
   @media (max-width: 1200px) {
     padding: 0;
   }
+
+  @media (max-width: 1023px) {
+    height: 100%;
+    padding: 0 0.65rem 5.5rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Sidebar = styled.aside`
@@ -31,4 +38,17 @@ export const Sidebar = styled.aside`
   display: grid;
   grid-template-rows: auto 1fr;
   overflow-y: auto;
+
+  @media (max-width: 1023px) {
+    overflow: visible;
+    margin-bottom: 0rem;
+  }
+`;
+
+export const ChatWrap = styled.div`
+  display: grid;
+  grid-template: 1fr/1fr;
+  grid-column: 3/4;
+  grid-row: 2/4;
+  overflow: auto;
 `;

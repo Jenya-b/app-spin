@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from 'styles/colors';
 import {
@@ -22,6 +22,10 @@ export const Wrapper = styled.div`
     border: none;
     padding: 0;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const HistoryBlock = styled.div`
@@ -29,6 +33,10 @@ export const HistoryBlock = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   background: ${({ theme }) => theme.colors.bgTertiary};
   overflow: hidden;
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const Title = styled.h3`
@@ -53,6 +61,12 @@ export const HistoryItem = styled.div`
 
 export const TableWrap = styled.div`
   margin-top: 1.15rem;
+
+  @media (max-width: 1023px) {
+    margin-top: 0.85rem;
+    max-height: 30rem;
+    overflow: auto;
+  }
 `;
 
 export const TableRow = styled.div`
