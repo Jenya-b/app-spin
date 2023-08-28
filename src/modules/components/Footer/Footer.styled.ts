@@ -24,6 +24,16 @@ export const Wrapper = styled.div`
     border: none;
     padding: 0;
   }
+
+  @media (max-width: 1023px) {
+    align-items: start;
+  }
+`;
+
+export const ModalWrap = styled.div`
+  @media (max-width: 1023px) {
+    order: 1;
+  }
 `;
 
 export const ModalBtn = styled.div`

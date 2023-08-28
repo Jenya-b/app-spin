@@ -1,22 +1,17 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { btnRightIcon, languageIcon, logo, soundIcon } from 'constants/images';
-import { colors } from 'styles/colors';
+import { btnRightIcon, logo } from 'constants/images';
 import { ButtonPrimary } from 'styles/components';
 import { fontStyleXSmallBemiBold } from 'styles/typography';
 import { mainMediaSize } from 'styles/fragments';
 
-interface SoundBtnProps {
-  isactive: boolean;
-}
-
-interface LanguageBtnProps {
-  language: string;
-}
-
 interface StyledNavLinkProps {
   icon: { active: string; noActive: string };
+}
+
+interface BurgerProps {
+  isActiveBurger: boolean;
 }
 
 export const StyledHeader = styled.header`
@@ -28,12 +23,23 @@ export const StyledHeader = styled.header`
   column-gap: 2.3rem;
 
   ${mainMediaSize}
+
+  @media (max-width: 1023px) {
+    display: flex;
+    column-gap: 0rem;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1023px) {
+    :first-child {
+      margin-right: auto;
+    }
+  }
 `;
 
 export const Logo = styled.div`
@@ -47,59 +53,6 @@ export const Logo = styled.div`
   }
   @media (max-width: 1023px) {
     margin-left: 0rem;
-  }
-`;
-
-export const AuxiliaryButtons = styled.div`
-  display: flex;
-  column-gap: 0.57rem;
-`;
-
-export const SoundBtn = styled.button<SoundBtnProps>`
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  background: ${({ theme }) => theme.colors.bgSecondary};
-
-  ::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 50%;
-    width: 1.6rem;
-    height: 1.6rem;
-    background: url(${({ isactive }) =>
-      isactive ? `${soundIcon.active}` : `${soundIcon.noActive}`});
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: translate(-50%, -50%);
-    transition: ${({ theme }) => theme.transition};
-  }
-`;
-
-export const LanguageBtn = styled.button<LanguageBtnProps>`
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  background: ${({ theme }) => theme.colors.bgSecondary};
-
-  ::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    left: 50%;
-    width: 1.6rem;
-    height: 1.6rem;
-    background: url(${({ language }) =>
-      language === 'ru' ? `${languageIcon.ru}` : `${languageIcon.en}`});
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform: translate(-50%, -50%);
-    transition: ${({ theme }) => theme.transition};
   }
 `;
 
@@ -179,57 +132,6 @@ export const navMenuListCss = css`
   }
 `;
 
-export const socialMenuListCss = css`
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-
-  li {
-    a {
-      display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
-      svg {
-        width: 100%;
-        height: 100%;
-        :hover {
-          path {
-            transition: all 0.3s;
-            fill-opacity: 1;
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const SettingLink = styled(Link)`
-  position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: ${({ theme }) => theme.transition};
-
-  :hover {
-    transform: rotate(-90deg);
-
-    svg {
-      width: 100%;
-      height: 100%;
-      path {
-        transition: ${({ theme }) => theme.transition};
-        fill: ${colors.blueLight100};
-      }
-    }
-  }
-`;
-
-export const Controls = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-  margin-right: 0.5rem;
-`;
-
 export const AuthBtn = styled(ButtonPrimary)`
   width: 16.8rem;
   padding: 0.93rem 0.85rem;
@@ -246,5 +148,43 @@ export const AuthBtn = styled(ButtonPrimary)`
     ::after {
       right: 1.21rem;
     }
+  }
+`;
+
+export const Burger = styled.div<BurgerProps>`
+  display: flex;
+  height: 23px;
+  width: 35px;
+  align-items: center;
+  position: relative;
+  margin-left: 1.5rem;
+  z-index: ${({ theme }) => theme.order.mainIndex};
+
+  span {
+    display: ${({ isActiveBurger }) => (isActiveBurger ? 'none' : 'block')};
+    width: 100%;
+    height: 3px;
+    background: ${({ theme }) => theme.colors.textPrimary};
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: ${({ theme }) => theme.colors.textPrimary};
+    left: 0;
+    transition: all 0.1s;
+  }
+
+  &::after {
+    transform: rotate(${({ isActiveBurger }) => (isActiveBurger ? 45 : 0)}deg);
+    bottom: ${({ isActiveBurger }) => (isActiveBurger ? 10 : 0)}px;
+  }
+
+  &::before {
+    transform: rotate(${({ isActiveBurger }) => (isActiveBurger ? -45 : 0)}deg);
+    top: ${({ isActiveBurger }) => (isActiveBurger ? 10 : 0)}px;
   }
 `;

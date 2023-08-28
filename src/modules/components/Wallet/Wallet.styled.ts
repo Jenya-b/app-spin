@@ -27,6 +27,11 @@ export const Wrapper = styled.div`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+    margin-bottom: auto;
+  }
 `;
 
 export const TitleBlock = styled.div`
@@ -88,6 +93,12 @@ export const walletListCss = css`
   display: flex;
   flex-direction: column;
   row-gap: 1.8rem;
+
+  @media (max-width: 1023px) {
+    flex-direction: row;
+    row-gap: 0rem;
+    justify-content: space-between;
+  }
 `;
 
 export const MoneyWrap = styled.div`
@@ -100,6 +111,12 @@ export const MoneyWrap = styled.div`
     width: 100%;
     height: 0.072rem;
     background: rgba(255, 255, 255, 0.02);
+  }
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -133,6 +150,11 @@ export const MoneyCount = styled.div`
 
   & div:nth-child(3) {
     text-align: end;
+  }
+
+  @media (max-width: 1023px) {
+    display: block;
+    text-align: center;
   }
 `;
 

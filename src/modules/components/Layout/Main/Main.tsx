@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useRef, useState } from 'react';
+import { Suspense, useRef, useState, useEffect } from 'react';
 import { useSpring } from '@react-spring/web';
 import { Outlet, useLocation } from 'react-router-dom';
 
@@ -39,13 +39,13 @@ export const LayoutMain = () => {
     config: { duration: 500 },
   });
 
-  const showChart = useCallback(() => setIsVisible(true), []);
-
-  const hideChart = useCallback(() => setIsVisible(false), []);
+  useEffect(() => {
+    pathname !== '/' ? setIsVisible(true) : setIsVisible(false);
+  }, [pathname]);
 
   return (
     <Wrapper>
-      <Header hideChart={hideChart} showChart={showChart} />
+      <Header />
       <Sidebar>
         <Chart chartRef={chartRef} style={springs} />
         {windowWidth > 1023 && <Wallet activeBlock={isVisible} data={wallet} />}

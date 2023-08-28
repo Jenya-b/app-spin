@@ -22,4 +22,10 @@ export const menuListCss = css`
   @media (max-width: 1200px) {
     column-gap: 1rem;
   }
+
+  @media (max-width: 1023px) {
+    column-gap: 0;
+    flex-direction: column;
+    row-gap: 1.2rem;
+  }
 `;

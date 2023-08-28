@@ -24,6 +24,7 @@ import { cryptoIcon } from 'constants/images';
 import { BasicModal } from '../Modal/Modal';
 import { TransferModal } from '../Modal/Transfer/Transfer';
 import { useModal } from 'hooks/useModal';
+import { useResize } from 'hooks/useResize';
 
 interface WalletProps {
   activeBlock: boolean;
@@ -32,30 +33,35 @@ interface WalletProps {
 
 export const Wallet = ({ activeBlock, data }: WalletProps) => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
+  const [windowWidth] = useResize();
   const { t } = useTranslation();
 
   const renderItem = ({ cryptoName, amount, available, inGame }: IWallet) => (
     <MoneyWrap>
       <MoneyTitle active={activeBlock}>
         <Icon active={activeBlock} src={cryptoIcon[`${cryptoName}`]} />
-        {cryptoName}
+        {windowWidth >= 1024 && cryptoName}
       </MoneyTitle>
       <MoneyCount>
         <CountWrap>
-          <CountTitle active={activeBlock}>{t('amount')}</CountTitle>
+          {windowWidth >= 1024 && <CountTitle active={activeBlock}>{t('amount')}</CountTitle>}
           <CountCripto active={activeBlock}>{amount.crypto}</CountCripto>
           <CountUsd active={activeBlock}>${amount.usd}</CountUsd>
         </CountWrap>
-        <CountWrap>
-          <CountTitle active={activeBlock}>{t('inGame')}</CountTitle>
-          <CountCripto active={activeBlock}>{inGame.crypto}</CountCripto>
-          <CountUsd active={activeBlock}>${inGame.usd}</CountUsd>
-        </CountWrap>
-        <CountWrap>
-          <CountTitle active={activeBlock}>{t('available')}</CountTitle>
-          <CountCripto active={activeBlock}>{available.crypto}</CountCripto>
-          <CountUsd active={activeBlock}>${available.usd}</CountUsd>
-        </CountWrap>
+        {windowWidth >= 1024 && (
+          <>
+            <CountWrap>
+              <CountTitle active={activeBlock}>{t('inGame')}</CountTitle>
+              <CountCripto active={activeBlock}>{inGame.crypto}</CountCripto>
+              <CountUsd active={activeBlock}>${inGame.usd}</CountUsd>
+            </CountWrap>
+            <CountWrap>
+              <CountTitle active={activeBlock}>{t('available')}</CountTitle>
+              <CountCripto active={activeBlock}>{available.crypto}</CountCripto>
+              <CountUsd active={activeBlock}>${available.usd}</CountUsd>
+            </CountWrap>
+          </>
+        )}
       </MoneyCount>
     </MoneyWrap>
   );
