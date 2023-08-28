@@ -19,6 +19,7 @@ import {
   Contact,
   FairPlay,
   GamingPolicy,
+  MessagePage,
 } from 'modules/pages';
 import { LayoutInfo } from 'modules/components/Layout/Info/Info';
 import { ErrorBoundary } from 'modules/components/ErrorBoundary/ErrorBoundary';
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: path.setting,
         element: <SettingPage />,
+      },
+      {
+        path: path.messages,
+        element: <MessagePage />,
       },
     ],
   },

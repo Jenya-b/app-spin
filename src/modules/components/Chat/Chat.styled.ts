@@ -11,8 +11,6 @@ import {
 import { mainMediaPadding } from 'styles/fragments';
 
 export const Wrapper = styled.div`
-  /* grid-column: 3/4;
-  grid-row: 2/4; */
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -24,6 +22,10 @@ export const Wrapper = styled.div`
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  @media (max-width: 1200px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
 `;
 

@@ -14,4 +14,5 @@ export const path = {
   contact: '/info/contact',
   fairPlay: '/info/fairPlay',
   gamingPolicy: '/info/gamingPolicy',
+  messages: '/messages',
 };

@@ -25,6 +25,12 @@ export const navMenu: INavMenu[] = [
   },
 ];
 
+export const messageMenu: INavMenu = {
+  title: 'message',
+  iconUrl: menuIcon.message,
+  path: path.messages,
+};
+
 export const footerMenu: IBasicNavMenu[] = [
   {
     title: 'termsOfService',

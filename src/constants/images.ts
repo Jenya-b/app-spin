@@ -62,6 +62,10 @@ export const menuIcon = {
     active: '/source/images/icons/usersBtnActive.svg',
     noActive: '/source/images/icons/usersBtn.svg',
   },
+  message: {
+    active: '/source/images/icons/messagesBtnActive.svg',
+    noActive: '/source/images/icons/messagesBtn.svg',
+  },
 };
 
 export const cryptoIcon = {

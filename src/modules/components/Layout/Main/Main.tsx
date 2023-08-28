@@ -14,6 +14,7 @@ import { chatData } from 'data/chat';
 import { Chart } from 'modules/components/Chart/Chart';
 import { converterFontSize } from 'utils/converter';
 import { useResize } from 'hooks/useResize';
+import { path } from 'modules/router/path';
 
 export const LayoutMain = () => {
   const { pathname } = useLocation();
@@ -40,7 +41,7 @@ export const LayoutMain = () => {
   });
 
   useEffect(() => {
-    pathname !== '/' ? setIsVisible(true) : setIsVisible(false);
+    pathname !== path.home ? setIsVisible(true) : setIsVisible(false);
   }, [pathname]);
 
   return (
@@ -58,7 +59,7 @@ export const LayoutMain = () => {
           <Chat chatData={chatData} />
         </ChatWrap>
       )}
-      <CountDown days={1} hours={0} minutes={1} seconds={15} />
+      {pathname !== path.messages && <CountDown days={1} hours={0} minutes={1} seconds={15} />}
       {windowWidth > 1023 && <Footer />}
     </Wrapper>
   );

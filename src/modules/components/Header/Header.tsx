@@ -16,7 +16,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
 import { settingSelector } from 'store/selectors';
 import { List } from '../List/List';
-import { navMenu } from 'constants/menu';
+import { messageMenu, navMenu } from 'constants/menu';
 import { INavMenu } from 'interfaces/menu';
 import { BasicModal } from '../Modal/Modal';
 import { Auth } from '../Auth/Auth';
@@ -80,7 +80,7 @@ export const Header = memo(() => {
       <Container>
         <Nav>
           <List
-            data={navMenu}
+            data={windowWidth >= 1024 ? navMenu : [...navMenu, messageMenu]}
             renderEmpty={<></>}
             renderItem={renderItemMenu}
             styles={navMenuListCss}
