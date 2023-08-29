@@ -13,6 +13,11 @@ export const TransferBlock = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 767px) {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
 `;
 
 export const TransferWrap = styled.div`

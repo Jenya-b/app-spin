@@ -24,6 +24,11 @@ export const Wrapper = styled.div`
     grid-row: 2/3;
     grid-column: 1/2;
   }
+
+  @media (max-width: 767px) {
+    grid-row: 3/4;
+    grid-column: 1/3;
+  }
 `;
 
 export const Form = styled.form`
@@ -47,6 +52,11 @@ export const Form = styled.form`
       text-transform: uppercase;
       z-index: 10;
     }
+  }
+
+  @media (max-width: 767px) {
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+    row-gap: 0.72rem;
   }
 `;
 
@@ -87,4 +97,8 @@ export const Button = styled.button`
   ${fontStyleSmallDemiBold}
   align-self: flex-end;
   text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    grid-column: 1/3;
+  }
 `;

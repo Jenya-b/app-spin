@@ -22,10 +22,19 @@ export const Wrapper = styled.div`
     background: none;
     grid-row: 1/2;
   }
+
+  @media (max-width: 767px) {
+    grid-row: 2/3;
+    grid-column: 1/3;
+  }
 `;
 
 export const Title = styled.div`
   ${fontStyleSmallBold}
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const List = styled.div`
@@ -40,6 +49,10 @@ export const List = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  }
+
+  @media (max-width: 767px) {
+    text-align: center;
   }
 `;
 
