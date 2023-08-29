@@ -1,6 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { settingIcon, infoIcon, card, chipIcon, copyIcon } from 'constants/images';
+import {
+  settingIcon,
+  infoIcon,
+  card,
+  chipIcon,
+  copyIcon,
+  shield,
+  shieldIcon,
+} from 'constants/images';
 import {
   fontStyleMediumBold,
   fontStyleSmallDemiBold,
@@ -22,7 +30,7 @@ export const Main = styled.main`
 
   @media (max-width: 1200px) {
     background: none;
-    border-radius: none;
+    border-radius: 0;
     border: none;
     padding-top: 1rem;
   }
@@ -79,12 +87,21 @@ export const Form = styled.form`
   display: grid;
   grid-template: auto 2.86rem / repeat(2, 1fr);
   gap: 1.15rem;
+
+  @media (max-width: 767px) {
+    grid-template: repeat(2, auto) 2.86rem / 1fr;
+    column-gap: 0rem;
+  }
 `;
 
 export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1.3rem;
+
+  @media (max-width: 767px) {
+    grid-row: 2/3;
+  }
 `;
 
 export const Label = styled.label`
@@ -126,6 +143,10 @@ export const InfoBlock = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.02);
   display: grid;
   grid-template: 6rem 1fr / 1fr;
+
+  @media (max-width: 767px) {
+    grid-row: 1/2;
+  }
 `;
 
 export const UserInfo = styled.div`
@@ -150,6 +171,12 @@ export const UserInfo = styled.div`
     background-size: contain;
     background-position: center;
   }
+
+  @media (max-width: 767px) {
+    background: ${({ theme }) => theme.colors.buttonPrimary};
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 `;
 
 export const UserInfoTitle = styled.p`
@@ -170,6 +197,10 @@ export const ReferalInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media (max-width: 767px) {
+    height: 9rem;
+  }
 `;
 
 export const ReferalHref = styled.div`
@@ -264,4 +295,111 @@ export const TabBtn = styled.button`
   &.active {
     background: ${({ theme }) => theme.colors.buttonPrimary};
   }
+`;
+
+export const CardBlock = styled.div`
+  padding: 1rem;
+  background: ${({ theme }) => theme.colors.bgSecondary};
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+`;
+
+export const Select = styled.select`
+  width: 13rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  background: ${({ theme }) => theme.colors.buttonPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  text-transform: uppercase;
+`;
+
+export const cardListCss = css`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.65rem;
+`;
+
+export const CardWrap = styled.div`
+  margin-top: 1rem;
+`;
+
+export const Card = styled.div`
+  padding: 0.5rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  background: ${({ theme }) => theme.colors.bgTertiary};
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(2, 1fr);
+  column-gap: 0.5rem;
+  text-transform: uppercase;
+
+  h2 {
+    padding-top: 0.25rem;
+    ${fontStyleSmallDemiBold}
+  }
+
+  p {
+    ${fontStyleXSmallBemiBold}
+    opacity: 0.5;
+  }
+`;
+
+export const CardId = styled.div`
+  padding: 0.5rem 0;
+`;
+
+export const CardDate = styled.div`
+  align-self: center;
+  justify-self: end;
+`;
+
+export const CardWallet = styled.div`
+  position: relative;
+  padding: 0.75rem 0.85rem;
+  text-align: center;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  overflow: hidden;
+
+  ::after {
+    position: absolute;
+    content: '';
+    right: -1.2rem;
+    bottom: -1rem;
+    width: 4.75rem;
+    height: 4.75rem;
+    background: url(${shield}) no-repeat;
+  }
+
+  h2 {
+    display: flex;
+    justify-content: center;
+
+    span {
+      display: inline-block;
+      position: relative;
+      padding-left: 1.5rem;
+
+      ::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1rem;
+        height: 1rem;
+        background: url(${shieldIcon}) no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+  }
+`;
+
+export const CardAmount = styled.div`
+  padding: 0.75rem 0.85rem;
+  text-align: center;
+  background-color: #282e35;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  border: 1px solid #22222d;
 `;

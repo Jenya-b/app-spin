@@ -59,7 +59,9 @@ export const LayoutMain = () => {
           <Chat chatData={chatData} />
         </ChatWrap>
       )}
-      {pathname !== path.messages && <CountDown days={1} hours={0} minutes={1} seconds={15} />}
+      {pathname !== path.messages && pathname !== path.setting && (
+        <CountDown days={1} hours={0} minutes={1} seconds={15} />
+      )}
       {windowWidth > 1023 && <Footer />}
     </Wrapper>
   );

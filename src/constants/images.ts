@@ -4,6 +4,7 @@ export const coinBtc = '/source/images/coinBtc.png';
 export const coinEth = '/source/images/coinEth.png';
 export const up = '/source/images/up.png';
 export const down = '/source/images/down.png';
+export const shield = '/source/images/shield.png';
 
 export const chooseCoinIcon = '/source/images/icons/chooseCoin.svg';
 export const noBidsIcon = '/source/images/icons/noBids.svg';

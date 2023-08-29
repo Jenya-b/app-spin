@@ -6,7 +6,7 @@ export interface ITransactionData {
   data: string;
 }
 
-export const transactionData = [
+export const transactionData: ITransactionData[] = [
   {
     id: '#00000034515',
     walletCurrency: 'trust wallet',

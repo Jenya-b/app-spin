@@ -23,6 +23,15 @@ import {
   TableBlock,
   TabBtn,
   Tabs,
+  CardBlock,
+  Select,
+  CardWrap,
+  Card,
+  CardId,
+  CardDate,
+  CardWallet,
+  CardAmount,
+  cardListCss,
 } from './Setting.styled';
 import { settingTableMenu } from 'constants/menu';
 import { Table } from './Table/Table';
@@ -31,6 +40,8 @@ import { transactionTHead } from 'constants/table';
 import { BasicModal } from 'modules/components/Modal/Modal';
 import { QRCodeScaner } from 'modules/components/Modal/QRCodeScaner/QRCodeScaner';
 import { useModal } from 'hooks/useModal';
+import { useResize } from 'hooks/useResize';
+import { List } from 'modules/components/List/List';
 
 export const SettingPage = () => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
@@ -38,6 +49,7 @@ export const SettingPage = () => {
   const [referal] = useState('https://spin.com/reflink/45465456ue4q344623r2dfew');
   const [isCopied, setCopied] = useClipboard(referal);
   const { t } = useTranslation();
+  const [windowWidth] = useResize();
 
   const renderItem = ({
     id,
@@ -57,6 +69,30 @@ export const SettingPage = () => {
     </>
   );
 
+  const renderCardItem = ({
+    id,
+    walletCurrency,
+    amountMain,
+    amountAdditional,
+    data,
+  }: ITransactionData) => (
+    <Card>
+      <CardId>{id}</CardId>
+      <CardDate>{data}</CardDate>
+      <CardWallet>
+        <p>wallet currency</p>
+        <h2>
+          <span>{walletCurrency}</span>
+        </h2>
+      </CardWallet>
+      <CardAmount>
+        <p>amount</p>
+        <h2>{amountMain}</h2>
+        <p>{amountAdditional}</p>
+      </CardAmount>
+    </Card>
+  );
+
   const updateFilter = (event: MouseEvent<HTMLButtonElement>) => {
     const { id } = event.currentTarget;
     setFilter(id);
@@ -74,7 +110,6 @@ export const SettingPage = () => {
               <p>
                 {t('username')} <span />
               </p>
-
               <Input placeholder={t('enterNewUser')} />
             </Label>
             <Label>
@@ -127,26 +162,39 @@ export const SettingPage = () => {
             </BasicModal>
           </ControlBlock>
         </Form>
-        <TableBlock>
-          <Tabs>
-            {settingTableMenu.map((item) => (
-              <TabBtn
-                key={item}
-                id={item}
-                onClick={updateFilter}
-                className={item === filter ? 'active' : ''}
-              >
-                {t(item)}
-              </TabBtn>
-            ))}
-          </Tabs>
-          <Table
-            data={transactionData}
-            renderEmpty={<></>}
-            renderItem={renderItem}
-            headData={transactionTHead}
-          />
-        </TableBlock>
+        {windowWidth > 767 ? (
+          <TableBlock>
+            <Tabs>
+              {settingTableMenu.map((item) => (
+                <TabBtn
+                  key={item}
+                  id={item}
+                  onClick={updateFilter}
+                  className={item === filter ? 'active' : ''}
+                >
+                  {t(item)}
+                </TabBtn>
+              ))}
+            </Tabs>
+            <Table
+              data={transactionData}
+              renderEmpty={<></>}
+              renderItem={renderItem}
+              headData={transactionTHead}
+            />
+          </TableBlock>
+        ) : (
+          <CardBlock>
+            <Select>
+              {settingTableMenu.map((item) => (
+                <option key={item}>{t(item)}</option>
+              ))}
+            </Select>
+            <CardWrap>
+              <List renderItem={renderCardItem} data={transactionData} styles={cardListCss} />
+            </CardWrap>
+          </CardBlock>
+        )}
       </Wrapper>
     </Main>
   );
