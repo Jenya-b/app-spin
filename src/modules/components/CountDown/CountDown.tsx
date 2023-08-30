@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Timer, Wrapper, Info } from './CountDown.styled';
+import { Timer, Wrapper, Info, Button } from './CountDown.styled';
 import { useCountDownTimer } from 'hooks/useCountDownTimer';
 
 interface CountDownProps {
@@ -19,7 +19,7 @@ export const CountDown = ({ days, hours, minutes, seconds }: CountDownProps) => 
       <Info>
         <div>{t('giveaway')}</div>
         <div>25 Spin</div>
-        <div></div>
+        <div />
       </Info>
       <Timer>
         <span>{d.toString().padStart(2, '0')}</span>
@@ -30,6 +30,7 @@ export const CountDown = ({ days, hours, minutes, seconds }: CountDownProps) => 
         <span>:</span>
         <span>{s.toString().padStart(2, '0')}</span>
       </Timer>
+      <Button />
     </Wrapper>
   );
 };

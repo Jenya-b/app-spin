@@ -31,6 +31,8 @@ export const lineIcon = '/source/images/icons/line.svg';
 export const pointerIcon = '/source/images/icons/pointer.svg';
 export const searchIcon = '/source/images/icons/search.svg';
 export const okBtnIcon = '/source/images/icons/okBtn.svg';
+export const presentIcon = '/source/images/icons/present.svg';
+export const arrowRightIcon = '/source/images/icons/arrow-right.svg';
 
 export const soundIcon = {
   active: '/source/images/icons/volume-high.svg',

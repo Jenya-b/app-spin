@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import { btnRightIcon, cryptoIcon } from 'constants/images';
+import { arrowRightIcon, btnRightIcon, cryptoIcon, presentIcon } from 'constants/images';
 import { fontStyleXXLargeBold, fontStyleSmallBold } from 'styles/typography';
 import { mainMediaPadding } from 'styles/fragments';
+import { colors } from 'styles/colors';
 
 export const Wrapper = styled.div`
   grid-column: 1/2;
@@ -24,6 +25,26 @@ export const Wrapper = styled.div`
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
+    padding: 1.5rem 1rem;
+  }
+
+  @media (max-width: 479px) {
+    position: relative;
+    grid-template-columns: 1.5fr 1fr auto;
+    align-items: center;
+
+    ::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      background: url(${presentIcon}) no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
   }
 `;
 
@@ -37,6 +58,10 @@ export const Timer = styled.div`
   span:nth-child(even) {
     opacity: 0.25;
   }
+
+  @media (max-width: 479px) {
+    color: ${colors.green200};
+  }
 `;
 
 export const Info = styled.div`
@@ -48,6 +73,12 @@ export const Info = styled.div`
     justify-content: start;
     align-items: center;
     column-gap: 2.5rem;
+  }
+
+  @media (max-width: 479px) {
+    flex-direction: column;
+    align-items: start;
+    padding-left: 3rem;
   }
 
   div:nth-child(2) {
@@ -64,6 +95,10 @@ export const Info = styled.div`
       height: 1.15rem;
       background: url(${cryptoIcon.spin}) no-repeat;
       background-size: contain;
+
+      @media (max-width: 479px) {
+        display: none;
+      }
     }
   }
 
@@ -73,5 +108,36 @@ export const Info = styled.div`
     background: url(${btnRightIcon}) no-repeat;
     background-size: contain;
     opacity: 0.25;
+
+    @media (max-width: 479px) {
+      display: none;
+    }
+  }
+`;
+
+export const Button = styled.button`
+  margin-left: 1rem;
+  display: none;
+  width: 2.14rem;
+  height: 2.14rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  background: rgba(91, 201, 87, 0.15);
+
+  @media (max-width: 479px) {
+    display: block;
+    position: relative;
+
+    ::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1.2rem;
+      height: 1.2rem;
+      background: url(${arrowRightIcon}) no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
   }
 `;
