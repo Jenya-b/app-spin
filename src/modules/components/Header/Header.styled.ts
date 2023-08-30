@@ -133,6 +133,10 @@ export const navMenuListCss = css`
   li {
     width: 6rem;
     height: 4rem;
+
+    @media (max-width: 479px) {
+      width: 4.9rem;
+    }
   }
 `;
 
