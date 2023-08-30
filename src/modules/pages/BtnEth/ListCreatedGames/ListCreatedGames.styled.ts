@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: 1200px) {
     background: none;
-    border-radius: none;
+    border-radius: 0;
     border: none;
     padding: 0;
   }
@@ -25,6 +25,11 @@ export const listCreatedGamesCss = css`
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1rem;
   }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    row-gap: 0.85rem;
+  }
 `;
 
 export const GameWrap = styled.div`
@@ -33,6 +38,10 @@ export const GameWrap = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
   grid-template-columns: 1fr auto 1fr;
+
+  @media (max-width: 767px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const GameControlBlock = styled.div`

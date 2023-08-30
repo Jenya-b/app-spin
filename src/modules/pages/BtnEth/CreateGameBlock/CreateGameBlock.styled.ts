@@ -23,6 +23,15 @@ export const Wrapper = styled.div`
     grid-template: repeat(2, auto) / repeat(2, 1fr);
     padding: 1rem;
   }
+
+  @media (max-width: 767px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
+
+  @media (max-width: 650px) {
+    grid-template: repeat(3, auto) / 1fr;
+    column-gap: 0rem;
+  }
 `;
 
 export const ChooseCoin = styled.div`
@@ -65,6 +74,11 @@ export const CoinInfo = styled.div`
     grid-column: 1/2;
     grid-row: 1/3;
   }
+
+  @media (max-width: 767px) {
+    background: none;
+    border-radius: 0;
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -102,6 +116,10 @@ export const Button = styled(ButtonPrimary)`
     ::after {
       right: 1.25rem;
     }
+  }
+
+  @media (max-width: 650px) {
+    margin-top: 0.72rem;
   }
 `;
 

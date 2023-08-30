@@ -16,10 +16,14 @@ import { CryptoNameType } from 'interfaces/crypto';
 import { cryptoArr } from 'constants/crypto';
 import { List } from 'modules/components/List/List';
 import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
+import { InGame } from 'modules/components/InGame/InGame';
+import { inGameData } from 'data/long';
+import { useResize } from 'hooks/useResize';
 
 export const CreateGameBlock = () => {
   const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
   const { t } = useTranslation();
+  const [width] = useResize();
 
   const renderItem = (item: CryptoNameType) => (
     <CryptoBtn
@@ -41,8 +45,12 @@ export const CreateGameBlock = () => {
         <Lable>
           <span>{t('bet')}</span>
           <Input placeholder={t('amount')} />
-          <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
         </Lable>
+        {width <= 650 ? (
+          <InGame data={inGameData} />
+        ) : (
+          <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
+        )}
       </div>
       <CoinInfo>
         <ImgWrap>
