@@ -19,10 +19,18 @@ export const Wrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1.7rem;
-  max-width: 26.4rem;
-  width: 100%;
+  width: 26.4rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
+
+  @media (max-width: 479px) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
 `;
 
 export const Title = styled.h2`

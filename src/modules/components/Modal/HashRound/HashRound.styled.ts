@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
+
+  @media (max-width: 479px) {
+    border-radius: 0rem;
+  }
 `;
 
 export const CopyBlock = styled.div`

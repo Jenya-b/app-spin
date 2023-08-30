@@ -15,6 +15,10 @@ export const InputBlock = styled.div`
   grid-template: repeat(2, 1fr) / 2fr 1.5fr 5.5rem;
   row-gap: 1.7rem;
   column-gap: 1.3rem;
+
+  @media (max-width: 479px) {
+    gap: 0.8rem;
+  }
 `;
 
 export const Lable = styled.label`

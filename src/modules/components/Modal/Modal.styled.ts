@@ -11,6 +11,17 @@ export const Wrapper = styled.div`
   padding: 1.7rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
+  overflow: hidden;
+
+  @media (max-width: 479px) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, 0);
+    border-radius: 0;
+    padding: 1.7rem 1rem;
+  }
 `;
 
 export const CloseModalBtn = styled.button`

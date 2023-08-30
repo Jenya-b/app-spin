@@ -18,12 +18,19 @@ interface PraceProps {
 export const StyledWrapp = styled(Wrapper)`
   max-width: 37.85rem;
   width: 100%;
+  overflow: auto;
 `;
 
 export const PriceWrap = styled.div`
   margin-top: 1.3rem;
   display: flex;
   column-gap: 1.3rem;
+
+  @media (max-width: 479px) {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 0.8rem;
+  }
 `;
 
 export const Price = styled.div<PraceProps>`
@@ -33,6 +40,10 @@ export const Price = styled.div<PraceProps>`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: ${({ active }) => (active ? `${colors.blueLight100}` : `${colors.blue600}`)};
   cursor: ${({ theme }) => theme.cursor};
+
+  @media (max-width: 479px) {
+    width: 100%;
+  }
 `;
 
 export const CriptoName = styled.div`
@@ -69,7 +80,13 @@ export const Controls = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.3rem;
-  height: 3.57rem;
+
+  @media (max-width: 479px) {
+    margin-top: 0.8rem;
+    grid-template: repeat(2, 1fr) / 1fr;
+    column-gap: 0rem;
+    row-gap: 0.8rem;
+  }
 `;
 
 interface ButtonProps {
@@ -77,6 +94,7 @@ interface ButtonProps {
 }
 
 export const SendBtn = styled(ButtonPrimary)<ButtonProps>`
+  height: 3.57rem;
   padding: 0px 0.85rem;
   background: ${({ isactive }) => (isactive ? `${colors.blueLight100}` : `${colors.blue600}`)};
 
@@ -98,6 +116,7 @@ export const SendBtn = styled(ButtonPrimary)<ButtonProps>`
 `;
 
 export const RecieveBtn = styled(ButtonPrimary)<ButtonProps>`
+  height: 3.57rem;
   padding: 0px 0.85rem;
   background: ${({ isactive }) => (isactive ? `${colors.blueLight100}` : `${colors.blue600}`)};
 
