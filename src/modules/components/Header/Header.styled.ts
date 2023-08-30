@@ -54,6 +54,10 @@ export const Logo = styled.div`
   @media (max-width: 1023px) {
     margin-left: 0rem;
   }
+  @media (max-width: 480px) {
+    width: 9rem;
+    height: 2.3rem;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -142,12 +146,20 @@ export const AuthBtn = styled(ButtonPrimary)`
     background-position: center;
   }
 
-  :hover {
-    padding: 0.93rem 1.21rem;
+  @media (min-width: 1024px) {
+    :hover {
+      padding: 0.93rem 1.21rem;
 
-    ::after {
-      right: 1.21rem;
+      ::after {
+        right: 1.21rem;
+      }
     }
+  }
+
+  @media (max-width: 479px) {
+    text-transform: capitalize;
+    width: 11rem;
+    padding: 0.65rem 0.9rem;
   }
 `;
 
