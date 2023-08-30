@@ -9,4 +9,8 @@ export const Wrapper = styled.div`
   @media (max-width: 1200px) {
     padding: 1rem;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;

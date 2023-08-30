@@ -13,4 +13,8 @@ export const Wrapper = styled.div`
     border: none;
     padding: 0;
   }
+
+  @media (max-width: 1023px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;

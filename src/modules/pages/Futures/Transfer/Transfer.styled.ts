@@ -12,6 +12,11 @@ export const Controls = styled.div`
     justify-content: center;
   }
 
+  @media (max-width: 767px) {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
+
   button {
     width: 7rem;
     height: 7rem;
@@ -24,6 +29,10 @@ export const Controls = styled.div`
     @media (max-width: 1200px) {
       width: 100%;
       height: 100%;
+    }
+
+    @media (max-width: 767px) {
+      padding: 1.5rem 0;
     }
 
     :hover {
