@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   overflow: auto;
+
+  @media (max-width: 767px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const InfoBlock = styled.div`
@@ -19,6 +23,10 @@ export const InfoBlock = styled.div`
   @media (max-width: 1200px) {
     padding: 0.8rem 1rem;
   }
+
+  @media (max-width: 767px) {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  }
 `;
 
 export const LastGame = styled.div`
@@ -26,6 +34,15 @@ export const LastGame = styled.div`
   align-items: center;
   column-gap: 0.85rem;
   ${fontStyleSmallBold}
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: 0rem;
+    row-gap: 0.85rem;
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
 `;
 
 export const LastGameTitle = styled.p`
@@ -76,6 +93,11 @@ export const LastGameItem = styled.div`
 export const Timer = styled.div`
   justify-self: center;
   text-align: center;
+
+  @media (max-width: 767px) {
+    grid-row: 1/2;
+    grid-column: 1/3;
+  }
 `;
 
 export const Time = styled.div`
@@ -95,6 +117,10 @@ export const HistoryGame = styled.div`
   column-gap: 0.28rem;
   align-items: center;
   justify-content: flex-end;
+
+  @media (max-width: 767px) {
+    align-items: flex-end;
+  }
 
   div {
     width: 1.15rem;
@@ -235,6 +261,10 @@ export const TransferBlock = styled.div`
 
   @media (max-width: 1200px) {
     padding: 1rem 1rem;
+  }
+
+  @media (max-width: 767px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
 `;
 
