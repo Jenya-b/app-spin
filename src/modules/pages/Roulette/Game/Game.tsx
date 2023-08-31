@@ -85,10 +85,14 @@ export const Game = () => {
       </div>
       <TransferBlock>
         <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
+        <InGameUser>16 {t('gamers')}</InGameUser>
         <InputWrap>
-          <InGameUser>16 {t('gamers')}</InGameUser>
           <Label>
             {t('amount')}:
+            <Input />
+          </Label>
+          <Label>
+            {t('bet')}:
             <Input />
           </Label>
         </InputWrap>

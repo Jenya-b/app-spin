@@ -257,7 +257,7 @@ export const TransferBlock = styled.div`
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
 
   @media (max-width: 1200px) {
     padding: 1rem 1rem;
@@ -288,6 +288,7 @@ export const InputWrap = styled.div`
   align-items: center;
   justify-content: center;
   column-gap: 1.7rem;
+  justify-self: flex-end;
 `;
 
 export const InGameUser = styled.p`
@@ -295,6 +296,8 @@ export const InGameUser = styled.p`
   position: relative;
   ${fontStyleXSmallBold}
   text-transform: uppercase;
+  align-self: center;
+  justify-self: center;
 
   ::before {
     position: absolute;
@@ -323,7 +326,7 @@ export const Input = styled.input`
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   background: rgba(255, 255, 255, 0.05);
-  height: 1.43rem;
+  height: 2rem;
   width: 4.3rem;
 `;
 
