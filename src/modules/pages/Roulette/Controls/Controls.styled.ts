@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
     border: none;
     padding: 0;
   }
+
+  @media (max-width: 1024px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const ControlBlock = styled.div`
@@ -97,7 +101,7 @@ export const Long = styled.p`
   ${fontStyleSmallBold}
 `;
 
-export const InputWrap = styled.div`
+export const InfoWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,18 +137,8 @@ export const InGameUser = styled.p`
   }
 `;
 
-export const Label = styled.label`
+export const InGameAmount = styled.label`
   text-transform: uppercase;
-`;
-
-export const Input = styled.input`
-  margin-left: 0.5rem;
-  padding-left: 0.72rem;
-  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
-  color: ${({ theme }) => theme.colors.textPrimary};
-  background: rgba(255, 255, 255, 0.05);
-  height: 1.43rem;
-  width: 4.3rem;
 `;
 
 export const listRouletteData = css`

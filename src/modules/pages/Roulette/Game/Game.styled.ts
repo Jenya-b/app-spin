@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   overflow: auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
 `;
@@ -157,6 +157,10 @@ export const RouletteWrap = styled.div`
   background: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   overflow: auto;
+
+  @media (max-width: 767px) {
+    border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  }
 `;
 
 export const Pointer = styled.div`
@@ -178,7 +182,7 @@ export const Slider = styled.div`
   align-items: center;
   column-gap: 0.28rem;
 
-  @keyframes go-left-right {
+  /* @keyframes go-left-right {
     from {
       right: 0px;
     }
@@ -186,7 +190,7 @@ export const Slider = styled.div`
       right: calc(100% - 50px);
     }
   }
-  animation: go-left-right 4s infinite alternate;
+  animation: go-left-right 4s infinite alternate; */
 `;
 
 export const Slide = styled.div`
@@ -263,7 +267,7 @@ export const TransferBlock = styled.div`
     padding: 1rem 1rem;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
 `;
@@ -289,6 +293,11 @@ export const InputWrap = styled.div`
   justify-content: center;
   column-gap: 1.7rem;
   justify-self: flex-end;
+  grid-column: 3/4;
+
+  @media (max-width: 479px) {
+    column-gap: 1rem;
+  }
 `;
 
 export const InGameUser = styled.p`
@@ -310,6 +319,10 @@ export const InGameUser = styled.p`
     background: url(${gameUserIcon}) no-repeat;
     background-position: center;
     background-size: contain;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
   }
 `;
 

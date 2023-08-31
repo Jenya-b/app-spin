@@ -9,9 +9,8 @@ import {
   Button,
   Long,
   InGameUser,
-  Input,
-  InputWrap,
-  Label,
+  InfoWrap,
+  InGameAmount,
   listRouletteUserData,
   UserAmount,
   UserLogo,
@@ -54,15 +53,14 @@ export const Controls = () => {
           <Long>x{long}</Long>
         </ControlBlock>
         <InfoBlock>
-          <InputWrap>
+          <InfoWrap>
             <InGameUser className={diamond}>
               {countInGame} {t('gamers')}
             </InGameUser>
-            <Label>
-              {t('amount')}:
-              <Input />
-            </Label>
-          </InputWrap>
+            <InGameAmount>
+              {t('amount')}: {users.reduce((acc, { count }) => acc + count, 0)}`$
+            </InGameAmount>
+          </InfoWrap>
           <List
             data={users}
             renderItem={renderItemUser}
