@@ -29,10 +29,12 @@ import { cryptoArr } from 'constants/crypto';
 import { CryptoNameType } from 'interfaces/crypto';
 import { historyRoulette, lastResult, rouletteSlider } from 'data/roulette';
 import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
+import { useResize } from 'hooks/useResize';
 
 export const Game = () => {
   const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
   const { t } = useTranslation();
+  const [width] = useResize();
 
   const renderItem = (item: CryptoNameType) => (
     <CryptoBtn
@@ -84,18 +86,20 @@ export const Game = () => {
         </InfoBlock>
       </div>
       <TransferBlock>
-        <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
+        {width >= 767 && <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />}
         <InGameUser>16 {t('gamers')}, 150$</InGameUser>
-        <InputWrap>
-          <Label>
-            {t('amount')}:
-            <Input />
-          </Label>
-          <Label>
-            {t('bet')}:
-            <Input />
-          </Label>
-        </InputWrap>
+        {width >= 767 && (
+          <InputWrap>
+            <Label>
+              {t('amount')}:
+              <Input />
+            </Label>
+            <Label>
+              {t('bet')}:
+              <Input />
+            </Label>
+          </InputWrap>
+        )}
       </TransferBlock>
     </Wrapper>
   );

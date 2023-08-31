@@ -270,6 +270,10 @@ export const TransferBlock = styled.div`
   @media (max-width: 1024px) {
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ImageWrap = styled.div`
@@ -319,10 +323,6 @@ export const InGameUser = styled.p`
     background: url(${gameUserIcon}) no-repeat;
     background-position: center;
     background-size: contain;
-  }
-
-  @media (max-width: 767px) {
-    display: none;
   }
 `;
 

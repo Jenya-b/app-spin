@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import { fontStyleSmallBold, fontStyleXSmallBold, fontStyleXXSmallBold } from 'styles/typography';
+import {
+  fontStyleSmallBold,
+  fontStyleXSmallBold,
+  fontStyleXSmallNormal,
+  fontStyleXXSmallBold,
+} from 'styles/typography';
 
 export const Wrapper = styled.div`
   padding: 1.5rem 2rem;
@@ -19,6 +24,10 @@ export const Wrapper = styled.div`
   @media (max-width: 1024px) {
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   }
+
+  @media (max-width: 767px) {
+    margin-top: 1rem;
+  }
 `;
 
 export const ControlBlock = styled.div`
@@ -31,6 +40,10 @@ export const ControlBlock = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   ${fontStyleXSmallBold}
   text-transform: uppercase;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 
   &.blue {
     background: linear-gradient(
@@ -158,6 +171,14 @@ export const listRouletteData = css`
     display: grid;
     grid-template-rows: auto 1fr;
     row-gap: 0.85rem;
+
+    @media (max-width: 767px) {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 1rem;
   }
 `;
 
@@ -222,4 +243,50 @@ export const NoBidsSubtitle = styled.p`
   margin-top: 0.3rem;
   ${fontStyleXXSmallBold}
   opacity: 0.25;
+`;
+
+export const MobControls = styled.div`
+  background: ${({ theme }) => theme.colors.bgSecondary};
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  padding: 1rem;
+`;
+
+export const MobButtonsWrap = styled.div`
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+`;
+
+export const InputWrap = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+`;
+
+export const Label = styled.label`
+  position: relative;
+  width: 5rem;
+  ${fontStyleXSmallBold}
+  text-transform: uppercase;
+  width: 100%;
+`;
+
+export const Input = styled.input`
+  margin-top: 0.6rem;
+  width: 100%;
+  height: 2.85rem;
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  background: ${({ theme }) => theme.colors.inputPrimary};
+  ${fontStyleXSmallNormal}
+  text-align: center;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;

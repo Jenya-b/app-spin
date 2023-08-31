@@ -8,4 +8,8 @@ export const Main = styled.main`
   grid-template-rows: auto 1fr;
   row-gap: 0.85rem;
   overflow: auto;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
 `;
