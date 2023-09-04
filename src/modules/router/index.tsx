@@ -23,6 +23,7 @@ import {
 } from 'modules/pages';
 import { LayoutInfo } from 'modules/components/Layout/Info/Info';
 import { ErrorBoundary } from 'modules/components/ErrorBoundary/ErrorBoundary';
+import { RequireAdmin } from 'hocs/RequireAdmin';
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ export const router = createBrowserRouter([
   {
     path: path.admin,
     errorElement: <ErrorBoundary />,
-    element: <LayoutAdmin />,
+    element: (
+      <RequireAdmin>
+        <LayoutAdmin />
+      </RequireAdmin>
+    ),
     children: [
       {
         index: true,
