@@ -8,10 +8,12 @@ import { Chat } from 'modules/components/Chat/Chat';
 import { chatData } from 'data/chat';
 import { NavInfo } from 'modules/components/NavInfo/NavInfo';
 import { path } from 'modules/router/path';
+import { useResize } from 'hooks/useResize';
 
 export const LayoutInfo = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const [width] = useResize();
 
   const handleClick = () => {
     const { pathname } = state.from;
@@ -22,15 +24,17 @@ export const LayoutInfo = () => {
     <Wrapper>
       <Header />
       <Main>
-        <NavWrap>
-          <NavInfo />
-        </NavWrap>
+        {width > 1023 && (
+          <NavWrap>
+            <NavInfo />
+          </NavWrap>
+        )}
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
         <Button onClick={handleClick}>back</Button>
       </Main>
-      <Chat chatData={chatData} />
+      {width > 1023 && <Chat chatData={chatData} />}
     </Wrapper>
   );
 };

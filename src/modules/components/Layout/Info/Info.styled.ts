@@ -24,6 +24,13 @@ export const Wrapper = styled.div`
   @media (max-width: 1200px) {
     padding: 0;
   }
+
+  @media (max-width: 1023px) {
+    height: 100%;
+    padding: 0 0.65rem 5.5rem 0.65rem;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Main = styled.main`
@@ -39,6 +46,12 @@ export const Main = styled.main`
     background: none;
     border-radius: none;
     border: none;
+  }
+
+  @media (max-width: 1023px) {
+    height: 100%;
+    position: static;
+    padding: 1.5rem 0.5rem;
   }
 `;
 
@@ -67,5 +80,10 @@ export const Button = styled(ButtonPrimary)`
     ::after {
       right: 1.21rem;
     }
+  }
+
+  @media (max-width: 1023px) {
+    bottom: 6rem;
+    left: 1rem;
   }
 `;
