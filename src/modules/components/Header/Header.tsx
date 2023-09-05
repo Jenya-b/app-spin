@@ -11,14 +11,6 @@ import {
   AuthBtn,
   Nav,
   Burger,
-  Profile,
-  ProfileLogo,
-  ProfileName,
-  ProfileMoney,
-  ProfileInfo,
-  ProfileControl,
-  ButtonAdd,
-  ButtonLogout,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
@@ -37,6 +29,7 @@ import { MobMenu } from '../MobMenu/MobMenu';
 import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
 import { authUser } from 'store/reducers/userSlice';
+import { Profile } from '../Profile/Profile';
 
 export const Header = memo(() => {
   const [isActiveMenu, setActiveMenu] = useState(false);
@@ -102,17 +95,7 @@ export const Header = memo(() => {
         </Nav>
         <div>
           {isAuth ? (
-            <Profile>
-              <ProfileInfo>
-                <ProfileLogo></ProfileLogo>
-                <ProfileName>PROFILE</ProfileName>
-                <ProfileMoney>0,00003 BTC</ProfileMoney>
-              </ProfileInfo>
-              <ProfileControl>
-                <ButtonAdd />
-                <ButtonLogout onClick={handleLogout} />
-              </ProfileControl>
-            </Profile>
+            <Profile handleLogout={handleLogout} />
           ) : (
             <>
               <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
