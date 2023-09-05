@@ -30,6 +30,7 @@ import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
 import { authUser } from 'store/reducers/userSlice';
 import { Profile } from '../Profile/Profile';
+import { Ping } from '../Ping/Ping';
 
 export const Header = memo(() => {
   const [isActiveMenu, setActiveMenu] = useState(false);
@@ -124,9 +125,11 @@ export const Header = memo(() => {
         </div>
       </Container>
       <Container>
-        <div>{/* PING */}</div>
         {windowWidth >= 1024 ? (
-          <ExtraMenu />
+          <>
+            <Ping />
+            <ExtraMenu />
+          </>
         ) : (
           <Burger onClick={updateDisplayMenu} isActiveBurger={isActiveMenu}>
             <span></span>
