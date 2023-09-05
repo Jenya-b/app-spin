@@ -6,6 +6,8 @@ import { AuthBtn, RegistrBtn, RestorPassLink } from './Login.styled';
 import { BasicModal } from 'modules/components/Modal/Modal';
 import { GoogleAuthenticator } from 'modules/components/Modal/GoogleAuthenticator/GoogleAuthenticator';
 import { useModal } from 'hooks/useModal';
+import { authUser } from 'store/reducers/userSlice';
+import { useAppDispatch } from 'store';
 
 interface LoginProps {
   handleCloseLoginModal: () => void;
@@ -13,6 +15,7 @@ interface LoginProps {
 }
 
 export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginProps) => {
+  const dispatch = useAppDispatch();
   const [isOpenChildModal, openChildModal, closeChildModal] = useModal(false);
   const { t } = useTranslation();
 
@@ -24,6 +27,11 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
   const handleOpenRegModal = () => {
     handleCloseLoginModal();
     handleOpenRegistModal();
+  };
+
+  const handleLogin = () => {
+    dispatch(authUser(true));
+    closeChildModal();
   };
 
   return (
@@ -41,7 +49,7 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
         <AuthBtn>{t('authorization')}</AuthBtn>
         <BasicModal open={isOpenChildModal} handleClose={closeChildModal}>
           <>
-            <GoogleAuthenticator handleClose={closeChildModal} />
+            <GoogleAuthenticator handleLogin={handleLogin} handleClose={closeChildModal} />
           </>
         </BasicModal>
       </Form>

@@ -4,10 +4,11 @@ import { Wrapper, Button, Input, InputsWrap } from './GoogleAuthenticator.styled
 import { CloseModalBtn, Subtitle, Title } from '../Modal.styled';
 
 interface GoogleAuthenticatorProps {
+  handleLogin: () => void;
   handleClose: () => void;
 }
 
-export const GoogleAuthenticator = ({ handleClose }: GoogleAuthenticatorProps) => {
+export const GoogleAuthenticator = ({ handleLogin, handleClose }: GoogleAuthenticatorProps) => {
   const { t } = useTranslation();
 
   return (
@@ -26,7 +27,7 @@ export const GoogleAuthenticator = ({ handleClose }: GoogleAuthenticatorProps) =
         <Input />
         <Input />
       </InputsWrap>
-      <Button>{t('continue')}</Button>
+      <Button onClick={handleLogin}>{t('continue')}</Button>
     </Wrapper>
   );
 };

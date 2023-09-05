@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 
 import settingReducer from './reducers/settingSlice';
+import userSlice from './reducers/userSlice';
 
 export const store = configureStore({
   reducer: {
     settingReducer,
+    userSlice,
   },
 
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),

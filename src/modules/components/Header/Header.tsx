@@ -11,10 +11,18 @@ import {
   AuthBtn,
   Nav,
   Burger,
+  Profile,
+  ProfileLogo,
+  ProfileName,
+  ProfileMoney,
+  ProfileInfo,
+  ProfileControl,
+  ButtonAdd,
+  ButtonLogout,
 } from './Header.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
-import { settingSelector } from 'store/selectors';
+import { settingSelector, userSelector } from 'store/selectors';
 import { List } from '../List/List';
 import { messageMenu, navMenu } from 'constants/menu';
 import { INavMenu } from 'interfaces/menu';
@@ -28,6 +36,7 @@ import { useResize } from 'hooks/useResize';
 import { MobMenu } from '../MobMenu/MobMenu';
 import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
+import { authUser } from 'store/reducers/userSlice';
 
 export const Header = memo(() => {
   const [isActiveMenu, setActiveMenu] = useState(false);
@@ -35,6 +44,7 @@ export const Header = memo(() => {
   const [isOpenRegistrModal, openRegistrModal, closeRegistrModal] = useModal(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
+  const { isAuth } = useAppSelector(userSelector);
   const { t, i18n } = useTranslation();
   const [play] = useSound(soundClick, { volume: isActiveSound ? 0.5 : 0 });
   const [windowWidth] = useResize();
@@ -64,6 +74,10 @@ export const Header = memo(() => {
     </StyledNavLink>
   );
 
+  const handleLogout = () => {
+    dispatch(authUser(false));
+  };
+
   return (
     <StyledHeader>
       <Container>
@@ -87,31 +101,47 @@ export const Header = memo(() => {
           />
         </Nav>
         <div>
-          <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
-          <BasicModal open={isOpenLoginModal} handleClose={closeLoginModal}>
+          {isAuth ? (
+            <Profile>
+              <ProfileInfo>
+                <ProfileLogo></ProfileLogo>
+                <ProfileName>PROFILE</ProfileName>
+                <ProfileMoney>0,00003 BTC</ProfileMoney>
+              </ProfileInfo>
+              <ProfileControl>
+                <ButtonAdd />
+                <ButtonLogout onClick={handleLogout} />
+              </ProfileControl>
+            </Profile>
+          ) : (
             <>
-              <Auth title="authorization" subtitle="welcome" closeModal={closeLoginModal}>
-                <Login
-                  handleOpenRegistModal={openRegistrModal}
-                  handleCloseLoginModal={closeLoginModal}
-                />
-              </Auth>
+              <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>
+              <BasicModal open={isOpenLoginModal} handleClose={closeLoginModal}>
+                <>
+                  <Auth title="authorization" subtitle="welcome" closeModal={closeLoginModal}>
+                    <Login
+                      handleOpenRegistModal={openRegistrModal}
+                      handleCloseLoginModal={closeLoginModal}
+                    />
+                  </Auth>
+                </>
+              </BasicModal>
+              <BasicModal open={isOpenRegistrModal} handleClose={closeRegistrModal}>
+                <>
+                  <Auth title="registration" subtitle="welcome" closeModal={closeRegistrModal}>
+                    <Registration
+                      handleCloseRegistModal={closeRegistrModal}
+                      handleOpenLoginModal={handleOpenLoginModal}
+                    />
+                  </Auth>
+                </>
+              </BasicModal>
             </>
-          </BasicModal>
-          <BasicModal open={isOpenRegistrModal} handleClose={closeRegistrModal}>
-            <>
-              <Auth title="registration" subtitle="welcome" closeModal={closeRegistrModal}>
-                <Registration
-                  handleCloseRegistModal={closeRegistrModal}
-                  handleOpenLoginModal={handleOpenLoginModal}
-                />
-              </Auth>
-            </>
-          </BasicModal>
+          )}
         </div>
       </Container>
       <Container>
-        <div> {/* Profile */} </div>
+        <div>{/* PING */}</div>
         {windowWidth >= 1024 ? (
           <ExtraMenu />
         ) : (
