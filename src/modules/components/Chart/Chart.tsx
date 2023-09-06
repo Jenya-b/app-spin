@@ -34,8 +34,8 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const [timerStart, setTimerStart] = useState(START_SEC);
   const [timerEnd, setTimerEnd] = useState(MIN_SEC * MS);
   const [randomNum, setRandomNum] = useState<number>();
-  const [widthGraph, setWidthGraph] = useState<number>();
-  const [heightGraph, setHeightGraph] = useState<number>();
+  const [widthGraph, setWidthGraph] = useState<number>(0);
+  const [heightGraph, setHeightGraph] = useState<number>(0);
 
   const linesRef = useRef(null);
   const graphRef = useRef<HTMLDivElement>(null);
