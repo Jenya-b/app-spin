@@ -7,7 +7,7 @@ import {
   MessageBlock,
   TitleBlock,
   Title,
-  Info,
+  ModalBtn,
   Input,
   InputBtn,
   Label,
@@ -22,6 +22,9 @@ import {
 import { IChatData } from 'data/chat';
 import { List } from '../List/List';
 import { getRandomIntInclusive } from 'utils/randomInt';
+import { useModal } from 'hooks/useModal';
+import { BasicModal } from '../Modal/Modal';
+import { ChatRules } from '../Modal/ChatRules/ChatRules';
 
 interface ChatProps {
   chatData: IChatData[];
@@ -30,6 +33,7 @@ interface ChatProps {
 export const Chat = ({ chatData }: ChatProps) => {
   const { t } = useTranslation();
   const [messageData, setMessageData] = useState<IChatData[]>(chatData);
+  const [isOpenModal, openModal, closeModal] = useModal(false);
   const messagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,7 +67,12 @@ export const Chat = ({ chatData }: ChatProps) => {
     <Wrapper>
       <TitleBlock>
         <Title>{t('chat')}</Title>
-        <Info>{t('chatRules')}</Info>
+        <ModalBtn onClick={openModal}>{t('chatRules')}</ModalBtn>
+        <BasicModal open={isOpenModal} handleClose={closeModal}>
+          <>
+            <ChatRules handleClose={closeModal} />
+          </>
+        </BasicModal>
       </TitleBlock>
       <MessageBlock ref={messagesRef}>
         <List data={messageData} renderItem={renderItem} styles={listMessageCss} />

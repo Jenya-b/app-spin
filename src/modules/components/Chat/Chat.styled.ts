@@ -57,11 +57,12 @@ export const Title = styled.h2`
   }
 `;
 
-export const Info = styled.div`
+export const ModalBtn = styled.button`
   position: relative;
   padding: 0.41rem 0.72rem 0.4rem 2rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   background: ${({ theme }) => theme.colors.buttonPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   ${fontStyleXXSmallBold}
   text-transform: uppercase;
 
