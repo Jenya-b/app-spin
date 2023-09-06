@@ -1,5 +1,6 @@
 {
   "amlPolicy": "Aml policy",
+  "adminPanel": "Admin panel",
   "authorization": "Authorization",
   "amount": "Amount",
   "available": "Available",
@@ -51,6 +52,7 @@
   "join": "join",
 
   "login": "login",
+  "logout": "Logout",
   "long": "long",
   "longStats": "long stats",
   "last": "last",
@@ -61,6 +63,7 @@
   "noBids": "There are no bids",
 
   "or": "or",
+  "openSettings": "Open settings",
 
   "placeholderLogin": "Enter your login",
   "password": "password",

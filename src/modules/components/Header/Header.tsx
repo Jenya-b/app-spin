@@ -28,7 +28,6 @@ import { useResize } from 'hooks/useResize';
 import { MobMenu } from '../MobMenu/MobMenu';
 import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
-import { authUser } from 'store/reducers/userSlice';
 import { Profile } from '../Profile/Profile';
 import { Ping } from '../Ping/Ping';
 
@@ -68,10 +67,6 @@ export const Header = memo(() => {
     </StyledNavLink>
   );
 
-  const handleLogout = () => {
-    dispatch(authUser(false));
-  };
-
   return (
     <StyledHeader>
       <Container>
@@ -96,7 +91,7 @@ export const Header = memo(() => {
         </Nav>
         <div>
           {isAuth ? (
-            <Profile handleLogout={handleLogout} />
+            <Profile />
           ) : (
             <>
               <AuthBtn onClick={handleOpenLoginModal}>{t('authorization')}</AuthBtn>

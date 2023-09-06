@@ -1,15 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { addIcon, btnRightIcon, logo, logoutIcon } from 'constants/images';
+import { btnRightIcon, logo } from 'constants/images';
 import { ButtonPrimary } from 'styles/components';
-import {
-  fontStyleMediumBold,
-  fontStyleXSmallBemiBold,
-  fontStyleXXSmallBold,
-} from 'styles/typography';
+import { fontStyleXSmallBemiBold } from 'styles/typography';
 import { mainMediaSize } from 'styles/fragments';
-import { theme } from 'styles/theme';
 
 interface StyledNavLinkProps {
   icon: { active: string; noActive: string };

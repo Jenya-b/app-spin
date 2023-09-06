@@ -1,5 +1,6 @@
 {
   "amlPolicy": "Aml policy",
+  "adminPanel": "Панель администратора",
   "authorization": "Авторизация",
   "amount": "Сумма",
   "amountInCrypto": "сумма в крипто",
@@ -51,6 +52,7 @@
   "join": "войти",
 
   "login": "логин",
+  "logout": "Выйти",
   "long": "длина",
   "longStats": "long статистика",
   "last": "последние",
@@ -61,6 +63,7 @@
   "noBids": "Нет ставок",
 
   "or": "или",
+  "openSettings": "Открыть настройки",
 
   "placeholderLogin": "Введите свой логин",
   "password": "пароль",
