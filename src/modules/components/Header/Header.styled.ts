@@ -177,7 +177,9 @@ export const Burger = styled.div<BurgerProps>`
   height: 23px;
   width: 35px;
   align-items: center;
-  position: relative;
+  position: ${({ isActiveBurger }) => (isActiveBurger ? 'fixed' : 'relative')};
+  top: ${({ isActiveBurger }) => (isActiveBurger ? '1.9' : '0')}rem;
+  right: ${({ isActiveBurger }) => (isActiveBurger ? '0.8' : '0')}rem;
   margin-left: 1.5rem;
   z-index: ${({ theme }) => theme.order.mainIndex};
 
