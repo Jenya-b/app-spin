@@ -80,13 +80,13 @@ export const SettingPage = () => {
       <CardId>{id}</CardId>
       <CardDate>{data}</CardDate>
       <CardWallet>
-        <p>wallet currency</p>
+        <p>{t('walletCurrency')}</p>
         <h2>
           <span>{walletCurrency}</span>
         </h2>
       </CardWallet>
       <CardAmount>
-        <p>amount</p>
+        <p>{t('amount')}</p>
         <h2>{amountMain}</h2>
         <p>{amountAdditional}</p>
       </CardAmount>
@@ -176,12 +176,7 @@ export const SettingPage = () => {
                 </TabBtn>
               ))}
             </Tabs>
-            <Table
-              data={transactionData}
-              renderEmpty={<></>}
-              renderItem={renderItem}
-              headData={transactionTHead}
-            />
+            <Table data={transactionData} renderItem={renderItem} headData={transactionTHead} />
           </TableBlock>
         ) : (
           <CardBlock>
