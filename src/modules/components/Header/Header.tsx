@@ -26,7 +26,7 @@ import soundClick from './click.mp3';
 import { useModal } from 'hooks/useModal';
 import { useResize } from 'hooks/useResize';
 import { MobMenu } from '../MobMenu/MobMenu';
-import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
+import { SocialMenu } from '../SocialMenu/SocialMenu';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
 import { Profile } from '../Profile/Profile';
 import { Ping } from '../Ping/Ping';
@@ -123,7 +123,7 @@ export const Header = memo(() => {
         {windowWidth >= 1024 ? (
           <>
             <Ping />
-            <ExtraMenu />
+            <SocialMenu />
           </>
         ) : (
           <Burger onClick={updateDisplayMenu} isActiveBurger={isActiveMenu}>

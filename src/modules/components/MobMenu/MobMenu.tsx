@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { settingSelector } from 'store/selectors';
 import { changeActiveSound, changeLanguage } from 'store/reducers/settingSlice';
 import { SettingsButtons } from '../SettingsButtons/SettingsButtons';
-import { ExtraMenu } from '../ExtraMenu/ExtraMenu';
+import { SocialMenu } from '../SocialMenu/SocialMenu';
 
 interface MobMenuProps {
   isActiveMenu: boolean;
@@ -40,7 +40,7 @@ export const MobMenu = ({ isActiveMenu }: MobMenuProps) => {
           isActiveSound={isActiveSound}
           language={language}
         />
-        <ExtraMenu />
+        <SocialMenu />
       </ControlsWrap>
     </Wrapper>
   );
