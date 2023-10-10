@@ -66,6 +66,8 @@
   "openSettings": "Открыть настройки",
 
   "placeholderLogin": "Введите свой логин",
+  "placeholderUsername": "Введите свое имя",
+  "placeholderEmail": "Введите свой email",
   "password": "пароль",
   "placeholderPassword": "Введите свой пароль",
   "placeholderMessage": "Введите сообщение",

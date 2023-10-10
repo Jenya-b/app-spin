@@ -4,14 +4,16 @@ import type { TypedUseSelectorHook } from 'react-redux';
 
 import settingReducer from './reducers/settingSlice';
 import userSlice from './reducers/userSlice';
+import { userApi } from 'services/api/user';
 
 export const store = configureStore({
   reducer: {
+    [userApi.reducerPath]: userApi.reducer,
     settingReducer,
     userSlice,
   },
 
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

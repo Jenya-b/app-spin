@@ -66,6 +66,8 @@
   "openSettings": "Open settings",
 
   "placeholderLogin": "Enter your login",
+  "placeholderUsername": "Enter your name",
+  "placeholderEmail": "Enter your email",
   "password": "password",
   "placeholderPassword": "Enter your password",
   "placeholderMessage": "Enter Message",
