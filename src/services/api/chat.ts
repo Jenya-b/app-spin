@@ -14,8 +14,8 @@ interface Message {
   timestamp: string;
 }
 
-export const userApi = createApi({
-  reducerPath: 'userApi',
+export const chatApi = createApi({
+  reducerPath: 'chatApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
   endpoints: (build) => ({
     getMessagesByChatId: build.query<{ [key: string]: MessageFromChat }, number>({

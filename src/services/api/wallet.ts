@@ -20,8 +20,8 @@ interface SendBtcRequest {
   value: number;
 }
 
-export const userApi = createApi({
-  reducerPath: 'userApi',
+export const walletApi = createApi({
+  reducerPath: 'walletApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
   endpoints: (build) => ({
     getWalletBtc: build.query<Wallet, number>({
