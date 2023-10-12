@@ -25,6 +25,14 @@ interface UpdateNickname {
   nick: string;
 }
 
+interface Balance {
+  user_id: number;
+  btc: number;
+  xmr: number;
+  ltc: number;
+  usdt: number;
+}
+
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
@@ -34,7 +42,7 @@ export const userApi = createApi({
         url: `user/${userId}`,
       }),
     }),
-    getBalance: build.query<User, number>({
+    getBalance: build.query<Balance, number>({
       query: (userId) => ({
         url: `user_balance/${userId}`,
       }),

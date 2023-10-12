@@ -8,6 +8,8 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { authUser } from 'store/reducers/userSlice';
 import { userSelector } from 'store/selectors';
 import { path } from 'modules/router/path';
+import { useGetBalanceQuery, useGetUserQuery } from 'services';
+import { Loader } from '../Loader/Loader';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
@@ -15,6 +17,8 @@ export const Profile = () => {
   const { isAdmin } = useAppSelector(userSelector);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { data: profileInfo, isLoading: isLoadingProfile } = useGetUserQuery(1);
+  const { data: balance, isLoading: isLoadingBalance } = useGetBalanceQuery(1);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -33,14 +37,15 @@ export const Profile = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
+      {(isLoadingBalance || isLoadingProfile) && <Loader />}
       <Tooltip title={t('openSettings')}>
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Profile" src="#" />
+          <Avatar alt={profileInfo?.nick ?? ''} src="#" />
         </IconButton>
       </Tooltip>
       <ProfileInfo>
-        <ProfileName>PROFILE</ProfileName>
-        <ProfileMoney>0,00003 BTC</ProfileMoney>
+        <ProfileName>{profileInfo?.nick ?? ''}</ProfileName>
+        <ProfileMoney>{balance?.btc ?? 0} BTC</ProfileMoney>
       </ProfileInfo>
       <StyledMenu
         id="menu-appbar"

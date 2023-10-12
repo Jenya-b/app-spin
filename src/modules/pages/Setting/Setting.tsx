@@ -42,14 +42,23 @@ import { QRCodeScaner } from 'modules/components/Modal/QRCodeScaner/QRCodeScaner
 import { useModal } from 'hooks/useModal';
 import { useResize } from 'hooks/useResize';
 import { List } from 'modules/components/List/List';
+import { useUpdateNickMutation, useUpdatePasswordMutation } from 'services';
+import { Loader } from 'modules/components/Loader/Loader';
 
 export const SettingPage = () => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
   const [filter, setFilter] = useState(settingTableMenu[0]);
+  const [newNick, setNewNick] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [newRepeatPass, setNewRepeatPass] = useState('');
   const [referal] = useState('https://spin.com/reflink/45465456ue4q344623r2dfew');
   const [isCopied, setCopied] = useClipboard(referal);
   const { t } = useTranslation();
   const [windowWidth] = useResize();
+  const [fetchUpdateNick, { isLoading: isLoadingNick, isSuccess: isSuccessNick }] =
+    useUpdateNickMutation();
+  const [fetchUpdatePassword, { isLoading: isLoadingPass, isSuccess: isSuccessPass }] =
+    useUpdatePasswordMutation();
 
   const renderItem = ({
     id,
@@ -102,6 +111,7 @@ export const SettingPage = () => {
 
   return (
     <Main>
+      {(isLoadingNick || isLoadingPass) && <Loader />}
       <Title>{t('setting')}</Title>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
@@ -110,19 +120,31 @@ export const SettingPage = () => {
               <p>
                 {t('username')} <span />
               </p>
-              <Input placeholder={t('enterNewUser')} />
+              <Input
+                placeholder={t('enterNewUser')}
+                value={newNick}
+                onChange={(e) => setNewNick(e.target.value)}
+              />
             </Label>
             <Label>
               <p>
                 {t('newPassword')} <span />
               </p>
-              <Input placeholder={t('enterNewPass')} />
+              <Input
+                placeholder={t('enterNewPass')}
+                value={newPass}
+                onChange={(e) => setNewPass(e.target.value)}
+              />
             </Label>
             <Label>
               <p>
                 {t('repeatPassword')} <span />
               </p>
-              <Input placeholder={t('repeatNewPassword')} />
+              <Input
+                placeholder={t('repeatNewPassword')}
+                value={newRepeatPass}
+                onChange={(e) => setNewRepeatPass(e.target.value)}
+              />
             </Label>
           </InputWrap>
           <InfoBlock>

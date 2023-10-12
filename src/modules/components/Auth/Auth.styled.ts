@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
   width: 26.4rem;
   background: ${({ theme }) => theme.colors.inputPrimary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
+  overflow: auto;
 
   @media (max-width: 479px) {
     top: 0;

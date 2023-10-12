@@ -1,9 +1,10 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
 import { AuthBtn, RegistrBtn } from './Registration.styled';
 import { useCreateUserMutation } from 'services';
+import { Loader } from 'modules/components/Loader/Loader';
 
 interface RegistrationProps {
   handleCloseRegistModal: () => void;
@@ -20,7 +21,13 @@ export const Registration = ({
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [fetchCreateUser, { data, isLoading, isSuccess }] = useCreateUserMutation();
+  const [fetchCreateUser, { isLoading, isSuccess }] = useCreateUserMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      handleCloseRegistModal();
+    }
+  }, [isSuccess]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -39,6 +46,7 @@ export const Registration = ({
 
   return (
     <>
+      {isLoading && <Loader />}
       <Form onSubmit={handleSubmit}>
         <Label>
           {t('username')}
