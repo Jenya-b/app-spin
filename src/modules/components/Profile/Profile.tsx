@@ -1,24 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Avatar, Box, IconButton, MenuItem, Tooltip, Typography } from '@mui/material';
 
 import { ProfileInfo, ProfileMoney, ProfileName, StyledMenu } from './Profile.styled';
 import { useAppDispatch, useAppSelector } from 'store';
-import { authUser } from 'store/reducers/userSlice';
+import { authUser, logout } from 'store/reducers/userSlice';
 import { userSelector } from 'store/selectors';
 import { path } from 'modules/router/path';
-import { useGetBalanceQuery, useGetUserQuery } from 'services';
+import {
+  useGetBalanceQuery,
+  useGetUserQuery,
+  useLazyGetBalanceQuery,
+  useLazyGetUserQuery,
+} from 'services';
 import { Loader } from '../Loader/Loader';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const { isAdmin } = useAppSelector(userSelector);
+  const { isAdmin, currentUser } = useAppSelector(userSelector);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { data: profileInfo, isLoading: isLoadingProfile } = useGetUserQuery(1);
-  const { data: balance, isLoading: isLoadingBalance } = useGetBalanceQuery(1);
+  const [fetchProfileInfo, { data: profileInfo, isLoading: isLoadingProfile }] =
+    useLazyGetUserQuery();
+  const [fetchBalance, { data: balance, isLoading: isLoadingBalance }] = useLazyGetBalanceQuery();
+
+  useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
+
+    fetchProfileInfo(currentUser);
+    fetchBalance(currentUser);
+  }, [currentUser]);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -31,7 +46,7 @@ export const Profile = () => {
   const handleOpenAdminPage = () => navigate(path.admin);
 
   const handleLogout = () => {
-    dispatch(authUser(false));
+    dispatch(logout());
     setAnchorElUser(null);
   };
 

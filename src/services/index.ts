@@ -5,7 +5,9 @@ import { userApi } from './api/user';
 export const {
   useCreateUserMutation,
   useGetUserQuery,
+  useLazyGetUserQuery,
   useGetBalanceQuery,
+  useLazyGetBalanceQuery,
   useUpdateNickMutation,
   useUpdatePasswordMutation,
 } = userApi;
@@ -13,4 +15,4 @@ export const {
 export const { useGetRouletteQuery, useGetGameQuery, useGetRoundQuery, useCreateGameMutation } =
   gameApi;
 
-export const { useSignInMutation } = authApi;
+export const { useSignInMutation, useCheckTokenMutation } = authApi;

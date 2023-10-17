@@ -24,12 +24,17 @@ import {
 import { LayoutInfo } from 'modules/components/Layout/Info/Info';
 import { ErrorBoundary } from 'modules/components/ErrorBoundary/ErrorBoundary';
 import { RequireAdmin } from 'hocs/RequireAdmin';
+import { RequireAuth } from 'hocs/RequireAuth';
 
 export const router = createBrowserRouter([
   {
     path: path.home,
     errorElement: <ErrorBoundary />,
-    element: <LayoutMain />,
+    element: (
+      <RequireAuth>
+        <LayoutMain />
+      </RequireAuth>
+    ),
     children: [
       {
         index: true,
