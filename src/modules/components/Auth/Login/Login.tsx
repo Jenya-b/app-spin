@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
@@ -8,6 +8,7 @@ import { GoogleAuthenticator } from 'modules/components/Modal/GoogleAuthenticato
 import { useModal } from 'hooks/useModal';
 import { authUser } from 'store/reducers/userSlice';
 import { useAppDispatch } from 'store';
+import { useSignInMutation } from 'services';
 
 interface LoginProps {
   handleCloseLoginModal: () => void;
@@ -17,11 +18,18 @@ interface LoginProps {
 export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginProps) => {
   const dispatch = useAppDispatch();
   const [isOpenChildModal, openChildModal, closeChildModal] = useModal(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { t } = useTranslation();
+  const [fetchSignIn] = useSignInMutation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    openChildModal();
+    if (!(email && password)) {
+      return;
+    }
+
+    fetchSignIn({ email, password });
   };
 
   const handleOpenRegModal = () => {
@@ -38,12 +46,20 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
     <>
       <Form onSubmit={handleSubmit}>
         <Label>
-          {t('login')}
-          <Input placeholder={t('placeholderLogin')} />
+          {t('email')}
+          <Input
+            placeholder={t('placeholderEmail')}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </Label>
         <Label>
           {t('password')}
-          <Input placeholder={t('placeholderPassword')} />
+          <Input
+            placeholder={t('placeholderPassword')}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Label>
         <RestorPassLink to={'#'}>{t('forgotPassword')}</RestorPassLink>
         <AuthBtn>{t('authorization')}</AuthBtn>

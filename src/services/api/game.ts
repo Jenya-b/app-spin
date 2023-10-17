@@ -27,7 +27,7 @@ export const gameApi = createApi({
         url: `game/roulette/${rouletteId}`,
       }),
     }),
-    createChat: build.mutation<{ chat_id: number }, CreateGame>({
+    createGame: build.mutation<{ chat_id: number }, CreateGame>({
       query: ({ user_id, ...body }) => ({
         method: 'POST',
         url: `game/new/${user_id}`,

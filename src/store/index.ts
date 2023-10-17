@@ -5,15 +5,30 @@ import type { TypedUseSelectorHook } from 'react-redux';
 import settingReducer from './reducers/settingSlice';
 import userSlice from './reducers/userSlice';
 import { userApi } from 'services/api/user';
+import { gameApi } from 'services/api/game';
+import { chatApi } from 'services/api/chat';
+import { walletApi } from 'services/api/wallet';
+import { authApi } from 'services/api/auth';
 
 export const store = configureStore({
   reducer: {
     [userApi.reducerPath]: userApi.reducer,
+    [gameApi.reducerPath]: gameApi.reducer,
+    [chatApi.reducerPath]: chatApi.reducer,
+    [walletApi.reducerPath]: walletApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
     settingReducer,
     userSlice,
   },
 
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userApi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(
+      userApi.middleware,
+      gameApi.middleware,
+      chatApi.middleware,
+      walletApi.middleware,
+      authApi.middleware
+    ),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
