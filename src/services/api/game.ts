@@ -8,6 +8,18 @@ interface CreateGame {
   user_id: number;
 }
 
+enum StatusesLong {
+  Run = 'run',
+  Done = 'done',
+}
+
+interface LongResponse {
+  round_id: number;
+  status: StatusesLong;
+  coef: number;
+  timing: number;
+}
+
 export const gameApi = createApi({
   reducerPath: 'gameApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
@@ -35,6 +47,11 @@ export const gameApi = createApi({
         headers: {
           'Content-Type': 'application/json',
         },
+      }),
+    }),
+    getLongGame: build.query<LongResponse, null>({
+      query: () => ({
+        url: 'game/crash/last_round',
       }),
     }),
   }),

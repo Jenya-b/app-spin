@@ -5,6 +5,7 @@ import * as d3 from 'd3';
 import { Graph, Lines, Svg, TimerStart, Wrapper, TimerEnd } from './Chart.styled';
 import { getRandomIntInclusive } from 'utils/randomInt';
 import { converterFontSize } from 'utils/converter';
+import { useGetLongGameQuery } from 'services';
 
 interface ChartProps {
   chartRef?:
@@ -36,6 +37,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const [randomNum, setRandomNum] = useState<number>();
   const [widthGraph, setWidthGraph] = useState<number>(0);
   const [heightGraph, setHeightGraph] = useState<number>(0);
+  const { data: dataLong } = useGetLongGameQuery(null, { pollingInterval: 0 });
 
   const linesRef = useRef(null);
   const graphRef = useRef<HTMLDivElement>(null);

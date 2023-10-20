@@ -12,7 +12,12 @@ export const {
   useUpdatePasswordMutation,
 } = userApi;
 
-export const { useGetRouletteQuery, useGetGameQuery, useGetRoundQuery, useCreateGameMutation } =
-  gameApi;
+export const {
+  useGetRouletteQuery,
+  useGetGameQuery,
+  useGetRoundQuery,
+  useCreateGameMutation,
+  useGetLongGameQuery,
+} = gameApi;
 
 export const { useSignInMutation, useCheckTokenMutation } = authApi;
