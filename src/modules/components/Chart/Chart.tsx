@@ -1,11 +1,9 @@
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 import { SpringValue } from '@react-spring/web';
-import * as d3 from 'd3';
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
-import { Graph, Lines, Svg, TimerStart, Wrapper, TimerEnd } from './Chart.styled';
-import { getRandomIntInclusive } from 'utils/randomInt';
-import { converterFontSize } from 'utils/converter';
-import { useGetLongGameQuery } from 'services';
+import { Timer, Wrapper } from './Chart.styled';
+import { StatusesLong, LongResponse } from 'services/api/game';
 
 interface ChartProps {
   chartRef?:
@@ -21,182 +19,102 @@ interface ChartProps {
   };
 }
 
-const MS = 100;
-const START_SEC = 0;
-const MIN_SEC = 1.01;
-const MAX_SEC = 10;
-
-const paddingTop = converterFontSize(window.innerWidth, 7);
-const paddingBottom = converterFontSize(window.innerWidth, 7);
-const paddingLeft = converterFontSize(window.innerWidth, 50);
-
 export const Chart = ({ style, chartRef }: ChartProps) => {
-  const [data, setData] = useState([1, 2, 3, 4, 5]);
-  const [timerStart, setTimerStart] = useState(START_SEC);
-  const [timerEnd, setTimerEnd] = useState(MIN_SEC * MS);
-  const [randomNum, setRandomNum] = useState<number>();
-  const [widthGraph, setWidthGraph] = useState<number>(0);
-  const [heightGraph, setHeightGraph] = useState<number>(0);
-  const { data: dataLong } = useGetLongGameQuery(null, { pollingInterval: 0 });
-
-  const linesRef = useRef(null);
-  const graphRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef(null);
+  const [chartData, setChartData] = useState([{ uv: 1 }, { uv: 1 }]);
+  const [chartColor, setChartColor] = useState('rgba(49, 93, 241, 0.50)');
+  const [dataLong, setDataLong] = useState<LongResponse>();
 
   useEffect(() => {
-    const width = graphRef?.current?.offsetWidth;
-    const height = graphRef?.current?.clientHeight;
+    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/crash/last_round/ws`);
 
-    if (width) setWidthGraph(width);
-    if (height) setHeightGraph(height);
-  }, [graphRef.current]);
+    ws.onopen = function () {
+      console.log('ws opened');
+    };
+
+    ws.onmessage = function (event) {
+      setDataLong(JSON.parse(event.data));
+    };
+    ws.onmessage = function (event) {
+      const json = JSON.parse(event.data);
+      try {
+        setDataLong(json);
+      } catch {
+        throw new Error();
+      }
+    };
+
+    return () => ws.close();
+  }, []);
 
   useEffect(() => {
-    if (!timerStart) {
-      setRandomNum(getRandomIntInclusive(MIN_SEC * MS, MAX_SEC * MS));
-      return;
+    updateData();
+  }, [dataLong?.coef]);
+
+  useEffect(() => {
+    if (!dataLong) return;
+
+    switch (dataLong.status) {
+      case StatusesLong.Run:
+        break;
+
+      case StatusesLong.Complete:
+        setChartColor('rgba(255, 55, 95, 0.50)');
+
+        break;
+
+      case StatusesLong.Done:
+        setChartData([{ uv: 1 }, { uv: 1 }]);
+        setChartColor('rgba(49, 93, 241, 0.50)');
+
+        break;
+
+      default:
+        break;
     }
-    const timeout = setTimeout(updateTimerStart, 1000);
-    return () => clearTimeout(timeout);
-  }, [timerStart]);
+  }, [dataLong?.status]);
 
-  useEffect(() => {
-    if (timerEnd >= 400 && timerEnd === data[data.length - 2] * 100) {
-      setData((state) => [...state, data[data.length - 1] + 1]);
-    }
-  }, [timerEnd, data]);
-
-  useEffect(() => {
-    if (!randomNum || timerEnd >= randomNum) return;
-    const timeout = setTimeout(updateTimerEnd, 100);
-    return () => clearTimeout(timeout);
-  }, [randomNum, timerEnd]);
-
-  useEffect(() => {
-    if (!heightGraph) return;
-
-    d3.select(linesRef.current)
-      .selectAll('div')
-      .data(data)
-      .join(
-        (enter) =>
-          enter
-            .append('div')
-            .text(function (d: number) {
-              return `${d}.00X`;
-            })
-            .style('transform', function (d, i) {
-              if (i > 4) {
-                return `translate(0px,${heightGraph - paddingBottom - (heightGraph / 3) * 4}px)`;
-              }
-
-              return `translate(0px,${heightGraph - paddingBottom - (heightGraph / 3) * i}px)`;
-            })
-            .classed('line', true),
-        (update) =>
-          update
-            .transition()
-            .easeVarying(() => d3.easePolyIn.exponent(1))
-            .style('transform', function (d, i, arr) {
-              return `translate(0px,${
-                heightGraph -
-                paddingBottom -
-                (heightGraph / 3) * i +
-                (arr.length - 5) * (heightGraph / 3)
-              }px)`;
-            })
-            .duration(32500 / 3)
-      );
-  }, [data, heightGraph]);
-
-  useEffect(() => {
-    if (!randomNum || !heightGraph) return;
-
-    const polygonHeight =
-      randomNum >= 400
-        ? 1
-        : heightGraph -
-          paddingBottom -
-          ((heightGraph - paddingBottom - paddingTop) * (randomNum - 100)) / 300;
-
-    const duration = randomNum >= 400 ? 32500 : (32500 / 300) * (randomNum - 100);
-
-    if (!polygonHeight || !duration) return;
-
-    const svg = d3.select(svgRef.current);
-
-    svg
-      .select('polygon')
-      .transition()
-      .easeVarying(() => d3.easePolyIn.exponent(1))
-      .attr(
-        'points',
-        `${paddingLeft},${heightGraph} 
-        ${widthGraph},${heightGraph} 
-        ${widthGraph},${polygonHeight}`
-      )
-      .duration(duration);
-
-    svg
-      .select('circle')
-      .transition()
-      .easeVarying(() => d3.easePolyIn.exponent(1))
-      .attr('cy', polygonHeight)
-      .duration(duration);
-
-    svg
-      .select('line')
-      .transition()
-      .easeVarying(() => d3.easePolyIn.exponent(1))
-      .attr('y2', polygonHeight)
-      .duration(duration);
-  }, [randomNum, heightGraph]);
-
-  const updateTimerStart = () => setTimerStart((state) => state - 1);
-
-  const updateTimerEnd = () => setTimerEnd((state) => state + 1);
+  const updateData = useCallback(() => {
+    if (!dataLong) return;
+    setChartData((state) =>
+      state.map((item, index) => {
+        if (index === 1) {
+          return { uv: dataLong.coef };
+        }
+        return item;
+      })
+    );
+  }, [dataLong?.coef]);
 
   return (
     <Wrapper ref={chartRef} style={style}>
-      <Graph ref={graphRef}>
-        <Lines ref={linesRef} />
-        <Svg ref={svgRef}>
-          <polygon
-            fill={randomNum === timerEnd ? 'rgba(255, 55, 95, 0.50)' : 'rgba(49, 93, 241, 0.50)'}
-            points={`
-              ${paddingLeft},${heightGraph} 
-              ${widthGraph},${heightGraph} 
-              ${widthGraph},${heightGraph}
-            `}
+      <ResponsiveContainer width="99%">
+        <AreaChart data={chartData} margin={{ top: 0, right: 0, left: -10, bottom: -20 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="100%" stopColor={chartColor} stopOpacity={0.8} />
+            </linearGradient>
+          </defs>
+          <YAxis domain={[1, 5]} tickFormatter={(value) => value.toFixed(2)} />
+          <XAxis />
+          <CartesianGrid strokeDasharray="2 6" />
+          <Area
+            type="monotone"
+            dataKey="uv"
+            stroke={chartColor}
+            fillOpacity={1}
+            fill="url(#colorUv)"
           />
-          <g transform="translate(0,0)">
-            <circle
-              className={'circle'}
-              r={5}
-              cx={widthGraph}
-              cy={heightGraph}
-              fill={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
-            />
-            <line
-              x1={paddingLeft}
-              y1={heightGraph}
-              x2={widthGraph}
-              y2={heightGraph}
-              strokeWidth="2"
-              stroke={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
-            />
-            <circle
-              className={'circle'}
-              r={5}
-              cx={paddingLeft}
-              cy={heightGraph}
-              fill={randomNum === timerEnd ? '#FF375F' : '#315DF1'}
-            />
-          </g>
-        </Svg>
-        <TimerStart>{!timerStart ? '' : timerStart}</TimerStart>
-        <TimerEnd>{!randomNum ? '' : `${(timerEnd / 100).toFixed(2)}X`}</TimerEnd>
-      </Graph>
+        </AreaChart>
+      </ResponsiveContainer>
+      {dataLong && (
+        <Timer>
+          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Complete
+            ? `${dataLong.coef}x`
+            : dataLong.status === StatusesLong.Done && dataLong.next_round > 0
+            ? `${dataLong.next_round}s`
+            : ''}
+        </Timer>
+      )}
     </Wrapper>
   );
 };

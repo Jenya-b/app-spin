@@ -11,11 +11,10 @@ import { Loader } from 'modules/components/Loader/Loader';
 import { Wallet } from 'modules/components/Wallet/Wallet';
 import { wallet } from 'data/wallet';
 import { chatData } from 'data/chat';
-import { Chart } from 'modules/components/Chart/Chart';
 import { converterFontSize } from 'utils/converter';
 import { useResize } from 'hooks/useResize';
 import { path } from 'modules/router/path';
-import { Chart2 } from 'modules/components/Chart2/Chart2';
+import { Chart } from 'modules/components/Chart/Chart';
 
 export const LayoutMain = () => {
   const { pathname } = useLocation();
@@ -49,7 +48,7 @@ export const LayoutMain = () => {
     <Wrapper>
       <Header />
       <Sidebar>
-        <Chart2 chartRef={chartRef} style={springs} />
+        <Chart chartRef={chartRef} style={springs} />
         {windowWidth > 1023 && <Wallet activeBlock={isVisible} data={wallet} />}
       </Sidebar>
       <Suspense fallback={<Loader />}>
