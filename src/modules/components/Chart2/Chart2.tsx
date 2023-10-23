@@ -2,8 +2,8 @@ import { SpringValue } from '@react-spring/web';
 import { RefObject, useCallback, useEffect, useState } from 'react';
 import { TimerStart, Wrapper } from '../Chart/Chart.styled';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { useGetLongGameQuery } from 'services';
 import { StatusesLong } from 'services/api/game';
+import { LongResponse } from 'services/api/game';
 
 interface ChartProps {
   chartRef?:
@@ -22,7 +22,29 @@ interface ChartProps {
 export const Chart2 = ({ style, chartRef }: ChartProps) => {
   const [chartData, setChartData] = useState([{ uv: 1 }, { uv: 1 }]);
   const [chartColor, setChartColor] = useState('rgba(49, 93, 241, 0.50)');
-  const { data: dataLong } = useGetLongGameQuery(null, { pollingInterval: 100 });
+  const [dataLong, setDataLong] = useState<LongResponse>();
+
+  useEffect(() => {
+    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/crash/last_round/ws`);
+
+    ws.onopen = function () {
+      console.log('ws opened');
+    };
+
+    ws.onmessage = function (event) {
+      setDataLong(JSON.parse(event.data));
+    };
+    ws.onmessage = function (event) {
+      const json = JSON.parse(event.data);
+      try {
+        setDataLong(json);
+      } catch {
+        throw new Error();
+      }
+    };
+
+    return () => ws.close();
+  }, []);
 
   useEffect(() => {
     updateData();
@@ -49,7 +71,7 @@ export const Chart2 = ({ style, chartRef }: ChartProps) => {
       default:
         break;
     }
-  }, [dataLong?.status, dataLong?.timeUntilRound]);
+  }, [dataLong?.status]);
 
   const updateData = useCallback(() => {
     if (!dataLong) return;
@@ -88,7 +110,9 @@ export const Chart2 = ({ style, chartRef }: ChartProps) => {
         <TimerStart>
           {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Complete
             ? `${dataLong.coef}x`
-            : `${dataLong.next_round}s`}
+            : dataLong.status === StatusesLong.Done && dataLong.next_round > 0
+            ? `${dataLong.next_round}s`
+            : ''}
         </TimerStart>
       )}
     </Wrapper>

@@ -14,12 +14,11 @@ export enum StatusesLong {
   Complete = 'complete',
 }
 
-interface LongResponse {
+export interface LongResponse {
   round_id: number;
   status: StatusesLong;
   coef: number;
   timing: number;
-  timeUntilRound: number | null;
   next_round: number;
 }
 
@@ -52,6 +51,7 @@ export const gameApi = createApi({
         },
       }),
     }),
+    // TODO не используется, подключили ws
     getLongGame: build.query<LongResponse, null>({
       query: () => ({
         url: 'game/crash/last_round',
