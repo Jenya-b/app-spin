@@ -2,7 +2,7 @@ import { animated } from '@react-spring/web';
 import styled from 'styled-components';
 
 import { lineIcon } from 'constants/images';
-import { fontStyleLargeBold, fontStyleXSmallBold } from 'styles/typography';
+import { fontStyleLargeBold, fontStyleXSmallBold, fontStyleXXSmallNormal } from 'styles/typography';
 
 export const Wrapper = styled(animated.div)`
   background: ${({ theme }) => theme.colors.bgSecondary};
@@ -11,6 +11,7 @@ export const Wrapper = styled(animated.div)`
   margin-bottom: 12px;
   padding: 2rem;
   overflow: hidden;
+  position: relative;
 
   @media (max-width: 1200px) {
     padding: 1rem;

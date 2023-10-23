@@ -8,9 +8,10 @@ interface CreateGame {
   user_id: number;
 }
 
-enum StatusesLong {
+export enum StatusesLong {
   Run = 'run',
   Done = 'done',
+  Complete = 'complete',
 }
 
 interface LongResponse {
@@ -18,6 +19,8 @@ interface LongResponse {
   status: StatusesLong;
   coef: number;
   timing: number;
+  timeUntilRound: number | null;
+  next_round: number;
 }
 
 export const gameApi = createApi({

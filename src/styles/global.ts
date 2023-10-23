@@ -139,4 +139,45 @@ export default createGlobalStyle`
 		/* height: 100vh; */
 	
 	}
+
+	/* !Rechart */
+	.recharts-sector {
+		stroke: none;
+	}
+	.recharts-tooltip-cursor {
+		fill: ${({ theme }) => theme.colors.bgTertiary};
+		opacity: 0.5;
+	}
+	.recharts-cartesian-grid-vertical {
+		display: none;
+	}
+	.recharts-cartesian-grid-horizontal {
+		opacity: 0.5;
+
+		line {
+			stroke: #7171C0;
+		}
+	}
+	.recharts-line-dot {
+		display: none;
+	}
+	.recharts-cartesian-axis-line {
+		stroke: none;
+
+		
+	}
+	.recharts-cartesian-axis-tick-line {
+		stroke: none;
+	}
+
+	.recharts-text {
+		font-size: 12px;
+	}
+	
+	.xAxis {
+		display: none;
+		& .recharts-cartesian-axis-tick-value {
+			display: none;
+		}
+	}
 `;

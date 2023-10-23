@@ -15,6 +15,7 @@ import { Chart } from 'modules/components/Chart/Chart';
 import { converterFontSize } from 'utils/converter';
 import { useResize } from 'hooks/useResize';
 import { path } from 'modules/router/path';
+import { Chart2 } from 'modules/components/Chart2/Chart2';
 
 export const LayoutMain = () => {
   const { pathname } = useLocation();
@@ -48,7 +49,7 @@ export const LayoutMain = () => {
     <Wrapper>
       <Header />
       <Sidebar>
-        <Chart chartRef={chartRef} style={springs} />
+        <Chart2 chartRef={chartRef} style={springs} />
         {windowWidth > 1023 && <Wallet activeBlock={isVisible} data={wallet} />}
       </Sidebar>
       <Suspense fallback={<Loader />}>
