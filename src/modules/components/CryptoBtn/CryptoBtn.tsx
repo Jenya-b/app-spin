@@ -1,12 +1,12 @@
 import { MouseEvent } from 'react';
 
-import { CryptoNameType } from 'interfaces/crypto';
 import { Wrapper } from './CryptoBtn.styled';
 import { cryptoIcon } from 'constants/images';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 interface CryptoBtnProps {
-  cryptoName: CryptoNameType;
-  criptoActive: CryptoNameType;
+  cryptoName: CriptoEnum;
+  criptoActive: CriptoEnum;
   handleActiveCripto: (event: MouseEvent<HTMLDivElement>) => void;
 }
 

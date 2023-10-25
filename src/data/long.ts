@@ -1,37 +1,29 @@
-import { CryptoNameType } from 'interfaces/crypto';
-
-export enum CriptoEnum {
-  BTC = 'btc',
-  USDT = 'usdt',
-  XMR = 'xmr',
-  LTC = 'ltc',
-  SPIN = 'spin',
-}
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 export interface InGameDataType {
-  cryptoName: CryptoNameType;
+  cryptoName: CriptoEnum;
   amount: number;
 }
 
 export const inGameData: InGameDataType[] = [
   {
-    cryptoName: 'btc',
+    cryptoName: CriptoEnum.BTC,
     amount: 0.003,
   },
   {
-    cryptoName: 'usdt',
+    cryptoName: CriptoEnum.USDT,
     amount: 0.003,
   },
   {
-    cryptoName: 'xmr',
+    cryptoName: CriptoEnum.XMR,
     amount: 0.003,
   },
   {
-    cryptoName: 'ltc',
+    cryptoName: CriptoEnum.LTC,
     amount: 0.003,
   },
   {
-    cryptoName: 'spin',
+    cryptoName: CriptoEnum.SPIN,
     amount: 0.003,
   },
 ];

@@ -1,4 +1,4 @@
-import { CryptoNameType } from 'interfaces/crypto';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 interface MoneyType {
   crypto: number;
@@ -6,20 +6,20 @@ interface MoneyType {
 }
 
 export interface IWallet {
-  cryptoName: CryptoNameType;
+  cryptoName: CriptoEnum;
   amount: MoneyType;
   inGame: MoneyType;
   available: MoneyType;
 }
 
 interface ITransfer {
-  cryptoName: CryptoNameType;
+  cryptoName: CriptoEnum;
   price: number;
 }
 
 export const wallet: IWallet[] = [
   {
-    cryptoName: 'btc',
+    cryptoName: CriptoEnum.BTC,
     amount: {
       crypto: 0.43,
       usd: 240.31,
@@ -34,7 +34,7 @@ export const wallet: IWallet[] = [
     },
   },
   {
-    cryptoName: 'usdt',
+    cryptoName: CriptoEnum.USDT,
     amount: {
       crypto: 0.43,
       usd: 240.31,
@@ -49,7 +49,7 @@ export const wallet: IWallet[] = [
     },
   },
   {
-    cryptoName: 'xmr',
+    cryptoName: CriptoEnum.XMR,
     amount: {
       crypto: 0.43,
       usd: 240.31,
@@ -64,7 +64,7 @@ export const wallet: IWallet[] = [
     },
   },
   {
-    cryptoName: 'ltc',
+    cryptoName: CriptoEnum.LTC,
     amount: {
       crypto: 0.43,
       usd: 240.31,
@@ -79,7 +79,7 @@ export const wallet: IWallet[] = [
     },
   },
   {
-    cryptoName: 'spin',
+    cryptoName: CriptoEnum.SPIN,
     amount: {
       crypto: 0.43,
       usd: 240.31,
@@ -97,19 +97,19 @@ export const wallet: IWallet[] = [
 
 export const transfer: ITransfer[] = [
   {
-    cryptoName: 'btc',
+    cryptoName: CriptoEnum.BTC,
     price: 30000,
   },
   {
-    cryptoName: 'usdt',
+    cryptoName: CriptoEnum.USDT,
     price: 30000,
   },
   {
-    cryptoName: 'xmr',
+    cryptoName: CriptoEnum.XMR,
     price: 30000,
   },
   {
-    cryptoName: 'ltc',
+    cryptoName: CriptoEnum.LTC,
     price: 30000,
   },
 ];

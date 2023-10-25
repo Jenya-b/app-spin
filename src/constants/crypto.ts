@@ -1,3 +1,9 @@
-import { CryptoNameType } from 'interfaces/crypto';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
-export const cryptoArr: CryptoNameType[] = ['btc', 'usdt', 'xmr', 'ltc', 'spin'];
+export const cryptoArr: CriptoEnum[] = [
+  CriptoEnum.BTC,
+  CriptoEnum.USDT,
+  CriptoEnum.XMR,
+  CriptoEnum.LTC,
+  CriptoEnum.SPIN,
+];

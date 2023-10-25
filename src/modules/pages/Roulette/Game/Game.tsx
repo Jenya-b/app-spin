@@ -26,17 +26,17 @@ import {
   LastGameItem,
 } from './Game.styled';
 import { cryptoArr } from 'constants/crypto';
-import { CryptoNameType } from 'interfaces/crypto';
 import { historyRoulette, lastResult, rouletteSlider } from 'data/roulette';
 import { CryptoBtn } from 'modules/components/CryptoBtn/CryptoBtn';
 import { useResize } from 'hooks/useResize';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 export const Game = () => {
-  const [criptoActive, setCriptoActive] = useState<CryptoNameType>(cryptoArr[0]);
+  const [criptoActive, setCriptoActive] = useState<CriptoEnum>(cryptoArr[0]);
   const { t } = useTranslation();
   const [width] = useResize();
 
-  const renderItem = (item: CryptoNameType) => (
+  const renderItem = (item: CriptoEnum) => (
     <CryptoBtn
       criptoActive={criptoActive}
       cryptoName={item}
@@ -45,7 +45,7 @@ export const Game = () => {
   );
 
   const handleActiveCripto = (event: MouseEvent<HTMLDivElement>) => {
-    const id = event.currentTarget.id as CryptoNameType;
+    const id = event.currentTarget.id as CriptoEnum;
 
     setCriptoActive(id);
   };

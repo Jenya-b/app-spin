@@ -1,19 +1,26 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { CryptoNameType } from 'interfaces/crypto';
+
+export enum CriptoEnum {
+  BTC = 'btc',
+  USDT = 'usdt',
+  XMR = 'xmr',
+  LTC = 'ltc',
+  SPIN = 'spin',
+}
 
 interface InitialStateType {
-  currency: CryptoNameType;
+  currency: CriptoEnum;
 }
 
 const initialState: InitialStateType = {
-  currency: 'btc',
+  currency: CriptoEnum.BTC,
 };
 
 export const currencySlice = createSlice({
   name: 'currencySlice',
   initialState,
   reducers: {
-    changeCurrency: (state, action: PayloadAction<CryptoNameType>) => {
+    changeCurrency: (state, action: PayloadAction<CriptoEnum>) => {
       state.currency = action.payload;
     },
   },
