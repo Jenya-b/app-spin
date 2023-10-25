@@ -18,6 +18,7 @@ export const {
   useGetRoundQuery,
   useCreateGameMutation,
   useGetLongGameQuery,
+  useCrashBetMutation,
 } = gameApi;
 
 export const { useSignInMutation, useCheckTokenMutation } = authApi;

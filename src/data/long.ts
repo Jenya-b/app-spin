@@ -1,5 +1,13 @@
 import { CryptoNameType } from 'interfaces/crypto';
 
+export enum CriptoEnum {
+  BTC = 'btc',
+  USDT = 'usdt',
+  XMR = 'xmr',
+  LTC = 'ltc',
+  SPIN = 'spin',
+}
+
 export interface InGameDataType {
   cryptoName: CryptoNameType;
   amount: number;

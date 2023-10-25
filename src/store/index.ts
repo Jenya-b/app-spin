@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 
 import settingReducer from './reducers/settingSlice';
-import userSlice from './reducers/userSlice';
+import userReducer from './reducers/userSlice';
+import notifyReducer from './reducers/notifySlice';
+import currencyReducer from './reducers/currencySlice';
 import { userApi } from 'services/api/user';
 import { gameApi } from 'services/api/game';
 import { chatApi } from 'services/api/chat';
@@ -18,7 +20,9 @@ export const store = configureStore({
     [walletApi.reducerPath]: walletApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     settingReducer,
-    userSlice,
+    userReducer,
+    notifyReducer,
+    currencyReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

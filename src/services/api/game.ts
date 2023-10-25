@@ -22,6 +22,12 @@ export interface LongResponse {
   next_round: number;
 }
 
+export interface CrashRequest {
+  user_id: number;
+  coin: string;
+  bet: number;
+}
+
 export const gameApi = createApi({
   reducerPath: 'gameApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
@@ -51,10 +57,20 @@ export const gameApi = createApi({
         },
       }),
     }),
-    // TODO не используется, подключили ws
+    // TODO getLongGame не используется, подключили ws
     getLongGame: build.query<LongResponse, null>({
       query: () => ({
         url: 'game/crash/last_round',
+      }),
+    }),
+    crashBet: build.mutation<{ [key: string]: string | number }, CrashRequest>({
+      query: (body) => ({
+        method: 'POST',
+        url: 'crash/bet/make',
+        body,
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }),
     }),
   }),
