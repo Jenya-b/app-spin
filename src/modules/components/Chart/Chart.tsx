@@ -57,12 +57,12 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       case StatusesLong.Run:
         break;
 
-      case StatusesLong.Complete:
+      case StatusesLong.Done:
         setChartColor('rgba(255, 55, 95, 0.50)');
 
         break;
 
-      case StatusesLong.Done:
+      case StatusesLong.New:
         setChartData([{ uv: 1 }, { uv: 1 }]);
         setChartColor('rgba(49, 93, 241, 0.50)');
 
@@ -108,9 +108,9 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       </ResponsiveContainer>
       {dataLong && (
         <Timer>
-          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Complete
+          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Done
             ? `${dataLong.coef}x`
-            : dataLong.status === StatusesLong.Done && dataLong.next_round > 0
+            : dataLong.status === StatusesLong.New && dataLong.next_round > 0
             ? `${dataLong.next_round}s`
             : ''}
         </Timer>

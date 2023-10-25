@@ -11,7 +11,7 @@ interface CreateGame {
 export enum StatusesLong {
   Run = 'run',
   Done = 'done',
-  Complete = 'complete',
+  New = 'new',
 }
 
 export interface LongResponse {
