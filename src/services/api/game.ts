@@ -14,6 +14,11 @@ export enum StatusesLong {
   New = 'new',
 }
 
+export enum CrashStatuses {
+  OK = 'ok',
+  FAIL = 'fail',
+}
+
 export interface LongResponse {
   round_id: number;
   status: StatusesLong;
@@ -22,10 +27,15 @@ export interface LongResponse {
   next_round: number;
 }
 
-export interface CrashRequest {
+export interface CrashBetRequest {
   user_id: number;
   coin: string;
   bet: number;
+}
+
+export interface CrashStopRequest {
+  user_id: number;
+  bet_id: number;
 }
 
 export const gameApi = createApi({
@@ -63,7 +73,7 @@ export const gameApi = createApi({
         url: 'game/crash/last_round',
       }),
     }),
-    crashBet: build.mutation<{ [key: string]: string | number }, CrashRequest>({
+    crashBet: build.mutation<{ [key: string]: string | number }, CrashBetRequest>({
       query: (body) => ({
         method: 'POST',
         url: 'crash/bet/make',
@@ -71,6 +81,21 @@ export const gameApi = createApi({
         headers: {
           'Content-Type': 'application/json',
         },
+      }),
+    }),
+    crashStop: build.mutation<{ [key: string]: string | number }, CrashStopRequest>({
+      query: (body) => ({
+        method: 'POST',
+        url: 'crash/bet/take',
+        body,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
+    hasLongGame: build.query<{ result: CrashStatuses }, number>({
+      query: (userId) => ({
+        url: `crash/get_cur_bet/${userId}`,
       }),
     }),
   }),

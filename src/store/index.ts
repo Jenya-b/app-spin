@@ -6,6 +6,7 @@ import settingReducer from './reducers/settingSlice';
 import userReducer from './reducers/userSlice';
 import notifyReducer from './reducers/notifySlice';
 import currencyReducer from './reducers/currencySlice';
+import gameReducer from './reducers/gameSlice';
 import { userApi } from 'services/api/user';
 import { gameApi } from 'services/api/game';
 import { chatApi } from 'services/api/chat';
@@ -23,6 +24,7 @@ export const store = configureStore({
     userReducer,
     notifyReducer,
     currencyReducer,
+    gameReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

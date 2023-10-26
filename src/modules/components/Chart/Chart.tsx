@@ -4,6 +4,8 @@ import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } fro
 
 import { Timer, Wrapper } from './Chart.styled';
 import { StatusesLong, LongResponse } from 'services/api/game';
+import { useAppDispatch } from 'store';
+import { setStatusesLongGame } from 'store/reducers/gameSlice';
 
 interface ChartProps {
   chartRef?:
@@ -20,6 +22,7 @@ interface ChartProps {
 }
 
 export const Chart = ({ style, chartRef }: ChartProps) => {
+  const dispatch = useAppDispatch();
   const [chartData, setChartData] = useState([{ uv: 1 }, { uv: 1 }]);
   const [chartColor, setChartColor] = useState('rgba(49, 93, 241, 0.50)');
   const [dataLong, setDataLong] = useState<LongResponse>();
@@ -52,6 +55,8 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
 
   useEffect(() => {
     if (!dataLong) return;
+
+    dispatch(setStatusesLongGame(dataLong.status));
 
     switch (dataLong.status) {
       case StatusesLong.Run:

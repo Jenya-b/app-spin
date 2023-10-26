@@ -19,6 +19,8 @@ export const {
   useCreateGameMutation,
   useGetLongGameQuery,
   useCrashBetMutation,
+  useCrashStopMutation,
+  useLazyHasLongGameQuery,
 } = gameApi;
 
 export const { useSignInMutation, useCheckTokenMutation } = authApi;
