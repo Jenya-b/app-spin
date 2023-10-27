@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { RootState } from 'store';
 
 interface User {
   user_id: number;
@@ -35,7 +36,16 @@ interface Balance {
 
 export const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.REACT_APP_API_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).userReducer.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+        return headers;
+      }
+    },
+  }),
   endpoints: (build) => ({
     getUser: build.query<User, number>({
       query: (userId) => ({

@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { RootState } from 'store';
 
 interface MessageFromChat {
   user_id: number;
@@ -16,7 +17,16 @@ interface Message {
 
 export const chatApi = createApi({
   reducerPath: 'chatApi',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.REACT_APP_API_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).userReducer.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+        return headers;
+      }
+    },
+  }),
   endpoints: (build) => ({
     getMessagesByChatId: build.query<{ [key: string]: MessageFromChat }, number>({
       query: (chatId) => ({

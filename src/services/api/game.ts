@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { RootState } from 'store';
 
 interface CreateGame {
   name: string;
@@ -28,7 +29,6 @@ export interface LongResponse {
 }
 
 export interface CrashBetRequest {
-  user_id: number;
   coin: string;
   bet: number;
 }
@@ -40,7 +40,16 @@ export interface CrashStopRequest {
 
 export const gameApi = createApi({
   reducerPath: 'gameApi',
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.REACT_APP_API_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).userReducer.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+        return headers;
+      }
+    },
+  }),
   endpoints: (build) => ({
     getGame: build.query<null, number>({
       query: (gameId) => ({

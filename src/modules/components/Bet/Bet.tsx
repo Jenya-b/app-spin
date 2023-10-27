@@ -96,25 +96,18 @@ export const Bet = () => {
   const placeBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!(bet && long && currentUser)) {
+    if (!(bet && long)) {
       return;
     }
 
     fetchBet({
       bet: Number(bet),
       coin: currency,
-      user_id: currentUser,
     });
   };
 
   const stopBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!(bet && long && currentUser)) {
-      return;
-    }
-
-    // fetchStop({ user_id: currentUser, bet_id: ? });
   };
 
   return (
