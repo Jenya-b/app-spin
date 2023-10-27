@@ -18,18 +18,18 @@ interface LoginProps {
 export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginProps) => {
   const dispatch = useAppDispatch();
   const [isOpenChildModal, openChildModal, closeChildModal] = useModal(false);
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { t } = useTranslation();
   const [fetchSignIn] = useSignInMutation();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!(email && password)) {
+    if (!(username && password)) {
       return;
     }
 
-    fetchSignIn({ email, password });
+    fetchSignIn({ username, password });
   };
 
   const handleOpenRegModal = () => {
@@ -49,8 +49,8 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
           {t('email')}
           <Input
             placeholder={t('placeholderEmail')}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </Label>
         <Label>

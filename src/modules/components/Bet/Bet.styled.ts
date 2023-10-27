@@ -98,6 +98,11 @@ export const Button = styled.button`
   align-self: flex-end;
   text-transform: uppercase;
 
+  :disabled {
+    background: #6a6a6a;
+    cursor: not-allowed;
+  }
+
   @media (max-width: 767px) {
     grid-column: 1/3;
   }
