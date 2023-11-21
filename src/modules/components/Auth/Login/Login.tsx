@@ -46,7 +46,7 @@ export const Login = ({ handleCloseLoginModal, handleOpenRegistModal }: LoginPro
     <>
       <Form onSubmit={handleSubmit}>
         <Label>
-          {t('email')}
+          {t('login')}
           <Input
             placeholder={t('placeholderEmail')}
             value={username}

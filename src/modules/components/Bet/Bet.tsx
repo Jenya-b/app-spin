@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Wrapper, Form, Input, Lable, Button } from './Bet.styled';
-import { useCrashBetMutation, useCrashStopMutation, useLazyHasLongGameQuery } from 'services';
+import { useCrashBetMutation, useLazyCrashStopQuery, useLazyHasLongGameQuery } from 'services';
 import { Notification } from '../Notification/Notification';
 import { useAppDispatch, useAppSelector } from 'store';
 import { currencySelector, gameSelector, notifySelector, userSelector } from 'store/selectors';
@@ -23,7 +23,7 @@ export const Bet = () => {
   const [fetchBet, { data: dataBet, isLoading: isLoadingBet, isSuccess: isSuccessBet }] =
     useCrashBetMutation();
   const [fetchStop, { data: dataStop, isLoading: isLoadingStop, isSuccess: isSuccessStop }] =
-    useCrashStopMutation();
+    useLazyCrashStopQuery();
   const [
     fetchHasGame,
     { data: dataIsGame, isLoading: isLoadingIsGame, isSuccess: isSuccessIsGame },
@@ -70,7 +70,7 @@ export const Bet = () => {
     if (!currentUser) {
       return;
     }
-    fetchHasGame(currentUser);
+    fetchHasGame(null);
   }, [currentUser]);
 
   useEffect(() => {
@@ -96,18 +96,21 @@ export const Bet = () => {
   const placeBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!(bet && long)) {
+    if (!bet) {
       return;
     }
 
     fetchBet({
       bet: Number(bet),
       coin: currency,
+      coef: Number(long),
     });
   };
 
   const stopBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    fetchStop(null);
   };
 
   return (

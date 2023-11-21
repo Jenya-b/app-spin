@@ -31,11 +31,7 @@ export interface LongResponse {
 export interface CrashBetRequest {
   coin: string;
   bet: number;
-}
-
-export interface CrashStopRequest {
-  user_id: number;
-  bet_id: number;
+  coef?: number;
 }
 
 export const gameApi = createApi({
@@ -45,7 +41,7 @@ export const gameApi = createApi({
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).userReducer.token;
       if (token) {
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set('token', `${token}`);
         return headers;
       }
     },
@@ -92,19 +88,14 @@ export const gameApi = createApi({
         },
       }),
     }),
-    crashStop: build.mutation<{ [key: string]: string | number }, CrashStopRequest>({
-      query: (body) => ({
-        method: 'POST',
+    crashStop: build.query<{ [key: string]: string | number }, null>({
+      query: () => ({
         url: 'crash/bet/take',
-        body,
-        headers: {
-          'Content-Type': 'application/json',
-        },
       }),
     }),
-    hasLongGame: build.query<{ result: CrashStatuses }, number>({
-      query: (userId) => ({
-        url: `crash/get_cur_bet/${userId}`,
+    hasLongGame: build.query<{ result: CrashStatuses }, null>({
+      query: () => ({
+        url: `crash/get_cur_bet`,
       }),
     }),
   }),

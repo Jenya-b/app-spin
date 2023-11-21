@@ -18,7 +18,6 @@ export const Registration = ({
   const { t } = useTranslation();
   const [username, setUsername] = useState('');
   const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [fetchCreateUser, { isLoading, isSuccess }] = useCreateUserMutation();
@@ -36,7 +35,7 @@ export const Registration = ({
       return;
     }
 
-    fetchCreateUser({ email, nickname, password, username });
+    fetchCreateUser({ nickname, password, username });
   };
 
   const handleOpenRegModal = () => {
@@ -62,14 +61,6 @@ export const Registration = ({
             placeholder={t('placeholderLogin')}
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
-          />
-        </Label>
-        <Label>
-          Email
-          <Input
-            placeholder={t('placeholderEmail')}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
         <Label>

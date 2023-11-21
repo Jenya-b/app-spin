@@ -19,7 +19,7 @@ export const {
   useCreateGameMutation,
   useGetLongGameQuery,
   useCrashBetMutation,
-  useCrashStopMutation,
+  useLazyCrashStopQuery,
   useLazyHasLongGameQuery,
 } = gameApi;
 

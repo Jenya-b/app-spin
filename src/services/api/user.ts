@@ -12,7 +12,6 @@ interface User {
 interface CreateUserRequest {
   username: string;
   nickname: string;
-  email: string;
   password: string;
 }
 
@@ -41,7 +40,7 @@ export const userApi = createApi({
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).userReducer.token;
       if (token) {
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set('token', `${token}`);
         return headers;
       }
     },

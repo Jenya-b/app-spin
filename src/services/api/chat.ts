@@ -22,7 +22,7 @@ export const chatApi = createApi({
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).userReducer.token;
       if (token) {
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set('token', `${token}`);
         return headers;
       }
     },
