@@ -9,6 +9,7 @@ import currencyReducer from './reducers/currencySlice';
 import gameReducer from './reducers/gameSlice';
 import { userApi } from 'services/api/user';
 import { gameApi } from 'services/api/game';
+import { crashApi } from 'services/api/crash';
 import { chatApi } from 'services/api/chat';
 import { walletApi } from 'services/api/wallet';
 import { authApi } from 'services/api/auth';
@@ -20,6 +21,7 @@ export const store = configureStore({
     [chatApi.reducerPath]: chatApi.reducer,
     [walletApi.reducerPath]: walletApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [crashApi.reducerPath]: crashApi.reducer,
     settingReducer,
     userReducer,
     notifyReducer,
@@ -33,7 +35,8 @@ export const store = configureStore({
       gameApi.middleware,
       chatApi.middleware,
       walletApi.middleware,
-      authApi.middleware
+      authApi.middleware,
+      crashApi.middleware
     ),
 });
 
