@@ -17,6 +17,7 @@ import {
   fontStyleXSmallNormal,
 } from 'styles/typography';
 import { mainMediaPadding } from 'styles/fragments';
+import { ButtonPrimary } from 'styles/components';
 
 export const Main = styled.main`
   overflow: auto;
@@ -402,4 +403,18 @@ export const CardAmount = styled.div`
   background-color: #282e35;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
   border: 1px solid #22222d;
+`;
+
+export const UpdatePassBtn = styled(ButtonPrimary)`
+  width: 100%;
+  height: 40px;
+  background: ${({ theme }) => theme.colors.buttonPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
+  ${fontStyleXSmallBemiBold}
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.72rem;
 `;

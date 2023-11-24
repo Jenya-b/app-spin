@@ -53,10 +53,30 @@ export const HistoryList = styled.div`
   text-transform: uppercase;
 `;
 
-export const HistoryItem = styled.div`
+interface HistoryItemProps {
+  num: number;
+}
+
+export const HistoryItem = styled.div<HistoryItemProps>`
   padding: 0.5rem 0.8rem;
   border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
-  background: rgba(91, 201, 87, 0.15);
+  background: ${({ num }) =>
+    num <= 1.2
+      ? 'rgba(255, 55, 95, 0.15)'
+      : num <= 1.7
+      ? 'rgba(49, 93, 241, 0.15)'
+      : num <= 4
+      ? 'rgba(170, 65, 251, 0.15)'
+      : 'rgba(91, 201, 87, 0.15)'};
+
+  color: ${({ num }) =>
+    num <= 1.2
+      ? 'rgba(255, 55, 95, 1)'
+      : num <= 1.7
+      ? 'rgba(49, 93, 241, 1)'
+      : num <= 4
+      ? 'rgba(170, 65, 251, 1)'
+      : 'rgba(91, 201, 87, 1)'};
 `;
 
 export const TableWrap = styled.div`

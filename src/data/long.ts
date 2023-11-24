@@ -28,11 +28,6 @@ export const inGameData: InGameDataType[] = [
   },
 ];
 
-export const historyNumbers = [
-  2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1,
-  2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1, 2.05, 1.1,
-];
-
 export interface IHistoryData {
   userName: string;
   bet: number;

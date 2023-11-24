@@ -32,6 +32,7 @@ import {
   CardWallet,
   CardAmount,
   cardListCss,
+  UpdatePassBtn,
 } from './Setting.styled';
 import { settingTableMenu } from 'constants/menu';
 import { Table } from './Table/Table';
@@ -42,23 +43,19 @@ import { QRCodeScaner } from 'modules/components/Modal/QRCodeScaner/QRCodeScaner
 import { useModal } from 'hooks/useModal';
 import { useResize } from 'hooks/useResize';
 import { List } from 'modules/components/List/List';
-import { useUpdateNickMutation, useUpdatePasswordMutation } from 'services';
+import { useUpdatePasswordMutation } from 'services';
 import { Loader } from 'modules/components/Loader/Loader';
 
 export const SettingPage = () => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
   const [filter, setFilter] = useState(settingTableMenu[0]);
-  const [newNick, setNewNick] = useState('');
   const [newPass, setNewPass] = useState('');
   const [newRepeatPass, setNewRepeatPass] = useState('');
   const [referal] = useState('https://spin.com/reflink/45465456ue4q344623r2dfew');
   const [isCopied, setCopied] = useClipboard(referal);
   const { t } = useTranslation();
   const [windowWidth] = useResize();
-  const [fetchUpdateNick, { isLoading: isLoadingNick, isSuccess: isSuccessNick }] =
-    useUpdateNickMutation();
-  const [fetchUpdatePassword, { isLoading: isLoadingPass, isSuccess: isSuccessPass }] =
-    useUpdatePasswordMutation();
+  const [fetchUpdatePassword, { isLoading: isLoadingPass }] = useUpdatePasswordMutation();
 
   const renderItem = ({
     id,
@@ -107,25 +104,24 @@ export const SettingPage = () => {
     setFilter(id);
   };
 
+  const handleUpdatePass = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (!newPass) {
+      return;
+    }
+
+    fetchUpdatePassword({ passwd: newPass });
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => event.preventDefault();
 
   return (
     <Main>
-      {(isLoadingNick || isLoadingPass) && <Loader />}
+      {isLoadingPass && <Loader />}
       <Title>{t('setting')}</Title>
       <Wrapper>
         <Form onSubmit={handleSubmit}>
           <InputWrap>
-            <Label>
-              <p>
-                {t('username')} <span />
-              </p>
-              <Input
-                placeholder={t('enterNewUser')}
-                value={newNick}
-                onChange={(e) => setNewNick(e.target.value)}
-              />
-            </Label>
             <Label>
               <p>
                 {t('newPassword')} <span />
@@ -146,6 +142,7 @@ export const SettingPage = () => {
                 onChange={(e) => setNewRepeatPass(e.target.value)}
               />
             </Label>
+            <UpdatePassBtn onClick={handleUpdatePass}>{t('updatePass')}</UpdatePassBtn>
           </InputWrap>
           <InfoBlock>
             <UserInfo>

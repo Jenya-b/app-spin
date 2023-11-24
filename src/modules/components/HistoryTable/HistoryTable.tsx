@@ -9,33 +9,44 @@ import {
   UserName,
   historyListCss,
 } from './HistoryTable.styled';
+import { useCurRoundBetsQuery } from 'services';
 
 interface HistoryTableProps {
   historyData: IHistoryData[];
 }
 
 export const HistoryTable = ({ historyData }: HistoryTableProps) => {
-  const renderItem = ({ userName, bet, withdraw, result }: IHistoryData) => (
+  const { data } = useCurRoundBetsQuery(null);
+
+  const renderItem = ({
+    nickname,
+    coin,
+    bet,
+  }: {
+    user_id: number;
+    nickname: string;
+    coin: number;
+    bet: number;
+  }) => (
     <TableRow>
       <UserLogo src={cryptoIcon.btc} />
-      <UserName>{userName}</UserName>
+      <UserName>{nickname}</UserName>
       <Params>
         <span>bet:</span>
         <span>{bet}</span>
       </Params>
       <Params>
-        <span>withdraw:</span>
-        <span>{withdraw}x</span>
+        <span>coin:</span>
+        <span>{coin}x</span>
       </Params>
-      <Result>{result}x</Result>
     </TableRow>
   );
 
   return (
     <List
       renderItem={renderItem}
-      renderEmpty={<p>Нет данных</p>}
-      data={historyData}
+      renderEmpty={<p></p>}
+      data={data?.result ?? []}
       styles={historyListCss}
     />
   );

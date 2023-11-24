@@ -32,7 +32,7 @@ export const Profile = () => {
     }
 
     fetchProfileInfo(currentUser);
-    fetchBalance(currentUser);
+    fetchBalance(null);
   }, [currentUser]);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {

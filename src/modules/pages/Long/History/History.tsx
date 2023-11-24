@@ -20,7 +20,9 @@ export const History = ({ historyNumbers }: HistoryProps) => {
         <Title>History</Title>
         <HistoryList>
           {historyNumbers.map((item, i) => (
-            <HistoryItem key={i}>{item}x</HistoryItem>
+            <HistoryItem num={item} key={i}>
+              {item}x
+            </HistoryItem>
           ))}
         </HistoryList>
       </HistoryBlock>

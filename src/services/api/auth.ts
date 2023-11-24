@@ -5,6 +5,28 @@ export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
   endpoints: (build) => ({
+    registration: build.mutation<
+      { token: string; expires: string; result: string },
+      { username: string; nickname: string; password: string }
+    >({
+      query: (body) => ({
+        method: 'POST',
+        url: 'reg',
+        body,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          localStorage.setItem('token', data.token);
+          dispatch(setToken(data.token));
+        } catch {
+          throw new Error();
+        }
+      },
+    }),
     signIn: build.mutation<
       { token: string; expires: string },
       { username: string; password: string }

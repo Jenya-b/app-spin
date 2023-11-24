@@ -3,12 +3,10 @@ import { gameApi } from './api/game';
 import { userApi } from './api/user';
 
 export const {
-  useCreateUserMutation,
   useGetUserQuery,
   useLazyGetUserQuery,
   useGetBalanceQuery,
   useLazyGetBalanceQuery,
-  useUpdateNickMutation,
   useUpdatePasswordMutation,
 } = userApi;
 
@@ -21,6 +19,9 @@ export const {
   useCrashBetMutation,
   useLazyCrashStopQuery,
   useLazyHasLongGameQuery,
+  useHistoryLongGameQuery,
+  useUserHistoryLongQuery,
+  useCurRoundBetsQuery,
 } = gameApi;
 
-export const { useSignInMutation, useCheckTokenMutation } = authApi;
+export const { useSignInMutation, useCheckTokenMutation, useRegistrationMutation } = authApi;

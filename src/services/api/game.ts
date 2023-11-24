@@ -98,5 +98,36 @@ export const gameApi = createApi({
         url: `crash/get_cur_bet`,
       }),
     }),
+    historyLongGame: build.query<{ result: Array<number> }, null>({
+      query: () => ({
+        url: `crash/rounds_history`,
+      }),
+    }),
+    userHistoryLong: build.query<
+      {
+        result: Array<{
+          round_id: number;
+          date: string;
+          coin: number;
+          bet: number;
+          coef: number;
+          status: string;
+          profit: string;
+        }>;
+      },
+      null
+    >({
+      query: () => ({
+        url: `crash/user_bets_history`,
+      }),
+    }),
+    curRoundBets: build.query<
+      { result: Array<{ user_id: number; nickname: string; coin: number; bet: number }> },
+      null
+    >({
+      query: () => ({
+        url: `crash/cur_round_bets`,
+      }),
+    }),
   }),
 });

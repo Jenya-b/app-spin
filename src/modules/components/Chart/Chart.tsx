@@ -28,7 +28,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const [dataLong, setDataLong] = useState<LongResponse>();
 
   useEffect(() => {
-    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/crash/last_round/ws`);
+    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/last_round/1/ws`);
 
     ws.onopen = function () {
       console.log('ws opened');

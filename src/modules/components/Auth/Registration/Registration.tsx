@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Form, Input, Label } from '../Auth.styled';
 import { AuthBtn, RegistrBtn } from './Registration.styled';
-import { useCreateUserMutation } from 'services';
+import { useRegistrationMutation } from 'services';
 import { Loader } from 'modules/components/Loader/Loader';
 
 interface RegistrationProps {
@@ -20,7 +20,7 @@ export const Registration = ({
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [fetchCreateUser, { isLoading, isSuccess }] = useCreateUserMutation();
+  const [fetchReg, { isLoading, isSuccess }] = useRegistrationMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -35,7 +35,7 @@ export const Registration = ({
       return;
     }
 
-    fetchCreateUser({ nickname, password, username });
+    fetchReg({ nickname, password, username });
   };
 
   const handleOpenRegModal = () => {
