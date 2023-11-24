@@ -8,7 +8,7 @@ import { currencySelector, gameSelector, notifySelector, userSelector } from 'st
 import { openNotify } from 'store/reducers/notifySlice';
 import { alertMessage } from 'constants/notify';
 import { Loader } from '../Loader/Loader';
-import { CrashStatuses, StatusesLong } from 'services/api/game';
+import { CrashStatuses, StatusesLong } from 'services/api/crash';
 import { setIsLongGame } from 'store/reducers/gameSlice';
 
 export const Bet = () => {

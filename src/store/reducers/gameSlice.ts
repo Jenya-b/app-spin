@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { StatusesLong } from 'services/api/game';
+import { StatusesLong } from 'services/api/crash';
 
 interface InitialState {
   statusesLongGame: StatusesLong;

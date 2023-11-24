@@ -3,7 +3,7 @@ import { SpringValue } from '@react-spring/web';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import { Timer, Wrapper } from './Chart.styled';
-import { StatusesLong, LongResponse } from 'services/api/game';
+import { StatusesLong, LongResponse } from 'services/api/crash';
 import { useAppDispatch } from 'store';
 import { setStatusesLongGame } from 'store/reducers/gameSlice';
 
