@@ -10,15 +10,21 @@ interface Wallet {
 
 interface CreateWalletBtcResponse {
   result: string;
-  user_id: number;
   coin: string;
   address: string;
 }
 
 interface SendBtcRequest {
-  user_id: number;
+  coin: string;
   address: string;
   value: number;
+}
+
+interface SendBtcResponse extends SendBtcRequest {
+  coin: string;
+  address: string;
+  value: number;
+  txn_id: string;
 }
 
 export const walletApi = createApi({
@@ -34,21 +40,22 @@ export const walletApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getWalletBtc: build.query<Wallet, number>({
-      query: (userId) => ({
-        url: `wallet/btc/get/${userId}`,
+    getWallet: build.query<Wallet, { coin: string }>({
+      query: ({ coin }) => ({
+        url: `wallet/btc/get/${coin}`,
       }),
     }),
-    createWalletBtc: build.mutation<{ userId: number }, CreateWalletBtcResponse>({
-      query: (userId) => ({
+    createWallet: build.mutation<CreateWalletBtcResponse, { coin: string }>({
+      query: (body) => ({
         method: 'PUT',
-        url: `wallet/btc/create/${userId}`,
+        url: `wallet/btc/create`,
+        body,
         headers: {
           'Content-Type': 'application/json',
         },
       }),
     }),
-    sendBtc: build.mutation<SendBtcRequest, null>({
+    sendBtc: build.mutation<SendBtcResponse, SendBtcRequest>({
       query: (body) => ({
         method: 'PUT',
         url: 'wallet/btc/send',
