@@ -1,4 +1,5 @@
 import { authApi } from './api/auth';
+import { chatApi } from './api/chat';
 import { crashApi } from './api/crash';
 import { gameApi } from './api/game';
 import { userApi } from './api/user';
@@ -19,3 +20,5 @@ export const {
 } = crashApi;
 
 export const { useSignInMutation, useCheckTokenMutation, useRegistrationMutation } = authApi;
+
+export const { useAddMessageMutation } = chatApi;

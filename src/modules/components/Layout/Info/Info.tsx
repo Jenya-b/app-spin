@@ -5,7 +5,6 @@ import { Header } from 'modules/components/Header/Header';
 import { Wrapper, Main, NavWrap, Button } from './Info.styled';
 import { Loader } from 'modules/components/Loader/Loader';
 import { Chat } from 'modules/components/Chat/Chat';
-import { chatData } from 'data/chat';
 import { NavInfo } from 'modules/components/NavInfo/NavInfo';
 import { path } from 'modules/router/path';
 import { useResize } from 'hooks/useResize';
@@ -34,7 +33,7 @@ export const LayoutInfo = () => {
         </Suspense>
         <Button onClick={handleClick}>back</Button>
       </Main>
-      {width > 1023 && <Chat chatData={chatData} />}
+      {width > 1023 && <Chat />}
     </Wrapper>
   );
 };

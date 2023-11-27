@@ -34,9 +34,9 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       console.log('ws opened');
     };
 
-    ws.onmessage = function (event) {
-      setDataLong(JSON.parse(event.data));
-    };
+    // ws.onmessage = function (event) {
+    //   setDataLong(JSON.parse(event.data));
+    // };
     ws.onmessage = function (event) {
       const json = JSON.parse(event.data);
       try {

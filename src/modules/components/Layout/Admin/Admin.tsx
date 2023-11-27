@@ -17,7 +17,6 @@ import {
 import { List } from 'modules/components/List/List';
 import { adminMenu } from 'constants/menu';
 import { INavMenu } from 'interfaces/menu';
-import { chatData } from 'data/chat';
 import { Chat } from 'modules/components/Chat/Chat';
 
 export const LayoutAdmin = () => {
@@ -43,7 +42,7 @@ export const LayoutAdmin = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      <Chat chatData={chatData} />
+      <Chat />
     </Wrapper>
   );
 };

@@ -9,7 +9,6 @@ import { Footer } from 'modules/components/Footer/Footer';
 import { CountDown } from 'modules/components/CountDown/CountDown';
 import { Loader } from 'modules/components/Loader/Loader';
 import { Wallet } from 'modules/components/Wallet/Wallet';
-import { chatData } from 'data/chat';
 import { converterFontSize } from 'utils/converter';
 import { useResize } from 'hooks/useResize';
 import { path } from 'modules/router/path';
@@ -55,7 +54,7 @@ export const LayoutMain = () => {
       </Suspense>
       {windowWidth > 1023 && (
         <ChatWrap ref={chatRef}>
-          <Chat chatData={chatData} />
+          <Chat />
         </ChatWrap>
       )}
       {windowWidth > 1023 ? (

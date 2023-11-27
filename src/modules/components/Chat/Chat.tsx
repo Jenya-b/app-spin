@@ -19,22 +19,43 @@ import {
   UserName,
   UserPost,
 } from './Chat.styled';
-import { IChatData } from 'data/chat';
 import { List } from '../List/List';
-import { getRandomIntInclusive } from 'utils/randomInt';
 import { useModal } from 'hooks/useModal';
 import { BasicModal } from '../Modal/Modal';
 import { ChatRules } from '../Modal/ChatRules/ChatRules';
+import { MessageFromChat } from 'services/api/chat';
+import { useAddMessageMutation } from 'services';
+import { useAppSelector } from 'store';
+import { userSelector } from 'store/selectors';
 
-interface ChatProps {
-  chatData: IChatData[];
-}
-
-export const Chat = ({ chatData }: ChatProps) => {
+export const Chat = () => {
   const { t } = useTranslation();
-  const [messageData, setMessageData] = useState<IChatData[]>(chatData);
+  const [messageData, setMessageData] = useState<MessageFromChat[]>([]);
+  const [currentMessage, setCurrentMessage] = useState<string>('');
   const [isOpenModal, openModal, closeModal] = useModal(false);
+  const { currentUser } = useAppSelector(userSelector);
   const messagesRef = useRef<HTMLDivElement>(null);
+  const [fetchMessage] = useAddMessageMutation();
+
+  useEffect(() => {
+    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/chat/last_messages/ws`);
+
+    ws.onopen = function () {
+      console.log('ws opened');
+    };
+
+    ws.onmessage = function (event) {
+      try {
+        const json: { [key: string]: MessageFromChat } = JSON.parse(event.data);
+        const messages = Object.values(json);
+        setMessageData(messages);
+      } catch {
+        throw new Error();
+      }
+    };
+
+    return () => ws.close();
+  }, []);
 
   useEffect(() => {
     const list = messagesRef.current?.querySelectorAll('li');
@@ -44,24 +65,25 @@ export const Chat = ({ chatData }: ChatProps) => {
     lastItem.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }, [messageData]);
 
-  useEffect(() => {
-    const interval = setInterval(updateMessage, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const updateMessage = () =>
-    setMessageData((state) => [...state, state[getRandomIntInclusive(0, state.length - 1)]]);
-
-  const renderItem = ({ message, time, username }: IChatData) => (
+  const renderItem = ({ nickname, text, timestamp }: MessageFromChat) => (
     <MessageWrap>
       <MessageIcon />
       <MessageInfo>
-        <UserName>{username}</UserName>
-        <UserPost>{message}</UserPost>
-        <TimePost>{time}</TimePost>
+        <UserName>{nickname}</UserName>
+        <UserPost>{text}</UserPost>
+        <TimePost>{timestamp}</TimePost>
       </MessageInfo>
     </MessageWrap>
   );
+
+  const handleSubmit = () => {
+    if (!currentMessage) {
+      return;
+    }
+
+    fetchMessage({ text: currentMessage });
+    setCurrentMessage('');
+  };
 
   return (
     <Wrapper>
@@ -79,8 +101,17 @@ export const Chat = ({ chatData }: ChatProps) => {
       </MessageBlock>
       <ControlBlock>
         <Label>
-          <Input placeholder={t('placeholderMessage')} />
-          <InputBtn />
+          <Input
+            disabled={!currentUser}
+            placeholder={t('placeholderMessage')}
+            onChange={(e) => setCurrentMessage(e.target.value)}
+            style={{ cursor: !currentUser ? 'not-allowed' : 'auto' }}
+          />
+          <InputBtn
+            onClick={handleSubmit}
+            disabled={!currentUser}
+            style={{ cursor: !currentUser ? 'not-allowed' : 'pointer' }}
+          />
         </Label>
       </ControlBlock>
     </Wrapper>

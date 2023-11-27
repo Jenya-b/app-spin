@@ -37,7 +37,7 @@ export const Header = memo(() => {
   const [isOpenRegistrModal, openRegistrModal, closeRegistrModal] = useModal(false);
   const dispatch = useAppDispatch();
   const { isActiveSound, language } = useAppSelector(settingSelector);
-  const { isAuth, currentUser } = useAppSelector(userSelector);
+  const { currentUser } = useAppSelector(userSelector);
   const { t, i18n } = useTranslation();
   const [play] = useSound(soundClick, { volume: isActiveSound ? 0.5 : 0 });
   const [windowWidth] = useResize();
