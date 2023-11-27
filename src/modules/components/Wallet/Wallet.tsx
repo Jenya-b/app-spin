@@ -25,40 +25,58 @@ import { BasicModal } from '../Modal/Modal';
 import { TransferModal } from '../Modal/Transfer/Transfer';
 import { useModal } from 'hooks/useModal';
 import { useResize } from 'hooks/useResize';
+import { useGetBalanceQuery } from 'services';
+import { useEffect, useState } from 'react';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 interface WalletProps {
   activeBlock: boolean;
-  data: IWallet[];
 }
 
-export const Wallet = ({ activeBlock, data }: WalletProps) => {
+export const Wallet = ({ activeBlock }: WalletProps) => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
+  const { data: balanceInfo, isSuccess } = useGetBalanceQuery(null);
+  const [balance, setBalance] = useState<IWallet[]>([]);
   const [windowWidth] = useResize();
   const { t } = useTranslation();
 
-  const renderItem = ({ cryptoName, amount, available, inGame }: IWallet) => (
+  useEffect(() => {
+    if (!(isSuccess && balanceInfo !== undefined)) {
+      return;
+    }
+
+    const newBalanceInfo = Object.entries(balanceInfo).map(([key, object]) => ({
+      cryptoName: key,
+      available: object.val - object.ingame,
+      ...object,
+    }));
+
+    setBalance(newBalanceInfo);
+  }, [isSuccess]);
+
+  const renderItem = ({ cryptoName, val, available, ingame }: IWallet) => (
     <MoneyWrap>
       <MoneyTitle active={activeBlock}>
-        <Icon active={activeBlock} src={cryptoIcon[`${cryptoName}`]} />
+        <Icon active={activeBlock} src={cryptoIcon[`${cryptoName as unknown as CriptoEnum}`]} />
         {windowWidth >= 1024 && cryptoName}
       </MoneyTitle>
       <MoneyCount>
         <CountWrap>
           {windowWidth >= 1024 && <CountTitle active={activeBlock}>{t('amount')}</CountTitle>}
-          <CountCripto active={activeBlock}>{amount.crypto}</CountCripto>
-          <CountUsd active={activeBlock}>${amount.usd}</CountUsd>
+          <CountCripto active={activeBlock}>{val}</CountCripto>
+          <CountUsd active={activeBlock}>?</CountUsd>
         </CountWrap>
         {windowWidth >= 1024 && (
           <>
             <CountWrap>
               <CountTitle active={activeBlock}>{t('inGame')}</CountTitle>
-              <CountCripto active={activeBlock}>{inGame.crypto}</CountCripto>
-              <CountUsd active={activeBlock}>${inGame.usd}</CountUsd>
+              <CountCripto active={activeBlock}>{ingame}</CountCripto>
+              <CountUsd active={activeBlock}>?</CountUsd>
             </CountWrap>
             <CountWrap>
               <CountTitle active={activeBlock}>{t('available')}</CountTitle>
-              <CountCripto active={activeBlock}>{available.crypto}</CountCripto>
-              <CountUsd active={activeBlock}>${available.usd}</CountUsd>
+              <CountCripto active={activeBlock}>{available}</CountCripto>
+              <CountUsd active={activeBlock}>?</CountUsd>
             </CountWrap>
           </>
         )}
@@ -87,7 +105,7 @@ export const Wallet = ({ activeBlock, data }: WalletProps) => {
         </UpdateBtn>
       </TitleBlock>
       <MoneyBlock>
-        <List data={data} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
+        <List data={balance} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
       </MoneyBlock>
       <ControlBlock>
         <TransferBtn onClick={openModal}>{t('transfer')}</TransferBtn>

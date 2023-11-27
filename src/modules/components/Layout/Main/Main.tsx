@@ -9,7 +9,6 @@ import { Footer } from 'modules/components/Footer/Footer';
 import { CountDown } from 'modules/components/CountDown/CountDown';
 import { Loader } from 'modules/components/Loader/Loader';
 import { Wallet } from 'modules/components/Wallet/Wallet';
-import { wallet } from 'data/wallet';
 import { chatData } from 'data/chat';
 import { converterFontSize } from 'utils/converter';
 import { useResize } from 'hooks/useResize';
@@ -49,7 +48,7 @@ export const LayoutMain = () => {
       <Header />
       <Sidebar>
         <Chart chartRef={chartRef} style={springs} />
-        {windowWidth > 1023 && <Wallet activeBlock={isVisible} data={wallet} />}
+        {windowWidth > 1023 && <Wallet activeBlock={isVisible} />}
       </Sidebar>
       <Suspense fallback={<Loader />}>
         <Outlet />

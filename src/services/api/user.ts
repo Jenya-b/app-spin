@@ -27,15 +27,7 @@ interface CurrencyParam {
   ingame: number;
 }
 
-// interface Balance {
-//   user_id: number;
-//   btc: number;
-//   xmr: number;
-//   ltc: number;
-//   usdt: number;
-// }
-
-type Balance = {
+export type Balance = {
   [key in CurrencyEnum]: CurrencyParam;
 };
 

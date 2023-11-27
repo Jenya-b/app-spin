@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { wallet } from 'data/wallet';
+// import { wallet } from 'data/wallet';
 import { Wallet } from '../Wallet/Wallet';
 import { ControlsWrap, Wrapper } from './MobMenu.styled';
 import { Footer } from '../Footer/Footer';
@@ -31,7 +31,7 @@ export const MobMenu = ({ isActiveMenu }: MobMenuProps) => {
 
   return (
     <Wrapper className={isActiveMenu ? 'active' : ''}>
-      <Wallet activeBlock={true} data={wallet} />
+      <Wallet activeBlock={true} />
       <Footer />
       <ControlsWrap>
         <SettingsButtons
