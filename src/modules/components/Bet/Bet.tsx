@@ -41,7 +41,7 @@ export const Bet = () => {
         break;
 
       case CrashStatuses.FAIL:
-        dispatch(openNotify(alertMessage.crashErrorRun));
+        dispatch(openNotify({ message: dataBet.info as string, type: 'error' }));
         break;
 
       default:

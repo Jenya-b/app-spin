@@ -82,7 +82,7 @@ export const crashApi = createApi({
       null
     >({
       query: () => ({
-        url: `crash/cur_round_bets`,
+        url: `cur_round_bets/1`,
       }),
     }),
     crashStop: build.query<{ [key: string]: string | number }, null>({
