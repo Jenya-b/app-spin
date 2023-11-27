@@ -2,24 +2,42 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { RootState } from 'store';
 
 interface User {
-  user_id: number;
   reg_date: string;
   username: string;
   nick: string;
-  email: string;
+  mute: number;
+  ban: number;
+  ip: string;
+  logo: string;
 }
 
 interface UpdatePass {
   passwd: string;
 }
 
-interface Balance {
-  user_id: number;
-  btc: number;
-  xmr: number;
-  ltc: number;
-  usdt: number;
+enum CurrencyEnum {
+  BTC = 'btc',
+  XML = 'xmr',
+  LTC = 'ltc',
+  USDT = 'usdt',
 }
+
+interface CurrencyParam {
+  val: number;
+  ingame: number;
+}
+
+// interface Balance {
+//   user_id: number;
+//   btc: number;
+//   xmr: number;
+//   ltc: number;
+//   usdt: number;
+// }
+
+type Balance = {
+  [key in CurrencyEnum]: CurrencyParam;
+};
 
 export const userApi = createApi({
   reducerPath: 'userApi',
@@ -34,9 +52,9 @@ export const userApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getUser: build.query<User, number>({
-      query: (userId) => ({
-        url: `user/${userId}`,
+    getUser: build.query<User, null>({
+      query: () => ({
+        url: `user`,
       }),
     }),
     getBalance: build.query<Balance, null>({

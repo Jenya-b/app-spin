@@ -1,39 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Avatar, Box, IconButton, MenuItem, Tooltip, Typography } from '@mui/material';
 
 import { ProfileInfo, ProfileMoney, ProfileName, StyledMenu } from './Profile.styled';
 import { useAppDispatch, useAppSelector } from 'store';
-import { authUser, logout } from 'store/reducers/userSlice';
+import { logout } from 'store/reducers/userSlice';
 import { userSelector } from 'store/selectors';
 import { path } from 'modules/router/path';
-import {
-  useGetBalanceQuery,
-  useGetUserQuery,
-  useLazyGetBalanceQuery,
-  useLazyGetUserQuery,
-} from 'services';
+import { useGetBalanceQuery, useGetUserQuery } from 'services';
 import { Loader } from '../Loader/Loader';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const { isAdmin, currentUser } = useAppSelector(userSelector);
+  const { isAdmin } = useAppSelector(userSelector);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [fetchProfileInfo, { data: profileInfo, isLoading: isLoadingProfile }] =
-    useLazyGetUserQuery();
-  const [fetchBalance, { data: balance, isLoading: isLoadingBalance }] = useLazyGetBalanceQuery();
-
-  useEffect(() => {
-    if (!currentUser) {
-      return;
-    }
-
-    fetchProfileInfo(currentUser);
-    fetchBalance(null);
-  }, [currentUser]);
+  const { data: profileInfo, isLoading: isLoadingProfile } = useGetUserQuery(null);
+  const { data: balance, isLoading: isLoadingBalance } = useGetBalanceQuery(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -60,7 +45,7 @@ export const Profile = () => {
       </Tooltip>
       <ProfileInfo>
         <ProfileName>{profileInfo?.nick ?? ''}</ProfileName>
-        <ProfileMoney>{balance?.btc ?? 0} BTC</ProfileMoney>
+        <ProfileMoney>{balance?.btc.val ?? 0} BTC</ProfileMoney>
       </ProfileInfo>
       <StyledMenu
         id="menu-appbar"

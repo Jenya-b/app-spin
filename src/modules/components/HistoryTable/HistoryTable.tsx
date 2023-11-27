@@ -16,7 +16,7 @@ interface HistoryTableProps {
 }
 
 export const HistoryTable = ({ historyData }: HistoryTableProps) => {
-  const { data } = useCurRoundBetsQuery(null);
+  const { data } = useCurRoundBetsQuery(null, { pollingInterval: 1000 });
 
   const renderItem = ({
     nickname,

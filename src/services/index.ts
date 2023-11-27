@@ -3,13 +3,7 @@ import { crashApi } from './api/crash';
 import { gameApi } from './api/game';
 import { userApi } from './api/user';
 
-export const {
-  useGetUserQuery,
-  useLazyGetUserQuery,
-  useGetBalanceQuery,
-  useLazyGetBalanceQuery,
-  useUpdatePasswordMutation,
-} = userApi;
+export const { useGetUserQuery, useGetBalanceQuery, useUpdatePasswordMutation } = userApi;
 
 export const { useGetRouletteQuery, useGetGameQuery, useGetRoundQuery, useCreateGameMutation } =
   gameApi;
