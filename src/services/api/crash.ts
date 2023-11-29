@@ -42,7 +42,7 @@ export const crashApi = createApi({
     crashBet: build.mutation<{ [key: string]: string | number }, CrashBetRequest>({
       query: (body) => ({
         method: 'POST',
-        url: 'crash/bet/make',
+        url: 'bet/make/1',
         body,
         headers: {
           'Content-Type': 'application/json',
