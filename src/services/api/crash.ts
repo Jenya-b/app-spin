@@ -78,7 +78,7 @@ export const crashApi = createApi({
       }),
     }),
     curRoundBets: build.query<
-      { result: Array<{ user_id: number; nickname: string; coin: number; bet: number }> },
+      { bets: Array<{ user_id: number; nickname: string; coin: number; bet: number }> },
       null
     >({
       query: () => ({

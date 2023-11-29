@@ -46,7 +46,7 @@ export const HistoryTable = ({ historyData }: HistoryTableProps) => {
     <List
       renderItem={renderItem}
       renderEmpty={<p></p>}
-      data={data?.result ?? []}
+      data={data?.bets ?? []}
       styles={historyListCss}
     />
   );
