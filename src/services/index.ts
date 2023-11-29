@@ -24,4 +24,4 @@ export const { useSignInMutation, useCheckTokenMutation, useRegistrationMutation
 
 export const { useAddMessageMutation } = chatApi;
 
-export const { useGetWalletQuery, useSendWalletMutation } = walletApi;
+export const { useGetWalletQuery, useLazyGetWalletQuery, useSendWalletMutation } = walletApi;

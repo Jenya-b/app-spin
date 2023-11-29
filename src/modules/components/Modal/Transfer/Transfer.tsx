@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { useState, MouseEvent, useRef } from 'react';
+import { useState, MouseEvent, useRef, useEffect } from 'react';
 import { useSpring } from '@react-spring/web';
 
 import { CloseModalBtn, Subtitle, Title } from '../Modal.styled';
-import { transfer } from 'data/wallet';
 import {
   StyledWrapp,
   PriceWrap,
@@ -18,11 +17,12 @@ import {
   TransactionBlock,
 } from './Transfer.styled';
 import { cryptoIcon } from 'constants/images';
-import { Transaction } from './Transaction/Transaction';
+import { Transaction, TransactionParameter } from './Transaction/Transaction';
 import { converterFontSize } from 'utils/converter';
 import { useAppSelector } from 'store';
 import { userSelector } from 'store/selectors';
 import { CriptoEnum } from 'store/reducers/currencySlice';
+import { useLazyGetWalletQuery } from 'services';
 
 interface TransferModalProps {
   closeModal: () => void;
@@ -35,6 +35,15 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
   const { balance } = useAppSelector(userSelector);
   const transactionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
+
+  const [fetchGetWallet, { data: wallet }] = useLazyGetWalletQuery();
+
+  useEffect(() => {
+    if (!selectedCurrency) {
+      return;
+    }
+    fetchGetWallet({ coin: selectedCurrency });
+  }, [selectedCurrency]);
 
   const springs = useSpring({
     immediate: !transactionRef.current,
@@ -120,10 +129,12 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
         </RecieveBtn>
       </Controls>
       <TransactionBlock ref={transactionRef} style={{ ...springs }}>
-        <Transaction
-          walletLabel={t(transactionParam === 'send' ? 'walletNumber' : 'yourPersonalWalletNumber')}
-          walletPlaceholder={t('enterWalletNumber')}
-        />
+        {transactionParam && wallet !== undefined && (
+          <Transaction
+            wallet={wallet}
+            transactionParameter={transactionParam as TransactionParameter}
+          />
+        )}
       </TransactionBlock>
     </StyledWrapp>
   );

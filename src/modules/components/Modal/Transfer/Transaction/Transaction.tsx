@@ -1,22 +1,45 @@
-import { memo } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Form, Input, InputBlock, Lable, TransactionBtn } from './Transaction.styled';
 import { useTranslation } from 'react-i18next';
+import { Wallet } from 'services/api/wallet';
 
-interface TransactionProps {
-  walletLabel: string;
-  walletPlaceholder: string;
+export enum TransactionParameter {
+  SEND = 'send',
+  RECIEVE = 'recieve',
 }
 
-export const Transaction = memo(({ walletLabel, walletPlaceholder }: TransactionProps) => {
+interface TransactionProps {
+  wallet: Wallet;
+  transactionParameter: TransactionParameter;
+}
+
+export const Transaction = ({ transactionParameter, wallet }: TransactionProps) => {
   const { t } = useTranslation();
+  const [address, setAddress] = useState('');
+
+  useEffect(() => {
+    if (wallet.address === null) {
+      setAddress('');
+      return;
+    }
+    setAddress(wallet.address);
+  }, [wallet]);
 
   return (
     <Form>
       <InputBlock>
         <Lable>
-          {walletLabel}
-          <Input placeholder={walletPlaceholder} />
+          {t(
+            transactionParameter === TransactionParameter.SEND
+              ? 'walletNumber'
+              : 'yourPersonalWalletNumber'
+          )}
+          <Input
+            placeholder={t('enterWalletNumber')}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
         </Lable>
         <Lable>
           {t('amountInCrypto')}
@@ -34,4 +57,4 @@ export const Transaction = memo(({ walletLabel, walletPlaceholder }: Transaction
       <TransactionBtn>{t('makeTransaction')}</TransactionBtn>
     </Form>
   );
-});
+};

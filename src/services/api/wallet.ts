@@ -1,17 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { RootState } from 'store';
 
-interface Wallet {
+export interface Wallet {
   coin: string;
   address: string;
   value: number;
   inGame: number;
-}
-
-interface CreateWalletBtcResponse {
-  result: string;
-  coin: string;
-  address: string;
 }
 
 interface SendBtcRequest {
