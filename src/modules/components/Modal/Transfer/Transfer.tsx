@@ -70,19 +70,19 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
     const { id } = event.currentTarget;
 
     if (
-      (id === 'send' && transactionParam === 'recieve') ||
-      (id === 'recieve' && transactionParam === 'send')
+      (id === TransactionParameter.SEND && transactionParam === TransactionParameter.RECIEVE) ||
+      (id === TransactionParameter.RECIEVE && transactionParam === TransactionParameter.SEND)
     ) {
       setTransactionParam(id);
     } else if (
-      (id === 'send' && id !== transactionParam) ||
-      (id === 'recieve' && id !== transactionParam)
+      (id === TransactionParameter.SEND && id !== transactionParam) ||
+      (id === TransactionParameter.RECIEVE && id !== transactionParam)
     ) {
       setIsVisibleTransaction(true);
       setTransactionParam(id);
     } else if (
-      (id === 'send' && id === transactionParam) ||
-      (id === 'recieve' && id === transactionParam)
+      (id === TransactionParameter.SEND && id === transactionParam) ||
+      (id === TransactionParameter.RECIEVE && id === transactionParam)
     ) {
       setIsVisibleTransaction(false);
       setTransactionParam('');
@@ -114,15 +114,15 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
       </PriceWrap>
       <Controls>
         <SendBtn
-          id="send"
-          isactive={transactionParam === 'send'}
+          id={TransactionParameter.SEND}
+          isactive={transactionParam === TransactionParameter.SEND}
           onClick={updateVisibleTransaction}
         >
           {t('send')}
         </SendBtn>
         <RecieveBtn
-          id="recieve"
-          isactive={transactionParam === 'recieve'}
+          id={TransactionParameter.RECIEVE}
+          isactive={transactionParam === TransactionParameter.RECIEVE}
           onClick={updateVisibleTransaction}
         >
           {t('recieve')}
