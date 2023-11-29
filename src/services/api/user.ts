@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { RootState } from 'store';
+import { setBalance } from 'store/reducers/userSlice';
 
 interface User {
   reg_date: string;
@@ -53,6 +54,14 @@ export const userApi = createApi({
       query: () => ({
         url: `user_balance`,
       }),
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(setBalance(data));
+        } catch {
+          throw new Error();
+        }
+      },
     }),
     updatePassword: build.mutation<null, UpdatePass>({
       query: (body) => ({

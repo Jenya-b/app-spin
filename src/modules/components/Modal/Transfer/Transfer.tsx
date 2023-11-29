@@ -20,6 +20,9 @@ import {
 import { cryptoIcon } from 'constants/images';
 import { Transaction } from './Transaction/Transaction';
 import { converterFontSize } from 'utils/converter';
+import { useAppSelector } from 'store';
+import { userSelector } from 'store/selectors';
+import { CriptoEnum } from 'store/reducers/currencySlice';
 
 interface TransferModalProps {
   closeModal: () => void;
@@ -29,6 +32,7 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
   const [selectedCurrency, setSelectedCurrency] = useState('');
   const [transactionParam, setTransactionParam] = useState('');
   const [isVisibleTransaction, setIsVisibleTransaction] = useState(false);
+  const { balance } = useAppSelector(userSelector);
   const transactionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
@@ -82,21 +86,22 @@ export const TransferModal = ({ closeModal }: TransferModalProps) => {
       <Title>{t('transfer')}</Title>
       <Subtitle>{t('exchangeRate')}</Subtitle>
       <PriceWrap>
-        {transfer.map(({ cryptoName, price }) => (
-          <Price
-            id={cryptoName}
-            active={selectedCurrency === cryptoName}
-            onClick={handleClickCurrency}
-            key={cryptoName}
-          >
-            <CriptoName>
-              <Icon src={cryptoIcon[`${cryptoName}`]} />
-              {cryptoName}
-            </CriptoName>
-            <InfoText>{t('price')}</InfoText>
-            <Count>${price}</Count>
-          </Price>
-        ))}
+        {balance !== null &&
+          Object.entries(balance).map(([cryptoName, price]) => (
+            <Price
+              id={cryptoName}
+              active={selectedCurrency === cryptoName}
+              onClick={handleClickCurrency}
+              key={cryptoName}
+            >
+              <CriptoName>
+                <Icon src={cryptoIcon[`${cryptoName as unknown as CriptoEnum}`]} />
+                {cryptoName}
+              </CriptoName>
+              <InfoText>{t('price')}</InfoText>
+              <Count>{price.val}</Count>
+            </Price>
+          ))}
       </PriceWrap>
       <Controls>
         <SendBtn

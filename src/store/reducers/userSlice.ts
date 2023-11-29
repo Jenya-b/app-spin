@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Balance } from 'services/api/user';
 
 const token = localStorage.getItem('token');
 
@@ -7,6 +8,7 @@ interface InitialState {
   isAuth: boolean;
   isAdmin: boolean;
   currentUser: number | null;
+  balance: Balance | null;
 }
 
 const initialState: InitialState = {
@@ -14,6 +16,7 @@ const initialState: InitialState = {
   isAuth: false,
   isAdmin: true,
   currentUser: null,
+  balance: null,
 };
 
 export const settingSlice = createSlice({
@@ -29,6 +32,9 @@ export const settingSlice = createSlice({
     setCurrentUser: (state, action: PayloadAction<number | null>) => {
       state.currentUser = action.payload;
     },
+    setBalance: (state, action: PayloadAction<Balance>) => {
+      state.balance = action.payload;
+    },
     logout: () => {
       localStorage.removeItem('token');
       return initialState;
@@ -36,6 +42,6 @@ export const settingSlice = createSlice({
   },
 });
 
-export const { authUser, setToken, logout, setCurrentUser } = settingSlice.actions;
+export const { authUser, setToken, logout, setCurrentUser, setBalance } = settingSlice.actions;
 
 export default settingSlice.reducer;

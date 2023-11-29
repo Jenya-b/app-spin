@@ -42,23 +42,13 @@ export const walletApi = createApi({
   endpoints: (build) => ({
     getWallet: build.query<Wallet, { coin: string }>({
       query: ({ coin }) => ({
-        url: `wallet/btc/get/${coin}`,
+        url: `wallet/get/${coin}`,
       }),
     }),
-    createWallet: build.mutation<CreateWalletBtcResponse, { coin: string }>({
+    sendWallet: build.mutation<SendBtcResponse, SendBtcRequest>({
       query: (body) => ({
         method: 'PUT',
-        url: `wallet/btc/create`,
-        body,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }),
-    }),
-    sendBtc: build.mutation<SendBtcResponse, SendBtcRequest>({
-      query: (body) => ({
-        method: 'PUT',
-        url: 'wallet/btc/send',
+        url: 'wallet/send',
         body,
         headers: {
           'Content-Type': 'application/json',
