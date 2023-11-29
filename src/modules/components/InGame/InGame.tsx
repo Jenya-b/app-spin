@@ -30,6 +30,7 @@ export const InGame = ({ data }: InGameProps) => {
                 padding: '2px',
                 borderRadius: '4px',
                 cursor: 'pointer',
+                textAlign: 'center',
               }}
             >
               <img src={cryptoIcon[cryptoName as CriptoEnum]} />

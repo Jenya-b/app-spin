@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  fontStyleSmallBold,
-  fontStyleXSmallBemiBold,
-  fontStyleXSmallNormal,
-} from 'styles/typography';
+import { fontStyleSmallBold, fontStyleXXSmallNormal } from 'styles/typography';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -57,12 +53,15 @@ export const List = styled.div`
 `;
 
 export const InfoText = styled.div`
-  margin-top: 0.6rem;
-  ${fontStyleXSmallNormal}
+  margin-top: 0.7rem;
   text-transform: uppercase;
+  text-align: left;
+  ${fontStyleXXSmallNormal}
 `;
 
 export const Count = styled.div`
-  ${fontStyleXSmallBemiBold}
+  margin-top: 0.2rem;
   text-transform: uppercase;
+  text-align: left;
+  ${fontStyleSmallBold}
 `;
