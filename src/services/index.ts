@@ -5,7 +5,12 @@ import { gameApi } from './api/game';
 import { userApi } from './api/user';
 import { walletApi } from './api/wallet';
 
-export const { useGetUserQuery, useGetBalanceQuery, useUpdatePasswordMutation } = userApi;
+export const {
+  useGetUserQuery,
+  useGetBalanceQuery,
+  useUpdatePasswordMutation,
+  useLazyGetBalanceQuery,
+} = userApi;
 
 export const { useGetRouletteQuery, useGetGameQuery, useGetRoundQuery, useCreateGameMutation } =
   gameApi;

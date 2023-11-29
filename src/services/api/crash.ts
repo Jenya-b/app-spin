@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { useGetBalanceQuery } from 'services';
 import { RootState } from 'store';
+import { userApi } from './user';
 
 export enum StatusesLong {
   Run = 'run',

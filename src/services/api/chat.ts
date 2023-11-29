@@ -7,14 +7,6 @@ export interface MessageFromChat {
   timestamp: string;
 }
 
-interface Message {
-  message_id: number;
-  chat_id: number;
-  user_id: number;
-  text: string;
-  timestamp: string;
-}
-
 export const chatApi = createApi({
   reducerPath: 'chatApi',
   baseQuery: fetchBaseQuery({

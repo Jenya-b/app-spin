@@ -28,6 +28,8 @@ import { useResize } from 'hooks/useResize';
 import { useGetBalanceQuery } from 'services';
 import { useEffect, useState } from 'react';
 import { CriptoEnum } from 'store/reducers/currencySlice';
+import { useAppSelector } from 'store';
+import { userSelector } from 'store/selectors';
 
 interface WalletProps {
   activeBlock: boolean;
@@ -35,13 +37,15 @@ interface WalletProps {
 
 export const Wallet = ({ activeBlock }: WalletProps) => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
-  const { data: balanceInfo, isSuccess } = useGetBalanceQuery(null);
+  const { balance: balanceInfo } = useAppSelector(userSelector);
   const [balance, setBalance] = useState<IWallet[]>([]);
   const [windowWidth] = useResize();
   const { t } = useTranslation();
 
+  useGetBalanceQuery(null);
+
   useEffect(() => {
-    if (!(isSuccess && balanceInfo !== undefined)) {
+    if (balanceInfo === null) {
       return;
     }
 
@@ -52,7 +56,7 @@ export const Wallet = ({ activeBlock }: WalletProps) => {
     }));
 
     setBalance(newBalanceInfo);
-  }, [isSuccess]);
+  }, [balanceInfo]);
 
   const renderItem = ({ cryptoName, val, available, ingame }: IWallet) => (
     <MoneyWrap>
@@ -105,7 +109,9 @@ export const Wallet = ({ activeBlock }: WalletProps) => {
         </UpdateBtn>
       </TitleBlock>
       <MoneyBlock>
-        <List data={balance} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
+        {balance !== null && (
+          <List data={balance} renderEmpty={<></>} renderItem={renderItem} styles={walletListCss} />
+        )}
       </MoneyBlock>
       <ControlBlock>
         <TransferBtn onClick={openModal}>{t('transfer')}</TransferBtn>
