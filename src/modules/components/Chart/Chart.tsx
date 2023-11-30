@@ -76,6 +76,27 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
     }
   }, [dataLong?.status]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const renderCustomizedDot = (props: any) => {
+    const { cx, cy } = props;
+
+    return (
+      <svg x={cx - 4} y={cy - 4} width="8" height="8" viewBox="0 0 8 8" fill="none">
+        <circle
+          cx="4"
+          cy="4"
+          r="4"
+          fill={
+            dataLong !== undefined && dataLong.status === StatusesLong.Done
+              ? 'rgba(255, 55, 95, 1)'
+              : 'rgba(49, 93, 241, 1)'
+          }
+        />
+        <circle cx="4" cy="4" r="3.5" stroke="white" strokeOpacity="0.25" />
+      </svg>
+    );
+  };
+
   const updateData = useCallback(() => {
     if (!dataLong) return;
     setChartData((state) =>
@@ -91,7 +112,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   return (
     <Wrapper ref={chartRef} style={style}>
       <ResponsiveContainer width="99%">
-        <AreaChart data={chartData} margin={{ top: 0, right: 0, left: -10, bottom: -20 }}>
+        <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -10, bottom: -20 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="100%" stopColor={chartColor} stopOpacity={0.8} />
@@ -103,9 +124,16 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
           <Area
             type="monotone"
             dataKey="uv"
-            stroke={chartColor}
+            strokeWidth={3}
+            stroke={
+              dataLong !== undefined && dataLong.status === StatusesLong.Done
+                ? 'rgba(255, 55, 95, 0.8)'
+                : 'rgba(49, 93, 241, 0.8)'
+            }
             fillOpacity={1}
             fill="url(#colorUv)"
+            dot={(e) => renderCustomizedDot(e)}
+            isAnimationActive={false}
           />
         </AreaChart>
       </ResponsiveContainer>

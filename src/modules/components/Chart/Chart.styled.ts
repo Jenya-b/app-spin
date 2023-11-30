@@ -39,7 +39,5 @@ export const Timer = styled.div`
     :nth-child(2) {
       justify-self: center;
     }
-    :nth-child(3) {
-    }
   }
 `;
