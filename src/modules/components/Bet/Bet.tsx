@@ -21,7 +21,7 @@ export const Bet = () => {
   const dispatch = useAppDispatch();
   const [bet, setBet] = useState('');
   const [long, setLong] = useState('');
-  const { currentUser } = useAppSelector(userSelector);
+  const { currentUser, isAuth } = useAppSelector(userSelector);
   const { currency } = useAppSelector(currencySelector);
   const { isLongGameUser, statusesLongGame } = useAppSelector(gameSelector);
   const { isOpenNotify, notifyMessage } = useAppSelector(notifySelector);
@@ -44,7 +44,7 @@ export const Bet = () => {
       case CrashStatuses.OK:
         dispatch(openNotify(alertMessage.crashSuccess));
         dispatch(setIsLongGame(true));
-        updateBalance(null);
+        updateUserBalance();
         break;
 
       case CrashStatuses.FAIL:
@@ -59,7 +59,7 @@ export const Bet = () => {
   useEffect(() => {
     if (isSuccessStop) {
       dispatch(setIsLongGame(false));
-      updateBalance(null);
+      updateUserBalance();
     }
   }, [isSuccessStop]);
 
@@ -72,7 +72,7 @@ export const Bet = () => {
       default:
         break;
     }
-    updateBalance(null);
+    updateUserBalance();
   }, [statusesLongGame]);
 
   useEffect(() => {
@@ -101,6 +101,14 @@ export const Bet = () => {
         break;
     }
   }, [isSuccessIsGame]);
+
+  const updateUserBalance = () => {
+    if (!isAuth) {
+      return;
+    }
+
+    updateBalance(null);
+  };
 
   const placeBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

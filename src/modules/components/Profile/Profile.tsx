@@ -10,6 +10,8 @@ import { userSelector } from 'store/selectors';
 import { path } from 'modules/router/path';
 import { useGetBalanceQuery, useGetUserQuery } from 'services';
 import { Loader } from '../Loader/Loader';
+import { resetCurrencyState } from 'store/reducers/currencySlice';
+import { resetGameState } from 'store/reducers/gameSlice';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +34,8 @@ export const Profile = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(resetCurrencyState());
+    dispatch(resetGameState());
     setAnchorElUser(null);
   };
 

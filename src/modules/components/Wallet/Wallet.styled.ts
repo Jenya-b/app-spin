@@ -16,6 +16,7 @@ interface AnimationElemProps {
 }
 
 export const Wrapper = styled.div`
+  position: relative;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.borders.radiusPrimary}rem;
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -32,6 +33,16 @@ export const Wrapper = styled.div`
     border-radius: ${({ theme }) => theme.borders.radiusSecondary}rem;
     margin-bottom: auto;
   }
+`;
+
+export const Stub = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(26, 26, 40, 0.8);
 `;
 
 export const TitleBlock = styled.div`

@@ -17,6 +17,7 @@ import {
   Icon,
   ControlBlock,
   TransferBtn,
+  Stub,
 } from './Wallet.styled';
 import { IWallet } from 'data/wallet';
 import { List } from '../List/List';
@@ -25,7 +26,6 @@ import { BasicModal } from '../Modal/Modal';
 import { TransferModal } from '../Modal/Transfer/Transfer';
 import { useModal } from 'hooks/useModal';
 import { useResize } from 'hooks/useResize';
-import { useGetBalanceQuery } from 'services';
 import { useEffect, useState } from 'react';
 import { CriptoEnum } from 'store/reducers/currencySlice';
 import { useAppSelector } from 'store';
@@ -37,15 +37,14 @@ interface WalletProps {
 
 export const Wallet = ({ activeBlock }: WalletProps) => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
-  const { balance: balanceInfo } = useAppSelector(userSelector);
+  const { balance: balanceInfo, isAuth } = useAppSelector(userSelector);
   const [balance, setBalance] = useState<IWallet[]>([]);
   const [windowWidth] = useResize();
   const { t } = useTranslation();
 
-  useGetBalanceQuery(null);
-
   useEffect(() => {
     if (balanceInfo === null) {
+      setBalance([]);
       return;
     }
 
@@ -91,6 +90,7 @@ export const Wallet = ({ activeBlock }: WalletProps) => {
 
   return (
     <Wrapper>
+      {!isAuth && <Stub></Stub>}
       <TitleBlock>
         <Title active={activeBlock}>{t('wallet')}</Title>
         <UpdateBtn active={activeBlock}>

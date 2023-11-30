@@ -23,9 +23,12 @@ export const currencySlice = createSlice({
     changeCurrency: (state, action: PayloadAction<CriptoEnum>) => {
       state.currency = action.payload;
     },
+    resetCurrencyState() {
+      return initialState;
+    },
   },
 });
 
-export const { changeCurrency } = currencySlice.actions;
+export const { changeCurrency, resetCurrencyState } = currencySlice.actions;
 
 export default currencySlice.reducer;

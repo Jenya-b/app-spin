@@ -21,9 +21,12 @@ export const gameSlice = createSlice({
     setStatusesLongGame: (state, action: PayloadAction<StatusesLong>) => {
       state.statusesLongGame = action.payload;
     },
+    resetGameState() {
+      return initialState;
+    },
   },
 });
 
-export const { setIsLongGame, setStatusesLongGame } = gameSlice.actions;
+export const { setIsLongGame, setStatusesLongGame, resetGameState } = gameSlice.actions;
 
 export default gameSlice.reducer;

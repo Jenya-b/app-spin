@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { setToken } from 'store/reducers/userSlice';
+import { authUser, setToken } from 'store/reducers/userSlice';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -22,6 +22,7 @@ export const authApi = createApi({
           const { data } = await queryFulfilled;
           localStorage.setItem('token', data.token);
           dispatch(setToken(data.token));
+          dispatch(authUser(true));
         } catch {
           throw new Error();
         }
@@ -44,6 +45,7 @@ export const authApi = createApi({
           const { data } = await queryFulfilled;
           localStorage.setItem('token', data.token);
           dispatch(setToken(data.token));
+          dispatch(authUser(true));
         } catch {
           throw new Error();
         }

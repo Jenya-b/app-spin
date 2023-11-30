@@ -1,22 +1,15 @@
 import { cryptoIcon } from 'constants/images';
 import { IHistoryData } from 'data/long';
 import { List } from '../List/List';
-import {
-  TableRow,
-  Params,
-  Result,
-  UserLogo,
-  UserName,
-  historyListCss,
-} from './HistoryTable.styled';
+import { TableRow, Params, UserLogo, UserName, historyListCss } from './HistoryTable.styled';
 import { useCurRoundBetsQuery } from 'services';
 
 interface HistoryTableProps {
   historyData: IHistoryData[];
 }
 
-export const HistoryTable = ({ historyData }: HistoryTableProps) => {
-  const { data } = useCurRoundBetsQuery(null, { pollingInterval: 1000 });
+export const HistoryTable = ({}: HistoryTableProps) => {
+  const { data } = useCurRoundBetsQuery(null, { pollingInterval: 2000 });
 
   const renderItem = ({
     nickname,
