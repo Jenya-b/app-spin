@@ -6,6 +6,7 @@ import { Timer, Wrapper } from './Chart.styled';
 import { StatusesLong, LongResponse } from 'services/api/crash';
 import { useAppDispatch } from 'store';
 import { setStatusesLongGame } from 'store/reducers/gameSlice';
+import { converterForTimer } from 'utils/converter';
 
 interface ChartProps {
   chartRef?:
@@ -110,11 +111,25 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       </ResponsiveContainer>
       {dataLong && (
         <Timer>
-          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Done
-            ? `${dataLong.coef}x`
-            : dataLong.status === StatusesLong.New && dataLong.next_round > 0
-            ? `${dataLong.next_round}s`
-            : ''}
+          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Done ? (
+            <>
+              {converterForTimer(dataLong.coef).map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+              <p>X</p>
+            </>
+          ) : dataLong.status === StatusesLong.New && dataLong.next_round > 0 ? (
+            <>
+              {converterForTimer(dataLong.next_round, true).map((item, i) => (
+                <p style={{ color: '#f7d085' }} key={i}>
+                  {item}
+                </p>
+              ))}
+              <p style={{ color: '#f7d085' }}>s</p>
+            </>
+          ) : (
+            ''
+          )}
         </Timer>
       )}
     </Wrapper>

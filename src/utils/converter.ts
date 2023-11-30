@@ -13,3 +13,10 @@ export const converterFontSize = (innerWidth: number, value: number) => {
     ? (value / basicSize) * 15.5
     : value;
 };
+
+export const converterForTimer = (t: number, isTimer = false) => {
+  const array = String(t).split('.');
+  array.splice(1, 0, isTimer ? ':' : '.');
+
+  return array;
+};

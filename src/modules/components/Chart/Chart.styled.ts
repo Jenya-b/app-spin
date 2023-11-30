@@ -26,9 +26,20 @@ export const Wrapper = styled(animated.div)`
 export const Timer = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #f7d085;
-  display: flex;
-  ${fontStyleLargeBold}
+  transform: translateY(-50%);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 0.5rem 1.8rem 1fr;
+
+  p {
+    ${fontStyleLargeBold}
+    :nth-child(1) {
+      justify-self: end;
+    }
+    :nth-child(2) {
+      justify-self: center;
+    }
+    :nth-child(3) {
+    }
+  }
 `;
