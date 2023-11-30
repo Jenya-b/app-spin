@@ -50,9 +50,10 @@ export const Wallet = ({ activeBlock }: WalletProps) => {
     }
 
     const newBalanceInfo = Object.entries(balanceInfo).map(([key, object]) => ({
-      cryptoName: key,
-      available: object.val - object.ingame,
       ...object,
+      cryptoName: key,
+      val: object.val + object.ingame,
+      available: object.val,
     }));
 
     setBalance(newBalanceInfo);
