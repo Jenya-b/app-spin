@@ -48,7 +48,11 @@ export const Chat = () => {
       try {
         const json: { [key: string]: MessageFromChat } = JSON.parse(event.data);
         const messages = Object.values(json);
-        setMessageData(messages);
+        if (messageData.length) {
+          setMessageData((state) => [...state, ...messages]);
+        } else {
+          setMessageData(messages);
+        }
       } catch {
         throw new Error();
       }
