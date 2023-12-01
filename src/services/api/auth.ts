@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { authUser, setToken } from 'store/reducers/userSlice';
+import { authUser, setCurrentUser, setToken } from 'store/reducers/userSlice';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -61,6 +61,19 @@ export const authApi = createApi({
           'Content-Type': 'application/json',
         },
       }),
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          if (data && data.user_id) {
+            dispatch(setCurrentUser(data.user_id));
+            dispatch(authUser(true));
+            return;
+          }
+          dispatch(authUser(true));
+        } catch {
+          throw new Error();
+        }
+      },
     }),
   }),
 });

@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { useGetBalanceQuery } from 'services';
 import { RootState } from 'store';
-import { userApi } from './user';
 
 export enum StatusesLong {
   Run = 'run',
@@ -17,8 +15,8 @@ export enum CrashStatuses {
 export interface LongResponse {
   round_id: number;
   status: StatusesLong;
-  coef: number;
-  timing: number;
+  coef: string;
+  timing: string;
   next_round: number;
 }
 
@@ -79,23 +77,9 @@ export const crashApi = createApi({
         url: `crash/user_bets_history`,
       }),
     }),
-    curRoundBets: build.query<
-      { bets: Array<{ user_id: number; nickname: string; coin: number; bet: number }> },
-      null
-    >({
-      query: () => ({
-        url: `cur_round_bets/1`,
-      }),
-    }),
     crashStop: build.query<{ [key: string]: string | number }, null>({
       query: () => ({
         url: 'crash/bet/take',
-      }),
-    }),
-    // TODO getLongGame не используется, подключили ws
-    getLongGame: build.query<LongResponse, null>({
-      query: () => ({
-        url: 'game/crash/last_round',
       }),
     }),
   }),

@@ -22,17 +22,6 @@ export const RequireAuth = ({ children }: RequireAuthProps) => {
   }, [token]);
 
   useEffect(() => {
-    if (isSuccess) {
-      if (data && data.user_id) {
-        dispatch(setCurrentUser(data?.user_id));
-        return;
-      }
-    }
-
-    dispatch(setCurrentUser(null));
-  }, [isSuccess]);
-
-  useEffect(() => {
     if (!isAuth) {
       return;
     }

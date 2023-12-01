@@ -14,8 +14,8 @@ export const converterFontSize = (innerWidth: number, value: number) => {
     : value;
 };
 
-export const converterForTimer = (t: number, isTimer = false) => {
-  const array = String(t).split('.');
+export const converterForTimer = (t: string, isTimer = false) => {
+  const array = t.split('.');
   array.splice(1, 0, isTimer ? ':' : '.');
 
   return array;

@@ -2,14 +2,17 @@ import { cryptoIcon } from 'constants/images';
 import { IHistoryData } from 'data/long';
 import { List } from '../List/List';
 import { TableRow, Params, UserLogo, UserName, historyListCss } from './HistoryTable.styled';
-import { useCurRoundBetsQuery } from 'services';
+import { useAppSelector } from 'store';
+import { gameSelector } from 'store/selectors';
 
 interface HistoryTableProps {
   historyData: IHistoryData[];
 }
 
 export const HistoryTable = ({}: HistoryTableProps) => {
-  const { data } = useCurRoundBetsQuery(null, { pollingInterval: 2000 });
+  const {
+    longInfo: { bets },
+  } = useAppSelector(gameSelector);
 
   const renderItem = ({
     nickname,
@@ -39,7 +42,7 @@ export const HistoryTable = ({}: HistoryTableProps) => {
     <List
       renderItem={renderItem}
       renderEmpty={<p></p>}
-      data={data?.bets ?? []}
+      data={bets?.bets ?? []}
       styles={historyListCss}
     />
   );

@@ -20,9 +20,7 @@ export const {
   useLazyHasLongGameQuery,
   useHistoryLongGameQuery,
   useUserHistoryLongQuery,
-  useCurRoundBetsQuery,
   useLazyCrashStopQuery,
-  useGetLongGameQuery,
 } = crashApi;
 
 export const { useSignInMutation, useCheckTokenMutation, useRegistrationMutation } = authApi;

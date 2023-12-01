@@ -3,10 +3,11 @@ import { SpringValue } from '@react-spring/web';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import { Timer, Wrapper } from './Chart.styled';
-import { StatusesLong, LongResponse } from 'services/api/crash';
-import { useAppDispatch } from 'store';
-import { setStatusesLongGame } from 'store/reducers/gameSlice';
+import { StatusesLong } from 'services/api/crash';
+import { useAppDispatch, useAppSelector } from 'store';
+import { setLongInfo, setStatusesLongGame } from 'store/reducers/gameSlice';
 import { converterForTimer } from 'utils/converter';
+import { gameSelector } from 'store/selectors';
 
 interface ChartProps {
   chartRef?:
@@ -26,7 +27,9 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const dispatch = useAppDispatch();
   const [chartData, setChartData] = useState([{ uv: 1 }, { uv: 1 }]);
   const [chartColor, setChartColor] = useState('rgba(49, 93, 241, 0.50)');
-  const [dataLong, setDataLong] = useState<LongResponse>();
+  const {
+    longInfo: { round_info },
+  } = useAppSelector(gameSelector);
 
   useEffect(() => {
     const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/last_round/1/ws`);
@@ -38,7 +41,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
     ws.onmessage = function (event) {
       const json = JSON.parse(event.data);
       try {
-        setDataLong(json);
+        dispatch(setLongInfo(json));
       } catch {
         throw new Error();
       }
@@ -49,14 +52,14 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
 
   useEffect(() => {
     updateData();
-  }, [dataLong?.coef]);
+  }, [round_info?.coef]);
 
   useEffect(() => {
-    if (!dataLong) return;
+    if (!round_info) return;
 
-    dispatch(setStatusesLongGame(dataLong.status));
+    dispatch(setStatusesLongGame(round_info.status));
 
-    switch (dataLong.status) {
+    switch (round_info.status) {
       case StatusesLong.Run:
         break;
 
@@ -74,7 +77,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
       default:
         break;
     }
-  }, [dataLong?.status]);
+  }, [round_info?.status]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderCustomizedDot = (props: any) => {
@@ -87,7 +90,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
           cy="4"
           r="4"
           fill={
-            dataLong !== undefined && dataLong.status === StatusesLong.Done
+            round_info !== null && round_info.status === StatusesLong.Done
               ? 'rgba(255, 55, 95, 1)'
               : 'rgba(49, 93, 241, 1)'
           }
@@ -98,16 +101,16 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   };
 
   const updateData = useCallback(() => {
-    if (!dataLong) return;
+    if (!round_info) return;
     setChartData((state) =>
       state.map((item, index) => {
         if (index === 1) {
-          return { uv: dataLong.coef };
+          return { uv: Number(round_info.coef) };
         }
         return item;
       })
     );
-  }, [dataLong?.coef]);
+  }, [round_info?.coef]);
 
   return (
     <Wrapper ref={chartRef} style={style}>
@@ -126,7 +129,7 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
             dataKey="uv"
             strokeWidth={3}
             stroke={
-              dataLong !== undefined && dataLong.status === StatusesLong.Done
+              round_info !== null && round_info.status === StatusesLong.Done
                 ? 'rgba(255, 55, 95, 0.8)'
                 : 'rgba(49, 93, 241, 0.8)'
             }
@@ -137,18 +140,18 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
           />
         </AreaChart>
       </ResponsiveContainer>
-      {dataLong && (
+      {round_info && (
         <Timer>
-          {dataLong.status === StatusesLong.Run || dataLong.status === StatusesLong.Done ? (
+          {round_info.status === StatusesLong.Run || round_info.status === StatusesLong.Done ? (
             <>
-              {converterForTimer(dataLong.coef).map((item, i) => (
+              {converterForTimer(round_info.coef).map((item, i) => (
                 <p key={i}>{item}</p>
               ))}
               <p>X</p>
             </>
-          ) : dataLong.status === StatusesLong.New && dataLong.next_round > 0 ? (
+          ) : round_info.status === StatusesLong.New && round_info.next_round > 0 ? (
             <>
-              {converterForTimer(dataLong.next_round, true).map((item, i) => (
+              {converterForTimer(String(round_info.next_round), true).map((item, i) => (
                 <p style={{ color: '#f7d085' }} key={i}>
                   {item}
                 </p>
