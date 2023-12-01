@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FormEvent, Fragment, useState } from 'react';
 
 import { Form, Input, InputBlock, Lable, TransactionBtn } from './Transaction.styled';
 import { useTranslation } from 'react-i18next';
@@ -18,16 +18,12 @@ export const Transaction = ({ transactionParameter, wallet }: TransactionProps) 
   const { t } = useTranslation();
   const [address, setAddress] = useState('');
 
-  useEffect(() => {
-    if (wallet.address === null) {
-      setAddress('');
-      return;
-    }
-    setAddress(wallet.address);
-  }, [wallet]);
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
 
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <InputBlock>
         <Lable>
           {t(
@@ -35,24 +31,32 @@ export const Transaction = ({ transactionParameter, wallet }: TransactionProps) 
               ? 'walletNumber'
               : 'yourPersonalWalletNumber'
           )}
-          <Input
-            placeholder={t('enterWalletNumber')}
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
+          {transactionParameter === TransactionParameter.RECIEVE ? (
+            <Input placeholder={t('enterWalletNumber')} value={wallet.address} disabled={true} />
+          ) : (
+            <Input
+              placeholder={t('enterWalletNumber')}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          )}
         </Lable>
-        <Lable>
-          {t('amountInCrypto')}
-          <Input placeholder={t('enter')} />
-        </Lable>
-        <Lable>
-          {t('amountInValue')}
-          <Input placeholder={t('enter')} />
-        </Lable>
-        <Lable>
-          {t('commission')}
-          <Input disabled placeholder="3% - $11" />
-        </Lable>
+        {transactionParameter !== TransactionParameter.RECIEVE && (
+          <Fragment>
+            <Lable>
+              {t('amountInCrypto')}
+              <Input placeholder={t('enter')} />
+            </Lable>
+            <Lable>
+              {t('amountInValue')}
+              <Input placeholder={t('enter')} />
+            </Lable>
+            <Lable>
+              {t('commission')}
+              <Input disabled placeholder="3% - $11" />
+            </Lable>
+          </Fragment>
+        )}
       </InputBlock>
       <TransactionBtn>{t('makeTransaction')}</TransactionBtn>
     </Form>
