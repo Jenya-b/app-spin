@@ -48,11 +48,7 @@ export const Chat = () => {
       try {
         const json: { [key: string]: MessageFromChat } = JSON.parse(event.data);
         const messages = Object.values(json);
-        if (messageData.length) {
-          setMessageData((state) => [...state, ...messages]);
-        } else {
-          setMessageData(messages);
-        }
+        setMessageData((state) => [...state, ...messages]);
       } catch {
         throw new Error();
       }
@@ -70,7 +66,7 @@ export const Chat = () => {
   }, [messageData]);
 
   const renderItem = ({ nickname, text, timestamp }: MessageFromChat) => (
-    <MessageWrap>
+    <MessageWrap key={timestamp}>
       <MessageIcon />
       <MessageInfo>
         <UserName>{nickname}</UserName>
@@ -87,6 +83,17 @@ export const Chat = () => {
 
     fetchMessage({ text: currentMessage });
     setCurrentMessage('');
+  };
+
+  const handleKeywordKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!currentMessage) {
+      return;
+    }
+
+    if (e.key == 'Enter') {
+      fetchMessage({ text: currentMessage });
+      setCurrentMessage('');
+    }
   };
 
   return (
@@ -109,6 +116,8 @@ export const Chat = () => {
             disabled={!currentUser}
             placeholder={t('placeholderMessage')}
             onChange={(e) => setCurrentMessage(e.target.value)}
+            onKeyDown={handleKeywordKeyPress}
+            value={currentMessage}
             style={{ cursor: !currentUser ? 'not-allowed' : 'auto' }}
           />
           <InputBtn
