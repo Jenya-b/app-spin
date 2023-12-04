@@ -1,6 +1,7 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 import { SpringValue } from '@react-spring/web';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { v4 as uuid } from 'uuid';
 
 import { Timer, Wrapper } from './Chart.styled';
 import { StatusesLong } from 'services/api/crash';
@@ -82,9 +83,10 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderCustomizedDot = (props: any) => {
     const { cx, cy } = props;
+    const newUuid = uuid();
 
     return (
-      <svg x={cx - 4} y={cy - 4} width="8" height="8" viewBox="0 0 8 8" fill="none">
+      <svg x={cx - 4} y={cy - 4} width="8" height="8" viewBox="0 0 8 8" fill="none" key={newUuid}>
         <circle
           cx="4"
           cy="4"

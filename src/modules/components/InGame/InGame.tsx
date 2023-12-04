@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'store';
 import { currencySelector, userSelector } from 'store/selectors';
 import { CriptoEnum, changeCurrency } from 'store/reducers/currencySlice';
-import { Fragment } from 'react';
 
 interface InGameProps {
   data: InGameDataType[];

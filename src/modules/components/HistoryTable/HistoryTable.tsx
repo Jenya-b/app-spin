@@ -24,7 +24,7 @@ export const HistoryTable = ({}: HistoryTableProps) => {
     coin: number;
     bet: number;
   }) => (
-    <TableRow>
+    <TableRow key={`${nickname}-${coin}-${bet}`}>
       <UserLogo src={cryptoIcon.btc} />
       <UserName>{nickname}</UserName>
       <Params>
