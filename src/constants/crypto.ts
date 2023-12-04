@@ -5,5 +5,5 @@ export const cryptoArr: CriptoEnum[] = [
   CriptoEnum.USDT,
   CriptoEnum.XMR,
   CriptoEnum.LTC,
-  CriptoEnum.SPIN,
+  // CriptoEnum.SPIN,
 ];

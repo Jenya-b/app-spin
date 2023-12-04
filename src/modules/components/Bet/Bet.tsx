@@ -1,6 +1,6 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState, MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Wrapper, Form, Input, Lable, Button } from './Bet.styled';
+import { Wrapper, Form, Input, Lable, Button, criptoListCss } from './Bet.styled';
 import {
   useCrashBetMutation,
   useLazyCrashStopQuery,
@@ -9,20 +9,24 @@ import {
 } from 'services';
 import { Notification } from '../Notification/Notification';
 import { useAppDispatch, useAppSelector } from 'store';
-import { currencySelector, gameSelector, notifySelector, userSelector } from 'store/selectors';
+import { gameSelector, notifySelector, userSelector } from 'store/selectors';
 import { openNotify } from 'store/reducers/notifySlice';
 import { alertMessage } from 'constants/notify';
 import { Loader } from '../Loader/Loader';
 import { CrashStatuses, StatusesLong } from 'services/api/crash';
 import { setIsLongGame } from 'store/reducers/gameSlice';
+import { List } from '../List/List';
+import { CryptoBtn } from '../CryptoBtn/CryptoBtn';
+import { CriptoEnum } from 'store/reducers/currencySlice';
+import { cryptoArr } from 'constants/crypto';
 
 export const Bet = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [bet, setBet] = useState('');
   const [long, setLong] = useState('');
+  const [criptoActive, setCriptoActive] = useState<CriptoEnum>(cryptoArr[0]);
   const { currentUser, isAuth } = useAppSelector(userSelector);
-  const { currency } = useAppSelector(currencySelector);
   const { isLongGameUser, statusesLongGame } = useAppSelector(gameSelector);
   const { isOpenNotify, notifyMessage } = useAppSelector(notifySelector);
   const [fetchBet, { data: dataBet, isLoading: isLoadingBet, isSuccess: isSuccessBet }] =
@@ -119,7 +123,7 @@ export const Bet = () => {
 
     fetchBet({
       bet: Number(bet),
-      coin: currency,
+      coin: criptoActive,
       coef: Number(long),
     });
   };
@@ -129,6 +133,20 @@ export const Bet = () => {
 
     fetchStop(null);
   };
+
+  const handleActiveCripto = (event: MouseEvent<HTMLDivElement>) => {
+    const id = event.currentTarget.id as CriptoEnum;
+
+    setCriptoActive(id);
+  };
+
+  const renderItem = (item: CriptoEnum) => (
+    <CryptoBtn
+      criptoActive={criptoActive}
+      cryptoName={item}
+      handleActiveCripto={handleActiveCripto}
+    />
+  );
 
   return (
     <Wrapper>
@@ -157,6 +175,7 @@ export const Bet = () => {
           />
         </Lable>
         <Button disabled={!currentUser}>{t(isLongGameUser ? 'stop' : 'start')}</Button>
+        <List renderItem={renderItem} data={cryptoArr} styles={criptoListCss} />
       </Form>
     </Wrapper>
   );

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
   fontStyleSmallDemiBold,
@@ -106,4 +106,11 @@ export const Button = styled.button`
   @media (max-width: 767px) {
     grid-column: 1/3;
   }
+`;
+
+export const criptoListCss = css`
+  margin-top: 0.5rem;
+  grid-column: 1/4;
+  display: flex;
+  justify-content: space-between;
 `;
