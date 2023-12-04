@@ -164,7 +164,7 @@ export const Bet = () => {
           />
         </Lable>
         <Lable>
-          <span>{t('long')}</span>
+          <span>{t('auto')}</span>
           <Input
             placeholder="4.0"
             type="number"
