@@ -8,7 +8,7 @@ import { StatusesLong } from 'services/api/crash';
 import { useAppDispatch, useAppSelector } from 'store';
 import { setLongInfo, setStatusesLongGame } from 'store/reducers/gameSlice';
 import { converterForTimer } from 'utils/converter';
-import { gameSelector } from 'store/selectors';
+import { gameSelector, userSelector } from 'store/selectors';
 
 interface ChartProps {
   chartRef?:
@@ -31,9 +31,12 @@ export const Chart = ({ style, chartRef }: ChartProps) => {
   const {
     longInfo: { round_info },
   } = useAppSelector(gameSelector);
+  const { token } = useAppSelector(userSelector);
 
   useEffect(() => {
-    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/game/last_round/1/ws`);
+    const ws = new WebSocket(
+      `${process.env.REACT_APP_WEB_SOCKET_URL}/game/round_info/1/ws?token=${token}`
+    );
 
     ws.onopen = function () {
       console.log('ws opened');

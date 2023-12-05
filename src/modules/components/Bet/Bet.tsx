@@ -1,12 +1,7 @@
 import { FormEvent, useEffect, useState, MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Wrapper, Form, Input, Lable, Button, criptoListCss } from './Bet.styled';
-import {
-  useCrashBetMutation,
-  useLazyCrashStopQuery,
-  useLazyGetBalanceQuery,
-  useLazyHasLongGameQuery,
-} from 'services';
+import { useCrashBetMutation, useLazyCrashStopQuery, useLazyHasLongGameQuery } from 'services';
 import { Notification } from '../Notification/Notification';
 import { useAppDispatch, useAppSelector } from 'store';
 import { gameSelector, notifySelector, userSelector } from 'store/selectors';
@@ -37,7 +32,6 @@ export const Bet = () => {
     fetchHasGame,
     { data: dataIsGame, isLoading: isLoadingIsGame, isSuccess: isSuccessIsGame },
   ] = useLazyHasLongGameQuery();
-  const [updateBalance] = useLazyGetBalanceQuery();
 
   useEffect(() => {
     if (!(isSuccessBet && dataBet)) {
@@ -48,7 +42,6 @@ export const Bet = () => {
       case CrashStatuses.OK:
         dispatch(openNotify(alertMessage.crashSuccess));
         dispatch(setIsLongGame(true));
-        updateUserBalance();
         break;
 
       case CrashStatuses.FAIL:
@@ -63,7 +56,6 @@ export const Bet = () => {
   useEffect(() => {
     if (isSuccessStop) {
       dispatch(setIsLongGame(false));
-      updateUserBalance();
     }
   }, [isSuccessStop]);
 
@@ -76,7 +68,6 @@ export const Bet = () => {
       default:
         break;
     }
-    updateUserBalance();
   }, [statusesLongGame]);
 
   useEffect(() => {
@@ -105,14 +96,6 @@ export const Bet = () => {
         break;
     }
   }, [isSuccessIsGame]);
-
-  const updateUserBalance = () => {
-    if (!isAuth) {
-      return;
-    }
-
-    updateBalance(null);
-  };
 
   const placeBet = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

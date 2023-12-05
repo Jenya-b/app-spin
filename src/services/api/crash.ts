@@ -54,11 +54,6 @@ export const crashApi = createApi({
         url: `crash/get_cur_bet`,
       }),
     }),
-    historyLongGame: build.query<{ result: Array<number> }, null>({
-      query: () => ({
-        url: `crash/rounds_history`,
-      }),
-    }),
     userHistoryLong: build.query<
       {
         result: Array<{

@@ -6,9 +6,9 @@ import { Avatar, Box, IconButton, MenuItem, Tooltip, Typography } from '@mui/mat
 import { ProfileInfo, ProfileMoney, ProfileName, StyledMenu } from './Profile.styled';
 import { useAppDispatch, useAppSelector } from 'store';
 import { logout } from 'store/reducers/userSlice';
-import { userSelector } from 'store/selectors';
+import { gameSelector, userSelector } from 'store/selectors';
 import { path } from 'modules/router/path';
-import { useGetBalanceQuery, useGetUserQuery } from 'services';
+import { useGetUserQuery } from 'services';
 import { Loader } from '../Loader/Loader';
 import { resetCurrencyState } from 'store/reducers/currencySlice';
 import { resetGameState } from 'store/reducers/gameSlice';
@@ -20,7 +20,9 @@ export const Profile = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { data: profileInfo, isLoading: isLoadingProfile } = useGetUserQuery(null);
-  const { data: balance, isLoading: isLoadingBalance } = useGetBalanceQuery(null);
+  const {
+    longInfo: { my_balance },
+  } = useAppSelector(gameSelector);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -41,7 +43,7 @@ export const Profile = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {(isLoadingBalance || isLoadingProfile) && <Loader />}
+      {isLoadingProfile && <Loader />}
       <Tooltip title={t('openSettings')}>
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt={profileInfo?.nick ?? ''} src="#" />
@@ -49,7 +51,7 @@ export const Profile = () => {
       </Tooltip>
       <ProfileInfo>
         <ProfileName>{profileInfo?.nick ?? ''}</ProfileName>
-        <ProfileMoney>{balance?.btc.val ?? 0} BTC</ProfileMoney>
+        <ProfileMoney>{my_balance?.btc.val ?? 0} BTC</ProfileMoney>
       </ProfileInfo>
       <StyledMenu
         id="menu-appbar"

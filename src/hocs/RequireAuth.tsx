@@ -1,8 +1,7 @@
 import { Loader } from 'modules/components/Loader/Loader';
 import { useEffect } from 'react';
-import { useCheckTokenMutation, useLazyGetBalanceQuery } from 'services';
-import { useAppDispatch, useAppSelector } from 'store';
-import { setCurrentUser } from 'store/reducers/userSlice';
+import { useCheckTokenMutation } from 'services';
+import { useAppSelector } from 'store';
 import { userSelector } from 'store/selectors';
 
 interface RequireAuthProps {
@@ -10,23 +9,14 @@ interface RequireAuthProps {
 }
 
 export const RequireAuth = ({ children }: RequireAuthProps) => {
-  const dispatch = useAppDispatch();
-  const { token, isAuth } = useAppSelector(userSelector);
-  const [checkToken, { data, isLoading, isSuccess }] = useCheckTokenMutation();
-  const [fetchBalance] = useLazyGetBalanceQuery();
+  const { token } = useAppSelector(userSelector);
+  const [checkToken, { isLoading }] = useCheckTokenMutation();
 
   useEffect(() => {
     if (token) {
       checkToken({ token });
     }
   }, [token]);
-
-  useEffect(() => {
-    if (!isAuth) {
-      return;
-    }
-    fetchBalance(null);
-  }, [isAuth]);
 
   if (isLoading) return <Loader />;
 

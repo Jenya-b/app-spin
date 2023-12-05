@@ -3,7 +3,7 @@ import { Wrapper, Count, InfoText, List, Title } from './InGame.styled';
 import { cryptoIcon } from 'constants/images';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'store';
-import { userSelector } from 'store/selectors';
+import { gameSelector } from 'store/selectors';
 import { CriptoEnum } from 'store/reducers/currencySlice';
 
 interface InGameProps {
@@ -11,15 +11,17 @@ interface InGameProps {
 }
 
 export const InGame = ({ data }: InGameProps) => {
-  const { balance } = useAppSelector(userSelector);
+  const {
+    longInfo: { my_balance },
+  } = useAppSelector(gameSelector);
   const { t } = useTranslation();
 
   return (
     <Wrapper>
       <Title>{t('inGame')}</Title>
       <List>
-        {balance !== null &&
-          Object.entries(balance).map(([cryptoName, amount]) => (
+        {my_balance !== null &&
+          Object.entries(my_balance).map(([cryptoName, amount]) => (
             <div
               key={cryptoName}
               style={{

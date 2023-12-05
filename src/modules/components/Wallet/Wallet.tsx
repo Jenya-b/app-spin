@@ -29,7 +29,7 @@ import { useResize } from 'hooks/useResize';
 import { useEffect, useState } from 'react';
 import { CriptoEnum } from 'store/reducers/currencySlice';
 import { useAppSelector } from 'store';
-import { userSelector } from 'store/selectors';
+import { gameSelector, userSelector } from 'store/selectors';
 
 interface WalletProps {
   activeBlock: boolean;
@@ -37,18 +37,21 @@ interface WalletProps {
 
 export const Wallet = ({ activeBlock }: WalletProps) => {
   const [isOpenModal, openModal, closeModal] = useModal(false);
-  const { balance: balanceInfo, isAuth } = useAppSelector(userSelector);
+  const { isAuth } = useAppSelector(userSelector);
+  const {
+    longInfo: { my_balance },
+  } = useAppSelector(gameSelector);
   const [balance, setBalance] = useState<IWallet[]>([]);
   const [windowWidth] = useResize();
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (balanceInfo === null) {
+    if (my_balance === null) {
       setBalance([]);
       return;
     }
 
-    const newBalanceInfo = Object.entries(balanceInfo).map(([key, object]) => ({
+    const newBalanceInfo = Object.entries(my_balance).map(([key, object]) => ({
       ...object,
       cryptoName: key,
       val: object.val + object.ingame,
@@ -56,7 +59,7 @@ export const Wallet = ({ activeBlock }: WalletProps) => {
     }));
 
     setBalance(newBalanceInfo);
-  }, [balanceInfo]);
+  }, [my_balance]);
 
   const renderItem = ({ cryptoName, val, available, ingame }: IWallet) => (
     <MoneyWrap>
