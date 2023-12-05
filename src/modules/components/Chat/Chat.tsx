@@ -27,35 +27,16 @@ import { MessageFromChat } from 'services/api/chat';
 import { useAddMessageMutation } from 'services';
 import { useAppSelector } from 'store';
 import { userSelector } from 'store/selectors';
+import { useChatSocket } from 'hooks/useChatSocket';
 
 export const Chat = () => {
   const { t } = useTranslation();
-  const [messageData, setMessageData] = useState<MessageFromChat[]>([]);
   const [currentMessage, setCurrentMessage] = useState<string>('');
+  const messageData = useChatSocket();
   const [isOpenModal, openModal, closeModal] = useModal(false);
   const { currentUser } = useAppSelector(userSelector);
   const messagesRef = useRef<HTMLDivElement>(null);
   const [fetchMessage] = useAddMessageMutation();
-
-  useEffect(() => {
-    const ws = new WebSocket(`${process.env.REACT_APP_WEB_SOCKET_URL}/chat/last_messages/ws`);
-
-    ws.onopen = function () {
-      console.log('ws opened');
-    };
-
-    ws.onmessage = function (event) {
-      try {
-        const json: { [key: string]: MessageFromChat } = JSON.parse(event.data);
-        const messages = Object.values(json);
-        setMessageData((state) => [...state, ...messages]);
-      } catch {
-        throw new Error();
-      }
-    };
-
-    return () => ws.close();
-  }, []);
 
   useEffect(() => {
     const list = messagesRef.current?.querySelectorAll('li');
