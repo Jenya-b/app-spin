@@ -4,9 +4,11 @@ import { forwardIcon } from 'constants/images';
 import { fontStyleMediumBold, fontStyleXSmallBold } from 'styles/typography';
 
 export const TransferBlock = styled.div`
-  display: flex;
-  column-gap: 1.7rem;
+  width: 14.3rem;
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr;
   align-items: center;
+  column-gap: 0.5rem;
 
   @media (max-width: 1200px) {
     grid-row: 1/3;
@@ -39,6 +41,7 @@ export const TransferInfo = styled.div`
 `;
 
 export const Icon = styled.div`
+  justify-self: center;
   background: url(${forwardIcon}) no-repeat;
   background-position: center;
   background-size: contain;
