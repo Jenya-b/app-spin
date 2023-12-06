@@ -3,13 +3,13 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { setLongInfo } from 'store/reducers/gameSlice';
 import { userSelector } from 'store/selectors';
 
-export const useRoundInfoSocket = (): void => {
+export const useRoundInfoSocket = (id: number): void => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector(userSelector);
 
   useEffect(() => {
     const ws = new WebSocket(
-      `${process.env.REACT_APP_WEB_SOCKET_URL}/game/round_info/1/ws?token=${token}`
+      `${process.env.REACT_APP_WEB_SOCKET_URL}/game/round_info/${id}/ws?token=${token}`
     );
 
     ws.onopen = function () {
